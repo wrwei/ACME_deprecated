@@ -1,0 +1,18 @@
+«IMPORT "http://www.eclipse.org/gmf/2008/GenModel"»
+«IMPORT "http://www.eclipse.org/emf/2002/Ecore"»
+«IMPORT "http://www.eclipse.org/emf/2002/GenModel"»
+
+«EXTENSION xpt::diagram::editpolicies::Utils»
+«EXTENSION xpt::GenModelUtils»
+«EXTENSION xpt::expressions::ValueExpression»
+
+«AROUND canCreate FOR gmfgen::GenLink»
+
+«EXPAND xpt::Common::generatedMemberComment»
+public static boolean canCreate«getUniqueIdentifier()»(«EXPAND xpt::diagram::editpolicies::BaseItemSemanticEditPolicy::canCreateParameters FOR modelFacet») {
+	«EXPAND xpt::diagram::editpolicies::BaseItemSemanticEditPolicy::checkEMFConstraints FOR modelFacet-»
+	// ITEMIS CHANGE: hook for LinkConstraints
+	return canExist«getUniqueIdentifier()»(«EXPAND xpt::diagram::editpolicies::BaseItemSemanticEditPolicy::canCreateValues FOR modelFacet») &&
+		de.itemis.gmf.runtime.constrainthook.LinkConstraintDefintionResolver.canCreateLink(«visualID», «EXPAND xpt::diagram::editpolicies::BaseItemSemanticEditPolicy::canCreateValues FOR modelFacet»);
+}
+«ENDAROUND»

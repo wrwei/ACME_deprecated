@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated gsn -->
+      <factory
+            uri="http://org.eclipse.acme/1.0/gsn"
+            class="gsn.provider.Gsn_ItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated gsn -->
+      <extender
+            uri="http://omg.sacm/2.0/assurancecase"
+            class="gsn.provider.Gsn_ItemProviderAdapterFactory$Assurancecase_ChildCreationExtender"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated cae -->
+      <factory
+            uri="http://org.eclipse.acme/1.0/cae"
+            class="cae.provider.Cae_ItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension
+         id="cae_extender"
+         point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated cae -->
+      <extender
+            uri="http://omg.sacm/2.0/assurancecase"
+            class="cae.provider.Cae_ItemProviderAdapterFactory$Argumentation_ChildCreationExtender"/>
+   </extension>
+
+</plugin>

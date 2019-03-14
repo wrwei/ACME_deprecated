@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated gsn -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="gsn.presentation.Gsn_ModelWizardID"
+            name="%_UI_Gsn_ModelWizard_label"
+            class="gsn.presentation.Gsn_ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Gsn_ModelFile.gif">
+         <description>%_UI_Gsn_ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated gsn -->
+      <editor
+            id="gsn.presentation.Gsn_EditorID"
+            name="%_UI_Gsn_Editor_label"
+            icon="icons/full/obj16/Gsn_ModelFile.gif"
+            extensions="gsn"
+            class="gsn.presentation.Gsn_Editor"
+            contributorClass="gsn.presentation.Gsn_ActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated cae -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="cae.presentation.Cae_ModelWizardID"
+            name="%_UI_Cae_ModelWizard_label"
+            class="cae.presentation.Cae_ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Cae_ModelFile.gif">
+         <description>%_UI_Cae_ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated cae -->
+      <editor
+            id="cae.presentation.Cae_EditorID"
+            name="%_UI_Cae_Editor_label"
+            icon="icons/full/obj16/Cae_ModelFile.gif"
+            extensions="cae"
+            class="cae.presentation.Cae_Editor"
+            contributorClass="cae.presentation.Cae_ActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

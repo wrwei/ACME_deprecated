@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2201"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5001"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5002"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2202"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackageInterface') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2203"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackageBinding') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5006"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2204"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentGroup') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5007"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5008"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2205"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'Claim') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5009"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5010"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2206"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArtifactReference') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5011"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5012"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2207"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentReasoning') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')">
+    <nodeLabelTraces
+        visualID="5013"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5014"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2208"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedInference') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')"/>
+  <nodeTraces
+      visualID="2209"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedContext') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')"/>
+  <nodeTraces
+      visualID="2210"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedEvidence') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')"/>
+  <nodeTraces
+      visualID="2211"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedArtifactContext') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')"/>
+  <nodeTraces
+      visualID="2212"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedArtifactSupport') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'ArgumentPackage') and _containmentMF_.name = 'argumentationElement')"/>
+  <linkTraces
+      visualID="4201"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'Assertion') and _feature_.name = 'metaClaim')"/>
+  <linkTraces
+      visualID="4202"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedRelationship') and _feature_.name = 'source')"/>
+  <linkTraces
+      visualID="4203"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedRelationship') and _feature_.name = 'target')"/>
+  <linkTraces
+      visualID="4204"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://omg.sacm/2.0/argumentation' and _eClass_.name = 'AssertedRelationship') and _feature_.name = 'reasoning')"/>
+</trace:TraceModel>

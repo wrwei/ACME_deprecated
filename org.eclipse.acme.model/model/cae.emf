@@ -1,0 +1,42 @@
+@namespace(uri="http://org.eclipse.acme/1.0/cae", prefix="cae_")
+package cae;
+import "platform:/resource/org.eclipse.acme.sacm/model/argumentation.ecore";
+
+
+
+  class CAEModule extends argumentation.ArgumentPackage {
+  	
+  }
+  
+  class CAEModuleInterface extends argumentation.ArgumentPackageInterface {
+  	
+  }
+  
+  class CAEModuleBinding extends argumentation.ArgumentPackageBinding {
+  	
+  }
+  
+  class CAEClaim extends argumentation.Claim {
+  	
+  }
+  
+  class Argument extends argumentation.ArgumentReasoning {
+  	
+  }
+
+  class Evidence extends argumentation.ArtifactReference {
+  	
+  }
+  
+  class IsSubClaimOf extends argumentation.AssertedInference {
+  	
+  }
+  
+  class Supports extends argumentation.AssertedInference {
+  	
+  }
+
+  class IsEvidenceFor extends argumentation.AssertedEvidence {
+  	
+  }
+

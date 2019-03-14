@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="argumentation_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="argumentation_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="argumentation.diagram.part.ArgumentationDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/Argumentation_DiagramFile.gif"
+         extensions="argumentation_diagram"
+         default="true"
+         class="argumentation.diagram.part.ArgumentationDiagramEditor"
+         matchingStrategy="argumentation.diagram.part.ArgumentationMatchingStrategy"
+         contributorClass="argumentation.diagram.part.ArgumentationDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="argumentation.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/Argumentation_DiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="argumentation.diagram.part.ArgumentationCreationWizard"
+  	     id="argumentation.diagram.part.ArgumentationCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.eclipse.acme.sacm.diagram.argumentation.InitDiagram"
+            nameFilter="*.argumentation"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="argumentation.diagram.part.ArgumentationInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.eclipse.acme.sacm.diagram.argumentation.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="ArgumentationPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="argumentation.diagram.part.ArgumentationDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="ArgumentationPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="argumentation.diagram.part.ArgumentationDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="ArgumentationRender">
+         <Priority name="Lowest"/>
+         <ViewId id="argumentation.diagram.part.ArgumentationDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="argumentation.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.eclipse.acme.sacm.diagram.general"
+            name="%prefpage.org.eclipse.acme.sacm.diagram.general"
+            class="argumentation.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.eclipse.acme.sacm.diagram.appearance"
+            name="%prefpage.org.eclipse.acme.sacm.diagram.appearance"
+            category="org.eclipse.acme.sacm.diagram.general"
+            class="argumentation.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.eclipse.acme.sacm.diagram.connections"
+            name="%prefpage.org.eclipse.acme.sacm.diagram.connections"
+            category="org.eclipse.acme.sacm.diagram.general"
+            class="argumentation.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.eclipse.acme.sacm.diagram.printing"
+            name="%prefpage.org.eclipse.acme.sacm.diagram.printing"
+            category="org.eclipse.acme.sacm.diagram.general"
+            class="argumentation.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.eclipse.acme.sacm.diagram.rulersAndGrid"
+            name="%prefpage.org.eclipse.acme.sacm.diagram.rulersAndGrid"
+            category="org.eclipse.acme.sacm.diagram.general"
+            class="argumentation.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.eclipse.acme.sacm.diagram.argumentation"
+            labelProvider="argumentation.diagram.sheet.ArgumentationSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.eclipse.acme.sacm.diagram.argumentation">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.eclipse.acme.sacm.diagram.argumentation">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="argumentation.diagram.sheet.ArgumentationPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="argumentation.diagram.providers.ArgumentationViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Argumentation"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2201,2202,2203,2204,2205,2206,2207,2208,2209,2210,2211,2212"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4201,4202,4203,4204"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="argumentation.diagram.providers.ArgumentationEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Argumentation"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2201,2202,2203,2204,2205,2206,2207,2208,2209,2210,2211,2212"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4201,4202,4203,4204"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008,5009,5010,5011,5012,5013,5014"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentPackageCanvasEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentPackageCanvasEditPart" id="ArgumentPackage_1001"/>
+         <context elements="ArgumentPackage_1001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentPackageEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentPackageEditPart" id="ArgumentPackage_2201"/>
+         <context elements="ArgumentPackage_2201"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentPackageInterfaceEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentPackageInterfaceEditPart" id="ArgumentPackageInterface_2202"/>
+         <context elements="ArgumentPackageInterface_2202"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentPackageBindingEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentPackageBindingEditPart" id="ArgumentPackageBinding_2203"/>
+         <context elements="ArgumentPackageBinding_2203"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentGroupEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentGroupEditPart" id="ArgumentGroup_2204"/>
+         <context elements="ArgumentGroup_2204"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfClaimEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ClaimEditPart" id="Claim_2205"/>
+         <context elements="Claim_2205"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArtifactReferenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArtifactReferenceEditPart" id="ArtifactReference_2206"/>
+         <context elements="ArtifactReference_2206"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfArgumentReasoningEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.ArgumentReasoningEditPart" id="ArgumentReasoning_2207"/>
+         <context elements="ArgumentReasoning_2207"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfAssertedInferenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.AssertedInferenceEditPart" id="AssertedInference_2208"/>
+         <context elements="AssertedInference_2208"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfAssertedContextEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.AssertedContextEditPart" id="AssertedContext_2209"/>
+         <context elements="AssertedContext_2209"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfAssertedEvidenceEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.AssertedEvidenceEditPart" id="AssertedEvidence_2210"/>
+         <context elements="AssertedEvidence_2210"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfAssertedArtifactContextEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.AssertedArtifactContextEditPart" id="AssertedArtifactContext_2211"/>
+         <context elements="AssertedArtifactContext_2211"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="argumentation.diagram.providers.assistants.ArgumentationModelingAssistantProviderOfAssertedArtifactSupportEditPart">
+         <Priority name="Lowest"/>
+         <object class="argumentation.diagram.edit.parts.AssertedArtifactSupportEditPart" id="AssertedArtifactSupport_2212"/>
+         <context elements="AssertedArtifactSupport_2212"/>
+      </modelingAssistantProvider>
+      
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="argumentation.diagram.providers.ArgumentationIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="argumentation.diagram.providers.ArgumentationParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackage_1001"
+               name="%metatype.name.ArgumentPackage_1001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArgumentPackage"
+               edithelper="argumentation.diagram.edit.helpers.ArgumentPackageEditHelper">
+            <param name="semanticHint" value="1001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <specializationType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackage_2201"
+               name="%metatype.name.ArgumentPackage_2201"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackage_1001"/>
+            <param name="semanticHint" value="2201"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackageInterface_2202"
+               name="%metatype.name.ArgumentPackageInterface_2202"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArgumentPackageInterface"
+               edithelper="argumentation.diagram.edit.helpers.ArgumentPackageInterfaceEditHelper">
+            <param name="semanticHint" value="2202"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackageBinding_2203"
+               name="%metatype.name.ArgumentPackageBinding_2203"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArgumentPackageBinding"
+               edithelper="argumentation.diagram.edit.helpers.ArgumentPackageBindingEditHelper">
+            <param name="semanticHint" value="2203"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentGroup_2204"
+               name="%metatype.name.ArgumentGroup_2204"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArgumentGroup"
+               edithelper="argumentation.diagram.edit.helpers.ArgumentGroupEditHelper">
+            <param name="semanticHint" value="2204"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.Claim_2205"
+               name="%metatype.name.Claim_2205"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Claim"
+               edithelper="argumentation.diagram.edit.helpers.ClaimEditHelper">
+            <param name="semanticHint" value="2205"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArtifactReference_2206"
+               name="%metatype.name.ArtifactReference_2206"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArtifactReference"
+               edithelper="argumentation.diagram.edit.helpers.ArtifactReferenceEditHelper">
+            <param name="semanticHint" value="2206"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.ArgumentReasoning_2207"
+               name="%metatype.name.ArgumentReasoning_2207"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ArgumentReasoning"
+               edithelper="argumentation.diagram.edit.helpers.ArgumentReasoningEditHelper">
+            <param name="semanticHint" value="2207"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedInference_2208"
+               name="%metatype.name.AssertedInference_2208"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssertedInference"
+               edithelper="argumentation.diagram.edit.helpers.AssertedInferenceEditHelper">
+            <param name="semanticHint" value="2208"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedContext_2209"
+               name="%metatype.name.AssertedContext_2209"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssertedContext"
+               edithelper="argumentation.diagram.edit.helpers.AssertedContextEditHelper">
+            <param name="semanticHint" value="2209"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedEvidence_2210"
+               name="%metatype.name.AssertedEvidence_2210"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssertedEvidence"
+               edithelper="argumentation.diagram.edit.helpers.AssertedEvidenceEditHelper">
+            <param name="semanticHint" value="2210"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedArtifactContext_2211"
+               name="%metatype.name.AssertedArtifactContext_2211"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssertedArtifactContext"
+               edithelper="argumentation.diagram.edit.helpers.AssertedArtifactContextEditHelper">
+            <param name="semanticHint" value="2211"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <metamodelType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedArtifactSupport_2212"
+               name="%metatype.name.AssertedArtifactSupport_2212"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssertedArtifactSupport"
+               edithelper="argumentation.diagram.edit.helpers.AssertedArtifactSupportEditHelper">
+            <param name="semanticHint" value="2212"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <specializationType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertionMetaClaim_4201"
+               name="%metatype.name.AssertionMetaClaim_4201"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4201"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <specializationType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipSource_4202"
+               name="%metatype.name.AssertedRelationshipSource_4202"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4202"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <specializationType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipTarget_4203"
+               name="%metatype.name.AssertedRelationshipTarget_4203"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4203"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://omg.sacm/2.0/argumentation">
+         <specializationType
+               id="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipReasoning_4204"
+               name="%metatype.name.AssertedRelationshipReasoning_4204"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4204"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.eclipse.acme.sacm.diagram.argumentation.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.eclipse.acme.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.eclipse.acme.sacm.diagram.argumentation.TypeContext">
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackage_1001"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackage_2201"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackageInterface_2202"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentPackageBinding_2203"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentGroup_2204"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.Claim_2205"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArtifactReference_2206"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.ArgumentReasoning_2207"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedInference_2208"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedContext_2209"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedEvidence_2210"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedArtifactContext_2211"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedArtifactSupport_2212"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertionMetaClaim_4201"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipSource_4202"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipTarget_4203"/>
+         <elementType ref="org.eclipse.acme.sacm.diagram.argumentation.AssertedRelationshipReasoning_4204"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.eclipse.acme.sacm.diagram.argumentation.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.eclipse.acme.sacm.diagram.argumentation"
+           properties="isURIEditorInput"
+           class="argumentation.diagram.part.ArgumentationUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.eclipse.acme.sacm.diagram.argumentation.resourceContent"/>
+			<contentExtension pattern="org.eclipse.acme.sacm.diagram.argumentation.domainResourceContent"/>
+            <contentExtension pattern="org.eclipse.acme.sacm.diagram.argumentation.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.eclipse.acme.sacm.diagram.argumentation.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.eclipse.acme.sacm.diagram.argumentation.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="argumentation.diagram.navigator.ArgumentationNavigatorContentProvider" 
+            labelProvider="argumentation.diagram.navigator.ArgumentationNavigatorLabelProvider"
+            icon="icons/obj16/Argumentation_DiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="argumentation_diagram"/>
+               </and>
+               <instanceof value="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.eclipse.acme.sacm.diagram.argumentation.navigatorSorter" 
+               class="argumentation.diagram.navigator.ArgumentationNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="argumentation_diagram"/>
+                  </and>
+                  <instanceof value="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.eclipse.acme.sacm.diagram.argumentation.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="argumentation.diagram.navigator.ArgumentationDomainNavigatorContentProvider" 
+            labelProvider="argumentation.diagram.navigator.ArgumentationDomainNavigatorLabelProvider"
+            icon="icons/obj16/Argumentation_DiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="argumentation"/>
+               </and>
+               <instanceof value="argumentation.diagram.navigator.ArgumentationDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="argumentation.diagram.navigator.ArgumentationDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.eclipse.acme.sacm.diagram.argumentation.navigatorActionProvider"
+            class="argumentation.diagram.navigator.ArgumentationNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.eclipse.acme.sacm.diagram.argumentation.navigatorLinkHelper"
+            class="argumentation.diagram.navigator.ArgumentationNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.eclipse.acme.sacm.diagram.argumentation.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="argumentation.diagram.navigator.ArgumentationAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="argumentation.diagram.part.ArgumentationDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="argumentation.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="argumentation.diagram.updateDiagram"
+         contextId="argumentation.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command
+               commandId="acme.diagram.argumentation.supportClaim"
+               label="Support Claim"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <instanceof
+                           value="argumentation.diagram.edit.parts.ClaimEditPart">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="acme.diagram.argumentation.supportClaimFresh"
+               label="Support Claim (Fresh)"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <instanceof
+                           value="argumentation.diagram.edit.parts.ClaimEditPart">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="acme.diagram.argumentation.provideEvidence"
+               label="Provide Evidence "
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <instanceof
+                           value="argumentation.diagram.edit.parts.ClaimEditPart">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="acme.diagram.argumentation.provideReason"
+               label="Provide Reasoning "
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+                        <instanceof
+                              value="argumentation.diagram.edit.parts.AssertedRelationshipTargetEditPart">
+                        </instanceof>
+                        <instanceof
+                              value="argumentation.diagram.edit.parts.AssertedRelationshipSourceEditPart">
+                        </instanceof>
+                        <instanceof
+                              value="argumentation.diagram.edit.parts.AssertedInferenceEditPart">
+                        </instanceof>
+                        <instanceof
+                              value="argumentation.diagram.edit.parts.AssertedEvidenceEditPart">
+                        </instanceof>
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="argumentation.diagram.part.ArgumentationDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.eclipse.acme.sacm.diagram.argumentation.LoadResourceAction"
+         name="Load Resource"
+         categoryId="argumentation.diagram.part.ArgumentationDiagramEditorID"
+         defaultHandler="argumentation.diagram.part.LoadResourceAction"/>
+	  <command
+            categoryId="argumentation.diagram.part.ArgumentationDiagramEditorID"
+            defaultHandler="argumentation.diagram.handlers.SupportClaimHandler"
+            id="acme.diagram.argumentation.supportClaim"
+            name="Support Claim">
+      </command>
+      <command
+            categoryId="argumentation.diagram.part.ArgumentationDiagramEditorID"
+            defaultHandler="argumentation.diagram.handlers.SupportClaimFreshHandler"
+            id="acme.diagram.argumentation.supportClaimFresh"
+            name="Support Claim (Fresh)">
+      </command>
+	  <command
+            categoryId="argumentation.diagram.part.ArgumentationDiagramEditorID"
+            defaultHandler="argumentation.diagram.handlers.ProvideEvidenceHandler"
+            id="acme.diagram.argumentation.provideEvidence"
+            name="Provide Evidence">
+      </command>
+      <command
+            categoryId="argumentation.diagram.part.ArgumentationDiagramEditorID"
+            defaultHandler="argumentation.diagram.handlers.ProvideReasoningHandler"
+            id="acme.diagram.argumentation.provideReason"
+            name="Provide Reasoning">
+      </command>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="org.eclipse.acme.EditingDomain">
+      </editingDomain>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="argumentation.diagram.providers.ArgumentationMarkerNavigationProvider">
+         <MarkerType name="org.eclipse.acme.sacm.diagram.argumentation.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="ACME Argumentation Diagram Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="argumentation.diagram.providers.ArgumentationValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
+
+   <!-- optionally, specify keybindings -->
+</plugin>

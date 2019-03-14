@@ -1,0 +1,7 @@
+# Tracing options for the org.eclipse.acme.diagram.gsn plug-in
+
+# Common issues
+org.eclipse.acme.diagram.gsn/debug=false
+
+# Visual IDs
+org.eclipse.acme.diagram.gsn/debug/visualID=false

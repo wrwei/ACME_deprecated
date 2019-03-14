@@ -1,0 +1,13 @@
+«IMPORT "http://www.eclipse.org/gmf/2008/GenModel"»
+«IMPORT "http://www.eclipse.org/emf/2002/Ecore"»
+«IMPORT "http://www.eclipse.org/emf/2002/GenModel"»
+
+«AROUND checkEssentialChild FOR gmfgen::GenCommonBase-»
+// ITEMIS CHANGE: Hook to implement Java Constraints for Nodes
+
+if («EXPAND xpt::editor::VisualIDRegistry::visualID» == nodeVisualID) {
+	return de.itemis.gmf.runtime.constrainthook.NodeConstraintDefintionResolver.canCreateNode(nodeVisualID, containerView.getElement());
+}
+// ITEMIS CHANGE END
+«ENDAROUND»
+

@@ -1,0 +1,7 @@
+# Tracing options for the org.eclipse.acme.sacm.diagram.artifact plug-in
+
+# Common issues
+org.eclipse.acme.sacm.diagram.artifact/debug=false
+
+# Visual IDs
+org.eclipse.acme.sacm.diagram.artifact/debug/visualID=false

@@ -1,0 +1,7 @@
+# Tracing options for the org.eclipse.acme.sacm.diagram.argumentation plug-in
+
+# Common issues
+org.eclipse.acme.sacm.diagram.argumentation/debug=false
+
+# Visual IDs
+org.eclipse.acme.sacm.diagram.argumentation/debug/visualID=false
