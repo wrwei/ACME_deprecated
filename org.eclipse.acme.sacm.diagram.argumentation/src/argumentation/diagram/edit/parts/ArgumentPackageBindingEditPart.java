@@ -35,7 +35,6 @@ import acme.diagram.util.FontManager;
 import acme.diagram.util.ModelElementFeatureUtil;
 import argumentation.ArgumentPackageBinding;
 import argumentation.diagram.edit.policies.ArgumentPackageBindingItemSemanticEditPolicy;
-import argumentation.diagram.edit.policies.OpenDiagramEditPolicy;
 import argumentation.diagram.part.ArgumentationVisualIDRegistry;
 import base.ModelElement;
 
