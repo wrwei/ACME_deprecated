@@ -330,7 +330,7 @@ public class ArgumentPackageEditPart extends ShapeNodeEditPart {
 
 			Dimension nameDimension = DimensionUtil.getTextSize(fFigureApName.getText(), fFigureApName.getFont());
 
-			this.add(fFigureApName, new Rectangle(5, ArgumentPackageShape.TOP_RECT_HEIGHT + 5, nameDimension.width,
+			this.add(fFigureApName, new Rectangle(5+ArgumentPackageShape.TOP_RECT_WIDTH_OFFSET, ArgumentPackageShape.TOP_RECT_HEIGHT + 5, nameDimension.width,
 					nameDimension.height));
 
 			fFigureApDesc = new WrappingLabel();
@@ -342,7 +342,7 @@ public class ArgumentPackageEditPart extends ShapeNodeEditPart {
 			Dimension descriptionDimension = DimensionUtil.getTextSize(fFigureApDesc.getText(),
 					fFigureApDesc.getFont(), d.width - 10);
 
-			this.add(fFigureApDesc, new Rectangle(5, ArgumentPackageShape.TOP_RECT_HEIGHT + 35,
+			this.add(fFigureApDesc, new Rectangle(5+ArgumentPackageShape.TOP_RECT_WIDTH_OFFSET, ArgumentPackageShape.TOP_RECT_HEIGHT + 35,
 					descriptionDimension.width, descriptionDimension.height));
 
 		}
