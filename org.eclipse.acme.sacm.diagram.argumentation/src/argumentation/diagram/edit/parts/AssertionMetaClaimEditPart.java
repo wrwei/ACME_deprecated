@@ -1,25 +1,14 @@
 package argumentation.diagram.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.PolygonDecoration;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
-import acme.argumentation.diagram.figure.ContextDecoration;
 import acme.argumentation.diagram.figure.MetaClaimShape;
-import argumentation.AssertedArtifactContext;
-import argumentation.AssertedArtifactSupport;
-import argumentation.AssertedContext;
-import argumentation.AssertedEvidence;
-import argumentation.AssertedInference;
-import argumentation.AssertedRelationship;
 import argumentation.diagram.edit.policies.AssertionMetaClaimItemSemanticEditPolicy;
 
 /**

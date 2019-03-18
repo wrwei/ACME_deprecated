@@ -3,8 +3,6 @@ package argumentation.diagram.edit.parts;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.PolygonDecoration;
-import org.eclipse.draw2d.PolylineDecoration;
-import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
@@ -171,10 +169,10 @@ public class AssertedRelationshipTargetEditPart extends ConnectionNodeEditPart i
 		/**
 		 * @generated
 		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			return df;
-		}
+//		private RotatableDecoration createTargetDecoration() {
+//			PolylineDecoration df = new PolylineDecoration();
+//			return df;
+//		}
 
 	}
 	

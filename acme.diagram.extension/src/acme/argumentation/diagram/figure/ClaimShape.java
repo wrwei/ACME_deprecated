@@ -69,7 +69,7 @@ public class ClaimShape extends Shape{
 				else if (claim.getAssertionDeclaration() == AssertionDeclaration.NEEDS_SUPPORT) {
 					graphics.fillPolygon(needsSupportShape);
 					for(Rectangle r: ovals) {
-						graphics.setBackgroundColor(ColorConstants.gray);
+						graphics.setBackgroundColor(ColorConstants.black);
 						graphics.fillOval(r);
 					}
 				}
