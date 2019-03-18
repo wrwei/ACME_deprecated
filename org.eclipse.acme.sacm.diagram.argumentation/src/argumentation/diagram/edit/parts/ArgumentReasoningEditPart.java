@@ -34,7 +34,6 @@ import acme.diagram.util.FontManager;
 import acme.diagram.util.ModelElementFeatureUtil;
 import argumentation.ArgumentReasoning;
 import argumentation.Argumentation_Package;
-import argumentation.diagram.edit.parts.ClaimEditPart.ClaimFigure;
 import argumentation.diagram.edit.policies.ArgumentReasoningItemSemanticEditPolicy;
 import argumentation.diagram.part.ArgumentationVisualIDRegistry;
 import base.ModelElement;
