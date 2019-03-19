@@ -24,7 +24,7 @@ public class InContextOfStraightConnection extends PolylineConnectionEx {
 				CircleDecoration circleDecoration = new CircleDecoration();
 				circleDecoration.setLocation(midPoint);
 				circleDecoration.setFill(true);
-				g.setBackgroundColor(ColorConstants.gray);
+				g.setBackgroundColor(ColorConstants.black);
 				g.fillOval(circleDecoration.getBounds());
 				g.drawOval(circleDecoration.getBounds());		
 				
