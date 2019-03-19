@@ -76,6 +76,7 @@ public class DimensionUtil {
 	public static final Dimension CLAIM_DIMENSION = new Dimension(200, 124);
 	public static final Dimension NEEDS_SUPPORT_CLAIM_DIMENSION = new Dimension(200, 126);
 	public static final Dimension AXIOMATIC_CLAIM_DIMENSION = new Dimension(200, 134);
+
 	public static final Dimension ARGUMENTREASONING_DIMENSION = new Dimension(200, 124);
 	public static final Dimension CITATION_CLAIM_DIMENSION = new Dimension(200+ClaimShape.CITED_BOARDER_WIDTH*2 + ClaimShape.CITED_OFFSET*2, 124);
 	
@@ -304,9 +305,16 @@ public class DimensionUtil {
 			else if (claim.getAssertionDeclaration() == AssertionDeclaration.AXIOMATIC) {
 				aspRatio = AXIOMATIC_CLAIM_DIMENSION.preciseWidth()/AXIOMATIC_CLAIM_DIMENSION.preciseHeight();
 			}
+			else if (claim.getAssertionDeclaration() == AssertionDeclaration.AS_CITED) {
+				aspRatio = CITATION_CLAIM_DIMENSION.preciseWidth()/CITATION_CLAIM_DIMENSION.preciseHeight();
+			}
 		}
 		
 		height = (int) (width/aspRatio);
+		if(height < ret.height) {
+			ret.width = (int) (ret.height*aspRatio);
+			return ret;
+		}
 		ret.width = width;
 		ret.height = height;
 		return ret;
