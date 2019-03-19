@@ -28,6 +28,7 @@ public class ClaimShape extends Shape{
 	public static final int CITED_OFFSET = 10;
 	public static final int CITED_BOARDER_WIDTH = 40;
 	public static final int AXIOMATIC_OFFSET = 10;
+	public static final int ASSUMED_OFFSET = 4;
 
 
 	@Override
@@ -118,6 +119,8 @@ public class ClaimShape extends Shape{
 					graphics.drawLine(assumed.getPoint(2), assumed.getPoint(3));
 					graphics.drawLine(assumed.getPoint(3), assumed.getPoint(4));
 					graphics.drawLine(assumed.getPoint(4), assumed.getPoint(5));
+					graphics.drawLine(assumed.getPoint(6), assumed.getPoint(7));
+					graphics.drawLine(assumed.getPoint(8), assumed.getPoint(9));
 				}
 				else if (claim.getAssertionDeclaration() == AssertionDeclaration.DEFEATED) {
 					graphics.drawPolygon(defeatedShape);
@@ -234,10 +237,16 @@ public class ClaimShape extends Shape{
 					 */
 					Point ap1 = new Point(r.x, r.y);
 					Point ap2 = new Point(r.x + r.width, r.y);
-					Point ap3 = new Point(r.x, r.y+r.height);
-					Point ap4 = new Point(r.x+r.width, r.y+r.height);
-					Point ap5 = new Point(r.x + offset, r.y + r.height);
-					Point ap6 = new Point(r.x + r.width - offset, r.y + r.height);
+					Point ap3 = new Point(r.x, r.y+r.height-ASSUMED_OFFSET);
+					Point ap4 = new Point(r.x+r.width, r.y+r.height-ASSUMED_OFFSET);
+					Point ap5 = new Point(r.x + offset, r.y + r.height-ASSUMED_OFFSET);
+					Point ap6 = new Point(r.x + r.width - offset, r.y + r.height-ASSUMED_OFFSET);
+					Point ap7 = new Point(r.x + r.width - offset, r.y + r.height-ASSUMED_OFFSET*2);
+					Point ap8 = new Point(r.x + r.width - offset, r.y + r.height);
+					Point ap9 = new Point(r.x + offset, r.y + r.height-ASSUMED_OFFSET*2);
+					Point ap10 = new Point(r.x + offset, r.y + r.height);
+
+					
 					
 					assumed.removeAllPoints();
 					assumed.addPoint(ap5);
@@ -246,6 +255,10 @@ public class ClaimShape extends Shape{
 					assumed.addPoint(ap2);
 					assumed.addPoint(ap4);
 					assumed.addPoint(ap6);
+					assumed.addPoint(ap7);
+					assumed.addPoint(ap8);
+					assumed.addPoint(ap9);
+					assumed.addPoint(ap10);
 				}
 				else if (claim.getAssertionDeclaration() == AssertionDeclaration.DEFEATED) {
 					//do defeated shape
@@ -271,10 +284,10 @@ public class ClaimShape extends Shape{
 					offset = r.width/5;
 					Point ns1 = new Point(r.x, r.y);
 					Point ns2 = new Point(r.x + r.width, r.y);
-					Point ns3 = new Point(r.x, r.y+r.height);
-					Point ns4 = new Point(r.x+r.width, r.y+r.height);
-					Point ns5 = new Point(r.x + offset, r.y + r.height);
-					Point ns6 = new Point(r.x + r.width - offset, r.y + r.height);
+					Point ns3 = new Point(r.x, r.y+r.height-OVAL_OFFSET/2);
+					Point ns4 = new Point(r.x+r.width, r.y+r.height-OVAL_OFFSET/2);
+					Point ns5 = new Point(r.x + offset, r.y + r.height-OVAL_OFFSET/2);
+					Point ns6 = new Point(r.x + r.width - offset, r.y + r.height-OVAL_OFFSET/2);
 					
 					needsSupportShape.removeAllPoints();
 					needsSupportShape.addPoint(ns5);

@@ -85,13 +85,7 @@ public class SupportClaimHandler implements IHandler {
 
 						ModelElementFeatureUtil.addFeatureTransactional(editingDomain, argumentPackage, Argumentation_Package.eINSTANCE.getArgumentPackage_ArgumentationElement(), newClaim);
 						ModelElementFeatureUtil.addFeatureTransactional(editingDomain, argumentPackage, Argumentation_Package.eINSTANCE.getArgumentPackage_ArgumentationElement(), assertedInference);
-						
-						ClaimEditPart cep = (ClaimEditPart) locateEditPart(claimEditPart.getParent().getChildren(), newClaim);
-						System.out.println(cep.getFigure().getBounds());
-						cep.getFigure().setBounds(claimEditPart.getFigure().getBounds());
-						System.out.println(cep.getFigure().getBounds());
 					}
-					
 				}
 			}
 		}
