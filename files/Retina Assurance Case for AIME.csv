@@ -1,0 +1,925 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Text Area 1,Text Area 2,argument_public,argument_referent,be_developed,be_instanciated,description_module_reference,family,file_module_reference,id,module_reference,number_link,summary,type
+1,Page,,,,,,,,,Full,,,,,,,,,,,,,
+2,MinimalTextBlock,Default,1,,,,,,,"Questions:
+
+1) To what extend we need transparency in order to ensure a ML system? 
+2) How  we can use performance evidences to support safety evidences?
+3) Is it enough to be as least as good as human expert?",,,,,,,,,,,,,
+3,Text,Default,1,,,,,,,"Challenges for AI in medical images interpretations:
+1)   AI (typically trained on hundreds of thousands of examples from one canonical dataset) must generalize to new populations and devices without a substantial loss of performance, and without prohibitive data requirements for retraining. 
+2)  AI tools must be applicable to real-world scans, problems and pathways, and designed for clinical evaluation and deployment 
+3)  AI tools must match or exceed the performance of human experts in such real-world situations.  ",,,,,,,,,,,,,
+4,User Image,User Images,1,,,,,,,,,,,,,,,,,,,,
+5,User Image,User Images,1,,,,,,,,,,,,,,,,,,,,
+6,Imported Shape,,1,,,,,,,Classification network,The classification network achieves and in some cases exceed expert performance given the tissue-segmentation map as as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+7,Imported Shape,,1,,,,,,,ML Assurance,Automated Retinal Diagnosis is safe to be used in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+8,Imported Shape,,1,,,,,,,Clinical Setting,Clinical practice at Moorfields Eye Hospital,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+9,Imported Shape,,1,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+10,Imported Shape,,1,,,,,,,Assurance Strategy,Argument over the sufficiency of both networks and transition between them,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+11,Imported Shape,,1,,,,,,,Experts Profiles,"Experts comprise 4 retina specialists with respective 21, 21, 13 and 12 years of experience and 4 optometrists with respective 15, 9, 6 and 3 years of experience. ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+12,Imported Shape,,1,,,,,,,Legend,,,,,,,,,,,,,
+13,Imported Shape,,1,,,,,,,{Goal Identifier},<Claim Statement>,true,,true,true,,goal,,{Goal Identifier} ,,,<Claim Statement> ,1
+14,Imported Shape,,1,,,,,,,{Strategy Identifier},<Strategy Statement>,,,true,true,,strategy,,{Strategy Identifier} ,,,<Strategy Statement> ,1
+15,Imported Shape,,1,,,,,,,{Context Identifier},<Context Statement>,true,,true,true,,context,,{Context Identifier} ,,,<Context Statement> ,2
+16,Text,Default,1,,,,,,,Supported by,,,,,,,,,,,,,
+17,Text,Default,1,,,,,,,In context of,,,,,,,,,,,,,
+18,Imported Shape,,1,,,,,,,Performance ,"Using only OCT scan, network performance matched the 2 best retina specialists and outperformed all optometrists. ",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+19,Imported Shape,,1,,,,,,,Device independence evidence,An Area Under ROC Curve (AUC) of 99.21 and 99.93 for the first and the second device ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+20,Imported Shape,,1,,,,,,,Training data,Training set comprises 14884 OCT scans obtained from 7621 patients who were referred to the hospital with macular pathology symptoms. Test set composed by 997 included in the gold standard. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+21,Imported Shape,,1,,,,,,,Classification performance evidence,Figure 3 in the paper,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+22,Decision,Flowchart Shapes,1,,,,,,,,,,,,,,,,,,,,
+23,Text,Default,1,,,,,,,To be developed,,,,,,,,,,,,,
+24,Imported Shape,,1,,,,,,,Inputs Data,3-dimensional volumetric medical imagining  (OCT) used in ophthalmology,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+25,Imported Shape,,1,,,,,,,Segmentation network,"The segmentation network creates a detailed device-independent and human interpretable tissue-segmentation map
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+26,Imported Shape,,1,,,,,,,Device independence,The segmentation network achieves device independence when retrained with images acquired by new devices,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+27,Imported Shape,,1,,,,,,,Outcome performance,The tissue-segmentation map is at least as good as human clinicians,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+28,Imported Shape,,1,,,,,,,Automated segmentation  evidence,Automated segmentation is compared with manual segmentation reporting the same results (Figure 2),true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+29,Process,Flowchart Shapes,1,,,,,,,The devices used to record the OCT scan need to be monitored,,,,,,,,,,,,,
+30,Text,Default,1,,,,,,,Monitor devices,,,,,,,,,,,,,
+31,Imported Shape,,1,,,,,,,Analysis of the device use,The device used needs to be present in the set of the devices used to produce the images used in the training set,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+32,Imported Shape,,1,,,,,,,Responding to possible changes,"If the device used is not present in the set of the devices used to produce the images in the training set, the segmentation network has to be retrained with the new images acquired. ",true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+33,Cloud,Geometric Shapes,1,,,,,,,,,,,,,,,,,,,,
+34,Cloud,Geometric Shapes,1,,,,,,,,,,,,,,,,,,,,
+35,Right Arrow,Geometric Shapes,1,,,,,,,,,,,,,,,,,,,,
+36,Imported Shape,,1,,,,,,,"Sufficiency?
+
+For each network and transition?
+","
+",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+37,Imported Shape,,1,,,,,,,Segmentation Network Def,"The segmentation network uses a 3-dimensional U-Net architecture to translate the raw OCT scan into a tissue map with 15 classes including anatomy, pathology and image artefacts",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+38,Imported Shape,,1,,,,,,,"Tissue-segmentation Map 
+",Tissue-segmentation map is used for identifying relevant features in the scans for the diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+39,Text,Default,1,,,,,,,Human,,,,,,,,,,,,,
+40,Note,Default,1,,,,,,,"In what sense is this a safety argument? We do not seem to address safety risks and hazards? It looks more like a correctness or performance argument!
+
+What are the clinical 'hazards' to which this technology might lead?
+
+What is the nature of the relationship between the machine and the human? Advisory, probably not! Any responsibility gaps?",,,,,,,,,,,,,
+41,Imported Shape,,1,,,,,,,Training data,"Network was trained with OCT scans acquired from two different devices Topcon 3D OCT, Topcon and Spectralis, Heilderberg Engineering",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+42,Note,Default,1,,,,,,,"Are the data representative enough? Semantic gap (making claims on the relevance of references used for training, test and validation data sets) is reduced? Data set is sufficient for the functionality (deduction gap reduced)?",,,,,,,,,,,,,
+43,Imported Shape,,1,,,,,,,Non-ambiguous regions,Tissue-segmentation map obtained by network is equal to manual segmentation map done by clinician ,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+44,Imported Shape,,1,,,,,,,"Tissue-segmentation Visualisation
+",Clinicians can visualise the outcome and understand the process rather being simply presented with a diagnosis and referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+45,Imported Shape,,1,,,,,,,Ambiguous regions,The ambiguous regions in OCT images are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+46,Imported Shape,,1,,,,,,,Ambigous regions evidence,Multiple segmentation hypotheses displayed as a video (Supplementary videos 1-9),true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+47,Cloud,Geometric Shapes,1,,,,,,,Safety,,,,,,,,,,,,,
+48,Cloud,Geometric Shapes,1,,,,,,,Performance,,,,,,,,,,,,,
+49,Right Arrow,Geometric Shapes,1,,,,,,,?,,,,,,,,,,,,,
+50,Note,Default,1,,,,,,,"Is the system advisory only?
+
+If so, then the human should be able to fully interpret the process
+
+Segmentation is but not diagnosis ",,,,,,,,,,,,,
+51,Rectangle,Geometric Shapes,1,,,,,,,Diagnose ,,,,,,,,,,,,,
+52,Right Arrow,Geometric Shapes,1,,,,,,,"Omission, Commission, timing and incorrect ",,,,,,,,,,,,,
+53,Actor,UML,1,,,,,,,x - y,,,,,,,,,,,,,
+54,Imported Shape,,1,,,,,,,Outcome interpretability,The tissue-segmentation map is readily viewable by a clinician ,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+55,Imported Shape,,1,,,,,,,Segmentation Strategy,Argument over ambiguous and non-ambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+56,Decision,Flowchart Shapes,1,,,,,,,,,,,,,,,,,,,,
+57,Note,Default,1,,,,,,,"Draft Paper  Outline
+
+Introduction
+Review of Safety of AI in Healthcare
+Safety Considerations: basically AI tech in clinical context, importance of safety case, i.e. clarity and transparency (including the need for dynamic assessment)
+Use Case
+Discussion
+Conclusions
+
+",,,,,,,,,,,,,
+58,User Image,User Images,1,,,,,,,,,,,,,,,,,,,,
+59,Text,Default,1,,,,,,,ASSURANCE CASE FOR A MACHINE LEARNING SYSTEM GIVING CLINICAL DIAGNOSIS ,,,,,,,,,,,,,
+60,Text,Default,1,,,,,,,"AGENDA
+
+1) CASE STUDY
+2) ASSURANCE CASE
+3) QUESTIONS
+
+",,,,,,,,,,,,,
+61,Imported Shape,,1,,,,,,,Safe?,"
+Possible answers: 
+(1) correct diagnosis (with what confidence interval?)
+(2) complied with MD regulations (e.g. Class 2)
+(3) at least as good as the ""best"" human experts (but is this enough? Is it the same risk profile? are we more forgiving with fellow humans?)
+(4) Clinical benefits outweight system risks? 
+...",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+62,Imported Shape,,1,,,,,,,Ambiguous low-quality regions,"The different maps, as human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+63,Text,Default,1,,,,,,,,,,,,,,,,,,,,
+64,Imported Shape,,1,,,,,,,Timeline,Experts had 2 sessions at least two weeks in time: referral with only OCT scans and referral with OCT scans plus fundus images and clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+65,Imported Shape,,1,,,,,,,Performance + clinical info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+66,Imported Shape,,1,,,,,,,Classification performance evidence,Figure 3 in the paper,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+67,Imported Shape,,1,,,,,,,Gold standard,Data obtained by examining clinical records to determine the final diagnosis and optimal referral pathway. Such a gold standard can only be obtained retrospectively.,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+68,Line,,1,,,7,8,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+69,Line,,1,,,7,9,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+70,Line,,1,,,7,10,None,Arrow,,,,,,,,solved_by,,,,1,,3
+71,Line,,1,,,10,6,None,Arrow,,,,,,,,solved_by,,,,1,,3
+72,Line,,1,,,6,18,None,Arrow,,,,,,,,solved_by,,,,1,,3
+73,Line,,1,,,16,16,None,Arrow,,,,,,,,solved_by,,,,1,,3
+74,Line,,1,,,6,11,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+75,Line,,1,,,6,20,None,Hollow Arrow,,,,,,,,,,,,,,
+76,Line,,1,,,10,25,None,Arrow,,,,,,,,,,,,,,
+77,Line,,1,,,25,26,None,Arrow,,,,,,,,,,,,,,
+78,Line,,1,,,26,19,None,Arrow,,,,,,,,,,,,,,
+79,Line,,1,,,25,27,None,Arrow,,,,,,,,,,,,,,
+80,Line,,1,,,19,29,None,Arrow,,,,,,,,,,,,,,
+81,Line,,1,,,29,31,None,Arrow,,,,,,,,,,,,,,
+82,Line,,1,,,31,32,None,Arrow,,,,,,,,,,,,,,
+83,Line,,1,,,32,29,None,Arrow,,,,,,,,,,,,,,
+84,Line,,1,,,19,42,None,Arrow,,,,,,,,,,,,,,
+85,Line,,1,,,20,42,None,Arrow,,,,,,,,,,,,,,
+86,Line,,1,,,33,34,None,Arrow,Transition ,,,,,,,,,,,,,
+87,Line,,1,,,25,38,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+88,Line,,1,,,25,24,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+89,Line,,1,,,25,37,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+90,Line,,1,,,26,41,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+91,Line,,1,,,55,43,None,Arrow,,,,,,,,,,,,,,
+92,Line,,1,,,43,28,None,Arrow,,,,,,,,,,,,,,
+93,Line,,1,,,54,44,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+94,Line,,1,,,27,55,None,Arrow,,,,,,,,,,,,,,
+95,Line,,1,,,45,46,None,Arrow,,,,,,,,,,,,,,
+96,Line,,1,,,25,54,None,Arrow,,,,,,,,,,,,,,
+97,Line,,1,,,55,45,None,Arrow,,,,,,,,,,,,,,
+98,Line,,1,,,45,62,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+99,Line,,1,,,18,21,None,Arrow,,,,,,,,solved_by,,,,1,,3
+100,Line,,1,,,6,64,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+101,Line,,1,,,6,65,None,Arrow,,,,,,,,solved_by,,,,1,,3
+102,Line,,1,,,65,66,None,Arrow,,,,,,,,solved_by,,,,1,,3
+103,Line,,1,,,6,67,None,Hollow Arrow,,,,,,,,,,,,,,
+104,Line,,1,,,17,,Hollow Arrow,None,,,,,,,,,,,,,,
+105,Page,,,,,,,,,Without Dynamic and notes,,,,,,,,,,,,,
+106,Imported Shape,,105,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+107,Imported Shape,,105,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+108,Imported Shape,,105,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+109,Imported Shape,,105,,,,,,,Assurance Strategy,Argument over sufficiency of both networks and transition between them,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+110,Imported Shape,,105,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+111,Imported Shape,,105,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+112,Imported Shape,,105,,,,,,,Device Independence evidence,"Performance Results 
+(Table 1)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+113,Imported Shape,,105,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+114,Imported Shape,,105,,,,,,,Segmentation Network Claim,Segmentation network creates a detailed device-independent and human interpretable tissue-segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+115,Imported Shape,,105,,,,,,,Device Independence,The segmentation network achieves classification network  device independence,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+116,Imported Shape,,105,,,,,,,Outcome Performance,The tissue-segmentation map is at least as good as human clinicians,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+117,Imported Shape,,105,,,,,,,Automated Segmentation  Evidence,"Results of Segmentation Network 
+(Figure 2 and Supplementary Figure 13)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+118,Imported Shape,,105,,,,,,,Segmentation Network ,A 3-dimensional U-Net architecture to translate raw OCT scan into a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+119,Imported Shape,,105,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+120,Imported Shape,,105,,,,,,,Device Independence Training Data,Scans  from two different devices Topcon 3D  (877) and Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+121,Imported Shape,,105,,,,,,,Non-ambiguous Regions,Tissue-segmentation map obtained by network is comparable to manual segmentation map done by clinician ,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+122,Imported Shape,,105,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand the process rather being simply presented with a diagnosis and referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+123,Imported Shape,,105,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+124,Imported Shape,,105,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses (Supplementary videos 1-9),true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+125,Imported Shape,,105,,,,,,,Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+126,Imported Shape,,105,,,,,,,Segmentation Strategy,Argument over ambiguous and non-ambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+127,Decision,Flowchart Shapes,105,,,,,,,,,,,,,,,,,,,,
+128,Imported Shape,,105,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+129,Imported Shape,,105,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+130,Imported Shape,,105,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+131,Imported Shape,,105,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions (Figure 3),true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+132,Imported Shape,,105,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+133,Imported Shape,,105,,,,,,,Training Device Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+134,Imported Shape,,105,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+135,Imported Shape,,105,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+136,Imported Shape,,105,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+137,Imported Shape,,105,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+138,Imported Shape,,105,,,,,,,Device Independence Test Data,Scans from two different devices Topcon 3D  (224) and Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+139,Imported Shape,,105,,,,,,,Device Independence ,"Ability to build a tissue segmentation map independent  from the OCT scan device, making the classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+140,Line,,105,,,107,135,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+141,Line,,105,,,107,108,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+142,Line,,105,,,107,109,None,Arrow,,,,,,,,solved_by,,,,1,,3
+143,Line,,105,,,109,106,None,Arrow,,,,,,,,solved_by,,,,1,,3
+144,Line,,105,,,106,111,None,Arrow,,,,,,,,solved_by,,,,1,,3
+145,Line,,105,,,106,110,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+146,Line,,105,,,106,113,None,Hollow Arrow,,,,,,,,,,,,,,
+147,Line,,105,,,109,114,None,Arrow,,,,,,,,,,,,,,
+148,Line,,105,,,114,115,None,Arrow,,,,,,,,,,,,,,
+149,Line,,105,,,114,116,None,Arrow,,,,,,,,,,,,,,
+150,Line,,105,,,114,119,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+151,Line,,105,,,114,118,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+152,Line,,105,,,126,121,None,Arrow,,,,,,,,,,,,,,
+153,Line,,105,,,121,117,None,Arrow,,,,,,,,,,,,,,
+154,Line,,105,,,125,122,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+155,Line,,105,,,116,126,None,Arrow,,,,,,,,,,,,,,
+156,Line,,105,,,123,124,None,Arrow,,,,,,,,,,,,,,
+157,Line,,105,,,114,125,None,Arrow,,,,,,,,,,,,,,
+158,Line,,105,,,126,123,None,Arrow,,,,,,,,,,,,,,
+159,Line,,105,,,123,128,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+160,Line,,105,,,106,129,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+161,Line,,105,,,106,130,None,Arrow,,,,,,,,solved_by,,,,1,,3
+162,Line,,105,,,130,131,None,Arrow,,,,,,,,solved_by,,,,1,,3
+163,Line,,105,,,106,132,None,Hollow Arrow,,,,,,,,,,,,,,
+164,Line,,105,,,133,134,None,Arrow,,,,,,,,,,,,,,
+165,Line,,105,,,115,133,None,Arrow,,,,,,,,,,,,,,
+166,Line,,105,,,134,112,None,Arrow,,,,,,,,,,,,,,
+167,Line,,105,,,133,120,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+168,Line,,105,,,106,136,None,Hollow Arrow,,,,,,,,,,,,,,
+169,Line,,105,,,111,131,None,Arrow,,,,,,,,solved_by,,,,1,,3
+170,Line,,105,,,106,137,None,Hollow Arrow,,,,,,,,,,,,,,
+171,Line,,105,,,133,138,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+172,Line,,105,,,115,139,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+173,Page,,,,,,,,,With 3 branches,,,,,,,,,,,,,
+174,Imported Shape,,173,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+175,Imported Shape,,173,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+176,Imported Shape,,173,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+177,Imported Shape,,173,,,,,,,Assurance Strategy,Argument over sufficiency of both networks and transition between them,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+178,Imported Shape,,173,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+179,Imported Shape,,173,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+180,Imported Shape,,173,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+181,Imported Shape,,173,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+182,Imported Shape,,173,,,,,,,Outcome Performance,The tissue-segmentation map is at least as good as manual segmentation ,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+183,Imported Shape,,173,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate raw OCT scan into a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+184,Imported Shape,,173,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+185,Imported Shape,,173,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+186,Imported Shape,,173,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand the process rather being simply presented with a diagnosis and referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+187,Imported Shape,,173,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+188,Imported Shape,,173,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses (Supplementary videos 1-9),true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+189,Imported Shape,,173,,,,,,,Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+190,Imported Shape,,173,,,,,,,Segmentation Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+191,Decision,Flowchart Shapes,173,,,,,,,,,,,,,,,,,,,,
+192,Imported Shape,,173,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+193,Imported Shape,,173,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+194,Imported Shape,,173,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+195,Imported Shape,,173,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions (Figure 3),true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+196,Imported Shape,,173,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+197,Imported Shape,,173,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+198,Imported Shape,,173,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+199,Imported Shape,,173,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+200,Imported Shape,,173,,,,,,,Device Independence evidence,"Performance Results 
+(Table 1)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+201,Imported Shape,,173,,,,,,,Transition between Networks,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+202,Imported Shape,,173,,,,,,,Device Independence Training Data,Scans from two different devices Topcon 3D  (877) and Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+203,Imported Shape,,173,,,,,,,Training Device Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+204,Imported Shape,,173,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+205,Imported Shape,,173,,,,,,,Device Independence Test Data,Scans from two different devices Topcon 3D  (997) and Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+206,Imported Shape,,173,,,,,,,Device Independence ,"Ability to build a tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+207,Imported Shape,,173,,,,,,,Automated Segmentation  Evidence,"Results of Segmentation Network 
+( Figure 2 and Supplementary Figure 13)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+208,Imported Shape,,173,,,,,,,Classification Network,3-dimensional version of dense blocks  using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+209,Imported Shape,,173,,,,,,,Experts Profiles,"Per OCT, 3–5 slices, best representing pathological features, were selected and manually segmented by trained
+ophthalmologists. They were then reviewed and edited
+by a senior ophthalmologist.",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+210,Imported Shape,,173,,,,,,, Data," 1,101 scans from device type 1 and a 264 scans from device type 2.",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+211,Imported Shape,,173,,,,,,,Training strategy,"Five instances for both networks are trained, with a different order of input and random weight inizializations. Combining the outputs we have 25 classification outputs per scan. Results reported are obtained after averaging the probabilities estimated by these models.",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+212,Imported Shape,,173,,,,,,,Device Independence Validation Data,Scans from two different devices Topcon 3D  (224) and Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+213,Imported Shape,,173,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+214,Line,,173,,,175,197,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+215,Line,,173,,,175,176,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+216,Line,,173,,,175,177,None,Arrow,,,,,,,,solved_by,,,,1,,3
+217,Line,,173,,,177,174,None,Arrow,,,,,,,,solved_by,,,,1,,3
+218,Line,,173,,,174,179,None,Arrow,,,,,,,,solved_by,,,,1,,3
+219,Line,,173,,,174,178,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+220,Line,,173,,,174,180,None,Hollow Arrow,,,,,,,,,,,,,,
+221,Line,,173,,,177,181,None,Arrow,,,,,,,,,,,,,,
+222,Line,,173,,,181,182,None,Arrow,,,,,,,,,,,,,,
+223,Line,,173,,,181,184,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+224,Line,,173,,,177,183,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+225,Line,,173,,,190,185,None,Arrow,,,,,,,,,,,,,,
+226,Line,,173,,,185,207,None,Arrow,,,,,,,,,,,,,,
+227,Line,,173,,,189,186,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+228,Line,,173,,,182,190,None,Arrow,,,,,,,,,,,,,,
+229,Line,,173,,,187,188,None,Arrow,,,,,,,,,,,,,,
+230,Line,,173,,,181,189,None,Arrow,,,,,,,,,,,,,,
+231,Line,,173,,,190,187,None,Arrow,,,,,,,,,,,,,,
+232,Line,,173,,,187,192,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+233,Line,,173,,,174,193,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+234,Line,,173,,,174,194,None,Arrow,,,,,,,,solved_by,,,,1,,3
+235,Line,,173,,,194,195,None,Arrow,,,,,,,,solved_by,,,,1,,3
+236,Line,,173,,,174,196,None,Hollow Arrow,,,,,,,,,,,,,,
+237,Line,,173,,,174,198,None,Hollow Arrow,,,,,,,,,,,,,,
+238,Line,,173,,,179,195,None,Arrow,,,,,,,,solved_by,,,,1,,3
+239,Line,,173,,,174,199,None,Hollow Arrow,,,,,,,,,,,,,,
+240,Line,,173,,,203,204,None,Arrow,,,,,,,,,,,,,,
+241,Line,,173,,,201,203,None,Arrow,,,,,,,,,,,,,,
+242,Line,,173,,,204,200,None,Arrow,,,,,,,,,,,,,,
+243,Line,,173,,,203,202,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+244,Line,,173,,,203,205,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+245,Line,,173,,,201,206,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+246,Line,,173,,,177,201,None,Arrow,,,,,,,,,,,,,,
+247,Line,,173,,,177,208,None,Hollow Arrow,,,,,,,,,,,,,,
+248,Line,,173,,,182,209,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+249,Line,,173,,,182,210,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+250,Line,,173,,,177,211,None,Hollow Arrow,,,,,,,,,,,,,,
+251,Line,,173,,,203,212,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+252,Line,,173,,,,213,None,Hollow Arrow,,,,,,,,,,,,,,
+253,Page,,,,,,,,,With 2 branches,,,,,,,,,,,,,
+254,Imported Shape,,253,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+255,Imported Shape,,253,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+256,Imported Shape,,253,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+257,Imported Shape,,253,,,,,,,Assurance Strategy,Argument over sufficiency of both networks ,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+258,Imported Shape,,253,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+259,Imported Shape,,253,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+260,Imported Shape,,253,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+261,Imported Shape,,253,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+262,Imported Shape,,253,,,,,,,Outcome Performance,The tissue-segmentation map is at least as good as manual segmentation ,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+263,Imported Shape,,253,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate a raw OCT scan to a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+264,Imported Shape,,253,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+265,Imported Shape,,253,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+266,Imported Shape,,253,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand the process rather being simply presented with a diagnosis and referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+267,Imported Shape,,253,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+268,Imported Shape,,253,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses (Supplementary videos 1-9),true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+269,Imported Shape,,253,,,,,,,Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+270,Imported Shape,,253,,,,,,,Segmentation Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+271,Decision,Flowchart Shapes,253,,,,,,,,,,,,,,,,,,,,
+272,Imported Shape,,253,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+273,Imported Shape,,253,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+274,Imported Shape,,253,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+275,Imported Shape,,253,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions (Figure 3),true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+276,Imported Shape,,253,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+277,Imported Shape,,253,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+278,Imported Shape,,253,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+279,Imported Shape,,253,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+280,Imported Shape,,253,,,,,,,Automated Segmentation  Evidence,"Results of Segmentation Network 
+(Figure 2 and Supplementary Figure 13)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+281,Imported Shape,,253,,,,,,,Classification Network,3-dimensional version of dense blocks using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+282,Imported Shape,,253,,,,,,,Experts Profiles,Manual segmentation by trained X ophthalmologists. Results  were then reviewed and edited by a senior ophthalmologist with over 10 years of experience,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+283,Imported Shape,,253,,,,,,,Training strategy,"Five instances for both networks are trained, with a different order of input and random weight initialisations. Combining the outputs has produced 25 classification outputs per scan. Results reported are obtained after averaging the probabilities estimated by these models.",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+284,Imported Shape,,253,,,,,,,Device Independence evidence,"Performance Results 
+(Table 1)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+285,Imported Shape,,253,,,,,,,Transition between Networks,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+286,Imported Shape,,253,,,,,,,Training Data,Scans from two different devices Topcon 3D  (877) & Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+287,Imported Shape,,253,,,,,,,Training Device Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+288,Imported Shape,,253,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+289,Imported Shape,,253,,,,,,, Test Data,Scans from two different devices Topcon 3D  (997) & Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+290,Imported Shape,,253,,,,,,,Device Independence ,"Ability to build a tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+291,Imported Shape,,253,,,,,,, Validation Data,Scans from two different devices Topcon 3D  (224) & Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+292,Imported Shape,,253,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+293,Imported Shape,,253,,,,,,,Training strategy,"Per OCT, 3–5 slices, best representing pathological features, were selected and manually segmented by the experts. ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+294,Note,Default,253,,,,,,,Is there a way to merge these two?,,,,,,,,,,,,,
+295,Line,,253,,,255,277,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+296,Line,,253,,,255,256,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+297,Line,,253,,,255,257,None,Arrow,,,,,,,,solved_by,,,,1,,3
+298,Line,,253,,,254,259,None,Arrow,,,,,,,,solved_by,,,,1,,3
+299,Line,,253,,,254,258,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+300,Line,,253,,,254,260,None,Hollow Arrow,,,,,,,,,,,,,,
+301,Line,,253,,,257,261,None,Arrow,,,,,,,,,,,,,,
+302,Line,,253,,,261,262,None,Arrow,,,,,,,,,,,,,,
+303,Line,,253,,,261,264,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+304,Line,,253,,,257,263,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+305,Line,,253,,,270,265,None,Arrow,,,,,,,,,,,,,,
+306,Line,,253,,,265,280,None,Arrow,,,,,,,,,,,,,,
+307,Line,,253,,,269,266,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+308,Line,,253,,,262,270,None,Arrow,,,,,,,,,,,,,,
+309,Line,,253,,,267,268,None,Arrow,,,,,,,,,,,,,,
+310,Line,,253,,,261,269,None,Arrow,,,,,,,,,,,,,,
+311,Line,,253,,,270,267,None,Arrow,,,,,,,,,,,,,,
+312,Line,,253,,,267,272,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+313,Line,,253,,,254,273,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+314,Line,,253,,,254,274,None,Arrow,,,,,,,,solved_by,,,,1,,3
+315,Line,,253,,,274,275,None,Arrow,,,,,,,,solved_by,,,,1,,3
+316,Line,,253,,,254,276,None,Hollow Arrow,,,,,,,,,,,,,,
+317,Line,,253,,,254,278,None,Hollow Arrow,,,,,,,,,,,,,,
+318,Line,,253,,,259,275,None,Arrow,,,,,,,,solved_by,,,,1,,3
+319,Line,,253,,,254,279,None,Hollow Arrow,,,,,,,,,,,,,,
+320,Line,,253,,,257,281,None,Hollow Arrow,,,,,,,,,,,,,,
+321,Line,,253,,,261,282,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+322,Line,,253,,,254,292,None,Hollow Arrow,,,,,,,,,,,,,,
+323,Line,,253,,,287,288,None,Arrow,,,,,,,,,,,,,,
+324,Line,,253,,,285,287,None,Arrow,,,,,,,,,,,,,,
+325,Line,,253,,,288,284,None,Arrow,,,,,,,,,,,,,,
+326,Line,,253,,,261,286,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+327,Line,,253,,,261,289,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+328,Line,,253,,,285,290,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+329,Line,,253,,,261,291,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+330,Line,,253,,,257,254,None,Arrow,,,,,,,,,,,,,,
+331,Line,,253,,,261,285,None,Arrow,,,,,,,,,,,,,,
+332,Page,,,,,,,,,With 2 branches Updated,,,,,,,,,,,,,
+333,Imported Shape,,332,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+334,Imported Shape,,332,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+335,Imported Shape,,332,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+336,Imported Shape,,332,,,,,,,Assurance Strategy,Argument over sufficiency of both networks ,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+337,Imported Shape,,332,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+338,Imported Shape,,332,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+339,Imported Shape,,332,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+340,Imported Shape,,332,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+341,Imported Shape,,332,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate a raw OCT scan to a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+342,Imported Shape,,332,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+343,Imported Shape,,332,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+344,Imported Shape,,332,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand process rather simply presented with a diagnosis & referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+345,Imported Shape,,332,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+346,Imported Shape,,332,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+347,Imported Shape,,332,,,,,,,Segmentation Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+348,Imported Shape,,332,,,,,,,Output Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+349,Decision,Flowchart Shapes,332,,,,,,,,,,,,,,,,,,,,
+350,Imported Shape,,332,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+351,Imported Shape,,332,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+352,Imported Shape,,332,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+353,Imported Shape,,332,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions ,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+354,Imported Shape,,332,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+355,Imported Shape,,332,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+356,Imported Shape,,332,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+357,Imported Shape,,332,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+358,Imported Shape,,332,,,,,,,Automated Segmentation  Evidence,Results of Segmentation Network ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+359,Imported Shape,,332,,,,,,,Classification Network,3-dimensional version of dense blocks using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+360,Imported Shape,,332,,,,,,,Experts Profiles,Manual segmentation by X trained ophthalmologists & then reviewed and edited by a senior ophthalmologist with over 10 years of experience,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+361,Imported Shape,,332,,,,,,,Training strategy,"Five instances for both networks are trained, with a different order of input and random weight initialisations. Combining the outputs has produced 25 classification outputs per scan. Results reported are obtained after averaging the probabilities estimated by these models.",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+362,Imported Shape,,332,,,,,,,Device Independence evidence,Performance Results ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+363,Imported Shape,,332,,,,,,,Segmentation Outcome Performance,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+364,Imported Shape,,332,,,,,,,Training Data,Scans from two different devices Topcon 3D  (877) & Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+365,Imported Shape,,332,,,,,,,Device Training Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+366,Imported Shape,,332,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+367,Imported Shape,,332,,,,,,, Test Data,Scans from two different devices Topcon 3D  (997) & Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+368,Imported Shape,,332,,,,,,,Device Independence ,"A tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+369,Imported Shape,,332,,,,,,, Validation Data,Scans from two different devices Topcon 3D  (224) & Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+370,Imported Shape,,332,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+371,Imported Shape,,332,,,,,,,Training strategy,"Per OCT, 3–5 slices, best representing pathological features, were selected and manually segmented by the experts. ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+372,Line,,332,,,334,355,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+373,Line,,332,,,334,335,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+374,Line,,332,,,334,336,None,Arrow,,,,,,,,solved_by,,,,1,,3
+375,Line,,332,,,333,338,None,Arrow,,,,,,,,solved_by,,,,1,,3
+376,Line,,332,,,333,337,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+377,Line,,332,,,333,339,None,Hollow Arrow,,,,,,,,,,,,,,
+378,Line,,332,,,336,340,None,Arrow,,,,,,,,,,,,,,
+379,Line,,332,,,340,342,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+380,Line,,332,,,336,341,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+381,Line,,332,,,348,343,None,Arrow,,,,,,,,,,,,,,
+382,Line,,332,,,343,358,None,Arrow,,,,,,,,,,,,,,
+383,Line,,332,,,347,344,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+384,Line,,332,,,363,348,None,Arrow,,,,,,,,,,,,,,
+385,Line,,332,,,345,346,None,Arrow,,,,,,,,,,,,,,
+386,Line,,332,,,340,347,None,Arrow,,,,,,,,,,,,,,
+387,Line,,332,,,348,345,None,Arrow,,,,,,,,,,,,,,
+388,Line,,332,,,345,350,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+389,Line,,332,,,333,351,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+390,Line,,332,,,333,352,None,Arrow,,,,,,,,solved_by,,,,1,,3
+391,Line,,332,,,352,353,None,Arrow,,,,,,,,solved_by,,,,1,,3
+392,Line,,332,,,333,354,None,Hollow Arrow,,,,,,,,,,,,,,
+393,Line,,332,,,333,356,None,Hollow Arrow,,,,,,,,,,,,,,
+394,Line,,332,,,338,353,None,Arrow,,,,,,,,solved_by,,,,1,,3
+395,Line,,332,,,333,357,None,Hollow Arrow,,,,,,,,,,,,,,
+396,Line,,332,,,336,359,None,Hollow Arrow,,,,,,,,,,,,,,
+397,Line,,332,,,340,360,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+398,Line,,332,,,333,370,None,Hollow Arrow,,,,,,,,,,,,,,
+399,Line,,332,,,365,366,None,Arrow,,,,,,,,,,,,,,
+400,Line,,332,,,363,365,None,Arrow,,,,,,,,,,,,,,
+401,Line,,332,,,366,362,None,Arrow,,,,,,,,,,,,,,
+402,Line,,332,,,340,364,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+403,Line,,332,,,340,367,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+404,Line,,332,,,363,368,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+405,Line,,332,,,340,369,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+406,Line,,332,,,336,333,None,Arrow,,,,,,,,,,,,,,
+407,Line,,332,,,340,363,None,Arrow,,,,,,,,,,,,,,
+408,Page,,,,,,,,,Fig 1,,,,,,,,,,,,,
+409,MinimalTextBlock,Default,408,,,,,,,Shown in Figure 3,,,,,,,,,,,,,
+410,Imported Shape,,408,,,,,,,Legend,,,,,,,,,,,,,
+411,Imported Shape,,408,,,,,,,{Goal Identifier},<Claim Statement>,true,,true,true,,goal,,{Goal Identifier} ,,,<Claim Statement> ,1
+412,Imported Shape,,408,,,,,,,{Strategy Identifier},<Strategy Statement>,,,true,true,,strategy,,{Strategy Identifier} ,,,<Strategy Statement> ,1
+413,Imported Shape,,408,,,,,,,{Context Identifier},<Context Statement>,true,,true,true,,context,,{Context Identifier} ,,,<Context Statement> ,2
+414,Decision,Flowchart Shapes,408,,,,,,,,,,,,,,,,,,,,
+415,Text,Default,408,,,,,,,To be developed,,,,,,,,,,,,,
+416,Imported Shape,,408,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+417,Imported Shape,,408,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+418,Imported Shape,,408,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+419,Imported Shape,,408,,,,,,,Assurance Strategy,Argument over sufficiency of both networks ,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+420,Imported Shape,,408,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+421,Imported Shape,,408,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate a raw OCT scan to a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+422,Imported Shape,,408,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+423,Imported Shape,,408,,,,,,,Classification Network,3-dimensional version of dense blocks using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+424,Isosceles Triangle,Geometric Shapes,408,,,,,,,,,,,,,,,,,,,,
+425,MinimalTextBlock,Default,408,,,,,,,Shown in Figure 4,,,,,,,,,,,,,
+426,Isosceles Triangle,Geometric Shapes,408,,,,,,,,,,,,,,,,,,,,
+427,Imported Shape,,408,,,,,,,{Solution},<Evidence Reference>,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+428,Text,Default,408,,,,,,,In context of,,,,,,,,,,,,,
+429,Text,Default,408,,,,,,,Supported by,,,,,,,,,,,,,
+430,Line,,408,,,417,422,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+431,Line,,408,,,417,418,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+432,Line,,408,,,419,421,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+433,Line,,408,,,419,423,None,Hollow Arrow,,,,,,,,,,,,,,
+434,Line,,408,,,417,419,None,Arrow,,,,,,,,,,,,,,
+435,Line,,408,,,419,420,None,Arrow,,,,,,,,,,,,,,
+436,Line,,408,,,419,416,None,Arrow,,,,,,,,,,,,,,
+437,Line,,408,,,428,,Hollow Arrow,None,,,,,,,,,,,,,,
+438,Line,,408,,,429,,Arrow,None,,,,,,,,,,,,,,
+439,Page,,,,,,,,,Fig 2,,,,,,,,,,,,,
+440,Imported Shape,,439,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+441,Imported Shape,,439,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+442,Imported Shape,,439,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+443,Imported Shape,,439,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand process rather simply presented with a diagnosis & referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+444,Imported Shape,,439,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+445,Imported Shape,,439,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+446,Imported Shape,,439,,,,,,,Segmentation Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+447,Imported Shape,,439,,,,,,,Output Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+448,Decision,Flowchart Shapes,439,,,,,,,,,,,,,,,,,,,,
+449,Imported Shape,,439,,,,,,,Ambiguous Regions,"Different maps, similar to experts, agree in areas where image is clear but may contain different but plausible interpretations in low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+450,Imported Shape,,439,,,,,,,Automated Segmentation  Evidence,Results of Segmentation Network ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+451,Imported Shape,,439,,,,,,,Experts Profiles,Manual segmentation by trained ophthalmologists & then reviewed and edited by a senior ophthalmologist with over 10 years of experience,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+452,Imported Shape,,439,,,,,,,Device Independence evidence,Performance Results ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+453,Imported Shape,,439,,,,,,,Segmentation Outcome Performance,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+454,Imported Shape,,439,,,,,,,Training Data,Scans from two different devices Topcon 3D  (877) & Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+455,Imported Shape,,439,,,,,,,Device Training Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+456,Imported Shape,,439,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+457,Imported Shape,,439,,,,,,, Test Data,Scans from two different devices Topcon 3D  (997) & Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+458,Imported Shape,,439,,,,,,,Device Independence ,"A tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+459,Imported Shape,,439,,,,,,, Validation Data,Scans from two different devices Topcon 3D  (224) & Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+460,Line,,439,,,440,441,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+461,Line,,439,,,447,442,None,Arrow,,,,,,,,,,,,,,
+462,Line,,439,,,442,450,None,Arrow,,,,,,,,,,,,,,
+463,Line,,439,,,446,443,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+464,Line,,439,,,453,447,None,Arrow,,,,,,,,,,,,,,
+465,Line,,439,,,444,445,None,Arrow,,,,,,,,,,,,,,
+466,Line,,439,,,440,446,None,Arrow,,,,,,,,,,,,,,
+467,Line,,439,,,447,444,None,Arrow,,,,,,,,,,,,,,
+468,Line,,439,,,444,449,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+469,Line,,439,,,440,451,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+470,Line,,439,,,455,456,None,Arrow,,,,,,,,,,,,,,
+471,Line,,439,,,453,455,None,Arrow,,,,,,,,,,,,,,
+472,Line,,439,,,456,452,None,Arrow,,,,,,,,,,,,,,
+473,Line,,439,,,440,454,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+474,Line,,439,,,440,457,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+475,Line,,439,,,453,458,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+476,Line,,439,,,440,459,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+477,Line,,439,,,440,453,None,Arrow,,,,,,,,,,,,,,
+478,Page,,,,,,,,,Fig 3,,,,,,,,,,,,,
+479,Imported Shape,,478,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+480,Imported Shape,,478,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+481,Imported Shape,,478,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+482,Imported Shape,,478,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+483,Imported Shape,,478,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+484,Imported Shape,,478,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+485,Imported Shape,,478,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions ,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+486,Imported Shape,,478,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+487,Imported Shape,,478,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+488,Imported Shape,,478,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+489,Imported Shape,,478,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+490,Line,,478,,,479,481,None,Arrow,,,,,,,,solved_by,,,,1,,3
+491,Line,,478,,,479,480,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+492,Line,,478,,,479,482,None,Hollow Arrow,,,,,,,,,,,,,,
+493,Line,,478,,,479,483,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+494,Line,,478,,,479,484,None,Arrow,,,,,,,,solved_by,,,,1,,3
+495,Line,,478,,,484,485,None,Arrow,,,,,,,,solved_by,,,,1,,3
+496,Line,,478,,,479,486,None,Hollow Arrow,,,,,,,,,,,,,,
+497,Line,,478,,,479,487,None,Hollow Arrow,,,,,,,,,,,,,,
+498,Line,,478,,,481,485,None,Arrow,,,,,,,,solved_by,,,,1,,3
+499,Line,,478,,,479,488,None,Hollow Arrow,,,,,,,,,,,,,,
+500,Line,,478,,,479,489,None,Hollow Arrow,,,,,,,,,,,,,,
+501,Page,,,,,,,,,Fig 4,,,,,,,,,,,,,
+502,Imported Shape,,501,,,,,,,Device Independence evidence,"Performance Results 
+(Table 1)",true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+503,Imported Shape,,501,,,,,,,Transition between Networks,Segmentation network creates a device-independent tissue-segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+504,Imported Shape,,501,,,,,,,Device Independence Training Data,Scans from two different devices Topcon 3D  (877) and Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+505,Imported Shape,,501,,,,,,,Training Device Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+506,Imported Shape,,501,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+507,Imported Shape,,501,,,,,,,Device Independence Test Data,Scans from two different devices Topcon 3D  (224) and Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+508,Imported Shape,,501,,,,,,,Device Independence ,"Ability to build a tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+509,Line,,501,,,505,506,None,Arrow,,,,,,,,,,,,,,
+510,Line,,501,,,503,505,None,Arrow,,,,,,,,,,,,,,
+511,Line,,501,,,506,502,None,Arrow,,,,,,,,,,,,,,
+512,Line,,501,,,505,504,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+513,Line,,501,,,505,507,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+514,Line,,501,,,503,508,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+515,Page,,,,,,,,,all,,,,,,,,,,,,,
+516,Imported Shape,,515,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+517,Imported Shape,,515,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+518,Imported Shape,,515,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+519,Imported Shape,,515,,,,,,,Assurance Strategy,Argument over sufficiency of both networks ,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+520,Imported Shape,,515,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+521,Imported Shape,,515,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+522,Imported Shape,,515,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+523,Imported Shape,,515,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+524,Imported Shape,,515,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate a raw OCT scan to a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+525,Imported Shape,,515,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+526,Imported Shape,,515,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+527,Imported Shape,,515,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand process rather simply presented with a diagnosis & referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+528,Imported Shape,,515,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+529,Imported Shape,,515,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+530,Imported Shape,,515,,,,,,,Segmentation Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+531,Imported Shape,,515,,,,,,,Output Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+532,Decision,Flowchart Shapes,515,,,,,,,,,,,,,,,,,,,,
+533,Imported Shape,,515,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+534,Imported Shape,,515,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+535,Imported Shape,,515,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+536,Imported Shape,,515,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions ,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+537,Imported Shape,,515,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+538,Imported Shape,,515,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+539,Imported Shape,,515,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+540,Imported Shape,,515,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+541,Imported Shape,,515,,,,,,,Automated Segmentation  Evidence,Results of Segmentation Network ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+542,Imported Shape,,515,,,,,,,Classification Network,3-dimensional version of dense blocks using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+543,Imported Shape,,515,,,,,,,Experts Profiles,Manual segmentation by X trained ophthalmologists & then reviewed and edited by a senior ophthalmologist with over 10 years of experience,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+544,Imported Shape,,515,,,,,,,Device Independence evidence,Performance Results ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+545,Imported Shape,,515,,,,,,,Segmentation Outcome Performance,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+546,Imported Shape,,515,,,,,,,Training Data,Scans from two different devices Topcon 3D  (877) & Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+547,Imported Shape,,515,,,,,,,Device Training Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+548,Imported Shape,,515,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+549,Imported Shape,,515,,,,,,, Test Data,Scans from two different devices Topcon 3D  (997) & Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+550,Imported Shape,,515,,,,,,,Device Independence ,"A tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+551,Imported Shape,,515,,,,,,, Validation Data,Scans from two different devices Topcon 3D  (224) & Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+552,Imported Shape,,515,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+553,Line,,515,,,517,538,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+554,Line,,515,,,517,518,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+555,Line,,515,,,517,519,None,Arrow,,,,,,,,solved_by,,,,1,,3
+556,Line,,515,,,516,521,None,Arrow,,,,,,,,solved_by,,,,1,,3
+557,Line,,515,,,516,520,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+558,Line,,515,,,516,522,None,Hollow Arrow,,,,,,,,,,,,,,
+559,Line,,515,,,519,523,None,Arrow,,,,,,,,,,,,,,
+560,Line,,515,,,523,525,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+561,Line,,515,,,519,524,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+562,Line,,515,,,531,526,None,Arrow,,,,,,,,,,,,,,
+563,Line,,515,,,526,541,None,Arrow,,,,,,,,,,,,,,
+564,Line,,515,,,530,527,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+565,Line,,515,,,545,531,None,Arrow,,,,,,,,,,,,,,
+566,Line,,515,,,528,529,None,Arrow,,,,,,,,,,,,,,
+567,Line,,515,,,523,530,None,Arrow,,,,,,,,,,,,,,
+568,Line,,515,,,531,528,None,Arrow,,,,,,,,,,,,,,
+569,Line,,515,,,528,533,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+570,Line,,515,,,516,534,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+571,Line,,515,,,516,535,None,Arrow,,,,,,,,solved_by,,,,1,,3
+572,Line,,515,,,535,536,None,Arrow,,,,,,,,solved_by,,,,1,,3
+573,Line,,515,,,516,537,None,Hollow Arrow,,,,,,,,,,,,,,
+574,Line,,515,,,516,539,None,Hollow Arrow,,,,,,,,,,,,,,
+575,Line,,515,,,521,536,None,Arrow,,,,,,,,solved_by,,,,1,,3
+576,Line,,515,,,516,540,None,Hollow Arrow,,,,,,,,,,,,,,
+577,Line,,515,,,519,542,None,Hollow Arrow,,,,,,,,,,,,,,
+578,Line,,515,,,523,543,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+579,Line,,515,,,516,552,None,Hollow Arrow,,,,,,,,,,,,,,
+580,Line,,515,,,547,548,None,Arrow,,,,,,,,,,,,,,
+581,Line,,515,,,545,547,None,Arrow,,,,,,,,,,,,,,
+582,Line,,515,,,548,544,None,Arrow,,,,,,,,,,,,,,
+583,Line,,515,,,523,546,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+584,Line,,515,,,523,549,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+585,Line,,515,,,545,550,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+586,Line,,515,,,523,551,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+587,Line,,515,,,519,516,None,Arrow,,,,,,,,,,,,,,
+588,Line,,515,,,523,545,None,Arrow,,,,,,,,,,,,,,
+589,Page,,,,,,,,,ML Arg Pattern,,,,,,,,,,,,,
+590,Imported Shape,,589,,,,,,,Performance Claim,,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+591,Imported Shape,,589,,,,,,,Machine Learning Technology,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+592,Imported Shape,,589,,,,,,,Training Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+593,Imported Shape,,589,,,,,,,Setting,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+594,Imported Shape,,589,,,,,,,Performance Evidence,,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+595,Imported Shape,,589,,,,,,,Test Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+596,MinimalTextBlock,Default,589,,620,,,,,ACP1,,,,,,,,,,,,,
+597,Text,Default,589,,620,,,,,,,,,,,,,,,,,,
+598,MinimalTextBlock,Default,589,,621,,,,,ACP2,,,,,,,,,,,,,
+599,Text,Default,589,,621,,,,,,,,,,,,,,,,,,
+600,MinimalTextBlock,Default,589,,622,,,,,ACP7,,,,,,,,,,,,,
+601,Text,Default,589,,622,,,,,,,,,,,,,,,,,,
+602,MinimalTextBlock,Default,589,,623,,,,,ACP5,,,,,,,,,,,,,
+603,Text,Default,589,,623,,,,,,,,,,,,,,,,,,
+604,MinimalTextBlock,Default,589,,624,,,,,ACP4,,,,,,,,,,,,,
+605,Text,Default,589,,624,,,,,,,,,,,,,,,,,,
+606,Imported Shape,,589,,,,,,,Benchmark,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+607,MinimalTextBlock,Default,589,,625,,,,,ACP3,,,,,,,,,,,,,
+608,Text,Default,589,,625,,,,,,,,,,,,,,,,,,
+609,Imported Shape,,589,,,,,,,Validation Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+610,MinimalTextBlock,Default,589,,626,,,,,ACP6,,,,,,,,,,,,,
+611,Text,Default,589,,626,,,,,,,,,,,,,,,,,,
+612,Circle,Geometric Shapes,589,,,,,,,,,,,,,,,,,,,,
+613,Line,,589,,,590,594,None,Arrow,,,,,,,,solved_by,,,,1,,3
+614,Line,,589,,,590,591,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+615,Line,,589,,,590,592,None,Hollow Arrow,,,,,,,,,,,,,,
+616,Line,,589,,,590,593,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+617,Line,,589,,,590,595,None,Hollow Arrow,,,,,,,,,,,,,,
+618,Line,,589,,,590,606,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+619,Line,,589,,,590,609,None,Hollow Arrow,,,,,,,,,,,,,,
+620,Group 1,,589,,,,,,,,,,,,,,,,,,,,
+621,Group 2,,589,,,,,,,,,,,,,,,,,,,,
+622,Group 3,,589,,,,,,,,,,,,,,,,,,,,
+623,Group 4,,589,,,,,,,,,,,,,,,,,,,,
+624,Group 5,,589,,,,,,,,,,,,,,,,,,,,
+625,Group 6,,589,,,,,,,,,,,,,,,,,,,,
+626,Group 7,,589,,,,,,,,,,,,,,,,,,,,
+627,Page,,,,,,,,,ML Arg Pattern without ACPs,,,,,,,,,,,,,
+628,Imported Shape,,627,,,,,,,Performance Claim,,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+629,Imported Shape,,627,,,,,,,Machine Learning Technology,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+630,Imported Shape,,627,,,,,,,Training Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+631,Imported Shape,,627,,,,,,,Setting,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+632,Imported Shape,,627,,,,,,,Performance Evidence,,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+633,Imported Shape,,627,,,,,,,Test Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+634,Imported Shape,,627,,,,,,,Benchmark,,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+635,Imported Shape,,627,,,,,,,Validation Data,,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+636,Line,,627,,,628,632,None,Arrow,,,,,,,,solved_by,,,,1,,3
+637,Line,,627,,,628,629,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+638,Line,,627,,,628,630,None,Hollow Arrow,,,,,,,,,,,,,,
+639,Line,,627,,,628,631,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+640,Line,,627,,,628,633,None,Hollow Arrow,,,,,,,,,,,,,,
+641,Line,,627,,,628,634,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+642,Line,,627,,,628,635,None,Hollow Arrow,,,,,,,,,,,,,,
+643,Page,,,,,,,,,test,,,,,,,,,,,,,
+644,Imported Shape,,643,,,,,,,Classification Network Claim,Classification network achieves or exceeds expert performance with tissue segmentation maps as input,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+645,Imported Shape,,643,,,,,,,ML Assurance Claim,Automated Retinal Diagnosis provides the correct diagnosis and referral in the defined clinical setting ,true,,true,true,,goal,,HIT Safety ,,,Health IT is safe to use in the defined care setting ,1
+646,Imported Shape,,643,,,,,,,Automated Retinal Diagnosis,A deep learning architecture comprising 2 different Neural Networks: segmentation & classification,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+647,Imported Shape,,643,,,,,,,Assurance Strategy,Argument over sufficiency of both networks ,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+648,Imported Shape,,643,,,,,,,Experts Profiles,"4 retina specialists with 21, 21, 13 and 12 years of experience and 4 optometrists with 15, 9, 6 and 3 years of experience ",true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+649,Imported Shape,,643,,,,,,,Performance ,"Using only OCT scans, network performance matched the 2 best retina specialists and outperformed all other experts",true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+650,Imported Shape,,643,,,,,,,Training Data,14884 scans for 7621 patients who were referred with macular pathology symptoms,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+651,Imported Shape,,643,,,,,,,Segmentation Network Claim,Segmentation network creates detailed human interpretable tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+652,Imported Shape,,643,,,,,,,Segmentation Network ,3-dimensional U-Net architecture to translate a raw OCT scan to a tissue-segmentation map ,true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+653,Imported Shape,,643,,,,,,,"Tissue-segmentation Map 
+",Used for identifying clinical features in scans for diagnosis,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+654,Imported Shape,,643,,,,,,,Unambiguous Regions,Tissue-segmentation map obtained by network is consistent with manual segmentation map,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+655,Imported Shape,,643,,,,,,,"Segmentation Visualisation
+",Clinicians can visualise segmentation outcome & understand process rather simply presented with a diagnosis & referral suggestions ,true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+656,Imported Shape,,643,,,,,,,Ambiguous Regions,The ambiguous regions in OCT scans are addressed by training multiple instances of the network,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+657,Imported Shape,,643,,,,,,,Ambigous Regions Evidence,Video displaying multiple segmentation hypotheses ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+658,Imported Shape,,643,,,,,,,Segmentation Outcome Interpretability,"The tissue-segmentation map is readily viewable by a clinician 
+",true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+659,Imported Shape,,643,,,,,,,Output Strategy,Argument over ambiguous and unambiguous regions,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+660,Decision,Flowchart Shapes,643,,,,,,,,,,,,,,,,,,,,
+661,Imported Shape,,643,,,,,,,Ambiguous Low-quality Regions,"Different maps, similar to human experts, agree in areas where image is clear but may contain different (but plausible) interpretations in ambiguous low-quality regions",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+662,Imported Shape,,643,,,,,,,Timeline,Experts had 2 sessions with a two week gap: (1) referral with only scans; (2) referral with scans plus fundus images & clinical notes,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+663,Imported Shape,,643,,,,,,,Performance + Clinical Info,With additional information expert performance improved but the network remained as good as the best 5 experts and outperformed the other 3.,true,,true,true,,goal,,Clinical Benefits ,,,Overriding clinical benefits outweigh the residual clinical risk and further control is not practicable ,1
+664,Imported Shape,,643,,,,,,,Classification Performance Evidence,Results on Patient Referral Decisions ,true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+665,Imported Shape,,643,,,,,,,Gold Standard,Gold standard obtained by examining clinical records to determine the final diagnosis and optimal referral pathway,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+666,Imported Shape,,643,,,,,,,Clinical Setting,"Triage in an ophthalmology referral pathway at Moorfields Eye Hospital, with more than 50 common diagnoses",true,,true,true,,context,,HIT ,,,HIT Specifications ,2
+667,Imported Shape,,643,,,,,,,Test Data,997 included in the gold standard (not included in training dataset ),true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+668,Imported Shape,,643,,,,,,,"Clinical Impact Weighting
+","By weighted different types of diagnostic errors, performance was not achieved at cost of missing clinically important sight-threatening diagnoses",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+669,Imported Shape,,643,,,,,,,Automated Segmentation  Evidence,Results of Segmentation Network ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+670,Imported Shape,,643,,,,,,,Classification Network,3-dimensional version of dense blocks using 3 × 3 × 1 and 1 × 1 × 3 convolutions,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+671,Imported Shape,,643,,,,,,,Experts Profiles,Manual segmentation by X trained ophthalmologists & then reviewed and edited by a senior ophthalmologist with over 10 years of experience,true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+672,Imported Shape,,643,,,,,,,Device Independence evidence,Performance Results ,true,,true,true,,solution,,HL 1 ,,,Hazard Log (acceptable clinical risks) ,1
+673,Imported Shape,,643,,,,,,,Segmentation Outcome Performance,Segmentation network produces device-independent tissue-segmentation maps,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+674,Imported Shape,,643,,,,,,,Training Data,Scans from two different devices Topcon 3D  (877) & Spectralis (152),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+675,Imported Shape,,643,,,,,,,Device Training Strategy,Argument by training segmentation network on scans from 2 different devices,,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+676,Imported Shape,,643,,,,,,,Device Independence Results,An Area Under ROC Curve (AUC) of 99.21 and 99.93 is achieved respectively for the 1st and the 2nd device considering urgent referral,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+677,Imported Shape,,643,,,,,,, Test Data,Scans from two different devices Topcon 3D  (997) & Spectralis (116),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+678,Imported Shape,,643,,,,,,,Device Independence ,"A tissue segmentation map independent from the OCT scan device, making classification network device independent",true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+679,Imported Shape,,643,,,,,,, Validation Data,Scans from two different devices Topcon 3D  (224) & Spectralis (112),true,,true,true,,context,,Care Setting ,,,Care Setting Description ,2
+680,Imported Shape,,643,,,,,,,Validation Data,993 graded by three junior graders. Disagreement in clinical labels arbitrated by a senior grader. ,true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+681,Line,,643,,,645,666,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+682,Line,,643,,,645,646,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+683,Line,,643,,,645,647,None,Arrow,,,,,,,,solved_by,,,,1,,3
+684,Line,,643,,,644,649,None,Arrow,,,,,,,,solved_by,,,,1,,3
+685,Line,,643,,,644,648,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+686,Line,,643,,,644,650,None,Hollow Arrow,,,,,,,,,,,,,,
+687,Line,,643,,,647,651,None,Arrow,,,,,,,,,,,,,,
+688,Line,,643,,,651,653,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+689,Line,,643,,,647,652,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+690,Line,,643,,,659,654,None,Arrow,,,,,,,,,,,,,,
+691,Line,,643,,,654,669,None,Arrow,,,,,,,,,,,,,,
+692,Line,,643,,,658,655,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+693,Line,,643,,,673,659,None,Arrow,,,,,,,,,,,,,,
+694,Line,,643,,,656,657,None,Arrow,,,,,,,,,,,,,,
+695,Line,,643,,,651,658,None,Arrow,,,,,,,,,,,,,,
+696,Line,,643,,,659,656,None,Arrow,,,,,,,,,,,,,,
+697,Line,,643,,,656,661,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+698,Line,,643,,,644,662,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+699,Line,,643,,,644,663,None,Arrow,,,,,,,,solved_by,,,,1,,3
+700,Line,,643,,,663,664,None,Arrow,,,,,,,,solved_by,,,,1,,3
+701,Line,,643,,,644,665,None,Hollow Arrow,,,,,,,,,,,,,,
+702,Line,,643,,,644,667,None,Hollow Arrow,,,,,,,,,,,,,,
+703,Line,,643,,,649,664,None,Arrow,,,,,,,,solved_by,,,,1,,3
+704,Line,,643,,,644,668,None,Hollow Arrow,,,,,,,,,,,,,,
+705,Line,,643,,,647,670,None,Hollow Arrow,,,,,,,,,,,,,,
+706,Line,,643,,,651,671,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+707,Line,,643,,,644,680,None,Hollow Arrow,,,,,,,,,,,,,,
+708,Line,,643,,,675,676,None,Arrow,,,,,,,,,,,,,,
+709,Line,,643,,,673,675,None,Arrow,,,,,,,,,,,,,,
+710,Line,,643,,,676,672,None,Arrow,,,,,,,,,,,,,,
+711,Line,,643,,,651,674,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+712,Line,,643,,,651,677,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+713,Line,,643,,,673,678,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+714,Line,,643,,,651,679,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+715,Line,,643,,,647,644,None,Arrow,,,,,,,,,,,,,,
+716,Line,,643,,,651,673,None,Arrow,,,,,,,,,,,,,,
+717,Page,,,,,,,,,ML Arg Pattern extended,,,,,,,,,,,,,
+718,MinimalTextBlock,Default,717,,,,,,,n,,,,,,,,,,,,,
+719,Imported Shape,,717,,,,,,,Performance Claim,{The system or part of it satisfies the claim reaching or outperforming the benchmark},true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+720,Imported Shape,,717,,,,,,,Training Data,"{Training data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+721,Imported Shape,,717,,,,,,,Performance Evidence,"
+{Evidence demonstrating that claim is satified}",true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+722,Imported Shape,,717,,,,,,,Test Data,"{Test data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+723,MinimalTextBlock,Default,717,,772,,,,,ACP8,,,,,,,,,,,,,
+724,Text,Default,717,,772,,,,,,,,,,,,,,,,,,
+725,MinimalTextBlock,Default,717,,773,,,,,ACP6,,,,,,,,,,,,,
+726,Text,Default,717,,773,,,,,,,,,,,,,,,,,,
+727,MinimalTextBlock,Default,717,,774,,,,,ACP5,,,,,,,,,,,,,
+728,Text,Default,717,,774,,,,,,,,,,,,,,,,,,
+729,Imported Shape,,717,,,,,,,Benchmark,{Definition of benchmark for satisfying performances},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+730,MinimalTextBlock,Default,717,,775,,,,,ACP4,,,,,,,,,,,,,
+731,Text,Default,717,,775,,,,,,,,,,,,,,,,,,
+732,Imported Shape,,717,,,,,,,Validation Data,"{Validation data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+733,MinimalTextBlock,Default,717,,776,,,,,ACP7,,,,,,,,,,,,,
+734,Text,Default,717,,776,,,,,,,,,,,,,,,,,,
+735,Circle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+736,Imported Shape,,717,,,,,,,ML Assurance claim,{ML system gives the correct output} in the defined setting,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+737,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+738,Imported Shape,,717,,,,,,,{Machine Learning Technology},{ML system definition},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+739,MinimalTextBlock,Default,717,,777,,,,,ACP1,,,,,,,,,,,,,
+740,Text,Default,717,,777,,,,,,,,,,,,,,,,,,
+741,Imported Shape,,717,,,,,,,Setting,{Defined setting},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+742,MinimalTextBlock,Default,717,,778,,,,,ACP2,,,,,,,,,,,,,
+743,Text,Default,717,,778,,,,,,,,,,,,,,,,,,
+744,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+745,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+746,Imported Shape,,717,,,,,,,Assurance Strategy,Argument over { n performance sub claims},,,true,true,,strategy,,Risk Strategy ,,,Argument based on HIT clinical risks ,1
+747,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+748,MinimalTextBlock,Default,717,,779,,,,,ACP3,,,,,,,,,,,,,
+749,Text,Default,717,,779,,,,,,,,,,,,,,,,,,
+750,Circle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+751,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+752,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+753,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+754,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+755,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+756,Isosceles Triangle,Geometric Shapes,717,,,,,,,,,,,,,,,,,,,,
+757,Note,Default,717,,,,,,,ACP3 confidence argument showing why it should believed that the n supporting claims are sufficient to draw the overall conclusion about assurance claim.  ,,,,,,,,,,,,,
+758,Note,Default,717,,,,,,,ACP1 there is sufficient confidence that the ML system is accurately documented and correctly defined. Inadequate documentation and definition can invalidate the claim.,,,,,,,,,,,,,
+759,Note,Default,717,,,,,,,"ACP2 there is sufficient confidence that the environment and the usage are appropriate for the assurance claim being made. If the scope defined
+by this context is not appropriate for the way in which the system is operated, for
+example if the device is used in an unplanned manner in a hospital, then the argument presented may not be valid.",,,,,,,,,,,,,
+760,Note,Default,717,,,,,,,"ACP5, ACP6, ACP7 there is sufficient confidence that the data used for training, testing and validate are complete and appropriate for the claim. If this is not verified the argument presented may be not valid. ",,,,,,,,,,,,,
+761,Note,Default,717,,,,,,,"ACP4 there is enough confidence that the definition of the benchmark is appropriate for the claim. If the scope defined
+by this context is not appropriate for the way in which the system is operated, then the argument presented may not be valid.",,,,,,,,,,,,,
+762,Note,Default,717,,,,,,,ACP8 there is sufficient confidence that the testing performed is good enough in order to support the claim.  ,,,,,,,,,,,,,
+763,Line,,717,,,751,721,None,Arrow,,,,,,,,solved_by,,,,1,,3
+764,Line,,717,,,719,720,None,Hollow Arrow,,,,,,,,,,,,,,
+765,Line,,717,,,719,722,None,Hollow Arrow,,,,,,,,,,,,,,
+766,Line,,717,,,719,729,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+767,Line,,717,,,719,732,None,Hollow Arrow,,,,,,,,,,,,,,
+768,Line,,717,,,736,738,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+769,Line,,717,,,736,741,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+770,Line,,717,,,737,746,None,Arrow,,,,,,,,solved_by,,,,1,,3
+771,Line,,717,,,747,719,None,Arrow,,,,,,,,solved_by,,,,1,,3
+772,Group 1,,717,,,,,,,,,,,,,,,,,,,,
+773,Group 2,,717,,,,,,,,,,,,,,,,,,,,
+774,Group 3,,717,,,,,,,,,,,,,,,,,,,,
+775,Group 4,,717,,,,,,,,,,,,,,,,,,,,
+776,Group 5,,717,,,,,,,,,,,,,,,,,,,,
+777,Group 6,,717,,,,,,,,,,,,,,,,,,,,
+778,Group 7,,717,,,,,,,,,,,,,,,,,,,,
+779,Group 8,,717,,,,,,,,,,,,,,,,,,,,
+780,Page,,,,,,,,,ML Arg Pattern1,,,,,,,,,,,,,
+781,MinimalTextBlock,Default,780,,824,,,,,ACP1,,,,,,,,,,,,,
+782,Text,Default,780,,824,,,,,,,,,,,,,,,,,,
+783,MinimalTextBlock,Default,780,,825,,,,,ACP2,,,,,,,,,,,,,
+784,Text,Default,780,,825,,,,,,,,,,,,,,,,,,
+785,MinimalTextBlock,Default,780,,826,,,,,ACP7,,,,,,,,,,,,,
+786,Text,Default,780,,826,,,,,,,,,,,,,,,,,,
+787,MinimalTextBlock,Default,780,,827,,,,,ACP5,,,,,,,,,,,,,
+788,Text,Default,780,,827,,,,,,,,,,,,,,,,,,
+789,MinimalTextBlock,Default,780,,828,,,,,ACP3,,,,,,,,,,,,,
+790,Text,Default,780,,828,,,,,,,,,,,,,,,,,,
+791,MinimalTextBlock,Default,780,,829,,,,,ACP6,,,,,,,,,,,,,
+792,Text,Default,780,,829,,,,,,,,,,,,,,,,,,
+793,Circle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+794,Imported Shape,,780,,,,,,,Performance Claim,{The system satisfies the claim reaching or outperforming the benchmark} in the defined setting,true,,true,true,,goal,,Residual Risks ,,,Residual clinical risks from all identified hazards are accepted and managed ,1
+795,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+796,Imported Shape,,780,,,,,,,Training Data,"{Training data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+797,Imported Shape,,780,,,,,,,Test Data,"{Test data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+798,Imported Shape,,780,,,,,,,Validation Data,"{Validation data type and amount}
+",true,,true,true,,context,,Unacceptable Risk Levels ,,,Hazards associated with unacceptable levels of clinical risk ,2
+799,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+800,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+801,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+802,MinimalTextBlock,Default,780,,830,,,,,ACP4,,,,,,,,,,,,,
+803,Text,Default,780,,830,,,,,,,,,,,,,,,,,,
+804,Imported Shape,,780,,,,,,,{Machine Learning Technology},{ML system definition},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+805,Imported Shape,,780,,,,,,,Setting,{Defined setting},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+806,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+807,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+808,Imported Shape,,780,,,,,,,Benchmark,{Definition of benchmark for satisfying performances},true,,true,true,,context,,Clinical Risk Matrix ,,,Clinical Risk Matrix ,2
+809,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+810,Imported Shape,,780,,,,,,,Performance Evidence,"
+{Evidence demonstrating that claim is satified}",true,,true,true,,solution,,HL 2 ,,,Hazard Log (unacceptable clinical risks) ,1
+811,Isosceles Triangle,Geometric Shapes,780,,,,,,,,,,,,,,,,,,,,
+812,Note,Default,780,,,,,,,ACP1 there is sufficient confidence that the ML system is accurately documented and correctly defined. Inadequate documentation and definition can invalidate the claim.,,,,,,,,,,,,,
+813,Note,Default,780,,,,,,,"ACP2 there is sufficient confidence that the environment and the usage are appropriate for the assurance claim being made. If the scope defined
+by this context is not appropriate for the way in which the system is operated, for
+example if the device is used in an unplanned manner in a hospital, then the argument presented may not be valid.",,,,,,,,,,,,,
+814,Note,Default,780,,,,,,,"ACP3 there is enough confidence that the definition of the benchmark is appropriate for the claim. If the scope defined
+by this context is not appropriate for the way in which the system is operated, then the argument presented may not be valid.",,,,,,,,,,,,,
+815,Note,Default,780,,,,,,,"ACP4, ACP5, ACP6 there is sufficient confidence that the data used for training, testing and validate are complete and appropriate for the claim. If this is not verified the argument presented may be not valid. ",,,,,,,,,,,,,
+816,Note,Default,780,,,,,,,ACP7 there is sufficient confidence that the testing performed is good enough in order to support the claim.  ,,,,,,,,,,,,,
+817,Line,,780,,,795,810,None,Arrow,,,,,,,,solved_by,,,,1,,3
+818,Line,,780,,,794,804,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+819,Line,,780,,,794,805,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+820,Line,,780,,,794,808,None,Hollow Arrow,,,,,,,,in_context_of,,,,1,,5
+821,Line,,780,,,794,796,None,Hollow Arrow,,,,,,,,,,,,,,
+822,Line,,780,,,794,797,None,Hollow Arrow,,,,,,,,,,,,,,
+823,Line,,780,,,794,798,None,Hollow Arrow,,,,,,,,,,,,,,
+824,Group 1,,780,,,,,,,,,,,,,,,,,,,,
+825,Group 2,,780,,,,,,,,,,,,,,,,,,,,
+826,Group 3,,780,,,,,,,,,,,,,,,,,,,,
+827,Group 4,,780,,,,,,,,,,,,,,,,,,,,
+828,Group 5,,780,,,,,,,,,,,,,,,,,,,,
+829,Group 6,,780,,,,,,,,,,,,,,,,,,,,
+830,Group 7,,780,,,,,,,,,,,,,,,,,,,,
