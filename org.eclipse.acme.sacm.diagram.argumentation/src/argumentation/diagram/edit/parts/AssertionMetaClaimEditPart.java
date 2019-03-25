@@ -6,9 +6,9 @@ import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
+import acme.argumentation.diagram.figure.MetaClaimShape;
 import argumentation.diagram.edit.policies.AssertionMetaClaimItemSemanticEditPolicy;
 
 /**
@@ -55,11 +55,11 @@ public class AssertionMetaClaimEditPart extends ConnectionNodeEditPart implement
 	public MetaClaimFigure getPrimaryShape() {
 		return (MetaClaimFigure) getFigure();
 	}
-
+	
 	/**
 	 * @generated
 	 */
-	public class MetaClaimFigure extends PolylineConnectionEx {
+	public class MetaClaimFigure extends MetaClaimShape {
 
 		/**
 		 * @generated

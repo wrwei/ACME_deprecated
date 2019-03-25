@@ -22,60 +22,54 @@ import artifact.Artifact;
 
 public class ArtifactShape extends Shape {
 
+	private Artifact artifact;
 	protected PointList shape = new PointList();
-	protected PointList lines = new PointList();
+	protected PointList outer = new PointList();
+	protected PointList deco = new PointList();
 	
-	protected Artifact artifact = null;
+	public static final int MARGIN_OFFSET = 8;
 	
-	public static final int CORNER_OFFSET = 30;
-	
-	
+//	public static final int ARROW_TIP_OFFSET = 5;
+//	public static final int ARROW_WING_OFFSET = 15;
+//	public static final int ARROW_START_OFFSET = 25;
+
+
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
 		shape.translate(dx, dy);
-		lines.translate(dx, dy);
+		outer.translate(dx, dy);
+		deco.translate(dx, dy);
 	}
 	
 	@Override
 	protected void fillShape(Graphics graphics) {
+		graphics.setForegroundColor(ColorConstants.black);
 		graphics.fillPolygon(shape);
-		graphics.setBackgroundColor(ColorConstants.black);
+		graphics.fillPolygon(outer);
 
-		if (artifact != null) {
-			if (artifact.isIsAbstract()) {
-				graphics.setLineStyle(SWT.LINE_DASH);
-				graphics.setBackgroundColor(ColorConstants.gray);
-			}
-		}
-		PointList fold = new PointList();
-		fold.addPoint(shape.getPoint(1));
-		fold.addPoint(shape.getPoint(2));
-		fold.addPoint(shape.getPoint(3));
-		graphics.fillPolygon(fold);
 	}
 
 	@Override
 	protected void outlineShape(Graphics graphics) {
 		graphics.setAntialias(SWT.ON);
 		graphics.setForegroundColor(ColorConstants.black);
-
 		if (artifact != null) {
 			if (artifact.isIsAbstract()) {
 				graphics.setLineStyle(SWT.LINE_DASH);
 				graphics.setForegroundColor(ColorConstants.gray);
 			}
 		}
-
 		graphics.drawPolygon(shape);
-		graphics.drawLine(shape.getPoint(1), shape.getPoint(3));
 		
-//		graphics.drawLine(lines.getPoint(0), lines.getPoint(1));
-//		graphics.drawLine(lines.getPoint(2), lines.getPoint(3));
-//		graphics.drawLine(lines.getPoint(4), lines.getPoint(5));
-//		graphics.drawLine(lines.getPoint(6), lines.getPoint(7));
-//		graphics.drawLine(lines.getPoint(8), lines.getPoint(9));
+		graphics.drawLine(outer.getPoint(0), outer.getPoint(1));
+		graphics.drawLine(outer.getPoint(1), outer.getPoint(2));
+		graphics.drawLine(outer.getPoint(2), outer.getPoint(3));
+		graphics.drawLine(outer.getPoint(3), outer.getPoint(4));
 		
+//		graphics.drawLine(deco.getPoint(0), deco.getPoint(1));
+//		graphics.drawLine(deco.getPoint(0), deco.getPoint(2));
+//		graphics.drawLine(deco.getPoint(0), deco.getPoint(3));
 	}
 	
 	@Override
@@ -85,61 +79,44 @@ public class ArtifactShape extends Shape {
 		r.shrink(getInsets());	
 		r.resize(-1, -1);
 
-		/*
-		 * 1   2
-		 *     3  4
-		 * 6      5    
-		 */
+		Point p1, p2, p3, p4;
 		
-		Point rect1 = new Point(r.x, r.y);
-		Point rect2 = new Point(r.x + r.width-CORNER_OFFSET, r.y);
-		Point rect3 = new Point(r.x + r.width-CORNER_OFFSET, r.y+CORNER_OFFSET);
-		Point rect4 = new Point(r.x + r.width, r.y+CORNER_OFFSET);
-		Point rect5 = new Point(r.x+r.width, r.y+r.height);
-		Point rect6 = new Point(r.x, r.y+r.height);
+		p1 = new Point(r.x, r.y);
+		p2 = new Point(r.x + r.width-MARGIN_OFFSET, r.y);
+		p3 = new Point(r.x+r.width-MARGIN_OFFSET, r.y+r.height-MARGIN_OFFSET);
+		p4 = new Point(r.x, r.y+r.height-MARGIN_OFFSET);
 		
 		shape.removeAllPoints();
-		shape.addPoint(rect1);
-		shape.addPoint(rect2);
-		shape.addPoint(rect3);
-		shape.addPoint(rect4);
-		shape.addPoint(rect5);
-		shape.addPoint(rect6);
+		shape.addPoint(p1);
+		shape.addPoint(p2);
+		shape.addPoint(p3);
+		shape.addPoint(p4);
 		
-//		int interval = (r.height - CORNER_OFFSET)/6;
-//		int offset = r.width/6;
-//		Point l1s = new Point(r.x+offset, r.y + CORNER_OFFSET + interval);
-//		Point l1e = new Point(r.x+r.width - offset, r.y + CORNER_OFFSET + interval);
-//		
-//		Point l2s = new Point(r.x+offset, r.y + CORNER_OFFSET + interval*2);
-//		Point l2e = new Point(r.x+r.width - offset, r.y + CORNER_OFFSET + interval*2);
-//		
-//		Point l3s = new Point(r.x+offset, r.y + CORNER_OFFSET + interval*3);
-//		Point l3e = new Point(r.x+r.width - offset, r.y + CORNER_OFFSET + interval*3);
-//		
-//		Point l4s = new Point(r.x+offset, r.y + CORNER_OFFSET + interval*4);
-//		Point l4e = new Point(r.x+r.width - offset, r.y + CORNER_OFFSET + interval*4);
-//		
-//		Point l5s = new Point(r.x+offset, r.y + CORNER_OFFSET + interval*5);
-//		Point l5e = new Point(r.x+r.width - offset, r.y + CORNER_OFFSET + interval*5);
-//		
-//		lines.removeAllPoints();
-//		lines.addPoint(l1s);
-//		lines.addPoint(l1e);
-//		
-//		lines.addPoint(l2s);
-//		lines.addPoint(l2e);
-//		
-//		lines.addPoint(l3s);
-//		lines.addPoint(l3e);
-//		
-//		lines.addPoint(l4s);
-//		lines.addPoint(l4e);
-//		
-//		lines.addPoint(l5s);
-//		lines.addPoint(l5e);
+		Point p5, p6, p7, p8, p9;
+		p5 = new Point(r.x + r.width - MARGIN_OFFSET, r.y+MARGIN_OFFSET);
+		p6 = new Point(r.x + r.width, r.y + MARGIN_OFFSET);
+		p7 = new Point(r.x + r.width, r.y + r.height);
+		p8 = new Point(r.x + MARGIN_OFFSET, r.y + r.height);
+		p9 = new Point(r.x + MARGIN_OFFSET, r.y + r.height-MARGIN_OFFSET);
+	
+		outer.removeAllPoints();
+		outer.addPoint(p5);
+		outer.addPoint(p6);
+		outer.addPoint(p7);
+		outer.addPoint(p8);
+		outer.addPoint(p9);
 		
-		
+//		Point a1, a2, a3, a4;
+//		a1 = new Point(r.x + r.width - MARGIN_OFFSET-ARROW_TIP_OFFSET, r.y + ARROW_TIP_OFFSET);
+//		a2 = new Point(r.x + r.width - MARGIN_OFFSET - ARROW_WING_OFFSET, r.y + ARROW_TIP_OFFSET*2);
+//		a3 = new Point(r.x + r.width - MARGIN_OFFSET - ARROW_TIP_OFFSET*2, r.y + ARROW_WING_OFFSET);
+//		a4 = new Point(r.x + r.width - MARGIN_OFFSET - ARROW_START_OFFSET, r.y + ARROW_START_OFFSET); 
+//		
+//		deco.removeAllPoints();
+//		deco.addPoint(a1);
+//		deco.addPoint(a2);
+//		deco.addPoint(a3);
+//		deco.addPoint(a4);
 	}
 	
 	public Artifact getArtifact() {
@@ -149,5 +126,4 @@ public class ArtifactShape extends Shape {
 	public void setArtifact(Artifact artifact) {
 		this.artifact = artifact;
 	}
-
 }

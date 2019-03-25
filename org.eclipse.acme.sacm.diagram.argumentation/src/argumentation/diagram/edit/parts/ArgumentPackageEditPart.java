@@ -32,7 +32,6 @@ import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
 import acme.common.diagram.dialog.DialogHelper;
 import acme.diagram.util.DimensionUtil;
 import acme.diagram.util.FontManager;
-import acme.diagram.util.LabelNotificationHandler;
 import acme.diagram.util.ModelElementFeatureUtil;
 import argumentation.ArgumentPackage;
 import argumentation.diagram.edit.policies.ArgumentPackage2ItemSemanticEditPolicy;

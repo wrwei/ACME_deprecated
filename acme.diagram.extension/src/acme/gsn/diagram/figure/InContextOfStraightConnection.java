@@ -17,14 +17,16 @@ public class InContextOfStraightConnection extends PolylineConnectionEx {
 	
 	@Override
 	protected void outlineShape(Graphics g) {
-		super.outlineShape(g);
+		g.setBackgroundColor(ColorConstants.black);
+		g.setForegroundColor(ColorConstants.black);
+		g.drawLine(getStart(), getEnd());
 		if (inContextOf != null) {
 			Point midPoint = getPoints().getMidpoint();
 			if (inContextOf.isIsMany()) {
 				CircleDecoration circleDecoration = new CircleDecoration();
 				circleDecoration.setLocation(midPoint);
 				circleDecoration.setFill(true);
-				g.setBackgroundColor(ColorConstants.gray);
+				g.setBackgroundColor(ColorConstants.black);
 				g.fillOval(circleDecoration.getBounds());
 				g.drawOval(circleDecoration.getBounds());		
 				
@@ -41,7 +43,6 @@ public class InContextOfStraightConnection extends PolylineConnectionEx {
 				g.fillOval(circleDecoration.getBounds());
 				g.drawOval(circleDecoration.getBounds());
 			}
-			g.setBackgroundColor(ColorConstants.black);
 		}
 	}
 }

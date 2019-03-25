@@ -17,6 +17,7 @@ public class AssertedRelationshipTargetShape extends PolylineConnectionEx {
 
 	private AssertedRelationship assertedRelationship;
 	protected Transform transform = new Transform();
+	AssumedDecoration assumedDeco = new AssumedDecoration();
 	AsCitedDecoration asCitedDeco = new AsCitedDecoration();
 	DefeatedDecoration defeatedDeco = new DefeatedDecoration();
 	AxiomaticDecoration axiomaticDeco = new AxiomaticDecoration();
@@ -54,14 +55,20 @@ public class AssertedRelationshipTargetShape extends PolylineConnectionEx {
 				
 			}
 			else if (assertedRelationship.getAssertionDeclaration() == AssertionDeclaration.ASSUMED) {
-				CircleDecoration circleDecoration = new CircleDecoration();
-				circleDecoration.setLocation(midPoint);
-				circleDecoration.setFill(true);
-				g.setBackgroundColor(ColorConstants.white);
+//				CircleDecoration circleDecoration = new CircleDecoration();
+//				circleDecoration.setLocation(midPoint);
+//				circleDecoration.setFill(true);
+//				g.setBackgroundColor(ColorConstants.white);
+//				g.setForegroundColor(ColorConstants.white);
+//				g.fillOval(circleDecoration.getBounds());
+//				g.drawOval(circleDecoration.getBounds());
+//				g.setForegroundColor(ColorConstants.black);
+				PointList shape = assumedDeco.getShape();
+				g.drawLine(shape.getPoint(0), shape.getPoint(1));
+				g.drawLine(shape.getPoint(2), shape.getPoint(3));
+//				g.setBackgroundColor(ColorConstants.white);
 				g.setForegroundColor(ColorConstants.white);
-				g.fillOval(circleDecoration.getBounds());
-				g.drawOval(circleDecoration.getBounds());
-				g.setForegroundColor(ColorConstants.black);
+				g.fillPolygon(assumedDeco.getFill());
 			}
 			else if (assertedRelationship.getAssertionDeclaration() == AssertionDeclaration.AXIOMATIC) {
 				PointList shape = axiomaticDeco.getShape();
@@ -115,6 +122,10 @@ public class AssertedRelationshipTargetShape extends PolylineConnectionEx {
 		asCitedDeco.setLocation(midPoint);
 		asCitedDeco.setReferencePoint(getEnd());
 		asCitedDeco.validate();
+		
+		assumedDeco.setLocation(midPoint);
+		assumedDeco.setReferencePoint(getEnd());
+		assumedDeco.validate();
 
 		defeatedDeco.setLocation(midPoint);
 		defeatedDeco.setReferencePoint(getEnd());

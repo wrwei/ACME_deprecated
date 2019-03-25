@@ -1,6 +1,7 @@
 package argumentation.diagram.edit.parts;
 
 
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -8,6 +9,7 @@ import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -57,6 +59,8 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure primaryShape;
+	
+	protected ConnectionAnchor connectionAnchor;
 
 	/**
 	* @generated
@@ -346,6 +350,24 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 	public EditPolicy getPrimaryDragEditPolicy() {
 		return new ConstrainedResizeShapeEditPolicy(this);
 	}
+	
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connEditPart) {
+		if (connectionAnchor == null) {
+			connectionAnchor = new CustomAnchor(getPrimaryShape(), connEditPart);
+		} else {
+		}
+		return connectionAnchor;
+	}
+
+	@Override
+	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connEditPart) {
+		if (connectionAnchor == null) {
+			connectionAnchor = new CustomAnchor(getPrimaryShape(), connEditPart);
+		} else {
+		}
+		return connectionAnchor;
+	}
 
 	
 	@Override
@@ -377,7 +399,6 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 				Dimension descriptionDimension = DimensionUtil.getTextSize(claimFigure.getFigureClaimDesc().getText(),
 						claimFigure.getFigureClaimDesc().getFont(), DimensionUtil.CLAIM_DIMENSION.width - 10);
 				claimFigure.setConstraint(claimFigure.getFigureClaimDesc(),  new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
-
 			}
 			else if (changeSize == 1) {
 				primaryShape.setMinimumSize(DimensionUtil.CITATION_CLAIM_DIMENSION);
@@ -387,7 +408,6 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 				Dimension descriptionDimension = DimensionUtil.getTextSize(claimFigure.getFigureClaimDesc().getText(),
 						claimFigure.getFigureClaimDesc().getFont(), DimensionUtil.CLAIM_DIMENSION.width - 10);
 				claimFigure.setConstraint(claimFigure.getFigureClaimDesc(),  new Rectangle(ClaimShape.CITED_BOARDER_WIDTH+ClaimShape.CITED_OFFSET+5, 35, descriptionDimension.width, descriptionDimension.height));
-
 			}
 			Rectangle rectangle = DimensionUtil.getConstraints((ModelElement) resolveSemanticElement(),
 					getFigure().getBounds());

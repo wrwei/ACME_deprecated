@@ -32,6 +32,8 @@ import acme.gsn.diagram.figure.ContextShape;
 import acme.gsn.diagram.figure.GoalShape;
 import acme.gsn.diagram.figure.SolutionShape;
 import acme.gsn.diagram.figure.StrategyShape;
+import argumentation.AssertionDeclaration;
+import argumentation.Claim;
 import artifact.ArtifactPackage;
 import artifact.ArtifactPackageBinding;
 import base.ModelElement;
@@ -72,16 +74,16 @@ public class DimensionUtil {
 	public static final Dimension CHOICE_DIMENSION = new Dimension(100, 61);
 	
 	public static final Dimension CLAIM_DIMENSION = new Dimension(200, 124);
+	public static final Dimension NEEDS_SUPPORT_CLAIM_DIMENSION = new Dimension(200, 126);
+	public static final Dimension AXIOMATIC_CLAIM_DIMENSION = new Dimension(200, 134);
+
 	public static final Dimension ARGUMENTREASONING_DIMENSION = new Dimension(200, 124);
 	public static final Dimension CITATION_CLAIM_DIMENSION = new Dimension(200+ClaimShape.CITED_BOARDER_WIDTH*2 + ClaimShape.CITED_OFFSET*2, 124);
 	
 	public static final Dimension ARTIFACT_REFERENCE_DIMENSION = new Dimension(124, 150);
 	public static final Dimension ASSERTED_EVIDENCE_DIMENSION = new Dimension(2, 2);
-	public static final Dimension ASSERTED_INFERENCE_DIMENSION = new Dimension(3, 3);
+	public static final Dimension ASSERTED_INFERENCE_DIMENSION = new Dimension(4, 4);
 
-
-
-	
 	public static final Dimension ARTIFACT_DIMENSION = new Dimension(140,170);
 	public static final Dimension ACTIVITY_DIMENSION = new Dimension(200,124);
 	public static final Dimension PROPERTY_DIMENSION = new Dimension(200,124);
@@ -290,9 +292,29 @@ public class DimensionUtil {
 		}
 		else if (modelElement instanceof ArtifactPackage) {
 			aspRatio = ARTEFACT_PACKAGE_DIMENSION.preciseWidth()/ARTEFACT_PACKAGE_DIMENSION.preciseHeight();
-		} 
+		}
+		else if (modelElement instanceof Claim) {
+			Claim claim = (Claim) modelElement;
+			//normal goal
+			if (claim.getAssertionDeclaration() == AssertionDeclaration.ASSERTED) {
+				aspRatio = CLAIM_DIMENSION.preciseWidth()/CLAIM_DIMENSION.preciseHeight();
+			}
+			else if (claim.getAssertionDeclaration() == AssertionDeclaration.NEEDS_SUPPORT) {
+				aspRatio = NEEDS_SUPPORT_CLAIM_DIMENSION.preciseWidth()/NEEDS_SUPPORT_CLAIM_DIMENSION.preciseHeight();
+			}
+			else if (claim.getAssertionDeclaration() == AssertionDeclaration.AXIOMATIC) {
+				aspRatio = AXIOMATIC_CLAIM_DIMENSION.preciseWidth()/AXIOMATIC_CLAIM_DIMENSION.preciseHeight();
+			}
+			else if (claim.getAssertionDeclaration() == AssertionDeclaration.AS_CITED) {
+				aspRatio = CITATION_CLAIM_DIMENSION.preciseWidth()/CITATION_CLAIM_DIMENSION.preciseHeight();
+			}
+		}
 		
 		height = (int) (width/aspRatio);
+		if(height < ret.height) {
+			ret.width = (int) (ret.height*aspRatio);
+			return ret;
+		}
 		ret.width = width;
 		ret.height = height;
 		return ret;
