@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: ACME Assurance Case Editor
 Bundle-SymbolicName: org.eclipse.acme.sacm.diagram.assurancecase; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Activator: assuranceCase.diagram.part.AssurancecaseDiagramEditorPlugin
-Bundle-Vendor: %providerName
+Bundle-Vendor: Ran Wei
 Bundle-Localization: plugin
 Export-Package: assuranceCase.diagram.edit.parts,
  assuranceCase.diagram.part,

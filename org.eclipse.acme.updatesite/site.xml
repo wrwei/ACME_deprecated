@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.acme.feature_1.0.0.201904021238.jar" id="org.eclipse.acme.feature" version="1.0.0.201904021238"/>
+</site>

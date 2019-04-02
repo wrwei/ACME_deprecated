@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: ACME Argumentation Editor
 Bundle-SymbolicName: org.eclipse.acme.sacm.diagram.argumentation; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Activator: argumentation.diagram.part.ArgumentationDiagramEditorPlugin
-Bundle-Vendor: %providerName
+Bundle-Vendor: Ran Wei
 Bundle-Localization: plugin
 Export-Package: argumentation.diagram.edit.parts,
  argumentation.diagram.part,
