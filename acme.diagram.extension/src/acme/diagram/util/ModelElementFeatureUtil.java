@@ -51,13 +51,14 @@ public class ModelElementFeatureUtil {
 		//set content
 		descriptionLangString.setLang("ENG");
 		descriptionLangString.setContent(description);
+		
 		//create an expression
-		Expression expression = term_factory.createExpression();
-		expression.setValue(description);
+//		Expression expression = term_factory.createExpression();
+//		expression.setValue(description);
 		
 		//create name for expression
-		createName(expression, modelElement.getName().getContent() + "_description");
-		descriptionLangString.setExpression(expression);
+//		createName(expression, modelElement.getName().getContent() + "_description");
+//		descriptionLangString.setExpression(expression);
 		
 		multiLangString.getValue().add(descriptionLangString);
 		desc.setContent(multiLangString);
