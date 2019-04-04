@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: acme.diagram.extension
+Bundle-Name: ACME diagram Extension
 Bundle-SymbolicName: acme.diagram.extension; singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.eclipse.emf.ecore,
@@ -27,3 +27,6 @@ Export-Package: acme.argumentation.diagram.dialog,
  acme.gsn.diagram.figure,
  acme.terminology.diagram.dialog
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Ran Wei
+Bundle-ClassPath: .

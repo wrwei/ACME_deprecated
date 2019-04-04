@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.acme.feature"
-      label="Feature"
+      label="ACME Feature"
       version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+      Assurance Case Modelling Environment - ACME
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -17,35 +17,7 @@
    </license>
 
    <plugin
-         id="org.eclipse.acme.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.acme.sacm.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.acme.sacm.diagram.artifact"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.acme.sacm.diagram.assurancecase"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.acme.sacm.tests"
+         id="org.eclipse.acme.diagram.gsn"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -59,14 +31,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.acme.sacm.diagram.argumentation"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.acme.sacm"
+         id="org.eclipse.acme.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -87,7 +52,35 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.acme.diagram.gsn"
+         id="org.eclipse.acme.sacm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.acme.sacm.diagram.argumentation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.acme.sacm.diagram.artifact"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.acme.sacm.diagram.assurancecase"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.acme.sacm.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -95,6 +88,13 @@
 
    <plugin
          id="org.eclipse.acme.sacm.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.acme.sacm.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
