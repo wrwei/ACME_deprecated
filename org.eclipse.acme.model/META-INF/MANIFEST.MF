@@ -15,5 +15,5 @@ Export-Package: gsn,
  cae.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.acme.sacm;bundle-version="0.1.0";visibility:=reexport
+ org.eclipse.acme.sacm;visibility:=reexport
 Bundle-ActivationPolicy: lazy

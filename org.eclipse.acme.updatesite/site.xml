@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.acme.feature_1.0.0.201904040351.jar" id="org.eclipse.acme.feature" version="1.0.0.201904040351"/>
+   <feature url="features/org.eclipse.acme.feature_1.0.0.201904050751.jar" id="org.eclipse.acme.feature" version="1.0.0.201904050751">
+      <category name="eclipse.model.based.assurance"/>
+   </feature>
+   <category-def name="eclipse.model.based.assurance" label="Eclipse Model Based Assurance"/>
 </site>
