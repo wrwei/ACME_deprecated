@@ -1,6 +1,7 @@
 package argumentation.diagram.handlers;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -8,6 +9,7 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -20,6 +22,7 @@ import argumentation.Argumentation_Package;
 import argumentation.AssertedInference;
 import argumentation.Claim;
 import argumentation.diagram.edit.parts.ClaimEditPart;
+import base.ModelElement;
 
 public class SupportClaimHandler implements IHandler {
 
@@ -65,9 +68,7 @@ public class SupportClaimHandler implements IHandler {
 						editingDomain = TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain("org.eclipse.acme.EditingDomain");
 						ModelElementFeatureUtil.addFeatureTransactional(editingDomain, argumentPackage, Argumentation_Package.eINSTANCE.getArgumentPackage_ArgumentationElement(), newClaim);
 						ModelElementFeatureUtil.addFeatureTransactional(editingDomain, temp, Argumentation_Package.eINSTANCE.getAssertedRelationship_Source(), newClaim);
-
 					}
-					
 					else {
 						Claim newClaim = Argumentation_Factory.eINSTANCE.createClaim();
 						
@@ -107,6 +108,17 @@ public class SupportClaimHandler implements IHandler {
 	public void removeHandlerListener(IHandlerListener handlerListener) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public ShapeNodeEditPart locateEditPart(List<ShapeNodeEditPart> list, ModelElement modelElemenet) {
+		for(ShapeNodeEditPart part : list) {
+			Object obj = part.resolveSemanticElement();
+			if(obj.equals(modelElemenet))
+			{
+				return part;
+			}
+		}
+		return null;
 	}
 
 }

@@ -669,6 +669,10 @@
       <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
       </menuContribution -->
       <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <separator
+               name="org.eclipse.acme.sacm.diagram.argumentation.separator1"
+               visible="true">
+         </separator>
          <command
                commandId="acme.diagram.argumentation.supportClaim"
                label="Support Claim"

@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: ACME Argumentation Editor
 Bundle-SymbolicName: org.eclipse.acme.sacm.diagram.argumentation; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Activator: argumentation.diagram.part.ArgumentationDiagramEditorPlugin
-Bundle-Vendor: %providerName
+Bundle-Vendor: Ran Wei
 Bundle-Localization: plugin
 Export-Package: argumentation.diagram.edit.parts,
  argumentation.diagram.part,
@@ -38,7 +38,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acme.sacm.edit;visibility:=reexport,
  org.eclipse.ocl.ecore;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
- acme.diagram.extension;bundle-version="0.1.0",
- org.eclipse.emf.validation;visibility:=reexport
+ org.eclipse.emf.validation;visibility:=reexport,
+ org.eclipse.acme.diagram.extension
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.eclipse.acme.sacm.diagram.argumentation

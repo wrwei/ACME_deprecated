@@ -1,11 +1,20 @@
 package argumentation.diagram.edit.parts;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.operations.OperationHistoryFactory;
+import org.eclipse.core.internal.runtime.Activator;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -18,6 +27,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Location;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -25,6 +36,7 @@ import acme.argumentation.diagram.figure.AssertedInferenceShape;
 import acme.diagram.util.DimensionUtil;
 import argumentation.Argumentation_Package;
 import argumentation.AssertedInference;
+import argumentation.Assertion;
 import argumentation.diagram.edit.policies.AssertedInferenceItemSemanticEditPolicy;
 
 /**
@@ -86,7 +98,6 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 			protected Command getCreateCommand(CreateRequest request) {
 				return null;
 			}
-			
 		};
 		return lep;
 	}
@@ -193,6 +204,8 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(new XYLayout());
 			this.setMinimumSize(DimensionUtil.ASSERTED_INFERENCE_DIMENSION);
 			this.setSize(DimensionUtil.ASSERTED_INFERENCE_DIMENSION);
+//			Rectangle rect = claim.getFigure().getBounds();
+//			this.setBounds(new Rectangle(rect.x + rect.width/2, rect.y + rect.height+30, 3, 3));
 		}
 	}
 	
@@ -222,5 +235,37 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 		}
 
 		super.handleNotificationEvent(notification);
+	}
+	
+	@Override
+	public void activate() {
+		super.activate();
+		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
+			@Override
+			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+				for(Object part : getParent().getChildren()) {
+					ShapeNodeEditPart temp = (ShapeNodeEditPart) part;
+					if (temp.resolveSemanticElement().equals(getTarget())) {
+						Location lc = (Location) ((Node) getModel()).getLayoutConstraint();
+						Location claimLoc = (Location) ((Node) temp.getModel()).getLayoutConstraint();
+						Dimension r = DimensionUtil.CLAIM_DIMENSION;
+						lc.setX(claimLoc.getX()+r.width/2);
+						lc.setY(claimLoc.getY()+r.height + 100);
+					}
+				}
+				return Status.OK_STATUS;
+			}
+		};
+		IStatus status;
+		try {
+			status = OperationHistoryFactory.getOperationHistory().execute(emfOp, null, null);
+		} catch (ExecutionException e) {
+			status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Setting location failed", e);
+		}
+	}
+	
+	public Assertion getTarget() {
+		AssertedInference inference = (AssertedInference) resolveSemanticElement();
+		return (Assertion) inference.getTarget().get(0);
 	}
 }

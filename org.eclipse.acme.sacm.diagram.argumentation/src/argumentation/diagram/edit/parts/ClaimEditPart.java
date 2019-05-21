@@ -1,6 +1,17 @@
 package argumentation.diagram.edit.parts;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.operations.OperationHistoryFactory;
+import org.eclipse.core.internal.runtime.Activator;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -8,6 +19,8 @@ import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.workspace.AbstractEMFOperation;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,6 +36,9 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Location;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -33,6 +49,7 @@ import acme.diagram.util.DimensionUtil;
 import acme.diagram.util.FontManager;
 import acme.diagram.util.ModelElementFeatureUtil;
 import argumentation.Argumentation_Package;
+import argumentation.AssertedInference;
 import argumentation.Claim;
 import argumentation.diagram.edit.policies.ClaimItemSemanticEditPolicy;
 import argumentation.diagram.part.ArgumentationVisualIDRegistry;
@@ -57,6 +74,8 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure primaryShape;
+	
+	protected ConnectionAnchor connectionAnchor;
 
 	/**
 	* @generated
@@ -346,6 +365,24 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 	public EditPolicy getPrimaryDragEditPolicy() {
 		return new ConstrainedResizeShapeEditPolicy(this);
 	}
+	
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connEditPart) {
+		if (connectionAnchor == null) {
+			connectionAnchor = new CustomAnchor(getPrimaryShape(), connEditPart);
+		} else {
+		}
+		return connectionAnchor;
+	}
+
+	@Override
+	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connEditPart) {
+		if (connectionAnchor == null) {
+			connectionAnchor = new CustomAnchor(getPrimaryShape(), connEditPart);
+		} else {
+		}
+		return connectionAnchor;
+	}
 
 	
 	@Override
@@ -377,7 +414,6 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 				Dimension descriptionDimension = DimensionUtil.getTextSize(claimFigure.getFigureClaimDesc().getText(),
 						claimFigure.getFigureClaimDesc().getFont(), DimensionUtil.CLAIM_DIMENSION.width - 10);
 				claimFigure.setConstraint(claimFigure.getFigureClaimDesc(),  new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
-
 			}
 			else if (changeSize == 1) {
 				primaryShape.setMinimumSize(DimensionUtil.CITATION_CLAIM_DIMENSION);
@@ -387,7 +423,6 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 				Dimension descriptionDimension = DimensionUtil.getTextSize(claimFigure.getFigureClaimDesc().getText(),
 						claimFigure.getFigureClaimDesc().getFont(), DimensionUtil.CLAIM_DIMENSION.width - 10);
 				claimFigure.setConstraint(claimFigure.getFigureClaimDesc(),  new Rectangle(ClaimShape.CITED_BOARDER_WIDTH+ClaimShape.CITED_OFFSET+5, 35, descriptionDimension.width, descriptionDimension.height));
-
 			}
 			Rectangle rectangle = DimensionUtil.getConstraints((ModelElement) resolveSemanticElement(),
 					getFigure().getBounds());
@@ -398,5 +433,44 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 
 		super.handleNotificationEvent(notification);
 	}
-
+	
+//	@Override
+//	public void activate() {
+//		super.activate();
+//		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
+//			@Override
+//			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+//				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
+//				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+//				for(int i = 0; i < list.size(); i++) {
+//					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
+//					lc.setX(claimLoc.getX()+claimLoc.getWidth()/list.size()*i);
+//					lc.setY(claimLoc.getY()+claimLoc.getHeight() + 100);
+//				}
+//				return Status.OK_STATUS;
+//			}
+//		};
+//		IStatus status;
+//		try {
+//			status = OperationHistoryFactory.getOperationHistory().execute(emfOp, null, null);
+//		} catch (ExecutionException e) {
+//			status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Setting location failed", e);
+//		}
+//	}
+//	
+//	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
+//		Claim claim = (Claim) resolveSemanticElement();
+//		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
+//		for(Object part : getParent().getChildren()) {
+//			if(part instanceof AssertedInferenceEditPart)
+//			{
+//				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
+//				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
+//				if(obj.getTarget().contains(claim)) {
+//					ret.add(temp);
+//				}
+//			}
+//		}
+//		return ret;
+//	}
 }

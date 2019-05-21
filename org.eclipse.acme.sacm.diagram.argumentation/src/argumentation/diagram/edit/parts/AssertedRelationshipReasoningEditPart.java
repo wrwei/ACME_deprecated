@@ -6,9 +6,9 @@ import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
+import acme.argumentation.diagram.figure.ArgumentReasoningLineShape;
 import argumentation.diagram.edit.policies.AssertedRelationshipReasoningItemSemanticEditPolicy;
 
 /**
@@ -59,19 +59,19 @@ public class AssertedRelationshipReasoningEditPart extends ConnectionNodeEditPar
 	/**
 	 * @generated
 	 */
-	public class AssertedRelationshipReasoningFigure extends PolylineConnectionEx {
+	public class AssertedRelationshipReasoningFigure extends ArgumentReasoningLineShape {
 
 		/**
 		 * @generated
 		 */
 		public AssertedRelationshipReasoningFigure() {
-
-			setTargetDecoration(createTargetDecoration());
+			//setTargetDecoration(createTargetDecoration());
 		}
 
 		/**
 		 * @generated
 		 */
+		@SuppressWarnings("unused")
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
 			return df;
