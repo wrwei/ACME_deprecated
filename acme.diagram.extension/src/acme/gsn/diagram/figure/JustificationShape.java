@@ -37,8 +37,9 @@ public class JustificationShape extends Shape {
 	
 	@Override
 	protected void fillShape(Graphics graphics) {
+		graphics.setForegroundColor(ColorConstants.black);
 		graphics.fillOval(rect);
-		graphics.fillText("J", rect.x + rect.width-10, rect.y + rect.height-15);
+		//graphics.fillText("J", rect.x + rect.width-10, rect.y + rect.height-15);
 		if (justification != null) {
 			if (justification.isUninstantiated()) {
 				graphics.fillPolygon(triangle);
@@ -51,6 +52,7 @@ public class JustificationShape extends Shape {
 		graphics.setAntialias(SWT.ON);
 		graphics.setForegroundColor(ColorConstants.black);
 		graphics.drawOval(rect);
+		graphics.drawText("J", rect.x + rect.width-10, rect.y + rect.height-15);
 		if (justification != null) {
 			if (justification.isUninstantiated()) {
 				graphics.drawPolygon(triangle);

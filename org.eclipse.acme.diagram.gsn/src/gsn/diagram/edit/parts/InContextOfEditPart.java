@@ -113,6 +113,7 @@ public class InContextOfEditPart extends ConnectionNodeEditPart implements ITree
 		InContextOfFixedPolygonDecoration decoration = new InContextOfFixedPolygonDecoration();
 		decoration.setTemplate(PolygonDecoration.TRIANGLE_TIP);
 		decoration.setBackgroundColor(ColorConstants.white);
+		decoration.setForegroundColor(ColorConstants.black);
 		decoration.setScale(15, 6);
 		decoration.setReferencePoint(connection.getEnd());
 		connection.setTargetDecoration(decoration);

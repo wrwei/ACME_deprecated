@@ -17,6 +17,7 @@ public class SupportedByStraightConnection extends PolylineConnectionEx {
 	
 	@Override
 	protected void outlineShape(Graphics g) {
+		g.setForegroundColor(ColorConstants.black);
 		super.outlineShape(g);
 		if (supportedBy != null) {
 			Point midPoint = getPoints().getMidpoint();
@@ -24,7 +25,7 @@ public class SupportedByStraightConnection extends PolylineConnectionEx {
 				CircleDecoration circleDecoration = new CircleDecoration();
 				circleDecoration.setLocation(midPoint);
 				circleDecoration.setFill(true);
-				g.setBackgroundColor(ColorConstants.gray);
+				g.setBackgroundColor(ColorConstants.black);
 				g.fillOval(circleDecoration.getBounds());
 				g.drawOval(circleDecoration.getBounds());		
 				
