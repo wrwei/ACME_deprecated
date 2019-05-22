@@ -269,11 +269,11 @@ public class AssuranceCasePackageBindingEditPart extends ShapeNodeEditPart {
 	public class AssuranceCasePackageBindingFigure extends AssuranceCasePackageBindingShape {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private WrappingLabel fFigureAcpbName;
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private WrappingLabel fFigureAcpbDescription;
 

@@ -145,7 +145,7 @@ public class ArgumentPackageInterfaceShape extends Shape {
 		annotationBox.addPoint(b4);
 		
 		Point dp1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4);
-		Point dp2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/2);
+		Point dp2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4 + CIRCLE_RADIUS);
 		Point dp3 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4*3);
 		deco.removeAllPoints();
 		deco.addPoint(dp1);
