@@ -434,43 +434,44 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 		super.handleNotificationEvent(notification);
 	}
 	
-//	@Override
-//	public void activate() {
-//		super.activate();
-//		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
-//			@Override
-//			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-//				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
-//				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
-//				for(int i = 0; i < list.size(); i++) {
-//					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
-//					lc.setX(claimLoc.getX()+claimLoc.getWidth()/list.size()*i);
-//					lc.setY(claimLoc.getY()+claimLoc.getHeight() + 100);
-//				}
-//				return Status.OK_STATUS;
-//			}
-//		};
-//		IStatus status;
-//		try {
-//			status = OperationHistoryFactory.getOperationHistory().execute(emfOp, null, null);
-//		} catch (ExecutionException e) {
-//			status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Setting location failed", e);
-//		}
-//	}
-//	
-//	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
-//		Claim claim = (Claim) resolveSemanticElement();
-//		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
-//		for(Object part : getParent().getChildren()) {
-//			if(part instanceof AssertedInferenceEditPart)
-//			{
-//				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
-//				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
-//				if(obj.getTarget().contains(claim)) {
-//					ret.add(temp);
-//				}
-//			}
-//		}
-//		return ret;
-//	}
+		
+	@Override
+	public void activate() {
+		super.activate();
+		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
+			@Override
+			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
+				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+				for(int i = 0; i < list.size(); i++) {
+					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
+					lc.setX(claimLoc.getX()+claimLoc.getWidth()/list.size()*i);
+					lc.setY(claimLoc.getY()+claimLoc.getHeight() + 100);
+				}
+				return Status.OK_STATUS;
+			}
+		};
+		IStatus status;
+		try {
+			status = OperationHistoryFactory.getOperationHistory().execute(emfOp, null, null);
+		} catch (ExecutionException e) {
+			status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Setting location failed", e);
+		}
+	}
+	
+	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
+		Claim claim = (Claim) resolveSemanticElement();
+		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
+		for(Object part : getParent().getChildren()) {
+			if(part instanceof AssertedInferenceEditPart)
+			{
+				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
+				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
+				if(obj.getTarget().contains(claim)) {
+					ret.add(temp);
+				}
+			}
+		}
+		return ret;
+	}
 }

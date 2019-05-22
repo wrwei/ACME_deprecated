@@ -1,5 +1,8 @@
 package argumentation.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.internal.runtime.Activator;
@@ -27,6 +30,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
@@ -37,6 +41,7 @@ import acme.diagram.util.DimensionUtil;
 import argumentation.Argumentation_Package;
 import argumentation.AssertedInference;
 import argumentation.Assertion;
+import argumentation.Claim;
 import argumentation.diagram.edit.policies.AssertedInferenceItemSemanticEditPolicy;
 
 /**
@@ -241,20 +246,33 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 	public void activate() {
 		super.activate();
 		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
+			
 			@Override
 			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-				for(Object part : getParent().getChildren()) {
-					ShapeNodeEditPart temp = (ShapeNodeEditPart) part;
-					if (temp.resolveSemanticElement().equals(getTarget())) {
-						Location lc = (Location) ((Node) getModel()).getLayoutConstraint();
-						Location claimLoc = (Location) ((Node) temp.getModel()).getLayoutConstraint();
-						Dimension r = DimensionUtil.CLAIM_DIMENSION;
-						lc.setX(claimLoc.getX()+r.width/2);
-						lc.setY(claimLoc.getY()+r.height + 100);
-					}
+				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
+				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+				for(int i = 0; i < list.size(); i++) {
+					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
+					lc.setX(claimLoc.getX()+claimLoc.getWidth()/list.size()*i);
+					lc.setY(claimLoc.getY()+claimLoc.getHeight() + 100);
 				}
 				return Status.OK_STATUS;
 			}
+			
+//			@Override
+//			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+//				for(Object part : getParent().getChildren()) {
+//					ShapeNodeEditPart temp = (ShapeNodeEditPart) part;
+//					if (temp.resolveSemanticElement().equals(getTarget())) {
+//						Location lc = (Location) ((Node) getModel()).getLayoutConstraint();
+//						Location claimLoc = (Location) ((Node) temp.getModel()).getLayoutConstraint();
+//						Dimension r = DimensionUtil.CLAIM_DIMENSION;
+//						lc.setX(claimLoc.getX()+r.width/2);
+//						lc.setY(claimLoc.getY()+r.height + 100);
+//					}
+//				}
+//				return Status.OK_STATUS;
+//			}
 		};
 		IStatus status;
 		try {
@@ -262,6 +280,22 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 		} catch (ExecutionException e) {
 			status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Setting location failed", e);
 		}
+	}
+	
+	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
+		Claim claim = (Claim) resolveSemanticElement();
+		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
+		for(Object part : getParent().getChildren()) {
+			if(part instanceof AssertedInferenceEditPart)
+			{
+				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
+				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
+				if(obj.getTarget().contains(claim)) {
+					ret.add(temp);
+				}
+			}
+		}
+		return ret;
 	}
 	
 	public Assertion getTarget() {
