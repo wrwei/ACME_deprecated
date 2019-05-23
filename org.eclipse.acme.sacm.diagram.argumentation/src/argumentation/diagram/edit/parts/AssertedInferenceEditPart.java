@@ -245,8 +245,8 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 	@Override
 	public void activate() {
 		super.activate();
+		
 		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
-			
 			@Override
 			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
@@ -283,14 +283,16 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 	}
 	
 	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
-		Claim claim = (Claim) resolveSemanticElement();
+		AssertedInference ai = (AssertedInference) resolveSemanticElement();
+		Assertion target = (Assertion) ai.getTarget();
+		
 		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
 		for(Object part : getParent().getChildren()) {
 			if(part instanceof AssertedInferenceEditPart)
 			{
 				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
 				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
-				if(obj.getTarget().contains(claim)) {
+				if(obj.getTarget().contains(target)) {
 					ret.add(temp);
 				}
 			}
