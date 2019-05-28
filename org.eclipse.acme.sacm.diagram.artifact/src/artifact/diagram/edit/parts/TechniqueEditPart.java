@@ -21,6 +21,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -289,6 +291,12 @@ public class TechniqueEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
+			/* get the position offset based on node's current position */
+			Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
+			
+			int nodeLabelOffsetX = (int)(0.25 * nodeSize.getWidth());
+			int nodeLabelOffsetY = (int)(0.25 * nodeSize.getHeight());
+			
 			fFigureTechniqueName = new WrappingLabel();
 
 			ModelElement modelElement = (ModelElement) resolveSemanticElement();
@@ -300,7 +308,8 @@ public class TechniqueEditPart extends ShapeNodeEditPart {
 			Dimension nameDimension = DimensionUtil.getTextSize(fFigureTechniqueName.getText(), 
 					fFigureTechniqueName.getFont());
 
-			this.add(fFigureTechniqueName, new Rectangle(5, 5, nameDimension.width, nameDimension.height));
+			this.add(fFigureTechniqueName, new Rectangle(5 + nodeLabelOffsetX, 5 + nodeLabelOffsetY, 
+					nameDimension.width, nameDimension.height));
 
 			fFigureTechniqueDescription = new WrappingLabel();
 
@@ -311,7 +320,7 @@ public class TechniqueEditPart extends ShapeNodeEditPart {
 			Dimension descriptionDimension = DimensionUtil.getTextSize(fFigureTechniqueDescription.getText(),
 					fFigureTechniqueDescription.getFont(), DimensionUtil.TECHNIQUE_DIMENSION.width-10);
 
-			this.add(fFigureTechniqueDescription, new Rectangle(5, 35, 
+			this.add(fFigureTechniqueDescription, new Rectangle(5  + nodeLabelOffsetX, 35 + nodeLabelOffsetY, 
 					descriptionDimension.width, descriptionDimension.height));
 		}
 
