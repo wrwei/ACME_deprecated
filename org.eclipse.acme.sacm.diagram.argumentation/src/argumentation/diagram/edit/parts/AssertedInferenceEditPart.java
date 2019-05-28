@@ -249,12 +249,14 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 		AbstractEMFOperation emfOp = new AbstractEMFOperation(getEditingDomain(), "Location setting") {
 			@Override
 			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+				//get all asserted inferences
 				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
-				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+//				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+				Bounds claimLoc = (Bounds) ((Node) getTarget().getModel()).getLayoutConstraint();
 				for(int i = 0; i < list.size(); i++) {
 					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
-					lc.setX(claimLoc.getX()+claimLoc.getWidth()/list.size()*i);
-					lc.setY(claimLoc.getY()+claimLoc.getHeight() + 100);
+					lc.setX(claimLoc.getX()+claimLoc.getWidth());
+					lc.setY(claimLoc.getY()+claimLoc.getHeight());
 				}
 				return Status.OK_STATUS;
 			}
@@ -283,16 +285,19 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 	}
 	
 	public List<AssertedInferenceEditPart> getAllAssertedInferences() {
+		//get the current asserted inference
 		AssertedInference ai = (AssertedInference) resolveSemanticElement();
-		Assertion target = (Assertion) ai.getTarget();
+		//get the sole target
+		Assertion target = (Assertion) ai.getTarget().get(0);
 		
+		//prepare return arraylist
 		ArrayList<AssertedInferenceEditPart> ret = new ArrayList<AssertedInferenceEditPart>();
 		for(Object part : getParent().getChildren()) {
 			if(part instanceof AssertedInferenceEditPart)
 			{
 				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
 				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
-				if(obj.getTarget().contains(target)) {
+				if(obj.getTarget().contains(target) && !obj.equals(ai)) {
 					ret.add(temp);
 				}
 			}
@@ -300,8 +305,25 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 		return ret;
 	}
 	
-	public Assertion getTarget() {
+	private ClaimEditPart getTarget() {
 		AssertedInference inference = (AssertedInference) resolveSemanticElement();
-		return (Assertion) inference.getTarget().get(0);
+		Claim c = (Claim) inference.getTarget().get(0);
+		for(Object part: getParent().getChildren())
+		{
+			if(part instanceof ClaimEditPart)
+			{
+				ClaimEditPart p = (ClaimEditPart) part;
+				if(p.resolveSemanticElement().equals(c))
+				{
+					return p;
+				}
+			}
+		}
+		return null;
 	}
+	
+//	public Assertion getTarget() {
+//		AssertedInference inference = (AssertedInference) resolveSemanticElement();
+//		return (Assertion) inference.getTarget().get(0);
+//	}
 }
