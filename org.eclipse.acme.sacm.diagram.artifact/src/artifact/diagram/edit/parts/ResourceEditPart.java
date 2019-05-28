@@ -8,6 +8,7 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
@@ -22,6 +23,9 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Location;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.swt.graphics.Color;
 
 import acme.artifact.diagram.figure.ResourceShape;
@@ -288,7 +292,11 @@ public class ResourceEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private void createContents() {
-
+			/* get the position offset based on node's current position */
+			Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
+			int nodeLabelOffsetY = (int)(0.2 * nodeSize.getHeight());
+			//System.out.println("" + nodeSize.getWidth() + nodeSize.getHeight());
+			
 			fFigureResourceName = new WrappingLabel();
 
 			ModelElement modelElement = (ModelElement) resolveSemanticElement();
@@ -300,7 +308,8 @@ public class ResourceEditPart extends ShapeNodeEditPart {
 			Dimension nameDimension = DimensionUtil.getTextSize(fFigureResourceName.getText(), 
 					fFigureResourceName.getFont());
 
-			this.add(fFigureResourceName, new Rectangle(5, 5, nameDimension.width, nameDimension.height));
+			this.add(fFigureResourceName, new Rectangle(5, 5 + nodeLabelOffsetY, 
+					nameDimension.width, nameDimension.height));
 
 			fFigureResourceDescription = new WrappingLabel();
 
@@ -311,7 +320,7 @@ public class ResourceEditPart extends ShapeNodeEditPart {
 			Dimension descriptionDimension = DimensionUtil.getTextSize(fFigureResourceDescription.getText(),
 					fFigureResourceDescription.getFont(), DimensionUtil.RESOURCE_DIMENSION.width-10);
 
-			this.add(fFigureResourceDescription, new Rectangle(5, 35, 
+			this.add(fFigureResourceDescription, new Rectangle(5, 35 + nodeLabelOffsetY, 
 					descriptionDimension.width, descriptionDimension.height));
 		}
 
