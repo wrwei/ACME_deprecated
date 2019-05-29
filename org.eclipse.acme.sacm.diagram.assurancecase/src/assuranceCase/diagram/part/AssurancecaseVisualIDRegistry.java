@@ -12,10 +12,22 @@ import argumentation.ArgumentPackageBinding;
 import argumentation.ArgumentPackageInterface;
 import argumentation.Argumentation_Package;
 import artifact.ArtifactPackage;
+import artifact.ArtifactPackageBinding;
+import artifact.ArtifactPackageInterface;
 import artifact.Artifact_Package;
+import assuranceCase.AssuranceCasePackage;
+import assuranceCase.AssuranceCasePackageBinding;
+import assuranceCase.AssuranceCasePackageInterface;
+import cae.CAEModule;
+import cae.CAEModuleBinding;
+import cae.CAEModuleInterface;
 import cae.Cae_Package;
+import gsn.ContractModule;
 import gsn.Gsn_Package;
+import gsn.Module;
 import terminology.TerminologyPackage;
+import terminology.TerminologyPackageBinding;
+import terminology.TerminologyPackageInterface;
 import terminology.Terminology_Package;
 
 /**
@@ -421,57 +433,74 @@ public class AssurancecaseVisualIDRegistry {
 	* @generated
 	*/
 	private static boolean isAssuranceCasePackage_2001(assuranceCase.AssuranceCasePackage domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(0, assuranceCase.AssuranceCase_Package.eINSTANCE.getAssuranceCasePackage(), null)
-				.evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(0, assuranceCase.AssuranceCase_Package.eINSTANCE.getAssuranceCasePackage(), null)
+//				.evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof AssuranceCasePackage && !(domainElement instanceof AssuranceCasePackageInterface) && !(domainElement instanceof AssuranceCasePackageBinding);
 	}
 
 	/**
 	* @generated
 	*/
 	private static boolean isArgumentPackage_2004(ArgumentPackage domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(1, Argumentation_Package.eINSTANCE.getArgumentPackage(), null).evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(1, Argumentation_Package.eINSTANCE.getArgumentPackage(), null).evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArgumentPackage && 
+				!(domainElement instanceof ArgumentPackageInterface) && 
+				!(domainElement instanceof ArgumentPackageBinding) &&
+				!(domainElement instanceof Module) &&
+				!(domainElement instanceof ContractModule) &&
+				!(domainElement instanceof CAEModule) &&
+				!(domainElement instanceof CAEModuleInterface) &&
+				!(domainElement instanceof CAEModuleBinding);
 	}
 
 	/**
 	* @generated
 	*/
 	private static boolean isArgumentPackageBinding_2002(ArgumentPackageBinding domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(2, Argumentation_Package.eINSTANCE.getArgumentPackageBinding(), null)
-				.evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(2, Argumentation_Package.eINSTANCE.getArgumentPackageBinding(), null)
+//				.evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArgumentPackageBinding;
 	}
 
 	/**
 	* @generated
 	*/
 	private static boolean isArgumentPackageInterface_2003(ArgumentPackageInterface domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(3, Argumentation_Package.eINSTANCE.getArgumentPackageInterface(), null)
-				.evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(3, Argumentation_Package.eINSTANCE.getArgumentPackageInterface(), null)
+//				.evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArgumentPackageInterface;
 	}
 
 	/**
 	* @generated
 	*/
 	private static boolean isArtifactPackage_2007(ArtifactPackage domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(4, Artifact_Package.eINSTANCE.getArtifactPackage(), null).evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(4, Artifact_Package.eINSTANCE.getArtifactPackage(), null).evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArtifactPackage && 
+				!(domainElement instanceof ArtifactPackageInterface) &&
+				!(domainElement instanceof ArtifactPackageBinding);
 	}
 
 	/**
 	* @generated
 	*/
 	private static boolean isTerminologyPackage_2010(TerminologyPackage domainElement) {
-		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
-				.getExpression(5, Terminology_Package.eINSTANCE.getTerminologyPackage(), null).evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = assuranceCase.diagram.expressions.AssurancecaseOCLFactory
+//				.getExpression(5, Terminology_Package.eINSTANCE.getTerminologyPackage(), null).evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof TerminologyPackage && 
+				!(domainElement instanceof TerminologyPackageInterface) &&
+				!(domainElement instanceof TerminologyPackageBinding);
 	}
 
 	/**

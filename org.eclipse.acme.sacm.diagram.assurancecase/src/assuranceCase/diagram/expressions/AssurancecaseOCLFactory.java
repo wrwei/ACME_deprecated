@@ -38,6 +38,7 @@ public class AssurancecaseOCLFactory {
 		this.expressions = new assuranceCase.diagram.expressions.AssurancecaseAbstractExpression[6];
 		this.expressionBodies = new String[] {
 				"(not self.oclIsTypeOf(AssuranceCasePackageBinding)) and (not self.oclIsTypeOf(AssuranceCasePackageInterface))", //$NON-NLS-1$
+//				"(self.oclIsTypeOf(ArgumentPackage))", //$NON-NLS-1$
 				"(not self.oclIsTypeOf(ArgumentPackageBinding)) and \n(not self.oclIsTypeOf(ArgumentPackageInterface)) and \n(not self.oclIsTypeOf(gsn::Module)) and \n(not self.oclIsTypeOf(gsn::ContractModule)) and\n(not self.oclIsTypeOf(cae::CAEModule)) and\n(not self.oclIsTypeOf(cae::CAEModuleInterface)) and\n(not self.oclIsTypeOf(cae::CAEModuleBinding))", //$NON-NLS-1$
 				"(not self.oclIsTypeOf(gsn::ContractModule)) and\n(not self.oclIsTypeOf(cae::CAEModuleBinding))", //$NON-NLS-1$
 				"(not self.oclIsTypeOf(cae::CAEModuleInterface))", //$NON-NLS-1$
