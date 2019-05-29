@@ -32,7 +32,7 @@ public class ArgumentPackageCanvasEditPart extends DiagramEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();

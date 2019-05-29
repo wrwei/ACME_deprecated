@@ -28,7 +28,7 @@ public class AssuranceCasePackageCanvasEditPart extends DiagramEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -38,7 +38,7 @@ public class AssuranceCasePackageCanvasEditPart extends DiagramEditPart {
 				new assuranceCase.diagram.edit.policies.AssuranceCasePackageCanonicalEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
 				assuranceCase.diagram.part.AssurancecaseVisualIDRegistry.TYPED_INSTANCE));
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 
 }
