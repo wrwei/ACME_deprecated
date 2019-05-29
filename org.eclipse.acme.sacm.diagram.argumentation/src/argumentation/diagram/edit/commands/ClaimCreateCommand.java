@@ -27,7 +27,7 @@ public class ClaimCreateCommand extends EditElementCommand {
 	*/
 	public ClaimCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);		
-		System.out.println("This is called");
+		System.out.println("This is called " + this);
 	}
 
 	/**
