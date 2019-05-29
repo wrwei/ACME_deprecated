@@ -302,6 +302,7 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 		public ClaimFigure() {
 			this.setClaim((Claim) resolveSemanticElement());
 			this.setLayoutManager(new XYLayout());
+			setMySize(DimensionUtil.CLAIM_DIMENSION.width(), DimensionUtil.CLAIM_DIMENSION.height);
 			this.setMinimumSize(DimensionUtil.getMinimumDimension((ModelElement) resolveSemanticElement(),
 					DimensionUtil.CLAIM_DIMENSION));
 			createContents();

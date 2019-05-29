@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -14,6 +15,9 @@ import argumentation.AssertionDeclaration;
 import argumentation.Claim;
 
 public class ClaimShape extends Shape{
+	
+	private int size_x;
+	private int size_y;
 
 	private Claim claim;
 	protected PointList shape = new PointList(4);
@@ -31,6 +35,13 @@ public class ClaimShape extends Shape{
 	public static final int ASSUMED_OFFSET = 4;
 
 
+	@Override
+	public void paintFigure(Graphics graphics) {
+		// TODO Auto-generated method stub
+		super.paintFigure(graphics);
+		setPreferredSize(size_x, size_y);
+	}
+	
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
@@ -364,5 +375,16 @@ public class ClaimShape extends Shape{
 	
 	public void setClaim(Claim claim) {
 		this.claim = claim;
+	}
+	
+	public void setMySize(int x, int y)
+	{
+		size_x = x;
+		size_y = y;
+	}
+	
+	public Dimension getMySize()
+	{
+		return new Dimension(size_x, size_y);
 	}
 }

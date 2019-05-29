@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import acme.argumentation.diagram.figure.AssertedInferenceShape;
+import acme.argumentation.diagram.figure.ClaimShape;
 import acme.diagram.util.DimensionUtil;
 import argumentation.Argumentation_Package;
 import argumentation.AssertedInference;
@@ -251,12 +252,16 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 				//get all asserted inferences
 				ArrayList<AssertedInferenceEditPart> list = (ArrayList<AssertedInferenceEditPart>) getAllAssertedInferences();
+				AssertedInference ai = (AssertedInference) resolveSemanticElement();
 //				Bounds claimLoc = (Bounds) ((Node) getModel()).getLayoutConstraint();
+				getTarget().getPrimaryShape().getBounds().getCopy();
 				Bounds claimLoc = (Bounds) ((Node) getTarget().getModel()).getLayoutConstraint();
+				Dimension size = ((ClaimShape)getTarget().getPrimaryShape()).getMySize();
+//				ClaimShape figure = ((ClaimShape)getTarget().getPrimaryShape());
 				for(int i = 0; i < list.size(); i++) {
 					Location lc = (Location) ((Node)list.get(i).getModel()).getLayoutConstraint();
-					lc.setX(claimLoc.getX()+claimLoc.getWidth());
-					lc.setY(claimLoc.getY()+claimLoc.getHeight());
+					lc.setX(claimLoc.getX()+size.width/2);
+					lc.setY(claimLoc.getY()+size.height + 100);
 				}
 				return Status.OK_STATUS;
 			}
@@ -297,7 +302,7 @@ public class AssertedInferenceEditPart extends ShapeNodeEditPart {
 			{
 				AssertedInferenceEditPart temp = (AssertedInferenceEditPart) part;
 				AssertedInference obj = (AssertedInference) temp.resolveSemanticElement();
-				if(obj.getTarget().contains(target) && !obj.equals(ai)) {
+				if(obj.getTarget().contains(target)) {
 					ret.add(temp);
 				}
 			}
