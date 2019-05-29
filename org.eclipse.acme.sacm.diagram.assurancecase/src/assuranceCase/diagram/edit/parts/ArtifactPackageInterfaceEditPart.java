@@ -65,7 +65,7 @@ public class ArtifactPackageInterfaceEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -73,7 +73,7 @@ public class ArtifactPackageInterfaceEditPart extends ShapeNodeEditPart {
 				new assuranceCase.diagram.edit.policies.ArtifactPackageInterfaceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 //		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new assuranceCase.diagram.edit.policies.OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**

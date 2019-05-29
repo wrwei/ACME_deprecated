@@ -58,6 +58,7 @@ import base.ModelElement;
 /**
  * @generated
  */
+@SuppressWarnings("restriction")
 public class ClaimEditPart extends ShapeNodeEditPart {
 
 	/**
@@ -85,7 +86,7 @@ public class ClaimEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
