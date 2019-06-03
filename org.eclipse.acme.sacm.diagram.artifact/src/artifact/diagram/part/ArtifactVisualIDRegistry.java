@@ -8,6 +8,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import artifact.ArtifactPackage;
+import artifact.ArtifactPackageBinding;
+import artifact.ArtifactPackageInterface;
 import artifact.Artifact_Package;
 import artifact.diagram.edit.parts.ActivityEditPart;
 import artifact.diagram.edit.parts.ArtifactAssetRelationshipEditPart;
@@ -45,7 +47,6 @@ import artifact.diagram.edit.parts.WrappingLabel7EditPart;
 import artifact.diagram.edit.parts.WrappingLabel8EditPart;
 import artifact.diagram.edit.parts.WrappingLabel9EditPart;
 import artifact.diagram.edit.parts.WrappingLabelEditPart;
-import artifact.diagram.expressions.ArtifactOCLFactory;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -363,12 +364,15 @@ public class ArtifactVisualIDRegistry {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	private static boolean isArtifactPackage_2101(ArtifactPackage domainElement) {
-		Object result = ArtifactOCLFactory.getExpression(0, Artifact_Package.eINSTANCE.getArtifactPackage(), null)
-				.evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = ArtifactOCLFactory.getExpression(0, Artifact_Package.eINSTANCE.getArtifactPackage(), null)
+//				.evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArtifactPackage &&
+				!(domainElement instanceof ArtifactPackageInterface) &&
+				!(domainElement instanceof ArtifactPackageBinding);
 	}
 
 	/**

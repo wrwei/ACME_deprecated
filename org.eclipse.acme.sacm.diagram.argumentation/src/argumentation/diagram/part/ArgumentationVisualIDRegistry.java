@@ -8,6 +8,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import argumentation.ArgumentPackage;
+import argumentation.ArgumentPackageBinding;
+import argumentation.ArgumentPackageInterface;
 import argumentation.Argumentation_Package;
 import argumentation.diagram.edit.parts.ArgumentGroupEditPart;
 import argumentation.diagram.edit.parts.ArgumentPackageBindingEditPart;
@@ -36,7 +38,6 @@ import argumentation.diagram.edit.parts.WrappingLabel7EditPart;
 import argumentation.diagram.edit.parts.WrappingLabel8EditPart;
 import argumentation.diagram.edit.parts.WrappingLabel9EditPart;
 import argumentation.diagram.edit.parts.WrappingLabelEditPart;
-import argumentation.diagram.expressions.ArgumentationOCLFactory;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -320,12 +321,15 @@ public class ArgumentationVisualIDRegistry {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	private static boolean isArgumentPackage_2201(ArgumentPackage domainElement) {
-		Object result = ArgumentationOCLFactory
-				.getExpression(0, Argumentation_Package.eINSTANCE.getArgumentPackage(), null).evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
+//		Object result = ArgumentationOCLFactory
+//				.getExpression(0, Argumentation_Package.eINSTANCE.getArgumentPackage(), null).evaluate(domainElement);
+//		return result instanceof Boolean && ((Boolean) result).booleanValue();
+		return domainElement instanceof ArgumentPackage && 
+				!(domainElement instanceof ArgumentPackageInterface) &&
+				!(domainElement instanceof ArgumentPackageBinding);
 	}
 
 	/**
