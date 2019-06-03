@@ -548,8 +548,6 @@ public class DialogHelper {
 	}
 	
 	public static void handleChoice(EditingDomain editingDomain, ChoiceNode choiceNode) {
-		
-		/*
 		ChoiceNodePropertyDialog dialog = new ChoiceNodePropertyDialog(Display.getDefault().getActiveShell(), choiceNode);
 		dialog.create();
 		if (dialog.open() == Window.OK) {
@@ -562,7 +560,6 @@ public class DialogHelper {
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, choiceNode.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), nodeExpr));
 			editingDomain.getCommandStack().execute(command);
 		}
-		*/
 	}
 	
 	public static ACMEAbstractArtefactDialog handleArtifactAsset(EditingDomain editingDomain, ArtifactAsset artifactAsset) {

@@ -71,7 +71,7 @@ public class DimensionUtil {
 	public static final Dimension AWAY_SOLUTION_DIMENSION = new Dimension(200, 134);
 	
 	
-	public static final Dimension CHOICE_DIMENSION = new Dimension(100, 61);
+	public static final Dimension CHOICE_DIMENSION = new Dimension(60, 40);
 	
 	public static final Dimension CLAIM_DIMENSION = new Dimension(200, 124);
 	public static final Dimension NEEDS_SUPPORT_CLAIM_DIMENSION = new Dimension(200, 126);
