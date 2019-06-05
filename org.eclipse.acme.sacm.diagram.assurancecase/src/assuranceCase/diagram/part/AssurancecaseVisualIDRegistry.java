@@ -465,7 +465,9 @@ public class AssurancecaseVisualIDRegistry {
 //				.getExpression(2, Argumentation_Package.eINSTANCE.getArgumentPackageBinding(), null)
 //				.evaluate(domainElement);
 //		return result instanceof Boolean && ((Boolean) result).booleanValue();
-		return domainElement instanceof ArgumentPackageBinding;
+		return domainElement instanceof ArgumentPackageBinding && 
+				!(domainElement instanceof ContractModule) && 
+				!(domainElement instanceof CAEModuleBinding);
 	}
 
 	/**
