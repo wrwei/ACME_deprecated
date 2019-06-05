@@ -218,15 +218,15 @@ public class AssurancecaseNavigatorLabelProvider extends LabelProvider
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	private String getAssuranceCasePackage_1000Text(View view) {
 		assuranceCase.AssuranceCasePackage domainModelElement = (assuranceCase.AssuranceCasePackage) view.getElement();
 		if (domainModelElement != null) {
 			return domainModelElement.getGid();
 		} else {
-			assuranceCase.diagram.part.AssurancecaseDiagramEditorPlugin.getInstance()
-					.logError("No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+//			assuranceCase.diagram.part.AssurancecaseDiagramEditorPlugin.getInstance()
+//					.logError("No domain element for view with visualID = " + 1000); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
