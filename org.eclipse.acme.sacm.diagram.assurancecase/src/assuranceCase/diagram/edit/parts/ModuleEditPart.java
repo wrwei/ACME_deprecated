@@ -80,6 +80,7 @@ public class ModuleEditPart extends ShapeNodeEditPart {
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
+
 			@Override
 			public Command getCommand(Request request) {
 				if (request instanceof ChangeBoundsRequest) {
@@ -103,7 +104,7 @@ public class ModuleEditPart extends ShapeNodeEditPart {
 				}
 				return super.getCommand(request);
 			}
-
+			
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
@@ -115,10 +116,13 @@ public class ModuleEditPart extends ShapeNodeEditPart {
 			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
-
+			
+			@Override
 			protected Command getCreateCommand(CreateRequest request) {
+				// TODO Auto-generated method stub
 				return null;
 			}
+
 		};
 		return lep;
 	}

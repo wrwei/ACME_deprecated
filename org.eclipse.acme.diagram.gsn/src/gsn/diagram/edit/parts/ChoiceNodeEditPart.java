@@ -21,6 +21,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.handles.MoveHandle;
+import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
@@ -79,6 +80,7 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		
 	}
 
 	/**
@@ -86,6 +88,17 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 	*/
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+			
+			@Override
+			public Command getCommand(Request request) {
+				if (request instanceof ChangeBoundsRequest) {
+					ChangeBoundsRequest r = (ChangeBoundsRequest) request;
+					if (r.getSizeDelta().getArea() != 0) {
+						r.setSizeDelta(new Dimension());
+					}
+				}
+				return super.getCommand(request);
+			}
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
@@ -144,7 +157,7 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
 	}
-
+	
 	/**
 	* @generated
 	*/
