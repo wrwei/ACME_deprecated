@@ -18,7 +18,6 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
@@ -216,7 +215,6 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 	* @generated
 	*/
 	protected void setBackgroundColor(Color color) {
-		System.err.println(color);
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}

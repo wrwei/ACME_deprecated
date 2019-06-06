@@ -1,6 +1,8 @@
 package gsn.diagram.edit.parts;
 
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
@@ -38,11 +40,14 @@ public class GsnEditPart extends DiagramEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new GsnItemSemanticEditPolicy());
-//		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new GsnCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new GsnCanonicalEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicyWithCustomReparent(GsnVisualIDRegistry.TYPED_INSTANCE));
-//		removeEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+		removeEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+		
 	}
-
+	
+	
+	
 }
