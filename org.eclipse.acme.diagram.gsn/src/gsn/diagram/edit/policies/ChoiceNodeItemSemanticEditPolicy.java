@@ -134,4 +134,6 @@ public class ChoiceNodeItemSemanticEditPolicy extends GsnBaseItemSemanticEditPol
 		return super.getReorientRelationshipCommand(req);
 	}
 
+	
+
 }

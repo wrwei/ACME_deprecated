@@ -6,7 +6,6 @@ import java.util.List;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
@@ -21,19 +20,18 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.handles.MoveHandle;
-import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableEditPolicyEx;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
 import acme.common.diagram.dialog.DialogHelper;
 import acme.diagram.util.DimensionUtil;
 import acme.gsn.diagram.figure.ChoiceShape;
@@ -80,7 +78,6 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-		
 	}
 
 	/**
@@ -89,16 +86,19 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 			
-			@Override
-			public Command getCommand(Request request) {
-				if (request instanceof ChangeBoundsRequest) {
-					ChangeBoundsRequest r = (ChangeBoundsRequest) request;
-					if (r.getSizeDelta().getArea() != 0) {
-						r.setSizeDelta(new Dimension());
-					}
-				}
-				return super.getCommand(request);
-			}
+//			@Override
+//			public Command getCommand(Request request) {
+//				if (request instanceof ChangeBoundsRequest) {
+//					ChangeBoundsRequest r = (ChangeBoundsRequest) request;
+//					if (r.getSizeDelta().getArea() != 0) {
+//						r.setSizeDelta(new Dimension());
+//					}
+//				}
+//				else if (request instanceof CreateViewAndElementRequest) {
+//					System.out.println(request);
+//				}
+//				return super.getCommand(request);
+//			}
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
@@ -115,7 +115,7 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 				}
 				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
-					result = new NonResizableEditPolicy();
+//					result = new NonResizableEditPolicy();
 				}
 				return result;
 			}
@@ -216,6 +216,7 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 	* @generated
 	*/
 	protected void setBackgroundColor(Color color) {
+		System.err.println(color);
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
@@ -245,10 +246,10 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(GsnVisualIDRegistry.getType(WrappingLabel19EditPart.VISUAL_ID));
 	}
-
+	
 	@Override
 	public EditPolicy getPrimaryDragEditPolicy() {
-		return new ConstrainedResizeShapeEditPolicy(this);
+		return new NonResizableEditPolicyEx();
 	}
 
 	@Override
@@ -310,5 +311,4 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 		private void createContents() {
 		}
 	}
-
 }
