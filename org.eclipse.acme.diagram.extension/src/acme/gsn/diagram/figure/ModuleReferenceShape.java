@@ -10,6 +10,7 @@
  ******************************************************************************/
 package acme.gsn.diagram.figure;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Point;
@@ -43,6 +44,7 @@ public class ModuleReferenceShape extends Shape {
 
 	@Override
 	protected void outlineShape(Graphics graphics) {
+		graphics.setForegroundColor(ColorConstants.black);
 		graphics.drawPolygon(shape);
 		graphics.drawPolygon(topLeftRectangle);
 		Rectangle r = getBounds().getCopy();
