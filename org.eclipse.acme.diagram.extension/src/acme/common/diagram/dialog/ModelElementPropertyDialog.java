@@ -11,6 +11,8 @@
 package acme.common.diagram.dialog;
 
 
+import javax.swing.JTextArea;
+
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -178,8 +180,10 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		descriptionLabel.setText("Description: ");
 		
 		//set layout for description text
-		descriptionText = new Text(groupContent, SWT.BORDER);
-		descriptionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		descriptionText = new Text(groupContent, SWT.MULTI|SWT.BORDER|SWT.WRAP | SWT.V_SCROLL);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+		data.heightHint = 75;
+		descriptionText.setLayoutData(data);
 		descriptionText.setText(description);
 		descriptionText.addModifyListener(new ModifyListener() {
 			@Override
