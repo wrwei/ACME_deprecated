@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableEditPolicyEx;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -300,6 +301,7 @@ public class ChoiceNodeEditPart extends AbstractBorderedShapeEditPart {
 			this.setLayoutManager(new XYLayout());
 			this.setMinimumSize(DimensionUtil.getMinimumDimension((ModelElement) resolveSemanticElement(),
 					DimensionUtil.CHOICE_DIMENSION));
+			setPreferredSize(DimensionUtil.CHOICE_DIMENSION);
 			createContents();
 		}
 
