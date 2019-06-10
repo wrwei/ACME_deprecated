@@ -350,7 +350,6 @@ public class LabelNotificationHandler {
 			}
 			else {
 				dimension = DimensionUtil.getTextSize("<...>", figure.getFont());
-
 			}
 			figure.getParent().setConstraint(figure, new Rectangle(AwaySolutionShape.MODULE_ICON_OFFSET+AwaySolutionShape.MODULE_ICON_WIDTH+5, d.height-AwaySolutionShape.MODULE_ICON_OFFSET - 20, dimension.width, dimension.height));
 		}
