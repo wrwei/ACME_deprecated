@@ -33,36 +33,48 @@ import base.ModelElement;
 
 public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 
+	//name, description and implementaiton constraint text fields
 	protected Text nameText;
 	protected Text descriptionText;
 	protected Text implementationConstraintText;
 	
-	//default name and description string
+	//strings to hold name, description and impl constraint
 	protected String name = "";
 	protected String description = "";
 	protected String implementationConstraint = "";
 	
-	
+	//uninstantiated
 	protected boolean uninstantiated = false;
 	protected Button uninstantiatedCheckBox;
 
-	
+	//is abstract and is citation
 	protected boolean isAbstract = false;
 	protected boolean isCitation = false;
 
+	//citation label and citation text field
 	protected Label citationLabel;
 	protected Text citationText;
+	
+	//cite button, remove button, goto button for citations.
 	protected Button citationButton;
 	protected Button citation_removeButton;
 	protected Button citation_goToButton;
-
 	
+	//model element for the dialog
 	protected ModelElement modelElement;
 	
+	//abstract method for sub classes to override
+	protected abstract String getTitleString();
+
+	
+	//constructor
 	public ModelElementPropertyDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell);
+		//check if model element is null
 		if (modelElement != null) {
 			this.modelElement = modelElement;
+			
+			//get contents if they are not null
 			if (modelElement.getName() != null) {
 				name = modelElement.getName().getContent();	
 			}
@@ -75,14 +87,36 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		}
 	}
 	
-	protected abstract String getTitleString();
-	
 	@Override
 	public void create() {
 		super.create();
 		setTitle(getTitleString());
 	}
+
+	//dialog area is the base of the entire dialog
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		//super Composite to contain everything
+		Composite superControl = (Composite) super.createDialogArea(parent);
+		this.setTitle(getTitleString());
+		
+		//create a new composite with grid layout, 1 column
+		Composite control = new Composite(superControl, SWT.FILL);
+		control.setLayout(new GridLayout(1,true));
+		GridData data = new GridData(GridData.FILL_HORIZONTAL);
+		data.widthHint = 600;
+		control.setLayoutData(data);
+//		control.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		
+		//create sub-groups in the control
+		createGroups(control);
+		control.layout();
+		control.pack();
+
+		return control;
+	}
 	
+	//utility method to create group containers
 	protected static Composite createGroupContainer(Composite parent, String text, int columns) {
 		//create a group
 		final Group group = new Group(parent, SWT.FILL);
@@ -97,63 +131,12 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		return groupContent;
 	}
 
-	@Override
-	protected Control createDialogArea(Composite parent) {
-		Composite superControl = (Composite) super.createDialogArea(parent);
-		this.setTitle(getTitleString());
-		
-		//create a new composite with grid layout, 1 column
-		Composite control = new Composite(superControl, SWT.FILL);
-		control.setLayout(new GridLayout(1,true));
-		control.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
-		//create sub-groups in the control
-		createGroups(control);
-		control.layout();
-		control.pack();
-
-		return control;
-	}
-	
 	protected void createGroups(Composite control) {
 		createIdentityGroup(control);
 		createImplementationGroup(control);
 	}
 	
-	protected void createIsAbstractGroup(Composite container) {
-		final Composite groupContent = createGroupContainer(container, "Features", 2);
-
-		isAbstract = modelElement.isIsAbstract();
-		isCitation = modelElement.isIsCitation();
-		
-		createIsPublicCheckButton(groupContent);
-		groupContent.layout();
-		groupContent.pack();
-	}
 	
-	private void createIsPublicCheckButton(Composite container) {
-		final Button isAbstractButton = new Button(container, SWT.CHECK);
-		isAbstractButton.setSelection(isAbstract);
-		isAbstractButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				Button btn = (Button) e.getSource();
-				if (btn.getSelection()) {
-					isAbstract = true;
-				}
-				else {
-					isAbstract = false;
-				}
-			}
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				Button btn = (Button) e.getSource();
-				btn.setSelection(isAbstract);
-			}
-		});
-		createLabel(container, "Abstract");
-	}
 	
 	
 	protected void createIdentityGroup(Composite parent) {
@@ -162,7 +145,10 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		
 		//name label
 		Label nameLabel = new Label(groupContent, SWT.NONE);
-		nameLabel.setText("Name:           ");
+		GridData name_label_data = new GridData(SWT.FILL);
+		name_label_data.widthHint = 80;
+		nameLabel.setLayoutData(name_label_data);
+		nameLabel.setText("Name:");
 		
 		//set layout for name text
 		nameText = new Text(groupContent, SWT.BORDER);
@@ -177,7 +163,10 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		
 		//description label
 		Label descriptionLabel = new Label(groupContent, SWT.NONE);
-		descriptionLabel.setText("Description: ");
+		GridData description_label_data = new GridData(SWT.FILL);
+		description_label_data.widthHint = 80;
+		descriptionLabel.setLayoutData(description_label_data);
+		descriptionLabel.setText("Description:");
 		
 		//set layout for description text
 		descriptionText = new Text(groupContent, SWT.MULTI|SWT.BORDER|SWT.WRAP | SWT.V_SCROLL);
@@ -202,11 +191,18 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		
 		//name label
 		Label implementationConstraintLabel = new Label(groupContent, SWT.NONE);
-		implementationConstraintLabel.setText("Constraint:   ");
+		GridData impl_constraint_label_data = new GridData(SWT.FILL);
+		impl_constraint_label_data.widthHint = 80;
+		implementationConstraintLabel.setLayoutData(impl_constraint_label_data);
+
+		implementationConstraintLabel.setText("Constraint:");
 		
 		//set layout for name text
-		implementationConstraintText = new Text(groupContent, SWT.BORDER);
-		implementationConstraintText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		implementationConstraintText = new Text(groupContent, SWT.MULTI|SWT.BORDER|SWT.WRAP | SWT.V_SCROLL);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
+		data.heightHint = 75;
+
+		implementationConstraintText.setLayoutData(data);
 		implementationConstraintText.setText(implementationConstraint);
 		implementationConstraintText.addModifyListener(new ModifyListener() {
 			@Override
@@ -253,17 +249,57 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		createLabel(container, "Uninstantiated");
 	}
 	
+	//utility method for sub classes
+	protected void createIsAbstractGroup(Composite container) {
+		final Composite groupContent = createGroupContainer(container, "Features", 2);
+
+		isAbstract = modelElement.isIsAbstract();
+		isCitation = modelElement.isIsCitation();
+		
+		createIsPublicCheckButton(groupContent);
+		groupContent.layout();
+		groupContent.pack();
+	}
+	
+	//utility method for sub classes
+	private void createIsPublicCheckButton(Composite container) {
+		final Button isAbstractButton = new Button(container, SWT.CHECK);
+		isAbstractButton.setSelection(isAbstract);
+		isAbstractButton.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button btn = (Button) e.getSource();
+				if (btn.getSelection()) {
+					isAbstract = true;
+				}
+				else {
+					isAbstract = false;
+				}
+			}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				Button btn = (Button) e.getSource();
+				btn.setSelection(isAbstract);
+			}
+		});
+		createLabel(container, "Abstract");
+	}
+	
+	//set if is resizable
 	@Override
 	protected boolean isResizable() {
 		return false;
 	}
 	
+	//save input when ok is pressed
 	@Override
 	protected void okPressed() {
 		saveInput();
 		super.okPressed();
 	}
 	
+	//save input
 	protected void saveInput() {
 		name = nameText.getText();
 		description = descriptionText.getText();
@@ -309,4 +345,6 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 	public boolean getIsAbstract() {
 		return isAbstract;
 	}
+	
+
 }
