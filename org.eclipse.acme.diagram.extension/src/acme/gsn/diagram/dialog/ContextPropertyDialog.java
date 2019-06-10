@@ -30,6 +30,7 @@ import acme.diagram.util.BrowseModelElementListener;
 import acme.diagram.util.EditingDomainUtil;
 import acme.diagram.util.ModelElementFeatureUtil;
 import acme.diagram.util.ModelElementUtil;
+import acme.diagram.util.NavigationManager;
 import artifact.ArtifactAsset;
 import artifact.ArtifactPackage;
 import assuranceCase.AssuranceCasePackage;
@@ -109,6 +110,10 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 		final Composite groupContent = createGroupContainer(container, "References", 5);
 
 		referenceLabel = new Label(groupContent, SWT.NONE);
+		GridData reference_label_data = new GridData(SWT.FILL);
+		reference_label_data.widthHint = LABEL_WIDTH;
+		referenceLabel.setLayoutData(reference_label_data);
+
 		referenceLabel.setText("Artefact:         ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
@@ -198,5 +203,20 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 				}
 			}
 		});
+		
+		goToButton = new Button(groupContent, SWT.NONE);
+		goToButton.setText("Go to");
+		goToButton.addListener(SWT.Selection, new Listener() {
+			
+			@Override
+			public void handleEvent(Event event) {
+				ModelElement citedElement = (ModelElement) context.getCitedElement();
+				boolean success = NavigationManager.navigateToEditor(citedElement);
+				if (success) {
+					getShell().close();
+				}
+			}
+		});
+
 	}
 }

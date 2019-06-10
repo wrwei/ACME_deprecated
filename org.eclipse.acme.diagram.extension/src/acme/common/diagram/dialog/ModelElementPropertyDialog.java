@@ -1,17 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2019 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * Copyright (c) 2011-2019 Ran Wei.
+ * All rights reserved.
  * 
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
 package acme.common.diagram.dialog;
 
-
-import javax.swing.JTextArea;
 
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
@@ -33,6 +28,10 @@ import base.ModelElement;
 
 public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 
+	protected final int LABEL_WIDTH = 80;
+	protected final int DESC_FIELD_HEIGHT = 70;
+	protected final int IMPL_FIELD_HEIGHT = 70;
+	
 	//name, description and implementaiton constraint text fields
 	protected Text nameText;
 	protected Text descriptionText;
@@ -146,7 +145,7 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		//name label
 		Label nameLabel = new Label(groupContent, SWT.NONE);
 		GridData name_label_data = new GridData(SWT.FILL);
-		name_label_data.widthHint = 80;
+		name_label_data.widthHint = LABEL_WIDTH;
 		nameLabel.setLayoutData(name_label_data);
 		nameLabel.setText("Name:");
 		
@@ -164,14 +163,14 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		//description label
 		Label descriptionLabel = new Label(groupContent, SWT.NONE);
 		GridData description_label_data = new GridData(SWT.FILL);
-		description_label_data.widthHint = 80;
+		description_label_data.widthHint = LABEL_WIDTH;
 		descriptionLabel.setLayoutData(description_label_data);
 		descriptionLabel.setText("Description:");
 		
 		//set layout for description text
 		descriptionText = new Text(groupContent, SWT.MULTI|SWT.BORDER|SWT.WRAP | SWT.V_SCROLL);
 		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		data.heightHint = 75;
+		data.heightHint = DESC_FIELD_HEIGHT;
 		descriptionText.setLayoutData(data);
 		descriptionText.setText(description);
 		descriptionText.addModifyListener(new ModifyListener() {
@@ -192,7 +191,7 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		//name label
 		Label implementationConstraintLabel = new Label(groupContent, SWT.NONE);
 		GridData impl_constraint_label_data = new GridData(SWT.FILL);
-		impl_constraint_label_data.widthHint = 80;
+		impl_constraint_label_data.widthHint = LABEL_WIDTH;
 		implementationConstraintLabel.setLayoutData(impl_constraint_label_data);
 
 		implementationConstraintLabel.setText("Constraint:");
@@ -200,7 +199,7 @@ public abstract class ModelElementPropertyDialog extends TitleAreaDialog {
 		//set layout for name text
 		implementationConstraintText = new Text(groupContent, SWT.MULTI|SWT.BORDER|SWT.WRAP | SWT.V_SCROLL);
 		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		data.heightHint = 75;
+		data.heightHint = IMPL_FIELD_HEIGHT;
 
 		implementationConstraintText.setLayoutData(data);
 		implementationConstraintText.setText(implementationConstraint);

@@ -325,6 +325,7 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
 			_public = dialog.getIsPublic();
 			_undeveloped = dialog.getUndeveloped();
 			_uninstantiated = dialog.getUninstantiated();
@@ -332,6 +333,7 @@ public class DialogHelper {
 			CompoundCommand command = new CompoundCommand();
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), implementation_constraint));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("isPublic"), _public));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("undeveloped"), _undeveloped));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("uninstantiated"), _uninstantiated));
@@ -352,12 +354,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
 			_undeveloped = dialog.getUndeveloped();
 			_uninstantiated = dialog.getUninstantiated();
 
 			CompoundCommand command = new CompoundCommand();
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), implementation_constraint));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy, Gsn_Package.eINSTANCE.getStrategy().getEStructuralFeature("undeveloped"), _undeveloped));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy, Gsn_Package.eINSTANCE.getStrategy().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
