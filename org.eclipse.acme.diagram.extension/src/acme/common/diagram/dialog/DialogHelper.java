@@ -198,6 +198,19 @@ public class DialogHelper {
 		}
 	}
 	
+	private static void appendNameToCommand(EditingDomain editingDomain, CompoundCommand command, ModelElement modelElement, String name) {
+		command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, modelElement.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
+	}
+	
+	private static void appendDescriptionToCommand(EditingDomain editingDomain, CompoundCommand command, ModelElement modelElement, String description) {
+		command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, modelElement.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+	}
+	
+	private static void appendImplementationConstraintToCommand(EditingDomain editingDomain, CompoundCommand command, ModelElement modelElement, String implementation_constraint) {
+		command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, modelElement.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), implementation_constraint));
+	}
+	
+	
 	public static void handleClaim(EditingDomain editingDomain, Claim claim) {
 		
 		ClaimDialog dialog = new ClaimDialog(Display.getDefault().getActiveShell(), claim);
@@ -205,6 +218,7 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
 			boolean isAbstract = dialog.getIsAbstract();
 			int index = dialog.getSelectedIndex();
 			CompoundCommand command = new CompoundCommand();
@@ -231,8 +245,9 @@ public class DialogHelper {
 				break;
 			}
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, claim, Base_Package.eINSTANCE.getSACMElement_IsAbstract(), isAbstract));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, claim.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, claim.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, claim, name);
+			appendDescriptionToCommand(editingDomain, command, claim, description);
+			appendImplementationConstraintToCommand(editingDomain, command, claim, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		}
 	}
@@ -244,11 +259,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
 			boolean isAbstract = dialog.getIsAbstract();
+
 			CompoundCommand command = new CompoundCommand();
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactReference, Base_Package.eINSTANCE.getSACMElement_IsAbstract(), isAbstract));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactReference.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactReference.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, artifactReference, name);
+			appendDescriptionToCommand(editingDomain, command, artifactReference, description);
+			appendImplementationConstraintToCommand(editingDomain, command, artifactReference, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		}
 	}
@@ -260,11 +278,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			boolean isAbstract = dialog.getIsAbstract();
 			CompoundCommand command = new CompoundCommand();
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, reasoning, Base_Package.eINSTANCE.getSACMElement_IsAbstract(), isAbstract));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, reasoning.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, reasoning.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, reasoning, name);
+			appendDescriptionToCommand(editingDomain, command, reasoning, description);
+			appendImplementationConstraintToCommand(editingDomain, command, reasoning, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		}
 	}
@@ -276,6 +297,8 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			boolean isAbstract = dialog.getIsAbstract();
 			int index = dialog.getSelectedIndex();
 			CompoundCommand command = new CompoundCommand();
@@ -302,8 +325,9 @@ public class DialogHelper {
 				break;
 			}
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assertedInference, Base_Package.eINSTANCE.getSACMElement_IsAbstract(), isAbstract));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assertedInference.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assertedInference.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, assertedInference, name);
+			appendDescriptionToCommand(editingDomain, command, assertedInference, description);
+			appendImplementationConstraintToCommand(editingDomain, command, assertedInference, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		}
 	}	
@@ -331,9 +355,9 @@ public class DialogHelper {
 			_uninstantiated = dialog.getUninstantiated();
 			_tobeSupported = dialog.getToBeSupported();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), implementation_constraint));
+			appendNameToCommand(editingDomain, command, goal, name);
+			appendDescriptionToCommand(editingDomain, command, goal, description);
+			appendImplementationConstraintToCommand(editingDomain, command, goal, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("isPublic"), _public));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("undeveloped"), _undeveloped));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, goal, Gsn_Package.eINSTANCE.getGoal().getEStructuralFeature("uninstantiated"), _uninstantiated));
@@ -359,9 +383,9 @@ public class DialogHelper {
 			_uninstantiated = dialog.getUninstantiated();
 
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), implementation_constraint));
+			appendNameToCommand(editingDomain, command, strategy, name);
+			appendDescriptionToCommand(editingDomain, command, strategy, description);
+			appendImplementationConstraintToCommand(editingDomain, command, strategy, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy, Gsn_Package.eINSTANCE.getStrategy().getEStructuralFeature("undeveloped"), _undeveloped));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, strategy, Gsn_Package.eINSTANCE.getStrategy().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
@@ -379,11 +403,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			_public = dialog.getIsPublic();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, solution.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, solution.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, solution, name);
+			appendDescriptionToCommand(editingDomain, command, solution, description);
+			appendImplementationConstraintToCommand(editingDomain, command, solution, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, solution, Gsn_Package.eINSTANCE.getSolution().getEStructuralFeature("isPublic"), _public));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, solution, Gsn_Package.eINSTANCE.getSolution().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
@@ -403,11 +430,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			_public = dialog.getIsPublic();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, context.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, context.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, context, name);
+			appendDescriptionToCommand(editingDomain, command, context, description);
+			appendImplementationConstraintToCommand(editingDomain, command, context, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, context, Gsn_Package.eINSTANCE.getContext().getEStructuralFeature("isPublic"), _public));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, context, Gsn_Package.eINSTANCE.getContext().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
@@ -423,11 +453,14 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assumption.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assumption.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, assumption, name);
+			appendDescriptionToCommand(editingDomain, command, assumption, description);
+			appendImplementationConstraintToCommand(editingDomain, command, assumption, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, assumption, Gsn_Package.eINSTANCE.getAssumption().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -442,10 +475,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, justification.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, justification.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, justification, name);
+			appendDescriptionToCommand(editingDomain, command, justification, description);
+			appendImplementationConstraintToCommand(editingDomain, command, justification, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, justification, Gsn_Package.eINSTANCE.getJustification().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -457,14 +493,17 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			//populate is many and is optional
 			boolean isMany = dialog.getIsMany();
 			boolean isOptional = dialog.getIsOptional();
 			String manyExpression = dialog.getIsManyExpression();
 
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, supportedBy.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, supportedBy.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, supportedBy, name);
+			appendDescriptionToCommand(editingDomain, command, supportedBy, description);
+			appendImplementationConstraintToCommand(editingDomain, command, supportedBy, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, supportedBy.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), manyExpression));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, supportedBy, Gsn_Package.eINSTANCE.getSupportedBy_IsMany(), isMany));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, supportedBy, Gsn_Package.eINSTANCE.getSupportedBy_IsOptional(), isOptional));
@@ -478,14 +517,17 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			//populate is many and is optional
 			boolean isMany = dialog.getIsMany();
 			boolean isOptional = dialog.getIsOptional();
 			String manyExpression = dialog.getIsManyExpression();
 
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, inContextOf, name);
+			appendDescriptionToCommand(editingDomain, command, inContextOf, description);
+			appendImplementationConstraintToCommand(editingDomain, command, inContextOf, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), manyExpression));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf, Gsn_Package.eINSTANCE.getInContextOf_IsMany(), isMany));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf, Gsn_Package.eINSTANCE.getInContextOf_IsOptional(), isOptional));
@@ -503,10 +545,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awayGoal.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awayGoal.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, awayGoal, name);
+			appendDescriptionToCommand(editingDomain, command, awayGoal, description);
+			appendImplementationConstraintToCommand(editingDomain, command, awayGoal, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain,  awayGoal, Gsn_Package.eINSTANCE.getAwayGoal().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 
@@ -523,10 +568,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awaySolution.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awaySolution.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, awaySolution, name);
+			appendDescriptionToCommand(editingDomain, command, awaySolution, description);
+			appendImplementationConstraintToCommand(editingDomain, command, awaySolution, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awaySolution, Gsn_Package.eINSTANCE.getAwaySolution().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -542,10 +590,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			_uninstantiated = dialog.getUninstantiated();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awayContext.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awayContext.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, awayContext, name);
+			appendDescriptionToCommand(editingDomain, command, awayContext, description);
+			appendImplementationConstraintToCommand(editingDomain, command, awayContext, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, awayContext, Gsn_Package.eINSTANCE.getAwayContext().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -557,10 +608,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			String nodeExpr = dialog.getNodeExpr();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, choiceNode.getName(), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, choiceNode.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), description));
+			appendNameToCommand(editingDomain, command, choiceNode, name);
+			appendDescriptionToCommand(editingDomain, command, choiceNode, description);
+			appendImplementationConstraintToCommand(editingDomain, command, choiceNode, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, choiceNode.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), nodeExpr));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -572,10 +626,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 //			String uri = dialog.getUriString();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactAsset.getName(), Base_Package.eINSTANCE.getLangString_Content(), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactAsset.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), description));
+			appendNameToCommand(editingDomain, command, artifactAsset, name);
+			appendDescriptionToCommand(editingDomain, command, artifactAsset, description);
+			appendImplementationConstraintToCommand(editingDomain, command, artifactAsset, implementation_constraint);
 			//command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), uri));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -617,10 +674,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			String value = dialog.getValueString();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, expression.getName(), Base_Package.eINSTANCE.getLangString_Content(), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, expression.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), description));
+			appendNameToCommand(editingDomain, command, expression, name);
+			appendDescriptionToCommand(editingDomain, command, expression, description);
+			appendImplementationConstraintToCommand(editingDomain, command, expression, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, expression, Terminology_Package.eINSTANCE.getExpression().getEStructuralFeature("value"), value));
 			editingDomain.getCommandStack().execute(command);
 		}
@@ -635,10 +695,13 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			String value = dialog.getValueString();
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, term.getName(), Base_Package.eINSTANCE.getLangString_Content(), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, term.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), description));
+			appendNameToCommand(editingDomain, command, term, name);
+			appendDescriptionToCommand(editingDomain, command, term, description);
+			appendImplementationConstraintToCommand(editingDomain, command, term, implementation_constraint);
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, term, Terminology_Package.eINSTANCE.getTerm().getEStructuralFeature("value"), value));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, term, Terminology_Package.eINSTANCE.getTerm_ExternalReference(), dialog.getExternalRefString()));
 			editingDomain.getCommandStack().execute(command);
@@ -655,9 +718,12 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, category.getName(), Base_Package.eINSTANCE.getLangString_Content(), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, category.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), description));
+			appendNameToCommand(editingDomain, command, category, name);
+			appendDescriptionToCommand(editingDomain, command, category, description);
+			appendImplementationConstraintToCommand(editingDomain, command, category, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		} 
 	}
@@ -668,9 +734,12 @@ public class DialogHelper {
 		if (dialog.open() == Window.OK) {
 			String name = dialog.getName();
 			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
 			CompoundCommand command = new CompoundCommand();
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, terminologyPackage.getName(), Base_Package.eINSTANCE.getLangString_Content(), name));
-			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, terminologyPackage.getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), description));
+			appendNameToCommand(editingDomain, command, terminologyPackage, name);
+			appendDescriptionToCommand(editingDomain, command, terminologyPackage, description);
+			appendImplementationConstraintToCommand(editingDomain, command, terminologyPackage, implementation_constraint);
 			editingDomain.getCommandStack().execute(command);
 		}
 	}
