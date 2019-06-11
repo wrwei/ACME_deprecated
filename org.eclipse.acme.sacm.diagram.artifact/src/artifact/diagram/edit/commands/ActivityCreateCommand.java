@@ -56,6 +56,7 @@ public class ActivityCreateCommand extends EditElementCommand {
 		Activity newElement = Artifact_Factory.eINSTANCE.createActivity();
 
 		ModelElementFeatureUtil.createBasicFeature(newElement);
+		ModelElementFeatureUtil.createArtefactProperty(newElement);
 
 		ArtifactPackage owner = (ArtifactPackage) getElementToEdit();
 		owner.getArtifactElement().add(newElement);

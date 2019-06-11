@@ -29,6 +29,5 @@ public class PropertyPropertyDialog extends ACMEAbstractArtefactDialog {
 	@Override
 	protected void createCustomGroups(Composite control) {
 		// TODO Auto-generated method stub
-		
 	}
 }

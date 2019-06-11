@@ -52,7 +52,9 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 	public ACMEAbstractArtefactDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
 		ArtifactAsset artifactAsset = (ArtifactAsset) modelElement;
-		uriString = artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0).getContent();
+		if (!(modelElement instanceof Property)) {
+			uriString = artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0).getContent();	
+		}
 	}
 	
 	protected abstract void createCustomGroups(Composite control);
@@ -62,7 +64,9 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 		super.createGroups(control);
 		//descriptionText.setBackground(ColorConstants.white);
 		createCustomGroups(control);
-		createReferenceGroup(control);
+		if (!(modelElement instanceof Property)) {
+			createReferenceGroup(control);
+		}
 	}
 
 	protected void createReferenceGroup(Composite container) {
@@ -70,7 +74,10 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 		ArtifactAsset artifactAsset = (ArtifactAsset) modelElement;
 
 		referenceLabel = new Label(groupContent, SWT.NONE);
-		referenceLabel.setText("URI/URL:         ");
+		GridData uri_label_data = new GridData(SWT.FILL);
+		uri_label_data.widthHint = LABEL_WIDTH;
+		referenceLabel.setLayoutData(uri_label_data);
+		referenceLabel.setText("URI/URL: ");
 	
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		uri = new Text(groupContent, SWT.BORDER);

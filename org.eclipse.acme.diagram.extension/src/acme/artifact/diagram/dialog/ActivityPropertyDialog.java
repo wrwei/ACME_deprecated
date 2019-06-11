@@ -64,7 +64,10 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 		final Composite groupContent = createGroupContainer(container, "Times", 3);
 
 		startTimeLabel = new Label(groupContent, SWT.NONE);
-		startTimeLabel.setText("Start Time:      ");
+		GridData start_time_label_data = new GridData(SWT.FILL);
+		start_time_label_data.widthHint = LABEL_WIDTH;
+		startTimeLabel.setLayoutData(start_time_label_data);
+		startTimeLabel.setText("Start Time: ");
 
 		statTimeText = new Text(groupContent, SWT.BORDER);
 		statTimeText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -128,7 +131,10 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 		
 
 		endTimeLabel = new Label(groupContent, SWT.NONE);
-		endTimeLabel.setText("End Time:      ");
+		GridData end_time_label_data = new GridData(SWT.FILL);
+		end_time_label_data.widthHint = LABEL_WIDTH;
+		endTimeLabel.setLayoutData(end_time_label_data);
+		endTimeLabel.setText("End Time: ");
 
 		endTimeText = new Text(groupContent, SWT.BORDER);
 		endTimeText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));

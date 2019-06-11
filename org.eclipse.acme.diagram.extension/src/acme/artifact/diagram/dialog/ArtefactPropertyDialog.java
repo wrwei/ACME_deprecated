@@ -63,7 +63,10 @@ public class ArtefactPropertyDialog extends ACMEAbstractArtefactDialog {
 		final Composite groupContent = createGroupContainer(container, "Times", 3);
 
 		timeLabel = new Label(groupContent, SWT.NONE);
-		timeLabel.setText("Date:               ");
+		GridData time_label_data = new GridData(SWT.FILL);
+		time_label_data.widthHint = LABEL_WIDTH;
+		timeLabel.setLayoutData(time_label_data);
+		timeLabel.setText("Date: ");
 
 		timeText = new Text(groupContent, SWT.BORDER);
 		timeText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
