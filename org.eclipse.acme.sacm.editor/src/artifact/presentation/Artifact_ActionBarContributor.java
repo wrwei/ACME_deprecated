@@ -163,6 +163,7 @@ public class Artifact_ActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("artifact_-settings"));
 		toolBarManager.add(new Separator("artifact_-additions"));
 	}

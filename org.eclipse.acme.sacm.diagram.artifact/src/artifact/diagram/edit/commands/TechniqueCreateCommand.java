@@ -56,6 +56,7 @@ public class TechniqueCreateCommand extends EditElementCommand {
 		Technique newElement = Artifact_Factory.eINSTANCE.createTechnique();
 
 		ModelElementFeatureUtil.createBasicFeature(newElement);
+		ModelElementFeatureUtil.createArtefactProperty(newElement);
 
 		ArtifactPackage owner = (ArtifactPackage) getElementToEdit();
 		owner.getArtifactElement().add(newElement);

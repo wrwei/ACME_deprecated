@@ -153,7 +153,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Artifact_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -167,7 +167,8 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 		if (isInited) return (Artifact_Package)EPackage.Registry.INSTANCE.getEPackage(Artifact_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Artifact_PackageImpl theArtifact_Package = (Artifact_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Artifact_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Artifact_PackageImpl());
+		Object registeredArtifact_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Artifact_PackageImpl theArtifact_Package = registeredArtifact_Package instanceof Artifact_PackageImpl ? (Artifact_PackageImpl)registeredArtifact_Package : new Artifact_PackageImpl();
 
 		isInited = true;
 
@@ -183,7 +184,6 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 		// Mark meta-data to indicate it can't be changed
 		theArtifact_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Artifact_Package.eNS_URI, theArtifact_Package);
 		return theArtifact_Package;
@@ -540,7 +540,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 		initEReference(getArtifactPackageInterface_Implements(), this.getArtifactPackage(), null, "implements", null, 1, 1, ArtifactPackageInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactAssetEClass, ArtifactAsset.class, "ArtifactAsset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArtifactAsset_ArtifactProperty(), this.getProperty(), null, "artifactProperty", null, 0, -1, ArtifactAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifactAsset_ArtifactProperty(), this.getProperty(), null, "artifactProperty", null, 0, -1, ArtifactAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

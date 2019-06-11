@@ -632,12 +632,12 @@ public class DialogHelper {
 			String description = dialog.getDescription();
 			String implementation_constraint = dialog.getImplementationConstraint();
 
-//			String uri = dialog.getUriString();
+			String uri = dialog.getUriString();
 			CompoundCommand command = new CompoundCommand();
 			appendNameToCommand(editingDomain, command, artifactAsset, name);
 			appendDescriptionToCommand(editingDomain, command, artifactAsset, description);
 			appendImplementationConstraintToCommand(editingDomain, command, artifactAsset, implementation_constraint);
-			//command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString_Content(), uri));
+			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), uri));
 			editingDomain.getCommandStack().execute(command);
 		}
 		return dialog;

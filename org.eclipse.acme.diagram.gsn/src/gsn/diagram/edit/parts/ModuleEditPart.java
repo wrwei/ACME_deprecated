@@ -8,9 +8,11 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
@@ -28,9 +30,12 @@ import org.eclipse.swt.graphics.Color;
 
 import acme.assurancecase.diagram.figure.ModuleShape;
 import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
+import acme.common.diagram.dialog.DialogHelper;
 import acme.diagram.util.DimensionUtil;
 import acme.diagram.util.FontManager;
 import acme.diagram.util.ModelElementFeatureUtil;
+import base.ModelElement;
+import gsn.Gsn_Package;
 import gsn.Module;
 import gsn.diagram.edit.policies.ModuleItemSemanticEditPolicy;
 import gsn.diagram.edit.policies.OpenDiagramEditPolicy;
@@ -82,9 +87,11 @@ public class ModuleEditPart extends ShapeNodeEditPart {
 
 			@Override
 			public Command getCommand(Request request) {
+//				System.out.println(request);
 				if (request instanceof ChangeBoundsRequest) {
 					ChangeBoundsRequest req = (ChangeBoundsRequest) request;
 					//get bounds of the current shape
+					
 					Rectangle bounds = getPrimaryShape().getBounds().getCopy();
 					//get size
 					Dimension d = bounds.getSize();
@@ -361,5 +368,20 @@ public class ModuleEditPart extends ShapeNodeEditPart {
 	@Override
 	public EditPolicy getPrimaryDragEditPolicy() {
 		return new ConstrainedResizeShapeEditPolicy(this);
+	}
+	
+	@Override
+	public void performRequest(Request request) {
+		System.out.println(request);
+		if (request.getType() == RequestConstants.REQ_OPEN) {
+			DialogHelper.handleElement(getEditingDomain(), (ModelElement) resolveSemanticElement());
+		}
+		super.performRequest(request);
+	}
+	
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		System.out.println(notification);
+		super.handleNotificationEvent(notification);
 	}
 }

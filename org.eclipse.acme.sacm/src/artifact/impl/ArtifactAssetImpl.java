@@ -9,10 +9,13 @@ import artifact.Property;
 import base.impl.ArtifactElementImpl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public abstract class ArtifactAssetImpl extends ArtifactElementImpl implements ArtifactAsset {
 	/**
-	 * The cached value of the '{@link #getArtifactProperty() <em>Artifact Property</em>}' reference list.
+	 * The cached value of the '{@link #getArtifactProperty() <em>Artifact Property</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getArtifactProperty()
@@ -64,9 +67,23 @@ public abstract class ArtifactAssetImpl extends ArtifactElementImpl implements A
 	 */
 	public EList<Property> getArtifactProperty() {
 		if (artifactProperty == null) {
-			artifactProperty = new EObjectResolvingEList<Property>(Property.class, this, Artifact_Package.ARTIFACT_ASSET__ARTIFACT_PROPERTY);
+			artifactProperty = new EObjectContainmentEList<Property>(Property.class, this, Artifact_Package.ARTIFACT_ASSET__ARTIFACT_PROPERTY);
 		}
 		return artifactProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case Artifact_Package.ARTIFACT_ASSET__ARTIFACT_PROPERTY:
+				return ((InternalEList<?>)getArtifactProperty()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

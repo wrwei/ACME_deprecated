@@ -83,7 +83,7 @@
             id="artifact.presentation.Artifact_EditorID"
             name="%_UI_Artifact_Editor_label"
             icon="icons/full/obj16/Artifact_ModelFile.gif"
-            extensions="artifact"
+            extensions="artifact_"
             class="artifact.presentation.Artifact_Editor"
             contributorClass="artifact.presentation.Artifact_ActionBarContributor">
       </editor>

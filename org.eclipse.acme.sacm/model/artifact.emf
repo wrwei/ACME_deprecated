@@ -19,7 +19,7 @@ import "platform:/resource/org.eclipse.acme.sacm/model/base.ecore";
   }
 
   abstract class ArtifactAsset extends base.ArtifactElement {
-    ref Property[*] artifactProperty;
+    val Property[*] artifactProperty;
   }
 
   class Property extends ArtifactAsset {

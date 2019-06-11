@@ -13,7 +13,6 @@ import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 
 import acme.assurancecase.diagram.figure.ModuleShape;
 import acme.gsn.diagram.figure.AwayContextShape;
@@ -58,7 +57,6 @@ public class LabelNotificationHandler {
 	
 	ArrayList<CompartmentEditPart> names = new ArrayList<CompartmentEditPart>();
 	ArrayList<CompartmentEditPart> descriptions = new ArrayList<CompartmentEditPart>();
-	ArrayList<LabelEditPart> implmentationConstraints = new ArrayList<LabelEditPart>();
 	ArrayList<CompartmentEditPart> moduleDescriptors = new ArrayList<CompartmentEditPart>();
 	
 	public static LabelNotificationHandler getInstance() {

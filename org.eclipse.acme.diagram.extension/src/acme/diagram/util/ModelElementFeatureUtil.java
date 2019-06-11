@@ -8,6 +8,9 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import artifact.ArtifactAsset;
+import artifact.Artifact_Factory;
+import artifact.Property;
 import base.Base_Factory;
 import base.Base_Package;
 import base.Description;
@@ -76,6 +79,17 @@ public class ModelElementFeatureUtil {
 		implementationConstraint.setContent(_multiLangString);
 		modelElement.getImplementationConstraint().add(implementationConstraint);
 	}
+	
+	public static void createArtefactProperty(ArtifactAsset artifactAsset) {
+		Artifact_Factory factory = Artifact_Factory.eINSTANCE;
+		Property property = factory.createProperty();
+		createBasicFeature(property);
+		setName(property, "URI");
+		setDescription(property, "URI for external reference");
+		
+		artifactAsset.getArtifactProperty().add(property);
+	}
+	
 	public static String getName(EObject eObject) {
 		if (eObject instanceof ModelElement) {
 			ModelElement modelElement = (ModelElement) eObject;

@@ -56,6 +56,7 @@ public class ResourceCreateCommand extends EditElementCommand {
 		Resource newElement = Artifact_Factory.eINSTANCE.createResource();
 
 		ModelElementFeatureUtil.createBasicFeature(newElement);
+		ModelElementFeatureUtil.createArtefactProperty(newElement);
 
 		ArtifactPackage owner = (ArtifactPackage) getElementToEdit();
 		owner.getArtifactElement().add(newElement);

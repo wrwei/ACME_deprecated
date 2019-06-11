@@ -19,7 +19,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArtifactAsset" abstract="true" eSuperTypes="base.ecore#//ArtifactElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifactProperty" upperBound="-1"
-        eType="#//Property"/>
+        eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ArtifactAsset"/>
   <eClassifiers xsi:type="ecore:EClass" name="Technique" eSuperTypes="#//ArtifactAsset"/>

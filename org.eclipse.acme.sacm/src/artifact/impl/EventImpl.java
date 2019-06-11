@@ -154,7 +154,7 @@ public class EventImpl extends ArtifactAssetImpl implements Event {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (occurence: ");
 		result.append(occurence);
 		result.append(')');

@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ACME SACM Edit Plugin
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.acme.sacm.edit;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Activator: terminology.provider.TerminologyEditPlugin$Implementation
-Bundle-Vendor: Ran Wei
+Bundle-Activator: artifact.provider.ArtifactEditPlugin$Implementation
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: base.provider,

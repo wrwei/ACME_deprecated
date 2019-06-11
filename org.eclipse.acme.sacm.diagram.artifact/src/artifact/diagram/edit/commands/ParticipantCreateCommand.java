@@ -56,6 +56,7 @@ public class ParticipantCreateCommand extends EditElementCommand {
 		Participant newElement = Artifact_Factory.eINSTANCE.createParticipant();
 
 		ModelElementFeatureUtil.createBasicFeature(newElement);
+		ModelElementFeatureUtil.createArtefactProperty(newElement);
 
 		ArtifactPackage owner = (ArtifactPackage) getElementToEdit();
 		owner.getArtifactElement().add(newElement);

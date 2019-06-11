@@ -51,6 +51,8 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 
 	public ACMEAbstractArtefactDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
+		ArtifactAsset artifactAsset = (ArtifactAsset) modelElement;
+		uriString = artifactAsset.getArtifactProperty().get(0).getDescription().getContent().getValue().get(0).getContent();
 	}
 	
 	protected abstract void createCustomGroups(Composite control);
@@ -65,12 +67,14 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 
 	protected void createReferenceGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "References", 3);
-	
+		ArtifactAsset artifactAsset = (ArtifactAsset) modelElement;
+
 		referenceLabel = new Label(groupContent, SWT.NONE);
 		referenceLabel.setText("URI/URL:         ");
 	
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		uri = new Text(groupContent, SWT.BORDER);
+		uri.setText(uriString);
 		uri.setLayoutData(filePathData);
 		uri.setBackground(ColorConstants.white);
 		uri.addModifyListener(new ModifyListener() {
@@ -81,7 +85,6 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 			}
 		});
 		
-		ArtifactAsset artifactAsset = (ArtifactAsset) modelElement;
 		//do not the the code below because property is a separate element now
 //		if (!artifactAsset.getArtifactProperty().isEmpty()) {
 //			Property property = artifactAsset.getArtifactProperty().get(0);
@@ -107,6 +110,7 @@ public abstract class ACMEAbstractArtefactDialog extends ModelElementPropertyDia
 					return;
 				}
 				uri.setText(path);
+				uriString = path;
 				Property property = artifactAsset.getArtifactProperty().get(0);
 				ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
 						property.getDescription().getContent().getValue().get(0), 

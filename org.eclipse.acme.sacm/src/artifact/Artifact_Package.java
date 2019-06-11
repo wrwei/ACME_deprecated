@@ -685,7 +685,7 @@ public interface Artifact_Package extends EPackage {
 	int ARTIFACT_ASSET__TAGGED_VALUE = Base_Package.ARTIFACT_ELEMENT__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -812,7 +812,7 @@ public interface Artifact_Package extends EPackage {
 	int PROPERTY__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -939,7 +939,7 @@ public interface Artifact_Package extends EPackage {
 	int TECHNIQUE__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1066,7 +1066,7 @@ public interface Artifact_Package extends EPackage {
 	int PARTICIPANT__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1193,7 +1193,7 @@ public interface Artifact_Package extends EPackage {
 	int ACTIVITY__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1338,7 +1338,7 @@ public interface Artifact_Package extends EPackage {
 	int EVENT__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1474,7 +1474,7 @@ public interface Artifact_Package extends EPackage {
 	int RESOURCE__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1601,7 +1601,7 @@ public interface Artifact_Package extends EPackage {
 	int ARTIFACT__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1746,7 +1746,7 @@ public interface Artifact_Package extends EPackage {
 	int ARTIFACT_ASSET_RELATIONSHIP__TAGGED_VALUE = ARTIFACT_ASSET__TAGGED_VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Property</b></em>' reference list.
+	 * The feature id for the '<em><b>Artifact Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1886,10 +1886,10 @@ public interface Artifact_Package extends EPackage {
 	EClass getArtifactAsset();
 
 	/**
-	 * Returns the meta object for the reference list '{@link artifact.ArtifactAsset#getArtifactProperty <em>Artifact Property</em>}'.
+	 * Returns the meta object for the containment reference list '{@link artifact.ArtifactAsset#getArtifactProperty <em>Artifact Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Artifact Property</em>'.
+	 * @return the meta object for the containment reference list '<em>Artifact Property</em>'.
 	 * @see artifact.ArtifactAsset#getArtifactProperty()
 	 * @see #getArtifactAsset()
 	 * @generated
@@ -2159,7 +2159,7 @@ public interface Artifact_Package extends EPackage {
 		EClass ARTIFACT_ASSET = eINSTANCE.getArtifactAsset();
 
 		/**
-		 * The meta object literal for the '<em><b>Artifact Property</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Artifact Property</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
