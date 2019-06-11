@@ -191,9 +191,13 @@ public class DialogHelper {
 			if (dialog.open() == Window.OK) {
 				String name = dialog.getName();
 				String description = dialog.getDescription();
-				
-				ModelElementFeatureUtil.setNameTransactional(editingDomain, modelElement, name);
-				ModelElementFeatureUtil.setDescriptionTransactional(editingDomain, modelElement, description);
+				String implementation_constraint = dialog.getImplementationConstraint();
+
+				CompoundCommand command = new CompoundCommand();
+				appendNameToCommand(editingDomain, command, modelElement, name);
+				appendDescriptionToCommand(editingDomain, command, modelElement, description);
+				appendImplementationConstraintToCommand(editingDomain, command, modelElement, implementation_constraint);
+				editingDomain.getCommandStack().execute(command);
 			}
 		}
 	}

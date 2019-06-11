@@ -45,11 +45,17 @@ import terminology.TerminologyPackageInterface;
 
 public class LabelNotificationHandler {
 
+	//static instance
 	private static LabelNotificationHandler instance;
 	
+	//the one and only editing domain
 	TransactionalEditingDomain editingDomain;
+	
+	//resource set listeners
 	ResourceSetListener rsl;
 	ResourceSetListener rsl2;
+	
+	
 	ArrayList<CompartmentEditPart> names = new ArrayList<CompartmentEditPart>();
 	ArrayList<CompartmentEditPart> descriptions = new ArrayList<CompartmentEditPart>();
 	ArrayList<LabelEditPart> implmentationConstraints = new ArrayList<LabelEditPart>();
@@ -146,11 +152,6 @@ public class LabelNotificationHandler {
 		}
 	}
 	
-	public void registerImplementationConstraint(LabelEditPart cep) {
-		if (!implmentationConstraints.contains(cep)) {
-			implmentationConstraints.add(cep);
-		}
-	}
 	
 	public void registerModuleDescriptors(CompartmentEditPart cep) {
 		if (!moduleDescriptors.contains(cep)) {
@@ -174,14 +175,6 @@ public class LabelNotificationHandler {
 					cep.refresh();
 					IFigure figure = cep.getFigure();
 					handleModelElementDescription(modelElement, figure);
-				}
-			}
-			for(LabelEditPart cep: implmentationConstraints) {
-				ModelElement modelElement = (ModelElement) cep.resolveSemanticElement();
-				if (n.getNotifier().equals(modelElement.getImplementationConstraint().get(0).getContent().getValue().get(0))) {
-					cep.refresh();
-					//IFigure figure = cep.getFigure();
-					//handleModelElementDescription(modelElement, figure);
 				}
 			}
 			for(CompartmentEditPart cep: moduleDescriptors) {
