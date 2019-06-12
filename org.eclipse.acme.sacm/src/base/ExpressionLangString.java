@@ -31,7 +31,7 @@ public interface ExpressionLangString extends LangString {
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(ArtifactElement)
 	 * @see base.Base_Package#getExpressionLangString_Expression()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	ArtifactElement getExpression();

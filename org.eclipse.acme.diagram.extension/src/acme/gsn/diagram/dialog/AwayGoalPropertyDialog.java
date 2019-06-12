@@ -33,9 +33,6 @@ import acme.diagram.util.ModelElementFeatureUtil;
 import acme.diagram.util.ModelElementUtil;
 import acme.diagram.util.NavigationManager;
 import argumentation.ArgumentPackage;
-import argumentation.ArgumentationElement;
-import argumentation.Claim;
-import assuranceCase.AssuranceCasePackage;
 import base.ModelElement;
 import gsn.AwayGoal;
 import gsn.Goal;
@@ -88,7 +85,11 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 		final Composite groupContent = createGroupContainer(container, "References", 4);
 
 		goalLabel = new Label(groupContent, SWT.NONE);
-		goalLabel.setText("Away Goal:      ");
+		GridData label_data = new GridData(SWT.FILL);
+		label_data.widthHint = LABEL_WIDTH;
+		goalLabel.setLayoutData(label_data);
+
+		goalLabel.setText("Away Goal: ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		goalFullName = new Text(groupContent, SWT.BORDER);
@@ -175,9 +176,11 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) awayGoal.getCitedElement();
-				boolean success = NavigationManager.navigateToEditor(citedElement);
-				if (success) {
-					getShell().close();
+				if (citedElement != null) {
+					boolean success = NavigationManager.navigateToEditor(citedElement);
+					if (success) {
+						getShell().close();
+					}	
 				}
 			}
 		});

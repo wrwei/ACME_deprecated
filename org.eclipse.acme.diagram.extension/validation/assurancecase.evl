@@ -1,0 +1,12 @@
+context ArgumentPackage {
+
+	constraint UniqueName {
+		check
+		{
+			var names = ArgumentPackage.all().excluding(self).collect(m|m.name.content);
+			return names.excludes(self.name.content);
+		} 
+		message: "Name " + self.name.content + " exists"
+	}
+
+}

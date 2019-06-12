@@ -9,7 +9,7 @@ package base;
   }
 
   class ExpressionLangString extends LangString {
-    val ArtifactElement[1] expression;
+    val ArtifactElement expression;
   }
 
   class MultiLangString extends Element {

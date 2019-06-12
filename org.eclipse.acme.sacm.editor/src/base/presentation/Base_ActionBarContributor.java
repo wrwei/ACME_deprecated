@@ -163,6 +163,7 @@ public class Base_ActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("base_-settings"));
 		toolBarManager.add(new Separator("base_-additions"));
 	}

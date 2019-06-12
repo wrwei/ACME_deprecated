@@ -39,8 +39,10 @@ import acme.gsn.diagram.dialog.AwayGoalPropertyDialog;
 import acme.gsn.diagram.dialog.AwaySolutionPropertyDialog;
 import acme.gsn.diagram.dialog.ChoiceNodePropertyDialog;
 import acme.gsn.diagram.dialog.ContextPropertyDialog;
+import acme.gsn.diagram.dialog.ContractModuleReferencePropertyDialog;
 import acme.gsn.diagram.dialog.GoalPropertyDialog;
 import acme.gsn.diagram.dialog.JustificationPropertyDialog;
+import acme.gsn.diagram.dialog.ModuleReferencePropertyDialog;
 import acme.gsn.diagram.dialog.SolutionPropertyDialog;
 import acme.gsn.diagram.dialog.StrategyPropertyDialog;
 import acme.terminology.diagram.dialog.CategoryPropertyDialog;
@@ -78,11 +80,13 @@ import gsn.AwaySolution;
 import gsn.ChoiceNode;
 import gsn.Context;
 import gsn.ContractModule;
+import gsn.ContractModuleReference;
 import gsn.Goal;
 import gsn.Gsn_Package;
 import gsn.InContextOf;
 import gsn.Justification;
 import gsn.Module;
+import gsn.ModuleReference;
 import gsn.Solution;
 import gsn.Strategy;
 import gsn.SupportedBy;
@@ -167,6 +171,12 @@ public class DialogHelper {
 		}
 		else if (modelElement instanceof ChoiceNode) {
 			handleChoice(editingDomain, (ChoiceNode) modelElement);
+		}
+		else if (modelElement instanceof ModuleReference) {
+			handleModuleReference(editingDomain, (ModuleReference) modelElement);
+		}
+		else if (modelElement instanceof ContractModuleReference) {
+			handleContractModuleReference(editingDomain, (ContractModuleReference) modelElement);
 		}
 		else if (modelElement instanceof Claim) {
 			handleClaim(editingDomain, (Claim) modelElement);
@@ -535,6 +545,50 @@ public class DialogHelper {
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf.getImplementationConstraint().get(0).getContent().getValue().get(0), Base_Package.eINSTANCE.getLangString().getEStructuralFeature("content"), manyExpression));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf, Gsn_Package.eINSTANCE.getInContextOf_IsMany(), isMany));
 			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain, inContextOf, Gsn_Package.eINSTANCE.getInContextOf_IsOptional(), isOptional));
+			editingDomain.getCommandStack().execute(command);
+		}
+	}
+	
+	public static void handleModuleReference(EditingDomain editingDomain, ModuleReference moduleReference) {
+		boolean isUninstantiated = moduleReference.isUninstantiated();
+		
+		boolean _uninstantiated = isUninstantiated;
+		
+		ModuleReferencePropertyDialog dialog = new ModuleReferencePropertyDialog(Display.getDefault().getActiveShell(), moduleReference);
+		dialog.create();
+		if (dialog.open() == Window.OK) {
+			String name = dialog.getName();
+			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
+			_uninstantiated = dialog.getUninstantiated();
+			CompoundCommand command = new CompoundCommand();
+			appendNameToCommand(editingDomain, command, moduleReference, name);
+			appendDescriptionToCommand(editingDomain, command, moduleReference, description);
+			appendImplementationConstraintToCommand(editingDomain, command, moduleReference, implementation_constraint);
+			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain,  moduleReference, Gsn_Package.eINSTANCE.getAwayGoal().getEStructuralFeature("uninstantiated"), _uninstantiated));
+			editingDomain.getCommandStack().execute(command);
+		}
+	}
+	
+	public static void handleContractModuleReference(EditingDomain editingDomain, ContractModuleReference contractModuleReference) {
+		boolean isUninstantiated = contractModuleReference.isUninstantiated();
+		
+		boolean _uninstantiated = isUninstantiated;
+		
+		ContractModuleReferencePropertyDialog dialog = new ContractModuleReferencePropertyDialog(Display.getDefault().getActiveShell(), contractModuleReference);
+		dialog.create();
+		if (dialog.open() == Window.OK) {
+			String name = dialog.getName();
+			String description = dialog.getDescription();
+			String implementation_constraint = dialog.getImplementationConstraint();
+
+			_uninstantiated = dialog.getUninstantiated();
+			CompoundCommand command = new CompoundCommand();
+			appendNameToCommand(editingDomain, command, contractModuleReference, name);
+			appendDescriptionToCommand(editingDomain, command, contractModuleReference, description);
+			appendImplementationConstraintToCommand(editingDomain, command, contractModuleReference, implementation_constraint);
+			command.append(ModelElementFeatureUtil.getSetCommand(editingDomain,  contractModuleReference, Gsn_Package.eINSTANCE.getAwayGoal().getEStructuralFeature("uninstantiated"), _uninstantiated));
 			editingDomain.getCommandStack().execute(command);
 		}
 	}

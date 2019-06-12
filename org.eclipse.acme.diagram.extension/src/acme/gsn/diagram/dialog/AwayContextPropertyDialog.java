@@ -86,7 +86,11 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 		final Composite groupContent = createGroupContainer(container, "References", 4);
 
 		contextLabel = new Label(groupContent, SWT.NONE);
-		contextLabel.setText("Away Context:   ");
+		GridData label_data = new GridData(SWT.FILL);
+		label_data.widthHint = LABEL_WIDTH;
+		contextLabel.setLayoutData(label_data);
+
+		contextLabel.setText("Away Context: ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		contextFullName = new Text(groupContent, SWT.BORDER);
@@ -172,9 +176,11 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) awayContext.getCitedElement();
-				boolean success = NavigationManager.navigateToEditor(citedElement);
-				if (success) {
-					getShell().close();
+				if (citedElement != null) {
+					boolean success = NavigationManager.navigateToEditor(citedElement);
+					if (success) {
+						getShell().close();
+					}
 				}
 			}
 		});

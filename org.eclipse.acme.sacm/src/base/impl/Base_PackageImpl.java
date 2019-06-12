@@ -143,7 +143,7 @@ public class Base_PackageImpl extends EPackageImpl implements Base_Package {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Base_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -157,7 +157,8 @@ public class Base_PackageImpl extends EPackageImpl implements Base_Package {
 		if (isInited) return (Base_Package)EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Base_PackageImpl theBase_Package = (Base_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Base_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Base_PackageImpl());
+		Object registeredBase_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Base_PackageImpl theBase_Package = registeredBase_Package instanceof Base_PackageImpl ? (Base_PackageImpl)registeredBase_Package : new Base_PackageImpl();
 
 		isInited = true;
 
@@ -170,7 +171,6 @@ public class Base_PackageImpl extends EPackageImpl implements Base_Package {
 		// Mark meta-data to indicate it can't be changed
 		theBase_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Base_Package.eNS_URI, theBase_Package);
 		return theBase_Package;
@@ -545,7 +545,7 @@ public class Base_PackageImpl extends EPackageImpl implements Base_Package {
 		initEAttribute(getLangString_Content(), ecorePackage.getEString(), "content", null, 0, 1, LangString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionLangStringEClass, ExpressionLangString.class, "ExpressionLangString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExpressionLangString_Expression(), this.getArtifactElement(), null, "expression", null, 1, 1, ExpressionLangString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExpressionLangString_Expression(), this.getArtifactElement(), null, "expression", null, 0, 1, ExpressionLangString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiLangStringEClass, MultiLangString.class, "MultiLangString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiLangString_Value(), this.getLangString(), null, "value", null, 1, -1, MultiLangString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

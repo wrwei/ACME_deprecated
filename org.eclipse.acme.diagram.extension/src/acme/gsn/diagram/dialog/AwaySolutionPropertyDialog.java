@@ -87,7 +87,6 @@ public class AwaySolutionPropertyDialog extends ModelElementPropertyDialog {
 		GridData away_label_data = new GridData(SWT.FILL);
 		away_label_data.widthHint = LABEL_WIDTH;
 		solutionLabel.setLayoutData(away_label_data);
-
 		solutionLabel.setText("Away Solution: ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
@@ -176,9 +175,11 @@ public class AwaySolutionPropertyDialog extends ModelElementPropertyDialog {
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) awaySolution.getCitedElement();
-				boolean success = NavigationManager.navigateToEditor(citedElement);
-				if (success) {
-					getShell().close();
+				if (citedElement != null) {
+					boolean success = NavigationManager.navigateToEditor(citedElement);
+					if (success) {
+						getShell().close();
+					}
 				}
 			}
 		});

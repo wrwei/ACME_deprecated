@@ -33,9 +33,15 @@ import gsn.ModuleReference;
 
 public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 
+	//module label
 	protected Label moduleLabel;
+	//module full name
 	protected Text moduleFullName;
+	//browse Button
 	protected Button browseButton;
+	//goto Button
+	protected Button goToButton;
+
 	
 	
 	public ModuleReferencePropertyDialog(Shell parentShell, ModelElement modelElement) {
@@ -66,7 +72,11 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 		final Composite groupContent = createGroupContainer(container, "References", 3);
 
 		moduleLabel = new Label(groupContent, SWT.NONE);
-		moduleLabel.setText("Module:         ");
+		GridData label_data = new GridData(SWT.FILL);
+		label_data.widthHint = LABEL_WIDTH;
+		moduleLabel.setLayoutData(label_data);
+
+		moduleLabel.setText("Module: ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		moduleFullName = new Text(groupContent, SWT.BORDER);
