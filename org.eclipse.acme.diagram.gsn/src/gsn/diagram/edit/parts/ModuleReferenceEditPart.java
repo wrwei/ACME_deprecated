@@ -348,6 +348,4 @@ public class ModuleReferenceEditPart extends ShapeNodeEditPart {
 		}
 		super.performRequest(request);
 	}
-
-
 }

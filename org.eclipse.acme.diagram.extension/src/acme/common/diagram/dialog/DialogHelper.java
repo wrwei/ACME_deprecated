@@ -115,8 +115,14 @@ public class DialogHelper {
 		else if (modelElement instanceof Module) {
 			dialog = new ModulePropertyDialog(shell, modelElement);
 		}
+		else if (modelElement instanceof ModuleReference) {
+			dialog = new ModuleReferencePropertyDialog(shell, modelElement);
+		}
 		else if (modelElement instanceof ContractModule) {
 			dialog = new ContractModulePropertyDialog(shell, modelElement);
+		}
+		else if (modelElement instanceof ContractModuleReference) {
+			dialog = new ContractModuleReferencePropertyDialog(shell, modelElement);
 		}
 		else if (modelElement instanceof ArgumentPackageInterface) {
 			dialog = new ArgumentPackageInterfacePropertyDialog(shell, modelElement);

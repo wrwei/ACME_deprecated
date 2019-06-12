@@ -26,6 +26,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -313,7 +315,9 @@ public class AwayGoalEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		private void createContents() {
-
+            /* get the node's current size */
+            Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
+            
 			Dimension awayGoalDimension = DimensionUtil.AWAY_GOAL_DIMENSION;
 
 			fFigureAwayGoalName = new WrappingLabel();
@@ -354,7 +358,7 @@ public class AwayGoalEditPart extends ShapeNodeEditPart {
 
 			fFigureAwayGoalModule.setFont(FontManager.BOLD_FONT);
 
-			int y_offset = awayGoalDimension.height - AwayGoalShape.MODULE_ICON_OFFSET
+			int y_offset = nodeSize.getHeight() - AwayGoalShape.MODULE_ICON_OFFSET
 					- AwayGoalShape.MODULE_ICON_HEIGHT;
 			int x_offset = AwayGoalShape.MODULE_ICON_OFFSET + AwayGoalShape.MODULE_ICON_WIDTH + 5;
 
