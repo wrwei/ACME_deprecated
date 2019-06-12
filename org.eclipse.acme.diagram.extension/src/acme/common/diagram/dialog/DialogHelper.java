@@ -39,8 +39,10 @@ import acme.gsn.diagram.dialog.AwayGoalPropertyDialog;
 import acme.gsn.diagram.dialog.AwaySolutionPropertyDialog;
 import acme.gsn.diagram.dialog.ChoiceNodePropertyDialog;
 import acme.gsn.diagram.dialog.ContextPropertyDialog;
+import acme.gsn.diagram.dialog.ContractModuleReferencePropertyDialog;
 import acme.gsn.diagram.dialog.GoalPropertyDialog;
 import acme.gsn.diagram.dialog.JustificationPropertyDialog;
+import acme.gsn.diagram.dialog.ModuleReferencePropertyDialog;
 import acme.gsn.diagram.dialog.SolutionPropertyDialog;
 import acme.gsn.diagram.dialog.StrategyPropertyDialog;
 import acme.terminology.diagram.dialog.CategoryPropertyDialog;
@@ -78,11 +80,13 @@ import gsn.AwaySolution;
 import gsn.ChoiceNode;
 import gsn.Context;
 import gsn.ContractModule;
+import gsn.ContractModuleReference;
 import gsn.Goal;
 import gsn.Gsn_Package;
 import gsn.InContextOf;
 import gsn.Justification;
 import gsn.Module;
+import gsn.ModuleReference;
 import gsn.Solution;
 import gsn.Strategy;
 import gsn.SupportedBy;
@@ -111,8 +115,14 @@ public class DialogHelper {
 		else if (modelElement instanceof Module) {
 			dialog = new ModulePropertyDialog(shell, modelElement);
 		}
+		else if (modelElement instanceof ModuleReference) {
+			dialog = new ModuleReferencePropertyDialog(shell, modelElement);
+		}
 		else if (modelElement instanceof ContractModule) {
 			dialog = new ContractModulePropertyDialog(shell, modelElement);
+		}
+		else if (modelElement instanceof ContractModuleReference) {
+			dialog = new ContractModuleReferencePropertyDialog(shell, modelElement);
 		}
 		else if (modelElement instanceof ArgumentPackageInterface) {
 			dialog = new ArgumentPackageInterfacePropertyDialog(shell, modelElement);

@@ -44,7 +44,7 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 
 	@Override
 	protected String getTitleString() {
-		return "Edit the properties for Goal: " + getName();
+		return "Edit the properties for ModuleReference: " + getName();
 	}
 	
 	@Override

@@ -11,6 +11,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
@@ -26,10 +27,12 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
+import acme.common.diagram.dialog.DialogHelper;
 import acme.diagram.util.DimensionUtil;
 import acme.diagram.util.FontManager;
 import acme.diagram.util.ModelElementFeatureUtil;
 import acme.gsn.diagram.figure.ModuleReferenceShape;
+import base.ModelElement;
 import gsn.ModuleReference;
 import gsn.diagram.edit.policies.ModuleReferenceItemSemanticEditPolicy;
 import gsn.diagram.part.GsnVisualIDRegistry;
@@ -336,6 +339,15 @@ public class ModuleReferenceEditPart extends ShapeNodeEditPart {
 	@Override
 	public EditPolicy getPrimaryDragEditPolicy() {
 		return new ConstrainedResizeShapeEditPolicy(this);
+	}
+	
+	@Override
+	public void performRequest(Request request) {
+		System.out.println(request);
+		if (request.getType() == RequestConstants.REQ_OPEN) {
+			DialogHelper.handleElement(getEditingDomain(), (ModelElement) resolveSemanticElement());
+		}
+		super.performRequest(request);
 	}
 
 }
