@@ -4,6 +4,9 @@ context ArgumentPackage {
 		check
 		{
 			var names = ArgumentPackage.all().excluding(self).collect(m|m.name.content);
+			names.println();
+			self.name.content.println();
+			names.excludes(self.name.content).println();
 			return names.excludes(self.name.content);
 		} 
 		message: "Name " + self.name.content + " exists"
