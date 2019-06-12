@@ -23,51 +23,62 @@ public class ArtifactPackageBindingShape extends Shape {
 	//the main shape
 	protected PointList shape = new PointList();
 	//top left rectangle
-	protected PointList topLeftRectangle = new PointList();
+	protected PointList topRectangle = new PointList();
 	
 	
-	public static final int TOP_RECT_WIDTH = 38;
-	public static final int TOP_RECT_HEIGHT = 13;
+	protected PointList annotationBox = new PointList();
 	
-	public static final int BOT_RECT_WIDTH = 38;
-	public static final int BOT_RECT_HEIGHT = 13;
+	public static final int TOP_RECT_WIDTH_OFFSET = 5;
+	public static final int TOP_RECT_HEIGHT = 18;
 	
-	public static final int MARGIN_WIDTH = 30;
-	public static final int BOX_WIDTH = 15;
-	public static final int BOX_OFFSET = 10;
-
+	public static final int BOX_WIDTH = 30;
+	public static final int BOX_HEIGHT = 18;
+	
+	public static final int CIRCLE_RADIUS = 16;
+	
 	protected PointList deco = new PointList();
-
 	
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
 		shape.translate(dx, dy);
-		topLeftRectangle.translate(dx, dy);
+		topRectangle.translate(dx, dy);
+		annotationBox.translate(dx, dy);
 		deco.translate(dx, dy);
 	}
 	
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(shape);
-		graphics.fillPolygon(topLeftRectangle);
-		graphics.fillPolygon(deco);
+		graphics.fillPolygon(topRectangle);
+		graphics.fillPolygon(annotationBox);
 	}
 
 	@Override
 	protected void outlineShape(Graphics graphics) {
 		graphics.setAntialias(SWT.ON);
 		graphics.setForegroundColor(ColorConstants.black);
-		graphics.drawPolygon(topLeftRectangle);
-		graphics.drawPolygon(shape);
-		graphics.drawLine(shape.getPoint(1), shape.getPoint(4));
-		graphics.drawOval(new Rectangle(deco.getPoint(0).x-BOX_WIDTH/2, deco.getPoint(0).y-BOX_WIDTH, BOX_WIDTH, BOX_WIDTH));
-		graphics.drawOval(new Rectangle(deco.getPoint(1).x-BOX_WIDTH/2, deco.getPoint(1).y - BOX_WIDTH, BOX_WIDTH, BOX_WIDTH));
+//		graphics.drawPolygon(shape);
+		graphics.drawLine(shape.getPoint(0), shape.getPoint(1));
+		graphics.drawLine(shape.getPoint(1), shape.getPoint(2));
+		graphics.drawLine(shape.getPoint(2), shape.getPoint(3));
+		graphics.drawLine(shape.getPoint(3), shape.getPoint(0));
+		
+		graphics.drawLine(shape.getPoint(4), shape.getPoint(5));
+		graphics.drawLine(shape.getPoint(5), shape.getPoint(6));
+		graphics.drawLine(shape.getPoint(5), shape.getPoint(7));
+		graphics.drawPolygon(topRectangle);
+		graphics.drawPolygon(annotationBox);
+		
+		graphics.drawOval(new Rectangle(deco.getPoint(0).x-CIRCLE_RADIUS/2, deco.getPoint(0).y, CIRCLE_RADIUS, CIRCLE_RADIUS));
+		graphics.drawOval(new Rectangle(deco.getPoint(1).x-CIRCLE_RADIUS/2, deco.getPoint(1).y, CIRCLE_RADIUS, CIRCLE_RADIUS));
+
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-//		int width = DimensionUtil.getTextSize("Artifact", null).width;
-		graphics.drawText("Artifact", new Point(r.x + 5 + TOP_RECT_WIDTH, r.y));
+		graphics.drawText("Artifact", new Point(r.x + 5, r.y));
+//		int width = DimensionUtil.getTextSize("Argumentation", null).width;
+//		graphics.drawText("Argumentation", new Point(r.x + 5 + TOP_RECT_WIDTH_OFFSET, r.y));
 	}
 	
 	@Override
@@ -77,56 +88,67 @@ public class ArtifactPackageBindingShape extends Shape {
 		r.shrink(getInsets());
 		r.resize(-1, -1);
 		
-		Point tRectTL, tRectTR, tRectBR, tRectBL;
-		tRectTL = new Point(r.x, r.y);
-		tRectTR = new Point(r.x + TOP_RECT_WIDTH, r.y);
-		tRectBR = new Point(r.x + TOP_RECT_WIDTH, r.y + TOP_RECT_HEIGHT);
-		tRectBL = new Point(r.x, r.y + TOP_RECT_HEIGHT);
+		int offset = (r.width - TOP_RECT_WIDTH_OFFSET*2)/4;
 		
-		topLeftRectangle.removeAllPoints();
-		topLeftRectangle.addPoint(tRectTL);
-		topLeftRectangle.addPoint(tRectTR);
-		topLeftRectangle.addPoint(tRectBR);
-		topLeftRectangle.addPoint(tRectBL);
+		Point rectTL, rectTR, rectBR, rectBL;
+		rectTL = new Point(r.x, r.y);
+		rectTR = new Point(r.x + r.width, r.y);
+		rectBR = new Point(r.x + r.width, r.y + TOP_RECT_HEIGHT);
+		rectBL = new Point(r.x, r.y + TOP_RECT_HEIGHT);
 		
+		topRectangle.removeAllPoints();
+		topRectangle.addPoint(rectTL);
+		topRectangle.addPoint(rectTR);
+		topRectangle.addPoint(rectBR);
+		topRectangle.addPoint(rectBL);
+		
+		/*
+		 * tl tr
+		 * bl br
+		 * p1
+		 * p2 p3
+		 * p4
+		 */
 		
 		Point tl, tr, br, bl;
-		tl = new Point(r.x, r.y + TOP_RECT_HEIGHT);
-		tr = new Point(r.x + r.width, r.y + TOP_RECT_HEIGHT);
-		br = new Point(r.x + r.width, r.y + r.height);
-		bl = new Point(r.x, r.y + r.height);
-		Point p1 = new Point(r.x + r.width - MARGIN_WIDTH, r.y+TOP_RECT_HEIGHT);
-		Point p2 = new Point(r.x + r.width - MARGIN_WIDTH, r.y+r.height);
+		tl = new Point(r.x+TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT);
+		tr = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT);
+		br = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + r.height);
+		bl = new Point(r.x + TOP_RECT_WIDTH_OFFSET, r.y + r.height);
+		
+		Point p1, p2, p3, p4;
+		p1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + TOP_RECT_HEIGHT);
+		p2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2);
+		p3 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2);
+		p4 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + r.height);
 		
 		shape.removeAllPoints();
 		shape.addPoint(tl);
-		shape.addPoint(p1);
 		shape.addPoint(tr);
 		shape.addPoint(br);
-		shape.addPoint(p2);
 		shape.addPoint(bl);
+		shape.addPoint(p1);
+		shape.addPoint(p2);
+		shape.addPoint(p3);
+		shape.addPoint(p4);
 		
-		/*
-		 * 
-		 */
+		Point b1, b2, b3, b4;
+		b1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2);
+		b2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2 + BOX_WIDTH, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2);
+		b3 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2 + BOX_WIDTH, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2 + BOX_HEIGHT);
+		b4 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2 + BOX_HEIGHT);
 		
-		Point dp1 = new Point(r.x + r.width - MARGIN_WIDTH + MARGIN_WIDTH/3, r.y + r.height - BOX_OFFSET);
-		Point dp2 = new Point(r.x + r.width - MARGIN_WIDTH/3, r.y + r.height - BOX_OFFSET);
+		annotationBox.removeAllPoints();
+		annotationBox.addPoint(b1);
+		annotationBox.addPoint(b2);
+		annotationBox.addPoint(b3);
+		annotationBox.addPoint(b4);
+		
+		Point dp1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4+CIRCLE_RADIUS/4);
+		Point dp2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4+CIRCLE_RADIUS);
 		deco.removeAllPoints();
 		deco.addPoint(dp1);
 		deco.addPoint(dp2);
-		
-//		Point bRectTL, bRectTR, bRectBR, bRectBL;
-//		bRectTL = new Point(r.x + r.width - BOT_RECT_WIDTH, r.y + r.height - BOT_RECT_HEIGHT);
-//		bRectTR = new Point(r.x + r.width, r.y + r.height - BOT_RECT_HEIGHT);
-//		bRectBR = new Point(r.x + r.width, r.y + r.height);
-//		bRectBL = new Point(r.x + r.width - BOT_RECT_WIDTH, r.y + r.height);
-//		
-//		botRightRectangle.removeAllPoints();
-//		botRightRectangle.addPoint(bRectTL);
-//		botRightRectangle.addPoint(bRectTR);
-//		botRightRectangle.addPoint(bRectBR);
-//		botRightRectangle.addPoint(bRectBL);
 	}
 
 }

@@ -1,10 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) 2011-2019 Ran Wei. 
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -28,7 +23,7 @@ public class ArgumentPackageShape extends Shape {
 	protected PointList annotationBox = new PointList();
 	
 	public static final int TOP_RECT_WIDTH_OFFSET = 5;
-	public static final int TOP_RECT_HEIGHT = 13;
+	public static final int TOP_RECT_HEIGHT = 18;
 	
 	public static final int BOX_WIDTH = 30;
 	public static final int BOX_HEIGHT = 18;

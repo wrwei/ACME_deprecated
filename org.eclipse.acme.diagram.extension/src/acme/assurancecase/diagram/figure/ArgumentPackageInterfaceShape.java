@@ -28,7 +28,7 @@ public class ArgumentPackageInterfaceShape extends Shape {
 	protected PointList annotationBox = new PointList();
 	
 	public static final int TOP_RECT_WIDTH_OFFSET = 5;
-	public static final int TOP_RECT_HEIGHT = 13;
+	public static final int TOP_RECT_HEIGHT = 18;
 	
 	public static final int BOX_WIDTH = 30;
 	public static final int BOX_HEIGHT = 18;
