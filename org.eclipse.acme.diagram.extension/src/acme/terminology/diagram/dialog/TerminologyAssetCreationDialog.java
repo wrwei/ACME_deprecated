@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.Text;
 
 import acme.common.diagram.dialog.ModelElementPropertyDialog;
 import acme.diagram.util.BrowseModelElementListener;
+import acme.diagram.util.ModelElementFeatureUtil;
 import acme.diagram.util.ModelElementUtil;
 import base.ModelElement;
 import terminology.Category;
@@ -563,6 +564,7 @@ public class TerminologyAssetCreationDialog extends ModelElementPropertyDialog {
 		
 		ModelElementUtil.createName(result, name);
 		ModelElementUtil.createDescription(result, description);
+		ModelElementFeatureUtil.createImplementationConstraint(result, implementationConstraint);
 		return result;
 	}
 	
