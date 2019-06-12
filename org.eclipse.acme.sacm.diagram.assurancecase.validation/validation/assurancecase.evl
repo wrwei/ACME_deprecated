@@ -11,5 +11,10 @@ context ArgumentPackage {
 		} 
 		message: "Name " + self.name.content + " exists"
 	}
+	
+	constraint Random {
+		check: false
+		message: "This should be false"
+	}
 
 }

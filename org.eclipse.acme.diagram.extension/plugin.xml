@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.epsilon.evl.emf.validation">
-      <constraintsBinding
-            compose="true"
-            constraints="validation/assurancecase.evl"
-            namespaceURI="http://omg.sacm/2.0/assurancecase">
-      </constraintsBinding>
-   </extension>
-   <extension
-         point="org.eclipse.ui.ide.markerResolution">
-      <markerResolutionGenerator
-            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
-            markerType="org.eclipse.acme.sacm.diagram.assurancecase.diagnostic">
-      </markerResolutionGenerator>
-      <markerResolutionGenerator
-            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
-            markerType="org.eclipse.emf.ecore.diagnostic">
-      </markerResolutionGenerator>
-   </extension>
 
 </plugin>
