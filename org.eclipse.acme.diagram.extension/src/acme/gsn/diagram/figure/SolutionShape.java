@@ -38,6 +38,8 @@ public class SolutionShape extends Shape {
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
 		rect.translate(dx, dy);
+		triangle.translate(dx, dy);
+		publicIndicator.translate(dx, dy);
 	}
 	
 	@Override
