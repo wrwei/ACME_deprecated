@@ -26,6 +26,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
@@ -313,7 +315,10 @@ public class AwayContextEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		private void createContents() {
+            /* get the node's current size */
+            Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
 
+            /* note d is the `default` (without scaling) size */
 			Dimension d = DimensionUtil.AWAY_CONTEXT_DIMENSION;
 
 			fFigureAwayContextName = new WrappingLabel();
@@ -354,7 +359,7 @@ public class AwayContextEditPart extends ShapeNodeEditPart {
 
 			fFigureAwayContextModule.setFont(FontManager.BOLD_FONT);
 
-			int y_offset = d.height - AwayContextShape.MODULE_ICON_OFFSET - AwayContextShape.MODULE_ICON_HEIGHT;
+			int y_offset = nodeSize.getHeight() - AwayContextShape.MODULE_ICON_OFFSET - AwayContextShape.MODULE_ICON_HEIGHT;
 			int x_offset = AwayContextShape.MODULE_ICON_OFFSET + AwayContextShape.MODULE_ICON_WIDTH + 5;
 
 			Dimension moduleDimension = DimensionUtil.getTextSize(fFigureAwayContextModule.getText(),
