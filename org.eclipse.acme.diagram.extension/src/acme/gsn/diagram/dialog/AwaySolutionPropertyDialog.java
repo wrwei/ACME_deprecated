@@ -84,7 +84,11 @@ public class AwaySolutionPropertyDialog extends ModelElementPropertyDialog {
 		final Composite groupContent = createGroupContainer(container, "References", 4);
 
 		solutionLabel = new Label(groupContent, SWT.NONE);
-		solutionLabel.setText("Away Solution:  ");
+		GridData away_label_data = new GridData(SWT.FILL);
+		away_label_data.widthHint = LABEL_WIDTH;
+		solutionLabel.setLayoutData(away_label_data);
+
+		solutionLabel.setText("Away Solution: ");
 
 		GridData filePathData = new GridData(GridData.FILL_HORIZONTAL);
 		solutionFullName = new Text(groupContent, SWT.BORDER);
@@ -93,7 +97,7 @@ public class AwaySolutionPropertyDialog extends ModelElementPropertyDialog {
 		solutionFullName.setBackground(ColorConstants.white);
 		
 		AwaySolution awaySolution = (AwaySolution) modelElement;
-		if (awaySolution.getReferencedArtifactElement().get(0) != null) {
+		if (awaySolution.getReferencedArtifactElement().size() >0 ) {
 			Solution solution = (Solution) awaySolution.getReferencedArtifactElement().get(0);
 			String moduleName = ModelElementUtil.getModuleName(solution);
 			String solutionName = solution.getName().getContent();
