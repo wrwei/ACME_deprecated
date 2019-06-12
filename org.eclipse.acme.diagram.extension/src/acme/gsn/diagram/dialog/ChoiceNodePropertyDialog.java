@@ -40,15 +40,16 @@ public class ChoiceNodePropertyDialog extends ModelElementPropertyDialog {
 	
 	@Override
 	protected void createGroups(Composite control) {
-		super.createGroups(control);
+		//super.createGroups(control);
+		super.createImplementationGroup(control);
 		createFeaturesGroup(control);
 	}
 	
 	protected void createFeaturesGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "Features", 2);
 
-		nameText.setEditable(false);
-		nameText.setBackground(ColorConstants.white);
+		//nameText.setEditable(false);
+		//nameText.setBackground(ColorConstants.white);
 		
 		
 		ChoiceNode choiceNode = (ChoiceNode) modelElement;
