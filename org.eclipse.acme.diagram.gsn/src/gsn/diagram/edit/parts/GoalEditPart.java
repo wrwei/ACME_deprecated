@@ -88,24 +88,24 @@ public class GoalEditPart extends ShapeNodeEditPart {
 
 			@Override
 			public Command getCommand(Request request) {
-				if (request instanceof ChangeBoundsRequest) {
-					ChangeBoundsRequest req = (ChangeBoundsRequest) request;
-					//get bounds of the current shape
-					Rectangle bounds = getPrimaryShape().getBounds().getCopy();
-					//get size
-					Dimension d = bounds.getSize();
-					//expand to the changed size
-					d.expand(req.getSizeDelta());
-					Dimension minimum = DimensionUtil.GOAL_DIMENSION;
-					if (d.width > minimum.width && d.height > minimum.height) {
-						GoalFigure nodeFigure = (GoalFigure) getPrimaryShape();
-						Dimension descriptionDimension = DimensionUtil.getTextSize(
-								nodeFigure.getFigureGoalDescription().getText(),
-								nodeFigure.getFigureGoalDescription().getFont(), d.width - 15);
-						nodeFigure.setConstraint(nodeFigure.getFigureGoalDescription(),
-								new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
-					}
-				}
+//				if (request instanceof ChangeBoundsRequest) {
+//					ChangeBoundsRequest req = (ChangeBoundsRequest) request;
+//					//get bounds of the current shape
+//					Rectangle bounds = getPrimaryShape().getBounds().getCopy();
+//					//get size
+//					Dimension d = bounds.getSize();
+//					//expand to the changed size
+//					d.expand(req.getSizeDelta());
+//					Dimension minimum = DimensionUtil.GOAL_DIMENSION;
+//					if (d.width > minimum.width && d.height > minimum.height) {
+//						GoalFigure nodeFigure = (GoalFigure) getPrimaryShape();
+//						Dimension descriptionDimension = DimensionUtil.getTextSize(
+//								nodeFigure.getFigureGoalDescription().getText(),
+//								nodeFigure.getFigureGoalDescription().getFont(), d.width - 15);
+//						nodeFigure.setConstraint(nodeFigure.getFigureGoalDescription(),
+//								new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
+//					}
+//				}
 				return super.getCommand(request);
 			}
 
@@ -408,6 +408,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
+		System.out.println(notification);
 		boolean refresh = false;
 		if (notification.getFeature().equals(Gsn_Package.eINSTANCE.getGoal_IsPublic())) {
 			refresh = true;

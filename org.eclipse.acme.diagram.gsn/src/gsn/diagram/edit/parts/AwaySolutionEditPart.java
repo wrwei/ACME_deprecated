@@ -315,8 +315,6 @@ public class AwaySolutionEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		private void createContents() {
-            /* get the node's current size */
-            Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
             
 			fFigureAwaySolutionName = new WrappingLabel();
 
@@ -363,7 +361,7 @@ public class AwaySolutionEditPart extends ShapeNodeEditPart {
 
 			fFigureAwaySolutionModule.setFont(FontManager.BOLD_FONT);
 
-			int y_offset = nodeSize.getHeight() - AwaySolutionShape.MODULE_ICON_OFFSET
+			int y_offset = awaySolutionDimension.height - AwaySolutionShape.MODULE_ICON_OFFSET
 					- AwaySolutionShape.MODULE_ICON_HEIGHT;
 			int x_offset = AwaySolutionShape.MODULE_ICON_OFFSET + AwaySolutionShape.MODULE_ICON_WIDTH + 5;
 
