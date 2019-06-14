@@ -9,6 +9,7 @@ import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -26,6 +27,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.graphics.Color;
 
 import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
@@ -37,6 +39,7 @@ import acme.gsn.diagram.figure.SolutionShape;
 import base.ModelElement;
 import gsn.Gsn_Package;
 import gsn.Solution;
+import gsn.diagram.edit.parts.GoalEditPart.GoalFigure;
 import gsn.diagram.edit.policies.SolutionItemSemanticEditPolicy;
 import gsn.diagram.part.GsnVisualIDRegistry;
 
@@ -389,6 +392,33 @@ public class SolutionEditPart extends ShapeNodeEditPart {
 
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof BoundsImpl) {
+			//
+			if (notification.getFeature() instanceof EAttribute) {
+				EAttribute attribute = (EAttribute) notification.getFeature();
+				if (attribute.getName().equals("width")) {
+					int width = (int) notification.getNewValue();
+					System.out.println(width);
+					Rectangle bounds = getFigure().getBounds().getCopy();
+					System.out.println(bounds);
+					Dimension minimum = DimensionUtil.SOLUTION_DIMENSION;
+					SolutionFigure nodeFigure = (SolutionFigure) getPrimaryShape();
+					Dimension descriptionDimension = null;
+					if (width >= minimum.width) {
+						descriptionDimension = DimensionUtil.getTextSize(
+								nodeFigure.getFigureSolutionDescription().getText(),
+								nodeFigure.getFigureSolutionDescription().getFont(), width - 10);
+					}
+					else {
+						descriptionDimension = DimensionUtil.getTextSize(
+								nodeFigure.getFigureSolutionDescription().getText(),
+								nodeFigure.getFigureSolutionDescription().getFont(), minimum.width - 10);
+					}
+					nodeFigure.setConstraint(nodeFigure.getFigureSolutionDescription(),
+							new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
+				}
+			}
+		}
 		boolean refresh = false;
 		if (notification.getFeature().equals(Gsn_Package.eINSTANCE.getSolution().getEStructuralFeature("isPublic"))) {
 			refresh = true;
