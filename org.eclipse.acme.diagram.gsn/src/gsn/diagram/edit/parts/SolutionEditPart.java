@@ -2,7 +2,6 @@ package gsn.diagram.edit.parts;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
@@ -39,7 +38,6 @@ import acme.gsn.diagram.figure.SolutionShape;
 import base.ModelElement;
 import gsn.Gsn_Package;
 import gsn.Solution;
-import gsn.diagram.edit.parts.GoalEditPart.GoalFigure;
 import gsn.diagram.edit.policies.SolutionItemSemanticEditPolicy;
 import gsn.diagram.part.GsnVisualIDRegistry;
 
@@ -403,6 +401,10 @@ public class SolutionEditPart extends ShapeNodeEditPart {
 					System.out.println(bounds);
 					Dimension minimum = DimensionUtil.SOLUTION_DIMENSION;
 					SolutionFigure nodeFigure = (SolutionFigure) getPrimaryShape();
+					int r = (int) Math.round(Math.sqrt(width * width / 2));
+					
+					Dimension nameDimension = DimensionUtil.getTextSize(nodeFigure.getFigureSolutionName().getText(),
+							nodeFigure.getFigureSolutionName().getFont());
 					Dimension descriptionDimension = null;
 					if (width >= minimum.width) {
 						descriptionDimension = DimensionUtil.getTextSize(
@@ -414,8 +416,10 @@ public class SolutionEditPart extends ShapeNodeEditPart {
 								nodeFigure.getFigureSolutionDescription().getText(),
 								nodeFigure.getFigureSolutionDescription().getFont(), minimum.width - 10);
 					}
+					nodeFigure.setConstraint(nodeFigure.getFigureSolutionName(), new Rectangle((width-r) / 2 + 10, (width-r) / 2 + 5,
+					nameDimension.width, nameDimension.height));
 					nodeFigure.setConstraint(nodeFigure.getFigureSolutionDescription(),
-							new Rectangle(5, 35, descriptionDimension.width, descriptionDimension.height));
+							new Rectangle((width - r) / 2 + 5, (width - r) / 2 + 35,descriptionDimension.width, descriptionDimension.height));
 				}
 			}
 		}
