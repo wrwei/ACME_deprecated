@@ -10,13 +10,13 @@ package gsn.diagram.edit.parts;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -34,6 +34,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.graphics.Color;
 
 import acme.assurancecase.diagram.policy.ConstrainedResizeShapeEditPolicy;
@@ -397,6 +398,39 @@ public class SolutionEditPart extends ShapeNodeEditPart {
 
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getNotifier() instanceof BoundsImpl) {
+			//
+			if (notification.getFeature() instanceof EAttribute) {
+				EAttribute attribute = (EAttribute) notification.getFeature();
+				if (attribute.getName().equals("width")) {
+					int width = (int) notification.getNewValue();
+					System.out.println(width);
+					Rectangle bounds = getFigure().getBounds().getCopy();
+					System.out.println(bounds);
+					Dimension minimum = DimensionUtil.SOLUTION_DIMENSION;
+					SolutionFigure nodeFigure = (SolutionFigure) getPrimaryShape();
+					int r = (int) Math.round(Math.sqrt(width * width / 2));
+					
+					Dimension nameDimension = DimensionUtil.getTextSize(nodeFigure.getFigureSolutionName().getText(),
+							nodeFigure.getFigureSolutionName().getFont());
+					Dimension descriptionDimension = null;
+					if (width >= minimum.width) {
+						descriptionDimension = DimensionUtil.getTextSize(
+								nodeFigure.getFigureSolutionDescription().getText(),
+								nodeFigure.getFigureSolutionDescription().getFont(), width - 10);
+					}
+					else {
+						descriptionDimension = DimensionUtil.getTextSize(
+								nodeFigure.getFigureSolutionDescription().getText(),
+								nodeFigure.getFigureSolutionDescription().getFont(), minimum.width - 10);
+					}
+					nodeFigure.setConstraint(nodeFigure.getFigureSolutionName(), new Rectangle((width-r) / 2 + 10, (width-r) / 2 + 5,
+					nameDimension.width, nameDimension.height));
+					nodeFigure.setConstraint(nodeFigure.getFigureSolutionDescription(),
+							new Rectangle((width - r) / 2 + 5, (width - r) / 2 + 35,descriptionDimension.width, descriptionDimension.height));
+				}
+			}
+		}
 		boolean refresh = false;
 		if (notification.getFeature().equals(Gsn_Package.eINSTANCE.getSolution().getEStructuralFeature("isPublic"))) {
 			refresh = true;

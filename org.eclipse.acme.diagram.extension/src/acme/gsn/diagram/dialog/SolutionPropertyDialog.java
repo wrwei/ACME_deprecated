@@ -206,9 +206,11 @@ public class SolutionPropertyDialog extends ModelElementPropertyDialog {
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) solution.getCitedElement();
-				boolean success = NavigationManager.navigateToEditor(citedElement);
-				if (success) {
-					getShell().close();
+				if (citedElement != null) {
+					boolean success = NavigationManager.navigateToEditor(citedElement);
+					if (success) {
+						getShell().close();
+					}
 				}
 			}
 		});

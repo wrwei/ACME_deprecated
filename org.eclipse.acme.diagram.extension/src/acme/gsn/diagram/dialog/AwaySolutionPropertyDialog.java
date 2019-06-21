@@ -172,9 +172,9 @@ public class AwaySolutionPropertyDialog extends ModelElementPropertyDialog {
 			
 			@Override
 			public void handleEvent(Event event) {
-				ModelElement citedElement = (ModelElement) awaySolution.getCitedElement();
-				if (citedElement != null) {
-					boolean success = NavigationManager.navigateToEditor(citedElement);
+				Solution solution = (Solution) awaySolution.getReferencedArtifactElement().get(0);
+				if (solution != null) {
+					boolean success = NavigationManager.navigateToEditor(solution);
 					if (success) {
 						getShell().close();
 					}

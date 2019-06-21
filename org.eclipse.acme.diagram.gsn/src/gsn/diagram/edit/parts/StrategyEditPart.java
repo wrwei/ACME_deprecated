@@ -10,7 +10,6 @@ package gsn.diagram.edit.parts;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
@@ -332,7 +331,6 @@ public class StrategyEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureStrategyDescription,
 					new Rectangle(d.width / 5, 35, descriptionDimension.width, descriptionDimension.height));
-
 		}
 
 		/**

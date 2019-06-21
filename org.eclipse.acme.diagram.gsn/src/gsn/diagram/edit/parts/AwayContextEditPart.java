@@ -11,7 +11,6 @@ package gsn.diagram.edit.parts;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
@@ -323,10 +322,6 @@ public class AwayContextEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		private void createContents() {
-            /* get the node's current size */
-            Bounds nodeSize = (Bounds) ((Node) getModel()).getLayoutConstraint();
-
-            /* note d is the `default` (without scaling) size */
 			Dimension d = DimensionUtil.AWAY_CONTEXT_DIMENSION;
 
 			fFigureAwayContextName = new WrappingLabel();
@@ -367,7 +362,7 @@ public class AwayContextEditPart extends ShapeNodeEditPart {
 
 			fFigureAwayContextModule.setFont(FontManager.BOLD_FONT);
 
-			int y_offset = nodeSize.getHeight() - AwayContextShape.MODULE_ICON_OFFSET - AwayContextShape.MODULE_ICON_HEIGHT;
+			int y_offset = d.height - AwayContextShape.MODULE_ICON_OFFSET - AwayContextShape.MODULE_ICON_HEIGHT;
 			int x_offset = AwayContextShape.MODULE_ICON_OFFSET + AwayContextShape.MODULE_ICON_WIDTH + 5;
 
 			Dimension moduleDimension = DimensionUtil.getTextSize(fFigureAwayContextModule.getText(),
