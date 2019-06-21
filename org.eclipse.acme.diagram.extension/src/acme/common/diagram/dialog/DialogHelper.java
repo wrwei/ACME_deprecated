@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ * 
+ * Contributors:
+ *     Ran Wei - initial API and implementation
+ ******************************************************************************/
 package acme.common.diagram.dialog;
 
 import org.eclipse.emf.common.command.CompoundCommand;

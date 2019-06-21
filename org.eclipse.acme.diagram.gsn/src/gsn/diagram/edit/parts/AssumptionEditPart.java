@@ -1,8 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ * 
+ * Contributors:
+ *     Ran Wei - initial API and implementation
+ ******************************************************************************/
 package gsn.diagram.edit.parts;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;

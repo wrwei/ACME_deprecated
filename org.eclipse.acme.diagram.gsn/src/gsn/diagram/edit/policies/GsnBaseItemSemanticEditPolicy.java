@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ * 
+ * Contributors:
+ *     Ran Wei - initial API and implementation
+ ******************************************************************************/
 package gsn.diagram.edit.policies;
 
 import java.util.Iterator;
@@ -73,6 +81,7 @@ public class GsnBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	* @generated
 	*/
 	public Command getCommand(Request request) {
+		System.out.println(request);
 		if (request instanceof ReconnectRequest) {
 			Object view = ((ReconnectRequest) request).getConnectionEditPart().getModel();
 			if (view instanceof View) {
