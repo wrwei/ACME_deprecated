@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
- *     Athanosias Zolotas - initial API and implementation
+ *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.figure;
 
 import java.awt.geom.CubicCurve2D;
@@ -31,7 +30,7 @@ import gsn.InContextOf;
 public class InContextOfPipeConnection extends PolylineConnection {
 
 	private InContextOf inContextOf;
-	
+
 	// offset X
 	private static int OFFSET_X = 70;
 
@@ -123,7 +122,7 @@ public class InContextOfPipeConnection extends PolylineConnection {
 		}
 		p.dispose();
 		path.dispose();
-		
+
 		if (inContextOf != null) {
 			Point midPoint = connectionPoints.get(connectionPoints.size()/2);
 			if (inContextOf.isIsMany()) {
@@ -132,8 +131,8 @@ public class InContextOfPipeConnection extends PolylineConnection {
 				circleDecoration.setFill(true);
 				g.setBackgroundColor(ColorConstants.gray);
 				g.fillOval(circleDecoration.getBounds());
-				g.drawOval(circleDecoration.getBounds());		
-				
+				g.drawOval(circleDecoration.getBounds());
+
 				String constraint = "";
 				if (!inContextOf.getImplementationConstraint().isEmpty()) {
 					constraint = inContextOf.getImplementationConstraint().get(0).getContent().getValue().get(0).getContent();

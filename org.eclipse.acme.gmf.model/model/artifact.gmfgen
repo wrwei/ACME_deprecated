@@ -795,7 +795,7 @@
   <plugin
       iD="org.eclipse.acme.sacm.diagram.artifact"
       name="ACME Artifact Diagram Plugin"
-      provider="University of York"
+      provider="Ran Wei"
       version="1.0">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

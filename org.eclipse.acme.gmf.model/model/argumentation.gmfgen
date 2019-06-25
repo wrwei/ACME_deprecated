@@ -675,7 +675,7 @@
   <plugin
       iD="org.eclipse.acme.sacm.diagram.argumentation"
       name="ACME Argumentation Diagram Plugin"
-      provider="University of York">
+      provider="Ran Wei">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>

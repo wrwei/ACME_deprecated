@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.figure;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -24,17 +23,17 @@ public class JustificationShape extends Shape {
 
 	private Justification justification;
 	protected Rectangle rect = new Rectangle();
-	
+
 	protected PointList triangle = new PointList(3);
 	public static final int TRIANGLE_DECORATION_HEIGHT = 10;
 
-	
+
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
 		rect.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.setForegroundColor(ColorConstants.black);
@@ -59,7 +58,7 @@ public class JustificationShape extends Shape {
 			}
 		}
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
@@ -72,7 +71,7 @@ public class JustificationShape extends Shape {
 				Point diamondTop = new Point(r.x + r.width/2, r.y+ r.height-TRIANGLE_DECORATION_HEIGHT);
 				Point diamondLeft = new Point(diamondTop.x - TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
 				Point diamondRight = new Point(diamondTop.x + TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
-				
+
 				triangle.removeAllPoints();
 				triangle.addPoint(diamondTop);
 				triangle.addPoint(diamondLeft);
@@ -82,7 +81,7 @@ public class JustificationShape extends Shape {
 		}
 		rect.setBounds(r.x, r.y, r.width, r.height-offset);
 	}
-	
+
 	public void setJustification(Justification justification) {
 		this.justification = justification;
 	}

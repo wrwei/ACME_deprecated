@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
- *     Athanosias Zolotas - initial API and implementation
+ *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package argumentation.diagram.edit.parts;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
@@ -78,7 +77,7 @@ public class CustomAnchor extends AbstractConnectionAnchor {
 		Point pB = r.getTopRight();
 		Point pC = r.getBottomLeft();
 		Point pD = r.getBottomRight();
-		
+
 		// handles target
 		if (type.equals("target") || connectionType instanceof AssertedRelationshipTargetEditPart) {
 

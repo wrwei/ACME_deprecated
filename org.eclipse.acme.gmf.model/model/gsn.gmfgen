@@ -1014,7 +1014,7 @@
   <plugin
       iD="org.eclipse.acme.diagram.gsn"
       name="ACME GSN Diagram Plugin"
-      provider="University of York"
+      provider="Ran Wei"
       version="1.0">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>

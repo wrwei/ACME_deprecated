@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.figure;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -32,7 +31,7 @@ public class StrategyShape extends Shape {
 	public static final int DIAMOND_DECORATION_HEIGHT = 20;
 
 	public PointList getParallelgram() {
-		return shape; 
+		return shape;
 	}
 
 	@Override
@@ -40,7 +39,7 @@ public class StrategyShape extends Shape {
 		super.primTranslate(dx, dy);
 		shape.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(shape);
@@ -74,7 +73,7 @@ public class StrategyShape extends Shape {
 			}
 		}
 	}
-	
+
 	@Override
 	public void validate() {
 	super.validate();
@@ -83,13 +82,13 @@ public class StrategyShape extends Shape {
 		r.resize(-1, -1);
 
 		int offset = 0;
-		
+
 		if (strategy != null) {
 			if (strategy.isUninstantiated() && !strategy.isUndeveloped()) {
 				Point diamondTop = new Point(r.x + (r.width -r.width/5)/2, r.y+ r.height-TRIANGLE_DECORATION_HEIGHT);
 				Point diamondLeft = new Point(diamondTop.x - TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
 				Point diamondRight = new Point(diamondTop.x + TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
-				
+
 				triangle.removeAllPoints();
 				triangle.addPoint(diamondTop);
 				triangle.addPoint(diamondLeft);
@@ -101,7 +100,7 @@ public class StrategyShape extends Shape {
 				Point diamondLeft = new Point(r.x + (r.width -r.width/5)/2-DIAMOND_DECORATION_HEIGHT/2, r.y + r.height-DIAMOND_DECORATION_HEIGHT/2);
 				Point diamondRight = new Point(r.x + (r.width -r.width/5)/2+DIAMOND_DECORATION_HEIGHT/2, r.y + r.height-DIAMOND_DECORATION_HEIGHT/2);
 				Point diamondBot = new Point(r.x + (r.width -r.width/5)/2, r.y + r.height);
-				
+
 				diamond.removeAllPoints();
 				diamond.addPoint(diamondTop);
 				diamond.addPoint(diamondLeft);
@@ -114,7 +113,7 @@ public class StrategyShape extends Shape {
 				Point diamondLeft = new Point(r.x + (r.width -r.width/5)/2-DIAMOND_DECORATION_HEIGHT/2, r.y + r.height-DIAMOND_DECORATION_HEIGHT/2);
 				Point diamondRight = new Point(r.x + (r.width -r.width/5)/2+DIAMOND_DECORATION_HEIGHT/2, r.y + r.height-DIAMOND_DECORATION_HEIGHT/2);
 				Point diamondBot = new Point(r.x + (r.width -r.width/5)/2, r.y + r.height);
-				
+
 				diamond.removeAllPoints();
 				diamond.addPoint(diamondTop);
 				diamond.addPoint(diamondLeft);
@@ -125,9 +124,9 @@ public class StrategyShape extends Shape {
 				diamond.addPoint(diamondRight);
 				offset = -DIAMOND_DECORATION_HEIGHT;
 			}
-			
+
 		}
-		
+
 		Point p1 = null, p2 = null, p3 = null, p4 = null;
 		p1 = new Point(r.x + r.width/5, r.y);
 		p2 = new Point(r.x + r.width, r.y);
@@ -139,11 +138,11 @@ public class StrategyShape extends Shape {
 		shape.addPoint(p4);
 		shape.addPoint(p2);
 	}
-	
+
 	public void setStrategy(Strategy strategy) {
 		this.strategy = strategy;
 	}
-	
+
 	public Strategy getStrategy() {
 		return strategy;
 	}

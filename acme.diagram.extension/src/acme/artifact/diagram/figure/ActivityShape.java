@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -24,10 +22,10 @@ public class ActivityShape extends Shape {
 
 	protected PointList shape = new PointList();
 	protected Activity activity = null;
-	
-	
+
+
 	public PointList getParallelgram() {
-		return shape; 
+		return shape;
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class ActivityShape extends Shape {
 		super.primTranslate(dx, dy);
 		shape.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(shape);
@@ -53,43 +51,43 @@ public class ActivityShape extends Shape {
 		}
 		graphics.drawPolygon(shape);
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-		
+
 		/*
 		 * p1      p2
 		 *                p3
-		 * 
+		 *
 		 * p5      p4
 		 */
-		
+
 		int offset = r.width/5;
-		
+
 		Point p1, p2, p3, p4, p5;
 		p1 = new Point(r.x, r.y);
 		p2 = new Point(r.x + r.width - offset, r.y);
 		p3 = new Point(r.x + r.width, r.y + r.height/2+1);
 		p4 = new Point(r.x + r.width - offset, r.y + r.height);
 		p5 = new Point(r.x, r.y + r.height);
-		
+
 		shape.removeAllPoints();
 		shape.addPoint(p1);
 		shape.addPoint(p2);
 		shape.addPoint(p3);
 		shape.addPoint(p4);
 		shape.addPoint(p5);
-		
+
 	}
-	
+
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
-	
+
 	public Activity getActivity() {
 		return activity;
 	}

@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 import org.eclipse.swt.SWT;
@@ -26,7 +25,7 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 	protected boolean isPublic = false;
 	protected Button isPublicButton;
 
-	
+
 	public ContextPropertyDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
 	}
@@ -35,7 +34,7 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 	protected String getTitleString() {
  		return "Edit the properties for Context: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -48,16 +47,16 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 		Context context = (Context) modelElement;
 		isPublic = context.isIsPublic();
 		uninstantiated = context.isUninstantiated();
-		
+
 		createIsPublicCheckButton(groupContent);
 		createUninstantiatedCheckButton(groupContent);
 	}
-	
+
 	private void createIsPublicCheckButton(Composite container) {
 		isPublicButton = new Button(container, SWT.CHECK);
 		isPublicButton.setSelection(isPublic);
 		isPublicButton.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Button btn = (Button) e.getSource();
@@ -76,9 +75,9 @@ public class ContextPropertyDialog extends ModelElementPropertyDialog {
 		});
 		createLabel(container, "Public");
 	}
-	
+
 	public boolean getIsPublic() {
 		return isPublic;
 	}
-	
+
 }

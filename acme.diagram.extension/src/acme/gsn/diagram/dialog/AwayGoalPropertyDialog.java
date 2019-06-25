@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 
@@ -49,7 +48,7 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 	protected Button browseButton;
 	protected Button goToButton;
 
-	
+
 	public AwayGoalPropertyDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
 	}
@@ -58,7 +57,7 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 	protected String getTitleString() {
 		return "Edit the properties for AwayGoal: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -83,7 +82,7 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 		uninstantiated = awayGoal.isUninstantiated();
 		createUninstantiatedCheckButton(groupContent);
 	}
-	
+
 	protected void createReferenceGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "References", 4);
 
@@ -95,7 +94,7 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 		goalFullName.setLayoutData(filePathData);
 		goalFullName.setEditable(false);
 		goalFullName.setBackground(ColorConstants.white);
-		
+
 		AwayGoal awayGoal = (AwayGoal) modelElement;
 		if (awayGoal.getCitedElement() != null) {
 			Goal goal = (Goal) awayGoal.getCitedElement();
@@ -104,11 +103,11 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 			goalFullName.setText(moduleName + "-" + goalName);
 		}
 
-		
+
 		browseButton = new Button(groupContent, SWT.NONE);
 		browseButton.setText("Browse...");
 		browseButton.addListener(SWT.Selection, new BrowseModelElementListener() {
-			
+
 			@Override
 			public void selectionChanged(String selection) {
 				String[] val = selection.split("-");
@@ -119,13 +118,13 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 				Goal goal = (Goal) ModelElementUtil.locateModelElementByName(goalName, module);
 				if (module != null && goal != null) {
 //					goal.setIsPublic(true);
-					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-							goal, 
-							Gsn_Package.eINSTANCE.getGoal_IsPublic(), 
+					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+							goal,
+							Gsn_Package.eINSTANCE.getGoal_IsPublic(),
 							true);
-					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-							awayGoal, 
-							Gsn_Package.eINSTANCE.getAwayGoal().getEStructuralFeature("citedElement"), 
+					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+							awayGoal,
+							Gsn_Package.eINSTANCE.getAwayGoal().getEStructuralFeature("citedElement"),
 							goal);
 //					awayGoal.setCitedElement(goal);
 					goalFullName.setText(selection);
@@ -133,16 +132,16 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 					return;
 				}
 			}
-			
+
 			@Override
 			public String getTitle() {
 				return "Goals in other Modules";
 			}
-			
+
 			@Override
 			public ArrayList<String> getModelElements() {
 				AwayGoal awayGoal = (AwayGoal) modelElement;
-				
+
 				ModelElement rooElement = ModelElementUtil.getRootElement(modelElement);
 				Iterator<EObject> iter = rooElement.eAllContents();
 
@@ -161,17 +160,17 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 				}
 				return ret;
 			}
-			
+
 			@Override
 			public String getMessage() {
 				return "Select an away Goal";
 			}
 		});
-		
+
 		goToButton = new Button(groupContent, SWT.NONE);
 		goToButton.setText("Go to");
 		goToButton.addListener(SWT.Selection, new Listener() {
-			
+
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) awayGoal.getCitedElement();
@@ -182,7 +181,7 @@ public class AwayGoalPropertyDialog extends ModelElementPropertyDialog {
 			}
 		});
 	}
-	
+
 	public void updateDescription() {
 		AwayGoal awayGoal = (AwayGoal) modelElement;
 		if (awayGoal.getCitedElement() != null) {

@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 
@@ -47,7 +46,7 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 	protected Text contextFullName;
 	protected Button browseButton;
 	protected Button goToButton;
-	
+
 	public AwayContextPropertyDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
 	}
@@ -56,7 +55,7 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 	protected String getTitleString() {
 		return "Edit the properties for AwayContext: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -81,7 +80,7 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 		uninstantiated = awayContext.isUninstantiated();
 		createUninstantiatedCheckButton(groupContent);
 	}
-	
+
 	protected void createReferenceGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "References", 4);
 
@@ -93,7 +92,7 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 		contextFullName.setLayoutData(filePathData);
 		contextFullName.setEditable(false);
 		contextFullName.setBackground(ColorConstants.white);
-		
+
 		AwayContext awayContext = (AwayContext) modelElement;
 		if (awayContext.getCitedElement() != null) {
 			Context context = (Context) awayContext.getCitedElement();
@@ -102,11 +101,11 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 			contextFullName.setText(moduleName + "-" + contextName);
 		}
 
-		
+
 		browseButton = new Button(groupContent, SWT.NONE);
 		browseButton.setText("Browse...");
 		browseButton.addListener(SWT.Selection, new BrowseModelElementListener() {
-			
+
 			@Override
 			public void selectionChanged(String selection) {
 				String[] val = selection.split("-");
@@ -116,13 +115,13 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 				ArgumentPackage module = (ArgumentPackage) ModelElementUtil.locateOtherModuleByName(moduleName, awayContext);
 				Context context = (Context) ModelElementUtil.locateModelElementByName(contextName, module);
 				if (module != null && context != null) {
-					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-							context, 
-							Gsn_Package.eINSTANCE.getContext_IsPublic(), 
+					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+							context,
+							Gsn_Package.eINSTANCE.getContext_IsPublic(),
 							true);
-					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-							awayContext, 
-							Gsn_Package.eINSTANCE.getAwayContext().getEStructuralFeature("citedElement"), 
+					ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+							awayContext,
+							Gsn_Package.eINSTANCE.getAwayContext().getEStructuralFeature("citedElement"),
 							context);
 //					context.setIsPublic(true);
 //					awayContext.setCitedElement(context);
@@ -131,12 +130,12 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 					return;
 				}
 			}
-			
+
 			@Override
 			public String getTitle() {
 				return "Contexts in other Modules";
 			}
-			
+
 			@Override
 			public ArrayList<String> getModelElements() {
 				ModelElement rooElement = ModelElementUtil.getRootElement(modelElement);
@@ -158,17 +157,17 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 
 				return ret;
 			}
-			
+
 			@Override
 			public String getMessage() {
 				return "Select an away Context";
 			}
 		});
-		
+
 		goToButton = new Button(groupContent, SWT.NONE);
 		goToButton.setText("Go to");
 		goToButton.addListener(SWT.Selection, new Listener() {
-			
+
 			@Override
 			public void handleEvent(Event event) {
 				ModelElement citedElement = (ModelElement) awayContext.getCitedElement();
@@ -179,7 +178,7 @@ public class AwayContextPropertyDialog extends ModelElementPropertyDialog {
 			}
 		});
 	}
-	
+
 	public void updateDescription() {
 		AwayContext awayContext = (AwayContext) modelElement;
 		if (awayContext.getCitedElement() != null) {

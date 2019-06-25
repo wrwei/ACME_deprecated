@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -24,20 +22,20 @@ public class ArgumentPackageBindingShape extends Shape {
 	protected PointList shape = new PointList();
 	//top left rectangle
 	protected PointList topRectangle = new PointList();
-	
-	
+
+
 	protected PointList annotationBox = new PointList();
-	
+
 	public static final int TOP_RECT_WIDTH_OFFSET = 5;
 	public static final int TOP_RECT_HEIGHT = 13;
-	
+
 	public static final int BOX_WIDTH = 30;
 	public static final int BOX_HEIGHT = 18;
-	
+
 	public static final int CIRCLE_RADIUS = 16;
-	
+
 	protected PointList deco = new PointList();
-	
+
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
@@ -46,7 +44,7 @@ public class ArgumentPackageBindingShape extends Shape {
 		annotationBox.translate(dx, dy);
 		deco.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(shape);
@@ -63,13 +61,13 @@ public class ArgumentPackageBindingShape extends Shape {
 		graphics.drawLine(shape.getPoint(1), shape.getPoint(2));
 		graphics.drawLine(shape.getPoint(2), shape.getPoint(3));
 		graphics.drawLine(shape.getPoint(3), shape.getPoint(0));
-		
+
 		graphics.drawLine(shape.getPoint(4), shape.getPoint(5));
 		graphics.drawLine(shape.getPoint(5), shape.getPoint(6));
 		graphics.drawLine(shape.getPoint(5), shape.getPoint(7));
 		graphics.drawPolygon(topRectangle);
 		graphics.drawPolygon(annotationBox);
-		
+
 		graphics.drawOval(new Rectangle(deco.getPoint(0).x-CIRCLE_RADIUS/2, deco.getPoint(0).y, CIRCLE_RADIUS, CIRCLE_RADIUS));
 		graphics.drawOval(new Rectangle(deco.getPoint(1).x-CIRCLE_RADIUS/2, deco.getPoint(1).y, CIRCLE_RADIUS, CIRCLE_RADIUS));
 
@@ -79,28 +77,28 @@ public class ArgumentPackageBindingShape extends Shape {
 //		int width = DimensionUtil.getTextSize("Argumentation", null).width;
 //		graphics.drawText("Argumentation", new Point(r.x + 5 + TOP_RECT_WIDTH_OFFSET, r.y));
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-		
+
 		int offset = (r.width - TOP_RECT_WIDTH_OFFSET*2)/4;
-		
+
 		Point rectTL, rectTR, rectBR, rectBL;
 		rectTL = new Point(r.x, r.y);
 		rectTR = new Point(r.x + r.width, r.y);
 		rectBR = new Point(r.x + r.width, r.y + TOP_RECT_HEIGHT);
 		rectBL = new Point(r.x, r.y + TOP_RECT_HEIGHT);
-		
+
 		topRectangle.removeAllPoints();
 		topRectangle.addPoint(rectTL);
 		topRectangle.addPoint(rectTR);
 		topRectangle.addPoint(rectBR);
 		topRectangle.addPoint(rectBL);
-		
+
 		/*
 		 * tl tr
 		 * bl br
@@ -108,19 +106,19 @@ public class ArgumentPackageBindingShape extends Shape {
 		 * p2 p3
 		 * p4
 		 */
-		
+
 		Point tl, tr, br, bl;
 		tl = new Point(r.x+TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT);
 		tr = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT);
 		br = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + r.height);
 		bl = new Point(r.x + TOP_RECT_WIDTH_OFFSET, r.y + r.height);
-		
+
 		Point p1, p2, p3, p4;
 		p1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + TOP_RECT_HEIGHT);
 		p2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2);
 		p3 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2);
 		p4 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset, r.y + r.height);
-		
+
 		shape.removeAllPoints();
 		shape.addPoint(tl);
 		shape.addPoint(tr);
@@ -130,19 +128,19 @@ public class ArgumentPackageBindingShape extends Shape {
 		shape.addPoint(p2);
 		shape.addPoint(p3);
 		shape.addPoint(p4);
-		
+
 		Point b1, b2, b3, b4;
 		b1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2);
 		b2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2 + BOX_WIDTH, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2);
 		b3 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2 + BOX_WIDTH, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2 + BOX_HEIGHT);
 		b4 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset + (offset - BOX_WIDTH) / 2, r.y + TOP_RECT_HEIGHT + ((r.height - TOP_RECT_HEIGHT)/2-BOX_HEIGHT)/2 + BOX_HEIGHT);
-		
+
 		annotationBox.removeAllPoints();
 		annotationBox.addPoint(b1);
 		annotationBox.addPoint(b2);
 		annotationBox.addPoint(b3);
 		annotationBox.addPoint(b4);
-		
+
 		Point dp1 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/4+CIRCLE_RADIUS/4);
 		Point dp2 = new Point(r.x + r.width - TOP_RECT_WIDTH_OFFSET - offset/2, r.y + TOP_RECT_HEIGHT + (r.height - TOP_RECT_HEIGHT)/2 + (r.height - TOP_RECT_HEIGHT)/2/2-CIRCLE_RADIUS/4);
 		deco.removeAllPoints();

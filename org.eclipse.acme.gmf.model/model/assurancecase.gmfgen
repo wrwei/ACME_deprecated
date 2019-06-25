@@ -1100,7 +1100,7 @@
   <plugin
       iD="org.eclipse.acme.sacm.diagram.assurancecase"
       name="ACME Assurancecase Diagram Plugin"
-      provider="University of York">
+      provider="Ran Wei">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
   </plugin>

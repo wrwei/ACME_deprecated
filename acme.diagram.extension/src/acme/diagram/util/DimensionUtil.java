@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -69,17 +67,17 @@ public class DimensionUtil {
 	public static final Dimension AWAY_CONTEXT_DIMENSION = new Dimension(200, 144);
 	public static final Dimension AWAY_GOAL_DIMENSION = new Dimension(200, 144);
 	public static final Dimension AWAY_SOLUTION_DIMENSION = new Dimension(200, 134);
-	
-	
+
+
 	public static final Dimension CHOICE_DIMENSION = new Dimension(100, 61);
-	
+
 	public static final Dimension CLAIM_DIMENSION = new Dimension(200, 124);
 	public static final Dimension NEEDS_SUPPORT_CLAIM_DIMENSION = new Dimension(200, 126);
 	public static final Dimension AXIOMATIC_CLAIM_DIMENSION = new Dimension(200, 134);
 
 	public static final Dimension ARGUMENTREASONING_DIMENSION = new Dimension(200, 124);
 	public static final Dimension CITATION_CLAIM_DIMENSION = new Dimension(200+ClaimShape.CITED_BOARDER_WIDTH*2 + ClaimShape.CITED_OFFSET*2, 124);
-	
+
 	public static final Dimension ARTIFACT_REFERENCE_DIMENSION = new Dimension(124, 150);
 	public static final Dimension ASSERTED_EVIDENCE_DIMENSION = new Dimension(2, 2);
 	public static final Dimension ASSERTED_INFERENCE_DIMENSION = new Dimension(4, 4);
@@ -91,7 +89,7 @@ public class DimensionUtil {
 	public static final Dimension PARTICIPANT_DIMENSION = new Dimension(200,124);
 	public static final Dimension EVENT_DIMENSION = new Dimension(124,124);
 	public static final Dimension RESOURCE_DIMENSION = new Dimension(124,124);
-	
+
 	public static final Dimension ASSURANCE_PACKAGE_DIMENSION = new Dimension(200, 124 + AssuranceCasePackageShape.TOP_RECT_HEIGHT);
 	public static final Dimension ASSURANCE_PACKAGE_INTERFACE_DIMENSION = new Dimension(200, 124 + AssuranceCasePackageInterfaceShape.TOP_RECT_HEIGHT);
 	public static final Dimension ASSURANCE_PACKAGE_BINDING_DIMENSION = new Dimension(200, 124 + AssuranceCasePackageBindingShape.TOP_RECT_HEIGHT);
@@ -112,15 +110,15 @@ public class DimensionUtil {
 	public static final Dimension EXPRESSION_DIMENSION = new Dimension(200,124);
 	public static final Dimension TERM_DIMENSION = new Dimension(200,124);
 	public static final Dimension CATEGORY_DIMENSION = new Dimension(200,124);
-	
-	
-	
+
+
+
 	public static double getContextArcWidth(Rectangle r)
 	{
 		double arcWidth = r.width/1.618/2;
 		return arcWidth;
 	}
-	
+
 	public static double getBiggestSwquareSideLength(Rectangle r)
 	{
 		double radius = r.preciseWidth();
@@ -128,13 +126,13 @@ public class DimensionUtil {
 		double result = Math.sqrt(radiusSquare/2);
 		return result;
 	}
-	
+
 	public static Dimension getTextSize(String string, Font font) {
 		Dimension lineDimensions = TextUtilities.INSTANCE.getStringExtents(string, font);
 		lineDimensions.expand(1, 1);
 		return lineDimensions;
 	}
-	
+
 	public static Dimension getTextSize(String string, Font font, int width) {
 		Dimension lineDimensions = TextUtilities.INSTANCE.getStringExtents(string, font);
 		double area = lineDimensions.preciseHeight() * lineDimensions.preciseWidth();
@@ -145,14 +143,14 @@ public class DimensionUtil {
 		lineDimensions.expand(1, 1);
 		return new Dimension(width, height);
 	}
-	
+
 	public static Rectangle getConstraints(ModelElement modelElement, Rectangle rectangle) {
 		Rectangle ret = rectangle.getCopy();
-		
+
 		int width = rectangle.width;
 		int height = rectangle.height;
 		double aspRatio = DEFAULT_DIMENSION.preciseWidth()/DEFAULT_DIMENSION.preciseHeight();
-		
+
 		if (modelElement instanceof Module) {
 			aspRatio = MODULE_DIMENSION.preciseWidth()/MODULE_DIMENSION.preciseHeight();
 		}
@@ -275,13 +273,13 @@ public class DimensionUtil {
 		else if (modelElement instanceof ModuleReference) {
 			ModuleReference moduleReference = (ModuleReference) modelElement;
 			if (!moduleReference.isUninstantiated()) {
-				aspRatio = MODULE_DIMENSION.preciseWidth()/MODULE_DIMENSION.preciseHeight();	
+				aspRatio = MODULE_DIMENSION.preciseWidth()/MODULE_DIMENSION.preciseHeight();
 			}
 		}
 		else if (modelElement instanceof ContractModuleReference) {
 			ContractModuleReference moduleReference = (ContractModuleReference) modelElement;
 			if (!moduleReference.isUninstantiated()) {
-				aspRatio = CONTRACT_MODULE_DIMENSION.preciseWidth()/CONTRACT_MODULE_DIMENSION.preciseHeight();	
+				aspRatio = CONTRACT_MODULE_DIMENSION.preciseWidth()/CONTRACT_MODULE_DIMENSION.preciseHeight();
 			}
 		}
 		else if (modelElement instanceof ChoiceNode) {
@@ -309,7 +307,7 @@ public class DimensionUtil {
 				aspRatio = CITATION_CLAIM_DIMENSION.preciseWidth()/CITATION_CLAIM_DIMENSION.preciseHeight();
 			}
 		}
-		
+
 		height = (int) (width/aspRatio);
 		if(height < ret.height) {
 			ret.width = (int) (ret.height*aspRatio);
@@ -319,12 +317,12 @@ public class DimensionUtil {
 		ret.height = height;
 		return ret;
 	}
-	
+
 	public static Dimension getMinimumDimension(ModelElement modelElement, Dimension baseDimension) {
 		Rectangle rect = new Rectangle();
 		rect.width = baseDimension.width;
 		rect.height = baseDimension.height;
-		
+
 		Rectangle result = getConstraints(modelElement, rect);
 		return result.getSize();
 	}

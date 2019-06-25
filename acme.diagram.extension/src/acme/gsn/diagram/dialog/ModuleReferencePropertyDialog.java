@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 
@@ -36,8 +35,8 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 	protected Label moduleLabel;
 	protected Text moduleFullName;
 	protected Button browseButton;
-	
-	
+
+
 	public ModuleReferencePropertyDialog(Shell parentShell, ModelElement modelElement) {
 		super(parentShell, modelElement);
 	}
@@ -46,7 +45,7 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 	protected String getTitleString() {
 		return "Edit the properties for Goal: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -61,7 +60,7 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 		uninstantiated = moduleReference.isUninstantiated();
 		createUninstantiatedCheckButton(groupContent);
 	}
-	
+
 	protected void createReferenceGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "References", 3);
 
@@ -73,20 +72,20 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 		moduleFullName.setLayoutData(filePathData);
 		moduleFullName.setEditable(false);
 		moduleFullName.setBackground(ColorConstants.white);
-		
+
 		ModuleReference moduleReference = (ModuleReference) modelElement;
-		
+
 		if (moduleReference.getCitedElement() != null) {
 			Module module = (Module) moduleReference.getCitedElement();
 			String moduleName = ModelElementUtil.getModuleName(module);
 			moduleFullName.setText(moduleName);
 		}
 
-		
+
 		browseButton = new Button(groupContent, SWT.NONE);
 		browseButton.setText("Browse...");
 		browseButton.addListener(SWT.Selection, new BrowseModelElementListener() {
-			
+
 			@Override
 			public void selectionChanged(String selection) {
 				String moduleName = selection;
@@ -98,19 +97,19 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 					return;
 				}
 			}
-			
+
 			@Override
 			public String getTitle() {
 				return "Other Modules";
 			}
-			
+
 			@Override
 			public ArrayList<String> getModelElements() {
 				ModuleReference moduleReference = (ModuleReference) modelElement;
 				Module containingModule = (Module) ModelElementUtil.getContainingModule(moduleReference);
 				AssuranceCasePackage containingACPackage = ModelElementUtil.getContainingAssuranceCasePackage(containingModule);
 				ArrayList<String> ret = new ArrayList<String>();
-				
+
 				for(ArgumentPackage ap: containingACPackage.getArgumentPackage())
 				{
 					if (!ap.equals(containingModule)) {
@@ -120,7 +119,7 @@ public class ModuleReferencePropertyDialog extends ModelElementPropertyDialog {
 				}
 				return ret;
 			}
-			
+
 			@Override
 			public String getMessage() {
 				return "Select a Module";

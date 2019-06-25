@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -40,7 +38,7 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 	protected Text statTimeText;
 	protected Button startTimeButton;
 	protected String startTimeString;
-	
+
 	protected Label endTimeLabel;
 	protected Text endTimeText;
 	protected Button endTimeButton;
@@ -59,7 +57,7 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 	protected void createCustomGroups(Composite control) {
 		createTimeGroup(control);
 	}
-	
+
 	protected void createTimeGroup(Composite container) {
 		final Composite groupContent = createGroupContainer(container, "Times", 3);
 
@@ -104,9 +102,9 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 						@SuppressWarnings("deprecation")
 						Date date = new Date(calendar.getYear()-1900, calendar.getMonth(), calendar.getDay(), time.getHours(), time.getMinutes(), time.getSeconds());
 //						activity.setStartTime(date);
-						ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-								activity, 
-								Artifact_Package.eINSTANCE.getActivity_StartTime(), 
+						ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+								activity,
+								Artifact_Package.eINSTANCE.getActivity_StartTime(),
 								date);
 						SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 						statTimeText.setText(format.format(date));
@@ -124,8 +122,8 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 			public void widgetDefaultSelected(SelectionEvent e) {
 			}
 		});
-		
-		
+
+
 
 		endTimeLabel = new Label(groupContent, SWT.NONE);
 		endTimeLabel.setText("End Time:      ");
@@ -167,9 +165,9 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 						@SuppressWarnings("deprecation")
 						Date date = new Date(calendar.getYear()-1900, calendar.getMonth(), calendar.getDay(), time.getHours(), time.getMinutes(), time.getSeconds());
 //						activity.setEndTime(date);
-						ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(), 
-								activity, 
-								Artifact_Package.eINSTANCE.getActivity_EndTime(), 
+						ModelElementFeatureUtil.setFeatureTransactional(EditingDomainUtil.getEditingDomain(),
+								activity,
+								Artifact_Package.eINSTANCE.getActivity_EndTime(),
 								date);
 						SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 						endTimeText.setText(format.format(date));
@@ -187,10 +185,9 @@ public class ActivityPropertyDialog extends ACMEAbstractArtefactDialog {
 			public void widgetDefaultSelected(SelectionEvent e) {
 			}
 		});
-		
+
 		groupContent.layout();
 		groupContent.pack();
 	}
 
 }
-

@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -46,7 +45,7 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 	protected String getTitleString() {
 		return "Edit the properties for InContextOf: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -58,7 +57,7 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 
 		nameText.setEditable(false);
 		nameText.setBackground(ColorConstants.white);
-		
+
 		if (modelElement instanceof SupportedBy) {
 			SupportedBy supportedBy = (SupportedBy) modelElement;
 			isMany = supportedBy.isIsMany();
@@ -71,34 +70,34 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 		}
 
 		AssertedRelationship assertedRelationship = (AssertedRelationship) modelElement;
-		
+
 		if (!assertedRelationship.getImplementationConstraint().isEmpty()) {
 			ImplementationConstraint constraint = assertedRelationship.getImplementationConstraint().get(0);
-			isManyExpression = constraint.getContent().getValue().get(0).getContent();		
+			isManyExpression = constraint.getContent().getValue().get(0).getContent();
 		}
-		
+
 		createManyExpression(groupContent);
 		createIsManyCheckButton(groupContent);
 		createIsOptionalCheckButton(groupContent);
 	}
-	
+
 	private void createManyExpression(Composite container) {
 		Label nameLabel = new Label(container, SWT.NONE);
 		nameLabel.setText("Many Expr:      ");
 		GridData nameData = new GridData();
 		nameData.grabExcessHorizontalSpace = true;
 		nameData.horizontalAlignment = GridData.FILL;
-		
+
 		isManyExpressionText = new Text(container, SWT.BORDER);
 		isManyExpressionText.setLayoutData(nameData);
 		isManyExpressionText.setText(isManyExpression);
 	}
-	
+
 	private void createIsManyCheckButton(Composite container) {
 		isManyButton = new Button(container, SWT.CHECK);
 		isManyButton.setSelection(isMany);
 		isManyButton.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Button btn = (Button) e.getSource();
@@ -121,7 +120,7 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 		});
 		createLabel(container, "Many ");
 	}
-	
+
 	private void createIsOptionalCheckButton(Composite container) {
 		isOptionalButton = new Button(container, SWT.CHECK);
 		isOptionalButton.setSelection(isOptional);
@@ -129,7 +128,7 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 			isManyExpressionText.setEditable(false);
 		}
 		isOptionalButton.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Button btn = (Button) e.getSource();
@@ -162,11 +161,11 @@ public class AssertedRelationshipPropertyDialog extends ModelElementPropertyDial
 	public boolean getIsMany() {
 		return isMany;
 	}
-	
+
 	public boolean getIsOptional() {
 		return isOptional;
 	}
-	
+
 	public String getIsManyExpression() {
 		return isManyExpression;
 	}

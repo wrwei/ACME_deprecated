@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.figure;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -33,13 +32,13 @@ public class SolutionShape extends Shape {
 	public static final int PUBLIC_INDICATOR_OFFSET = 5;
 	public static final int PUBLIC_INDICATOR_WIDTH = 28;
 	public static final int PUBLIC_INDICATOR_HEIGHT = 20;
-	
+
 	@Override
 	protected void primTranslate(int dx, int dy) {
 		super.primTranslate(dx, dy);
 		rect.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillOval(rect);
@@ -67,32 +66,32 @@ public class SolutionShape extends Shape {
 			}
 		}
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-		
+
 		int offset = 0;
 		if (solution != null) {
 			if (solution.isUninstantiated()) {
 				Point diamondTop = new Point(r.x + r.width/2, r.y+ r.height-TRIANGLE_DECORATION_HEIGHT);
 				Point diamondLeft = new Point(diamondTop.x - TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
 				Point diamondRight = new Point(diamondTop.x + TRIANGLE_DECORATION_HEIGHT, diamondTop.y + TRIANGLE_DECORATION_HEIGHT);
-				
+
 				triangle.removeAllPoints();
 				triangle.addPoint(diamondTop);
 				triangle.addPoint(diamondLeft);
 				triangle.addPoint(diamondRight);
 				offset = TRIANGLE_DECORATION_HEIGHT;
 			}
-			
+
 			if (solution.isIsPublic()) {
 				double largestSide = DimensionUtil.getBiggestSwquareSideLength(r);
 				double diff = r.preciseWidth() - largestSide;
-				
+
 				// Module decorating icon
 				Point p1 = null, p2 = null, p3 = null, p4 = null, p5 = null, p6 = null, p7 = null;
 				p1 = new PrecisionPoint(r.x + diff/2 + largestSide - PUBLIC_INDICATOR_OFFSET - PUBLIC_INDICATOR_WIDTH, r.y + diff/2 + PUBLIC_INDICATOR_OFFSET);
@@ -115,7 +114,7 @@ public class SolutionShape extends Shape {
 		}
 		rect.setBounds(r.x, r.y, r.width, r.height-offset);
 	}
-	
+
 	public void setSolution(Solution solution) {
 		this.solution = solution;
 	}

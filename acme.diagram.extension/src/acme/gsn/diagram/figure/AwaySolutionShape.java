@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.figure;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -31,7 +30,7 @@ public class AwaySolutionShape extends Shape {
 	public static final int MODULE_ICON_OFFSET = 5;
 	public static final int MODULE_ICON_WIDTH = 28;
 	public static final int MODULE_ICON_HEIGHT = 20;
-	
+
 	protected PointList triangle = new PointList(3);
 	public static final int TRIANGLE_DECORATION_HEIGHT = 10;
 
@@ -42,7 +41,7 @@ public class AwaySolutionShape extends Shape {
 		decoratingModuleShape.translate(dx, dy);
 		triangle.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(decoratingShape);
@@ -50,7 +49,7 @@ public class AwaySolutionShape extends Shape {
 		graphics.fillPolygon(decoratingModuleShape);
 		int offset = 0;
 
-		if (awaySolution.isUninstantiated()) { 
+		if (awaySolution.isUninstantiated()) {
 	        graphics.setBackgroundColor(ColorConstants.white);
 			graphics.fillPolygon(triangle);
 			offset = TRIANGLE_DECORATION_HEIGHT;
@@ -75,7 +74,7 @@ public class AwaySolutionShape extends Shape {
 		int offset = 0;
 		graphics.drawPolygon(decoratingShape);
 		graphics.drawPolygon(decoratingModuleShape);
-		if (awaySolution.isUninstantiated()) { 
+		if (awaySolution.isUninstantiated()) {
 			graphics.drawPolygon(triangle);
 			offset = TRIANGLE_DECORATION_HEIGHT;
 		}
@@ -83,21 +82,21 @@ public class AwaySolutionShape extends Shape {
 		Arc circle = new Arc(circleStartingPoint.x, circleStartingPoint.y, r.width, (r.height - DECORATING_HEIGHT - offset)*2, 0, 180);
 		graphics.drawArc((int)circle.getX(), (int)circle.getY(), (int)circle.getW(), (int)circle.getH(), (int)circle.getOffSet(), (int)circle.getLength());
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-		
+
 		int offset = 0;
 		if (awaySolution != null) {
 			if (awaySolution.isUninstantiated()) {
 				Point triangleTop = new Point(r.x + r.width/2, r.y + r.height-TRIANGLE_DECORATION_HEIGHT);
 				Point triangleLeft = new Point(triangleTop.x - TRIANGLE_DECORATION_HEIGHT, triangleTop.y + TRIANGLE_DECORATION_HEIGHT);
 				Point triangleRight = new Point(triangleTop.x + TRIANGLE_DECORATION_HEIGHT, triangleTop.y + TRIANGLE_DECORATION_HEIGHT);
-				
+
 				triangle.removeAllPoints();
 				triangle.addPoint(triangleTop);
 				triangle.addPoint(triangleLeft);
@@ -105,19 +104,19 @@ public class AwaySolutionShape extends Shape {
 				offset = TRIANGLE_DECORATION_HEIGHT;
 			}
 		}
-		
+
 		// Bottom compartment
 		Point decoratingShapeTopLeft = new Point(r.x, r.y+r.height-DECORATING_HEIGHT - offset);
 		Point decoratingShapeTopRight = new Point(r.x+r.width, r.y+r.height-DECORATING_HEIGHT - offset);
 		Point decoratingBottomLeft = new Point(decoratingShapeTopLeft.x, decoratingShapeTopLeft.y + DECORATING_HEIGHT);
 		Point decoratingShapeBottomRight = new Point(decoratingShapeTopRight.x, decoratingShapeTopRight.y + DECORATING_HEIGHT);
-		
+
 		decoratingShape.removeAllPoints();
 		decoratingShape.addPoint(decoratingShapeTopLeft);
 		decoratingShape.addPoint(decoratingShapeTopRight);
 		decoratingShape.addPoint(decoratingShapeBottomRight);
 		decoratingShape.addPoint(decoratingBottomLeft);
-		
+
 		// Module decorating icon
 		Point p1 = null, p2 = null, p3 = null, p4 = null, p5 = null, p6 = null, p7 = null;
 		p1 = new Point(decoratingShapeTopLeft.x + MODULE_ICON_OFFSET, decoratingShapeTopLeft.y + MODULE_ICON_OFFSET);

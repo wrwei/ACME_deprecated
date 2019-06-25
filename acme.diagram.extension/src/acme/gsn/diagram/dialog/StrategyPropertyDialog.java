@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
+
 package acme.gsn.diagram.dialog;
 
 import org.eclipse.swt.SWT;
@@ -24,7 +23,7 @@ import gsn.Strategy;
 public class StrategyPropertyDialog extends ModelElementPropertyDialog {
 
 	protected boolean undeveloped = false;
-	
+
 	protected Button isPublicButton;
 	protected Button undevelopedCheckBox;
 
@@ -37,7 +36,7 @@ public class StrategyPropertyDialog extends ModelElementPropertyDialog {
 	protected String getTitleString() {
 		return "Edit the properties for Strategy: " + getName();
 	}
-	
+
 	@Override
 	protected void createGroups(Composite control) {
 		super.createGroups(control);
@@ -50,16 +49,16 @@ public class StrategyPropertyDialog extends ModelElementPropertyDialog {
 		Strategy strategy = (Strategy) modelElement;
 		undeveloped = strategy.isUndeveloped();
 		uninstantiated = strategy.isUninstantiated();
-		
+
 		createUndevelopedCheckButton(groupContent);
 		createUninstantiatedCheckButton(groupContent);
 	}
-	
+
 	private void createUndevelopedCheckButton(Composite container) {
 		undevelopedCheckBox = new Button(container, SWT.CHECK);
 		undevelopedCheckBox.setSelection(undeveloped);
 		undevelopedCheckBox.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Button btn = (Button) e.getSource();
@@ -79,7 +78,7 @@ public class StrategyPropertyDialog extends ModelElementPropertyDialog {
 		createLabel(container, "Undeveloped");
 
 	}
-	
+
 	public boolean getUndeveloped() {
 		return undeveloped;
 	}

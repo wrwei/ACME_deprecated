@@ -1,10 +1,8 @@
 /*******************************************************************************
- * Copyright (c) 2011-2017 The University of York.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
+ * Copyright (c) Ran Wei - All Rights Reserved
+ * Unauthorised copying of this file, via any medium is strictly prohibited
+ * Confidential
+ *
  * Contributors:
  *     Ran Wei - initial API and implementation
  ******************************************************************************/
@@ -23,10 +21,10 @@ public class EventShape_old extends Shape {
 	protected PointList shape = new PointList();
 	protected PointList topLeftRectangle = new PointList();
 	public static final int TOP_RECT_HEIGHT = 20;
-	
-	
+
+
 	public PointList getParallelgram() {
-		return shape; 
+		return shape;
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class EventShape_old extends Shape {
 		shape.translate(dx, dy);
 		topLeftRectangle.translate(dx, dy);
 	}
-	
+
 	@Override
 	protected void fillShape(Graphics graphics) {
 		graphics.fillPolygon(shape);
@@ -51,39 +49,39 @@ public class EventShape_old extends Shape {
 		r.resize(-1, -1);
 		graphics.drawText("Event", new Point(r.x+2, r.y+2));
 	}
-	
+
 	@Override
 	public void validate() {
 		super.validate();
 		Rectangle r = getBounds().getCopy();
 		r.shrink(getInsets());
 		r.resize(-1, -1);
-		
+
 		Point rectTL, rectTR, rectBR, rectBL;
 		rectTL = new Point(r.x, r.y);
 		rectTR = new Point(r.x + r.width, r.y);
 		rectBR = new Point(r.x + r.width, r.y + TOP_RECT_HEIGHT);
 		rectBL = new Point(r.x, r.y + TOP_RECT_HEIGHT);
-		
+
 		topLeftRectangle.removeAllPoints();
 		topLeftRectangle.addPoint(rectTL);
 		topLeftRectangle.addPoint(rectTR);
 		topLeftRectangle.addPoint(rectBR);
 		topLeftRectangle.addPoint(rectBL);
-		
-		
+
+
 		Point tl, tr, br, bl;
 		tl = new Point(r.x, r.y + TOP_RECT_HEIGHT);
 		tr = new Point(r.x + r.width, r.y + TOP_RECT_HEIGHT);
 		br = new Point(r.x + r.width, r.y + r.height);
 		bl = new Point(r.x, r.y + r.height);
-		
+
 		shape.removeAllPoints();
 		shape.addPoint(tl);
 		shape.addPoint(tr);
 		shape.addPoint(br);
 		shape.addPoint(bl);
-		
+
 	}
 
 }
