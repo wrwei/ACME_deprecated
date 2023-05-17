@@ -20,6 +20,7 @@ import base.ModelElement;
 import base.SACMElement;
 
 import gsn.*;
+import gsn.Module;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;

@@ -3,6 +3,7 @@
 package gsn.impl;
 
 import gsn.*;
+import gsn.Module;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
