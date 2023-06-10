@@ -62,6 +62,7 @@ public class ArgumentGroupImpl extends ArgumentationElementImpl implements Argum
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentationElement> getArgumentationElement() {
 		if (argumentationElement == null) {
 			argumentationElement = new EObjectResolvingEList<ArgumentationElement>(ArgumentationElement.class, this, Argumentation_Package.ARGUMENT_GROUP__ARGUMENTATION_ELEMENT);

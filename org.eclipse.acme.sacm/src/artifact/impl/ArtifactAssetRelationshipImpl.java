@@ -73,6 +73,7 @@ public class ArtifactAssetRelationshipImpl extends ArtifactAssetImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactAsset> getSource() {
 		if (source == null) {
 			source = new EObjectResolvingEList<ArtifactAsset>(ArtifactAsset.class, this, Artifact_Package.ARTIFACT_ASSET_RELATIONSHIP__SOURCE);
@@ -85,6 +86,7 @@ public class ArtifactAssetRelationshipImpl extends ArtifactAssetImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactAsset> getTarget() {
 		if (target == null) {
 			target = new EObjectResolvingEList<ArtifactAsset>(ArtifactAsset.class, this, Artifact_Package.ARTIFACT_ASSET_RELATIONSHIP__TARGET);

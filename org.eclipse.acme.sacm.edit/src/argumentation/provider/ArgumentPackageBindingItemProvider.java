@@ -94,7 +94,7 @@ public class ArgumentPackageBindingItemProvider extends ArgumentPackageItemProvi
 			getString("_UI_ArgumentPackageBinding_type") :
 			getString("_UI_ArgumentPackageBinding_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

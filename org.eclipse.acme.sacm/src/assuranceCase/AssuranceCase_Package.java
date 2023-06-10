@@ -212,15 +212,6 @@ public interface AssuranceCase_Package extends EPackage {
 	int ASSURANCE_CASE_PACKAGE_FEATURE_COUNT = Base_Package.ARTIFACT_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Assurance Case Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSURANCE_CASE_PACKAGE_OPERATION_COUNT = Base_Package.ARTIFACT_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link assuranceCase.impl.AssuranceCasePackageBindingImpl <em>Assurance Case Package Binding</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,15 +375,6 @@ public interface AssuranceCase_Package extends EPackage {
 	int ASSURANCE_CASE_PACKAGE_BINDING_FEATURE_COUNT = ASSURANCE_CASE_PACKAGE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Assurance Case Package Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSURANCE_CASE_PACKAGE_BINDING_OPERATION_COUNT = ASSURANCE_CASE_PACKAGE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link assuranceCase.impl.AssuranceCasePackageInterfaceImpl <em>Assurance Case Package Interface</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -554,16 +536,6 @@ public interface AssuranceCase_Package extends EPackage {
 	 * @ordered
 	 */
 	int ASSURANCE_CASE_PACKAGE_INTERFACE_FEATURE_COUNT = ASSURANCE_CASE_PACKAGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Assurance Case Package Interface</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSURANCE_CASE_PACKAGE_INTERFACE_OPERATION_COUNT = ASSURANCE_CASE_PACKAGE_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link assuranceCase.AssuranceCasePackage <em>Assurance Case Package</em>}'.

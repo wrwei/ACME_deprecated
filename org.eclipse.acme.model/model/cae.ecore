@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cae" nsURI="http://org.eclipse.acme/1.0/cae" nsPrefix="cae_">
-  <eClassifiers xsi:type="ecore:EClass" name="CAEModule" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//ArgumentPackage"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CAEModuleInterface" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//ArgumentPackageInterface"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CAEModuleBinding" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//ArgumentPackageBinding"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CAEClaim" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//Claim"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//ArgumentReasoning"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Evidence" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//ArtifactReference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IsSubClaimOf" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//AssertedInference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Supports" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//AssertedInference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IsEvidenceFor" eSuperTypes="../../org.eclipse.acme.sacm/model/argumentation.ecore#//AssertedEvidence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CAEModule" eSuperTypes="http://omg.sacm/2.0/argumentation#//ArgumentPackage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CAEModuleInterface" eSuperTypes="http://omg.sacm/2.0/argumentation#//ArgumentPackageInterface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CAEModuleBinding" eSuperTypes="http://omg.sacm/2.0/argumentation#//ArgumentPackageBinding"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CAEClaim" eSuperTypes="http://omg.sacm/2.0/argumentation#//Claim"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="http://omg.sacm/2.0/argumentation#//ArgumentReasoning"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Evidence" eSuperTypes="http://omg.sacm/2.0/argumentation#//ArtifactReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IsSubClaimOf" eSuperTypes="http://omg.sacm/2.0/argumentation#//AssertedInference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Supports" eSuperTypes="http://omg.sacm/2.0/argumentation#//AssertedInference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IsEvidenceFor" eSuperTypes="http://omg.sacm/2.0/argumentation#//AssertedEvidence"/>
 </ecore:EPackage>

@@ -104,7 +104,7 @@ public class ArgumentPackageItemProvider extends ArgumentationElementItemProvide
 			getString("_UI_ArgumentPackage_type") :
 			getString("_UI_ArgumentPackage_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

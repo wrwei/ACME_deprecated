@@ -2,17 +2,18 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.acme.sacm.editor;singleton:=true
-Bundle-Version: 1.0.0
+Automatic-Module-Name: org.eclipse.acme.sacm.editor
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: base.presentation.BaseEditorPlugin$Implementation
+Bundle-Activator: terminology.presentation.TerminologyEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: base.presentation,
- argumentation.presentation,
+Export-Package: argumentation.presentation,
  artifact.presentation,
- terminology.presentation,
- assuranceCase.presentation
+ assuranceCase.presentation,
+ base.presentation,
+ terminology.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.acme.sacm.edit;visibility:=reexport,
@@ -20,4 +21,3 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Automatic-Module-Name: org.eclipse.acme.sacm.editor

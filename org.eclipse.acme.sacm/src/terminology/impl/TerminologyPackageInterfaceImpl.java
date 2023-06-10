@@ -61,6 +61,7 @@ public class TerminologyPackageInterfaceImpl extends TerminologyPackageImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TerminologyPackage getImplements() {
 		if (implements_ != null && implements_.eIsProxy()) {
 			InternalEObject oldImplements = (InternalEObject)implements_;
@@ -87,6 +88,7 @@ public class TerminologyPackageInterfaceImpl extends TerminologyPackageImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImplements(TerminologyPackage newImplements) {
 		TerminologyPackage oldImplements = implements_;
 		implements_ = newImplements;

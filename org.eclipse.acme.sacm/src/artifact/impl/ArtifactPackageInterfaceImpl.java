@@ -61,6 +61,7 @@ public class ArtifactPackageInterfaceImpl extends ArtifactPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactPackage getImplements() {
 		if (implements_ != null && implements_.eIsProxy()) {
 			InternalEObject oldImplements = (InternalEObject)implements_;
@@ -87,6 +88,7 @@ public class ArtifactPackageInterfaceImpl extends ArtifactPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImplements(ArtifactPackage newImplements) {
 		ArtifactPackage oldImplements = implements_;
 		implements_ = newImplements;

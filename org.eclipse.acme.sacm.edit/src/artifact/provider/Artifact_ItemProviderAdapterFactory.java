@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -353,6 +353,7 @@ public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -363,6 +364,7 @@ public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -411,6 +413,7 @@ public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -421,6 +424,7 @@ public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -431,33 +435,13 @@ public class Artifact_ItemProviderAdapterFactory extends Artifact_AdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
 		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
-	}
-
-	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void dispose() {
-		if (artifactGroupItemProvider != null) artifactGroupItemProvider.dispose();
-		if (artifactPackageItemProvider != null) artifactPackageItemProvider.dispose();
-		if (artifactPackageBindingItemProvider != null) artifactPackageBindingItemProvider.dispose();
-		if (artifactPackageInterfaceItemProvider != null) artifactPackageInterfaceItemProvider.dispose();
-		if (propertyItemProvider != null) propertyItemProvider.dispose();
-		if (techniqueItemProvider != null) techniqueItemProvider.dispose();
-		if (participantItemProvider != null) participantItemProvider.dispose();
-		if (activityItemProvider != null) activityItemProvider.dispose();
-		if (eventItemProvider != null) eventItemProvider.dispose();
-		if (resourceItemProvider != null) resourceItemProvider.dispose();
-		if (artifactItemProvider != null) artifactItemProvider.dispose();
-		if (artifactAssetRelationshipItemProvider != null) artifactAssetRelationshipItemProvider.dispose();
 	}
 
 }

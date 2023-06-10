@@ -87,6 +87,7 @@ public abstract class ExpressionElementImpl extends TerminologyAssetImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -96,6 +97,7 @@ public abstract class ExpressionElementImpl extends TerminologyAssetImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
@@ -108,6 +110,7 @@ public abstract class ExpressionElementImpl extends TerminologyAssetImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Category> getCategory() {
 		if (category == null) {
 			category = new EObjectResolvingEList<Category>(Category.class, this, Terminology_Package.EXPRESSION_ELEMENT__CATEGORY);
@@ -194,7 +197,7 @@ public abstract class ExpressionElementImpl extends TerminologyAssetImpl impleme
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
 		result.append(')');

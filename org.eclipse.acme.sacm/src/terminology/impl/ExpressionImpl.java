@@ -62,6 +62,7 @@ public class ExpressionImpl extends ExpressionElementImpl implements Expression 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ExpressionElement> getElement() {
 		if (element == null) {
 			element = new EObjectResolvingEList<ExpressionElement>(ExpressionElement.class, this, Terminology_Package.EXPRESSION__ELEMENT);

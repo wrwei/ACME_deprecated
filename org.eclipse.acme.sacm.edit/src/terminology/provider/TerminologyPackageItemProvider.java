@@ -104,7 +104,7 @@ public class TerminologyPackageItemProvider extends TerminologyElementItemProvid
 			getString("_UI_TerminologyPackage_type") :
 			getString("_UI_TerminologyPackage_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

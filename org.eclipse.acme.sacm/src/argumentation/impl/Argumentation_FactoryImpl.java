@@ -109,6 +109,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentGroup createArgumentGroup() {
 		ArgumentGroupImpl argumentGroup = new ArgumentGroupImpl();
 		return argumentGroup;
@@ -119,6 +120,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentPackage createArgumentPackage() {
 		ArgumentPackageImpl argumentPackage = new ArgumentPackageImpl();
 		return argumentPackage;
@@ -129,6 +131,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentPackageInterface createArgumentPackageInterface() {
 		ArgumentPackageInterfaceImpl argumentPackageInterface = new ArgumentPackageInterfaceImpl();
 		return argumentPackageInterface;
@@ -139,6 +142,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentPackageBinding createArgumentPackageBinding() {
 		ArgumentPackageBindingImpl argumentPackageBinding = new ArgumentPackageBindingImpl();
 		return argumentPackageBinding;
@@ -149,6 +153,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentReasoning createArgumentReasoning() {
 		ArgumentReasoningImpl argumentReasoning = new ArgumentReasoningImpl();
 		return argumentReasoning;
@@ -159,6 +164,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Claim createClaim() {
 		ClaimImpl claim = new ClaimImpl();
 		return claim;
@@ -169,6 +175,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactReference createArtifactReference() {
 		ArtifactReferenceImpl artifactReference = new ArtifactReferenceImpl();
 		return artifactReference;
@@ -179,6 +186,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertedArtifactSupport createAssertedArtifactSupport() {
 		AssertedArtifactSupportImpl assertedArtifactSupport = new AssertedArtifactSupportImpl();
 		return assertedArtifactSupport;
@@ -189,6 +197,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertedInference createAssertedInference() {
 		AssertedInferenceImpl assertedInference = new AssertedInferenceImpl();
 		return assertedInference;
@@ -199,6 +208,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertedEvidence createAssertedEvidence() {
 		AssertedEvidenceImpl assertedEvidence = new AssertedEvidenceImpl();
 		return assertedEvidence;
@@ -209,6 +219,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertedContext createAssertedContext() {
 		AssertedContextImpl assertedContext = new AssertedContextImpl();
 		return assertedContext;
@@ -219,6 +230,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertedArtifactContext createAssertedArtifactContext() {
 		AssertedArtifactContextImpl assertedArtifactContext = new AssertedArtifactContextImpl();
 		return assertedArtifactContext;
@@ -249,6 +261,7 @@ public class Argumentation_FactoryImpl extends EFactoryImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Argumentation_Package getArgumentation_Package() {
 		return (Argumentation_Package)getEPackage();
 	}

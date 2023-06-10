@@ -1,6 +1,6 @@
 @namespace(uri="http://org.eclipse.acme/1.0/cae", prefix="cae_")
 package cae;
-import "platform:/resource/org.eclipse.acme.sacm/model/argumentation.ecore";
+import "http://omg.sacm/2.0/argumentation";
 
 
 

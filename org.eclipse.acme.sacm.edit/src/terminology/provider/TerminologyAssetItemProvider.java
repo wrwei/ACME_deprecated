@@ -58,7 +58,7 @@ public class TerminologyAssetItemProvider extends TerminologyElementItemProvider
 			getString("_UI_TerminologyAsset_type") :
 			getString("_UI_TerminologyAsset_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

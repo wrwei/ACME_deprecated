@@ -69,7 +69,7 @@ public class ClaimItemProvider extends AssertionItemProvider {
 			getString("_UI_Claim_type") :
 			getString("_UI_Claim_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

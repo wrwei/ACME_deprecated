@@ -75,6 +75,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CAEModule createCAEModule() {
 		CAEModuleImpl caeModule = new CAEModuleImpl();
 		return caeModule;
@@ -85,6 +86,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CAEModuleInterface createCAEModuleInterface() {
 		CAEModuleInterfaceImpl caeModuleInterface = new CAEModuleInterfaceImpl();
 		return caeModuleInterface;
@@ -95,6 +97,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CAEModuleBinding createCAEModuleBinding() {
 		CAEModuleBindingImpl caeModuleBinding = new CAEModuleBindingImpl();
 		return caeModuleBinding;
@@ -105,6 +108,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CAEClaim createCAEClaim() {
 		CAEClaimImpl caeClaim = new CAEClaimImpl();
 		return caeClaim;
@@ -115,6 +119,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Argument createArgument() {
 		ArgumentImpl argument = new ArgumentImpl();
 		return argument;
@@ -125,6 +130,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Evidence createEvidence() {
 		EvidenceImpl evidence = new EvidenceImpl();
 		return evidence;
@@ -135,6 +141,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IsSubClaimOf createIsSubClaimOf() {
 		IsSubClaimOfImpl isSubClaimOf = new IsSubClaimOfImpl();
 		return isSubClaimOf;
@@ -145,6 +152,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Supports createSupports() {
 		SupportsImpl supports = new SupportsImpl();
 		return supports;
@@ -155,6 +163,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IsEvidenceFor createIsEvidenceFor() {
 		IsEvidenceForImpl isEvidenceFor = new IsEvidenceForImpl();
 		return isEvidenceFor;
@@ -165,6 +174,7 @@ public class Cae_FactoryImpl extends EFactoryImpl implements Cae_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Cae_Package getCae_Package() {
 		return (Cae_Package)getEPackage();
 	}

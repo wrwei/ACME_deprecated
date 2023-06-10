@@ -71,6 +71,7 @@ public class SolutionImpl extends ArtifactReferenceImpl implements Solution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsPublic() {
 		return isPublic;
 	}
@@ -80,6 +81,7 @@ public class SolutionImpl extends ArtifactReferenceImpl implements Solution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsPublic(boolean newIsPublic) {
 		boolean oldIsPublic = isPublic;
 		isPublic = newIsPublic;
@@ -154,7 +156,7 @@ public class SolutionImpl extends ArtifactReferenceImpl implements Solution {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isPublic: ");
 		result.append(isPublic);
 		result.append(')');

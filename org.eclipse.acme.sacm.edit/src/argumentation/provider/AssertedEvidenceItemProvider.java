@@ -69,7 +69,7 @@ public class AssertedEvidenceItemProvider extends AssertedRelationshipItemProvid
 			getString("_UI_AssertedEvidence_type") :
 			getString("_UI_AssertedEvidence_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

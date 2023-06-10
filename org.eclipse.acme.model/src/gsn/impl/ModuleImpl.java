@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ModuleImpl extends ArgumentPackageImpl implements Module {
+public class ModuleImpl extends ArgumentPackageImpl implements gsn.Module {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

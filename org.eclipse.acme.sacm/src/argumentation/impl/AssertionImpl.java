@@ -88,6 +88,7 @@ public abstract class AssertionImpl extends ArgumentAssetImpl implements Asserti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssertionDeclaration getAssertionDeclaration() {
 		return assertionDeclaration;
 	}
@@ -97,6 +98,7 @@ public abstract class AssertionImpl extends ArgumentAssetImpl implements Asserti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAssertionDeclaration(AssertionDeclaration newAssertionDeclaration) {
 		AssertionDeclaration oldAssertionDeclaration = assertionDeclaration;
 		assertionDeclaration = newAssertionDeclaration == null ? ASSERTION_DECLARATION_EDEFAULT : newAssertionDeclaration;
@@ -109,6 +111,7 @@ public abstract class AssertionImpl extends ArgumentAssetImpl implements Asserti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Claim> getMetaClaim() {
 		if (metaClaim == null) {
 			metaClaim = new EObjectResolvingEList<Claim>(Claim.class, this, Argumentation_Package.ASSERTION__META_CLAIM);
@@ -195,7 +198,7 @@ public abstract class AssertionImpl extends ArgumentAssetImpl implements Asserti
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (assertionDeclaration: ");
 		result.append(assertionDeclaration);
 		result.append(')');

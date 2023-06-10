@@ -97,7 +97,7 @@ public class ModelElementItemProvider extends SACMElementItemProvider {
 			getString("_UI_ModelElement_type") :
 			getString("_UI_ModelElement_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

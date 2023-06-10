@@ -94,7 +94,7 @@ public class CategoryItemProvider extends TerminologyAssetItemProvider {
 			getString("_UI_Category_type") :
 			getString("_UI_Category_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

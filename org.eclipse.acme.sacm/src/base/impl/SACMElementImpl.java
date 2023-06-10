@@ -134,6 +134,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getGid() {
 		return gid;
 	}
@@ -143,6 +144,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGid(String newGid) {
 		String oldGid = gid;
 		gid = newGid;
@@ -155,6 +157,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsCitation() {
 		return isCitation;
 	}
@@ -164,6 +167,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsCitation(boolean newIsCitation) {
 		boolean oldIsCitation = isCitation;
 		isCitation = newIsCitation;
@@ -176,6 +180,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsAbstract() {
 		return isAbstract;
 	}
@@ -185,6 +190,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsAbstract(boolean newIsAbstract) {
 		boolean oldIsAbstract = isAbstract;
 		isAbstract = newIsAbstract;
@@ -197,6 +203,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SACMElement getCitedElement() {
 		if (citedElement != null && citedElement.eIsProxy()) {
 			InternalEObject oldCitedElement = (InternalEObject)citedElement;
@@ -223,6 +230,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCitedElement(SACMElement newCitedElement) {
 		SACMElement oldCitedElement = citedElement;
 		citedElement = newCitedElement;
@@ -235,6 +243,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SACMElement getAbstractForm() {
 		if (abstractForm != null && abstractForm.eIsProxy()) {
 			InternalEObject oldAbstractForm = (InternalEObject)abstractForm;
@@ -261,6 +270,7 @@ public abstract class SACMElementImpl extends ElementImpl implements SACMElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAbstractForm(SACMElement newAbstractForm) {
 		SACMElement oldAbstractForm = abstractForm;
 		abstractForm = newAbstractForm;

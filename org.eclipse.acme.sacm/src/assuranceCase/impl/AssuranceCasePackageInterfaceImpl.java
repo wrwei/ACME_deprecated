@@ -61,6 +61,7 @@ public class AssuranceCasePackageInterfaceImpl extends AssuranceCasePackageImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCasePackage getImplements() {
 		if (implements_ != null && implements_.eIsProxy()) {
 			InternalEObject oldImplements = (InternalEObject)implements_;
@@ -87,6 +88,7 @@ public class AssuranceCasePackageInterfaceImpl extends AssuranceCasePackageImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImplements(AssuranceCasePackage newImplements) {
 		AssuranceCasePackage oldImplements = implements_;
 		implements_ = newImplements;

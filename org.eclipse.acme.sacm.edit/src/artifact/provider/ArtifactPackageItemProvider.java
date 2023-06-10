@@ -3,10 +3,13 @@
 package artifact.provider;
 
 
+import argumentation.Argumentation_Factory;
 import artifact.ArtifactPackage;
 import artifact.Artifact_Factory;
 import artifact.Artifact_Package;
 
+import assuranceCase.AssuranceCase_Factory;
+import assuranceCase.provider.AssuranceCaseEditPlugin;
 import base.provider.ArtifactElementItemProvider;
 
 import java.util.Collection;
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import terminology.Terminology_Factory;
 
 /**
  * This is the item provider adapter for a {@link artifact.ArtifactPackage} object.
@@ -108,7 +112,7 @@ public class ArtifactPackageItemProvider extends ArtifactElementItemProvider {
 			getString("_UI_ArtifactPackage_type") :
 			getString("_UI_ArtifactPackage_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -199,6 +203,116 @@ public class ArtifactPackageItemProvider extends ArtifactElementItemProvider {
 			(createChildParameter
 				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
 				 Artifact_Factory.eINSTANCE.createArtifactAssetRelationship()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 AssuranceCase_Factory.eINSTANCE.createAssuranceCasePackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 AssuranceCase_Factory.eINSTANCE.createAssuranceCasePackageBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 AssuranceCase_Factory.eINSTANCE.createAssuranceCasePackageInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArgumentGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArgumentPackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArgumentPackageInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArgumentPackageBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArgumentReasoning()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createClaim()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createArtifactReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createAssertedArtifactSupport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createAssertedInference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createAssertedEvidence()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createAssertedContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Argumentation_Factory.eINSTANCE.createAssertedArtifactContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createTerminologyGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackageBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackageInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createCategory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Artifact_Package.Literals.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT,
+				 Terminology_Factory.eINSTANCE.createTerm()));
 	}
 
 	/**
@@ -209,7 +323,7 @@ public class ArtifactPackageItemProvider extends ArtifactElementItemProvider {
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ArtifactEditPlugin.INSTANCE;
+		return AssuranceCaseEditPlugin.INSTANCE;
 	}
 
 }

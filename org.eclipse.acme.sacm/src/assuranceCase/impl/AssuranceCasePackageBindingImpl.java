@@ -62,6 +62,7 @@ public class AssuranceCasePackageBindingImpl extends AssuranceCasePackageImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AssuranceCasePackage> getParticipantPackage() {
 		if (participantPackage == null) {
 			participantPackage = new EObjectResolvingEList<AssuranceCasePackage>(AssuranceCasePackage.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE_BINDING__PARTICIPANT_PACKAGE);

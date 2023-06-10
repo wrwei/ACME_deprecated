@@ -71,6 +71,7 @@ public class ChoiceNodeImpl extends ArgumentAssetImpl implements ChoiceNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getChoice() {
 		return choice;
 	}
@@ -80,6 +81,7 @@ public class ChoiceNodeImpl extends ArgumentAssetImpl implements ChoiceNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setChoice(String newChoice) {
 		String oldChoice = choice;
 		choice = newChoice;
@@ -154,7 +156,7 @@ public class ChoiceNodeImpl extends ArgumentAssetImpl implements ChoiceNode {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (choice: ");
 		result.append(choice);
 		result.append(')');

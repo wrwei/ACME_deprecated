@@ -2,6 +2,8 @@
  */
 package artifact.impl;
 
+import argumentation.Argumentation_Package;
+import argumentation.impl.Argumentation_PackageImpl;
 import artifact.Activity;
 import artifact.Artifact;
 import artifact.ArtifactAsset;
@@ -18,14 +20,19 @@ import artifact.Property;
 import artifact.Resource;
 import artifact.Technique;
 
+import assuranceCase.AssuranceCase_Package;
+import assuranceCase.impl.AssuranceCase_PackageImpl;
 import base.Base_Package;
 
+import base.impl.Base_PackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import terminology.Terminology_Package;
+import terminology.impl.Terminology_PackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -172,14 +179,29 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Base_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AssuranceCase_Package.eNS_URI);
+		AssuranceCase_PackageImpl theAssuranceCase_Package = (AssuranceCase_PackageImpl)(registeredPackage instanceof AssuranceCase_PackageImpl ? registeredPackage : AssuranceCase_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Argumentation_Package.eNS_URI);
+		Argumentation_PackageImpl theArgumentation_Package = (Argumentation_PackageImpl)(registeredPackage instanceof Argumentation_PackageImpl ? registeredPackage : Argumentation_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Terminology_Package.eNS_URI);
+		Terminology_PackageImpl theTerminology_Package = (Terminology_PackageImpl)(registeredPackage instanceof Terminology_PackageImpl ? registeredPackage : Terminology_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theArtifact_Package.createPackageContents();
+		theAssuranceCase_Package.createPackageContents();
+		theBase_Package.createPackageContents();
+		theArgumentation_Package.createPackageContents();
+		theTerminology_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theArtifact_Package.initializePackageContents();
+		theAssuranceCase_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
+		theArgumentation_Package.initializePackageContents();
+		theTerminology_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theArtifact_Package.freeze();
@@ -194,6 +216,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactGroup() {
 		return artifactGroupEClass;
 	}
@@ -203,6 +226,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactGroup_ArtifactElement() {
 		return (EReference)artifactGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -212,6 +236,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactPackage() {
 		return artifactPackageEClass;
 	}
@@ -221,6 +246,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactPackage_ArtifactElement() {
 		return (EReference)artifactPackageEClass.getEStructuralFeatures().get(0);
 	}
@@ -230,6 +256,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactPackageBinding() {
 		return artifactPackageBindingEClass;
 	}
@@ -239,6 +266,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactPackageBinding_ParticipantPackage() {
 		return (EReference)artifactPackageBindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -248,6 +276,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactPackageInterface() {
 		return artifactPackageInterfaceEClass;
 	}
@@ -257,6 +286,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactPackageInterface_Implements() {
 		return (EReference)artifactPackageInterfaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -266,6 +296,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactAsset() {
 		return artifactAssetEClass;
 	}
@@ -275,6 +306,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactAsset_ArtifactProperty() {
 		return (EReference)artifactAssetEClass.getEStructuralFeatures().get(0);
 	}
@@ -284,6 +316,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -293,6 +326,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTechnique() {
 		return techniqueEClass;
 	}
@@ -302,6 +336,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParticipant() {
 		return participantEClass;
 	}
@@ -311,6 +346,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getActivity() {
 		return activityEClass;
 	}
@@ -320,6 +356,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getActivity_StartTime() {
 		return (EAttribute)activityEClass.getEStructuralFeatures().get(0);
 	}
@@ -329,6 +366,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getActivity_EndTime() {
 		return (EAttribute)activityEClass.getEStructuralFeatures().get(1);
 	}
@@ -338,6 +376,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -347,6 +386,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEvent_Occurence() {
 		return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
 	}
@@ -356,6 +396,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResource() {
 		return resourceEClass;
 	}
@@ -365,6 +406,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -374,6 +416,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtifact_Version() {
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(0);
 	}
@@ -383,6 +426,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArtifact_Date() {
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
 	}
@@ -392,6 +436,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactAssetRelationship() {
 		return artifactAssetRelationshipEClass;
 	}
@@ -401,6 +446,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactAssetRelationship_Source() {
 		return (EReference)artifactAssetRelationshipEClass.getEStructuralFeatures().get(0);
 	}
@@ -410,6 +456,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactAssetRelationship_Target() {
 		return (EReference)artifactAssetRelationshipEClass.getEStructuralFeatures().get(1);
 	}
@@ -419,6 +466,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Artifact_Factory getArtifact_Factory() {
 		return (Artifact_Factory)getEFactoryInstance();
 	}
@@ -526,7 +574,7 @@ public class Artifact_PackageImpl extends EPackageImpl implements Artifact_Packa
 		artifactEClass.getESuperTypes().add(this.getArtifactAsset());
 		artifactAssetRelationshipEClass.getESuperTypes().add(this.getArtifactAsset());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(artifactGroupEClass, ArtifactGroup.class, "ArtifactGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArtifactGroup_ArtifactElement(), theBase_Package.getArtifactElement(), null, "artifactElement", null, 0, -1, ArtifactGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

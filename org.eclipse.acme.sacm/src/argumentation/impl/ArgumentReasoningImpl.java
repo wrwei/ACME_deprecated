@@ -61,6 +61,7 @@ public class ArgumentReasoningImpl extends ArgumentAssetImpl implements Argument
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentPackage getStructure() {
 		if (structure != null && structure.eIsProxy()) {
 			InternalEObject oldStructure = (InternalEObject)structure;
@@ -87,6 +88,7 @@ public class ArgumentReasoningImpl extends ArgumentAssetImpl implements Argument
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStructure(ArgumentPackage newStructure) {
 		ArgumentPackage oldStructure = structure;
 		structure = newStructure;

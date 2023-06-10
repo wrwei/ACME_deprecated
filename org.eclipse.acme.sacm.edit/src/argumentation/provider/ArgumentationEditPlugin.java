@@ -2,8 +2,6 @@
  */
 package argumentation.provider;
 
-import base.provider.BaseEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -40,7 +38,6 @@ public final class ArgumentationEditPlugin extends EMFPlugin {
 	public ArgumentationEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     BaseEditPlugin.INSTANCE,
 		   });
 	}
 

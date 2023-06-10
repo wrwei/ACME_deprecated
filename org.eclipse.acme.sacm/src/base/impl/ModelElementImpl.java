@@ -117,6 +117,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LangString getName() {
 		return name;
 	}
@@ -141,6 +142,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(LangString newName) {
 		if (newName != name) {
 			NotificationChain msgs = null;
@@ -160,6 +162,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Description getDescription() {
 		return description;
 	}
@@ -184,6 +187,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(Description newDescription) {
 		if (newDescription != description) {
 			NotificationChain msgs = null;
@@ -203,6 +207,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ImplementationConstraint> getImplementationConstraint() {
 		if (implementationConstraint == null) {
 			implementationConstraint = new EObjectContainmentEList<ImplementationConstraint>(ImplementationConstraint.class, this, Base_Package.MODEL_ELEMENT__IMPLEMENTATION_CONSTRAINT);
@@ -215,6 +220,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Note> getNote() {
 		if (note == null) {
 			note = new EObjectContainmentEList<Note>(Note.class, this, Base_Package.MODEL_ELEMENT__NOTE);
@@ -227,6 +233,7 @@ public abstract class ModelElementImpl extends SACMElementImpl implements ModelE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TaggedValue> getTaggedValue() {
 		if (taggedValue == null) {
 			taggedValue = new EObjectContainmentEList<TaggedValue>(TaggedValue.class, this, Base_Package.MODEL_ELEMENT__TAGGED_VALUE);

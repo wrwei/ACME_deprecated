@@ -2,8 +2,6 @@
  */
 package artifact.presentation;
 
-import base.provider.BaseEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -42,7 +40,6 @@ public final class ArtifactEditorPlugin extends EMFPlugin {
 	public ArtifactEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				BaseEditPlugin.INSTANCE,
 			});
 	}
 

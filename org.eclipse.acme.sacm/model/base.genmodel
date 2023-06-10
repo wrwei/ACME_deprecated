@@ -5,7 +5,8 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>base.ecore</foreignModel>
-  <genPackages prefix="Base_" disposableProviderFactory="true" ecorePackage="base.ecore#/">
+  <genPackages prefix="Base_" disposableProviderFactory="true" fileExtensions="base"
+      ecorePackage="base.ecore#/">
     <genClasses image="false" ecoreClass="base.ecore#//Element"/>
     <genClasses ecoreClass="base.ecore#//LangString">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//LangString/lang"/>

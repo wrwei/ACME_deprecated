@@ -69,7 +69,7 @@ public class ImplementationConstraintItemProvider extends UtilityElementItemProv
 			getString("_UI_ImplementationConstraint_type") :
 			getString("_UI_ImplementationConstraint_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

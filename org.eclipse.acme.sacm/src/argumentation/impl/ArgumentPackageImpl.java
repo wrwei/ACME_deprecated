@@ -66,6 +66,7 @@ public class ArgumentPackageImpl extends ArgumentationElementImpl implements Arg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentationElement> getArgumentationElement() {
 		if (argumentationElement == null) {
 			argumentationElement = new EObjectContainmentEList<ArgumentationElement>(ArgumentationElement.class, this, Argumentation_Package.ARGUMENT_PACKAGE__ARGUMENTATION_ELEMENT);

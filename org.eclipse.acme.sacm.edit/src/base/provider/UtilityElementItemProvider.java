@@ -93,7 +93,7 @@ public class UtilityElementItemProvider extends SACMElementItemProvider {
 			getString("_UI_UtilityElement_type") :
 			getString("_UI_UtilityElement_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

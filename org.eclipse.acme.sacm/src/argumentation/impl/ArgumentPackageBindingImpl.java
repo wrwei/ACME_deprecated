@@ -62,6 +62,7 @@ public class ArgumentPackageBindingImpl extends ArgumentPackageImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentPackage> getParticipantPackage() {
 		if (participantPackage == null) {
 			participantPackage = new EObjectResolvingEList<ArgumentPackage>(ArgumentPackage.class, this, Argumentation_Package.ARGUMENT_PACKAGE_BINDING__PARTICIPANT_PACKAGE);

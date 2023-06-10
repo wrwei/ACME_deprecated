@@ -71,6 +71,7 @@ public abstract class ArgumentationElementImpl extends ArtifactElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUninstantiated() {
 		return uninstantiated;
 	}
@@ -80,6 +81,7 @@ public abstract class ArgumentationElementImpl extends ArtifactElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUninstantiated(boolean newUninstantiated) {
 		boolean oldUninstantiated = uninstantiated;
 		uninstantiated = newUninstantiated;
@@ -154,7 +156,7 @@ public abstract class ArgumentationElementImpl extends ArtifactElementImpl imple
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (uninstantiated: ");
 		result.append(uninstantiated);
 		result.append(')');

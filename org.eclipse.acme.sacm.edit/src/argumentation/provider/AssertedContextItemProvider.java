@@ -69,7 +69,7 @@ public class AssertedContextItemProvider extends AssertedRelationshipItemProvide
 			getString("_UI_AssertedContext_type") :
 			getString("_UI_AssertedContext_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

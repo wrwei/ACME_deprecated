@@ -22,8 +22,13 @@ import argumentation.Assertion;
 import argumentation.AssertionDeclaration;
 import argumentation.Claim;
 
+import artifact.Artifact_Package;
+import artifact.impl.Artifact_PackageImpl;
+import assuranceCase.AssuranceCase_Package;
+import assuranceCase.impl.AssuranceCase_PackageImpl;
 import base.Base_Package;
 
+import base.impl.Base_PackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -31,6 +36,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import terminology.Terminology_Package;
+import terminology.impl.Terminology_PackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -186,7 +193,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Argumentation_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -200,23 +207,38 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 		if (isInited) return (Argumentation_Package)EPackage.Registry.INSTANCE.getEPackage(Argumentation_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Argumentation_PackageImpl theArgumentation_Package = (Argumentation_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Argumentation_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Argumentation_PackageImpl());
+		Object registeredArgumentation_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Argumentation_PackageImpl theArgumentation_Package = registeredArgumentation_Package instanceof Argumentation_PackageImpl ? (Argumentation_PackageImpl)registeredArgumentation_Package : new Argumentation_PackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Base_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AssuranceCase_Package.eNS_URI);
+		AssuranceCase_PackageImpl theAssuranceCase_Package = (AssuranceCase_PackageImpl)(registeredPackage instanceof AssuranceCase_PackageImpl ? registeredPackage : AssuranceCase_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Artifact_Package.eNS_URI);
+		Artifact_PackageImpl theArtifact_Package = (Artifact_PackageImpl)(registeredPackage instanceof Artifact_PackageImpl ? registeredPackage : Artifact_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Terminology_Package.eNS_URI);
+		Terminology_PackageImpl theTerminology_Package = (Terminology_PackageImpl)(registeredPackage instanceof Terminology_PackageImpl ? registeredPackage : Terminology_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theArgumentation_Package.createPackageContents();
+		theAssuranceCase_Package.createPackageContents();
+		theBase_Package.createPackageContents();
+		theArtifact_Package.createPackageContents();
+		theTerminology_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theArgumentation_Package.initializePackageContents();
+		theAssuranceCase_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
+		theArtifact_Package.initializePackageContents();
+		theTerminology_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theArgumentation_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Argumentation_Package.eNS_URI, theArgumentation_Package);
 		return theArgumentation_Package;
@@ -227,6 +249,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentationElement() {
 		return argumentationElementEClass;
 	}
@@ -236,6 +259,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArgumentationElement_Uninstantiated() {
 		return (EAttribute)argumentationElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -245,6 +269,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentGroup() {
 		return argumentGroupEClass;
 	}
@@ -254,6 +279,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentGroup_ArgumentationElement() {
 		return (EReference)argumentGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -263,6 +289,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentPackage() {
 		return argumentPackageEClass;
 	}
@@ -272,6 +299,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentPackage_ArgumentationElement() {
 		return (EReference)argumentPackageEClass.getEStructuralFeatures().get(0);
 	}
@@ -281,6 +309,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentPackageInterface() {
 		return argumentPackageInterfaceEClass;
 	}
@@ -290,6 +319,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentPackageInterface_Implements() {
 		return (EReference)argumentPackageInterfaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -299,6 +329,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentPackageBinding() {
 		return argumentPackageBindingEClass;
 	}
@@ -308,6 +339,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentPackageBinding_ParticipantPackage() {
 		return (EReference)argumentPackageBindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -317,6 +349,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentAsset() {
 		return argumentAssetEClass;
 	}
@@ -326,6 +359,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentAsset_Content() {
 		return (EReference)argumentAssetEClass.getEStructuralFeatures().get(0);
 	}
@@ -335,6 +369,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertion() {
 		return assertionEClass;
 	}
@@ -344,6 +379,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAssertion_AssertionDeclaration() {
 		return (EAttribute)assertionEClass.getEStructuralFeatures().get(0);
 	}
@@ -353,6 +389,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssertion_MetaClaim() {
 		return (EReference)assertionEClass.getEStructuralFeatures().get(1);
 	}
@@ -362,6 +399,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgumentReasoning() {
 		return argumentReasoningEClass;
 	}
@@ -371,6 +409,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArgumentReasoning_Structure() {
 		return (EReference)argumentReasoningEClass.getEStructuralFeatures().get(0);
 	}
@@ -380,6 +419,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClaim() {
 		return claimEClass;
 	}
@@ -389,6 +429,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedRelationship() {
 		return assertedRelationshipEClass;
 	}
@@ -398,6 +439,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAssertedRelationship_IsCounter() {
 		return (EAttribute)assertedRelationshipEClass.getEStructuralFeatures().get(0);
 	}
@@ -407,6 +449,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssertedRelationship_Source() {
 		return (EReference)assertedRelationshipEClass.getEStructuralFeatures().get(1);
 	}
@@ -416,6 +459,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssertedRelationship_Target() {
 		return (EReference)assertedRelationshipEClass.getEStructuralFeatures().get(2);
 	}
@@ -425,6 +469,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssertedRelationship_Reasoning() {
 		return (EReference)assertedRelationshipEClass.getEStructuralFeatures().get(3);
 	}
@@ -434,6 +479,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAssertedRelationship_Requies() {
 		return (EAttribute)assertedRelationshipEClass.getEStructuralFeatures().get(4);
 	}
@@ -443,6 +489,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactReference() {
 		return artifactReferenceEClass;
 	}
@@ -452,6 +499,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactReference_ReferencedArtifactElement() {
 		return (EReference)artifactReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -461,6 +509,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedArtifactSupport() {
 		return assertedArtifactSupportEClass;
 	}
@@ -470,6 +519,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedInference() {
 		return assertedInferenceEClass;
 	}
@@ -479,6 +529,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedEvidence() {
 		return assertedEvidenceEClass;
 	}
@@ -488,6 +539,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedContext() {
 		return assertedContextEClass;
 	}
@@ -497,6 +549,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssertedArtifactContext() {
 		return assertedArtifactContextEClass;
 	}
@@ -506,6 +559,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAssertionDeclaration() {
 		return assertionDeclarationEEnum;
 	}
@@ -515,6 +569,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Argumentation_Factory getArgumentation_Factory() {
 		return (Argumentation_Factory)getEFactoryInstance();
 	}
@@ -637,7 +692,7 @@ public class Argumentation_PackageImpl extends EPackageImpl implements Argumenta
 		assertedContextEClass.getESuperTypes().add(this.getAssertedRelationship());
 		assertedArtifactContextEClass.getESuperTypes().add(this.getAssertedRelationship());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(argumentationElementEClass, ArgumentationElement.class, "ArgumentationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArgumentationElement_Uninstantiated(), ecorePackage.getEBoolean(), "uninstantiated", "false", 1, 1, ArgumentationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

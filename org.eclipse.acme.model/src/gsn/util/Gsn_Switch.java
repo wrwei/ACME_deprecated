@@ -19,6 +19,22 @@ import base.Element;
 import base.ModelElement;
 import base.SACMElement;
 
+import gsn.Assumption;
+import gsn.AwayContext;
+import gsn.AwayGoal;
+import gsn.AwaySolution;
+import gsn.ChoiceNode;
+import gsn.Context;
+import gsn.ContractModule;
+import gsn.ContractModuleReference;
+import gsn.Goal;
+import gsn.Gsn_Package;
+import gsn.InContextOf;
+import gsn.Justification;
+import gsn.ModuleReference;
+import gsn.Solution;
+import gsn.Strategy;
+import gsn.SupportedBy;
 import gsn.*;
 import gsn.Module;
 
@@ -85,7 +101,7 @@ public class Gsn_Switch<T> extends Switch<T> {
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case Gsn_Package.MODULE: {
-				Module module = (Module)theEObject;
+				gsn.Module module = (gsn.Module)theEObject;
 				T result = caseModule(module);
 				if (result == null) result = caseArgumentPackage(module);
 				if (result == null) result = caseArgumentationElement(module);
@@ -311,7 +327,7 @@ public class Gsn_Switch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModule(Module object) {
+	public T caseModule(gsn.Module object) {
 		return null;
 	}
 

@@ -92,6 +92,7 @@ public class ArtifactImpl extends ArtifactAssetImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
@@ -101,6 +102,7 @@ public class ArtifactImpl extends ArtifactAssetImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -113,6 +115,7 @@ public class ArtifactImpl extends ArtifactAssetImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getDate() {
 		return date;
 	}
@@ -122,6 +125,7 @@ public class ArtifactImpl extends ArtifactAssetImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDate(Date newDate) {
 		Date oldDate = date;
 		date = newDate;

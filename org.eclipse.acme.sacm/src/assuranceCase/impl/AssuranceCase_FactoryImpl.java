@@ -69,6 +69,7 @@ public class AssuranceCase_FactoryImpl extends EFactoryImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCasePackage createAssuranceCasePackage() {
 		AssuranceCasePackageImpl assuranceCasePackage = new AssuranceCasePackageImpl();
 		return assuranceCasePackage;
@@ -79,6 +80,7 @@ public class AssuranceCase_FactoryImpl extends EFactoryImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCasePackageBinding createAssuranceCasePackageBinding() {
 		AssuranceCasePackageBindingImpl assuranceCasePackageBinding = new AssuranceCasePackageBindingImpl();
 		return assuranceCasePackageBinding;
@@ -89,6 +91,7 @@ public class AssuranceCase_FactoryImpl extends EFactoryImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCasePackageInterface createAssuranceCasePackageInterface() {
 		AssuranceCasePackageInterfaceImpl assuranceCasePackageInterface = new AssuranceCasePackageInterfaceImpl();
 		return assuranceCasePackageInterface;
@@ -99,6 +102,7 @@ public class AssuranceCase_FactoryImpl extends EFactoryImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCase_Package getAssuranceCase_Package() {
 		return (AssuranceCase_Package)getEPackage();
 	}

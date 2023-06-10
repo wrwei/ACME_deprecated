@@ -94,7 +94,7 @@ public class AssuranceCasePackageInterfaceItemProvider extends AssuranceCasePack
 			getString("_UI_AssuranceCasePackageInterface_type") :
 			getString("_UI_AssuranceCasePackageInterface_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

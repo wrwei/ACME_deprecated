@@ -94,7 +94,7 @@ public class ArgumentGroupItemProvider extends ArgumentationElementItemProvider 
 			getString("_UI_ArgumentGroup_type") :
 			getString("_UI_ArgumentGroup_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

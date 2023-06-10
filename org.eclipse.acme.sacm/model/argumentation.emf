@@ -1,7 +1,7 @@
 @namespace(uri="http://omg.sacm/2.0/argumentation", prefix="argumentation_")
 package argumentation;
 
-import "platform:/resource/org.eclipse.acme.sacm/model/base.ecore";
+import "http://omg.sacm/2.0/base";
 
 enum AssertionDeclaration {
   asserted = 1;

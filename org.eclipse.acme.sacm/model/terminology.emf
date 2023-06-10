@@ -1,6 +1,6 @@
 @namespace(uri="http://omg.sacm/2.0/terminology", prefix="terminology_")
 package terminology;
-import "platform:/resource/org.eclipse.acme.sacm/model/base.ecore";
+import "http://omg.sacm/2.0/base";
 
   abstract class TerminologyElement extends base.ArtifactElement {
   }

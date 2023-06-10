@@ -7,10 +7,10 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated base -->
+      <!-- @generated argumentation -->
       <factory
-            uri="http://omg.sacm/2.0/base"
-            class="base.provider.Base_ItemProviderAdapterFactory"
+            uri="http://omg.sacm/2.0/argumentation"
+            class="argumentation.provider.Argumentation_ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -20,10 +20,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated argumentation -->
+      <!-- @generated assurancecase -->
       <factory
-            uri="http://omg.sacm/2.0/argumentation"
-            class="argumentation.provider.Argumentation_ItemProviderAdapterFactory"
+            uri="http://omg.sacm/2.0/terminology"
+            class="terminology.provider.Terminology_ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -46,10 +46,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated terminology -->
+      <!-- @generated assurancecase -->
       <factory
-            uri="http://omg.sacm/2.0/terminology"
-            class="terminology.provider.Terminology_ItemProviderAdapterFactory"
+            uri="http://omg.sacm/2.0/assurancecase"
+            class="assuranceCase.provider.AssuranceCase_ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -59,10 +59,10 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated assurancecase -->
+      <!-- @generated base -->
       <factory
-            uri="http://omg.sacm/2.0/assurancecase"
-            class="assuranceCase.provider.AssuranceCase_ItemProviderAdapterFactory"
+            uri="http://omg.sacm/2.0/base"
+            class="base.provider.Base_ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

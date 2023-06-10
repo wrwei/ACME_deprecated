@@ -69,7 +69,7 @@ public class AssertedArtifactSupportItemProvider extends AssertedRelationshipIte
 			getString("_UI_AssertedArtifactSupport_type") :
 			getString("_UI_AssertedArtifactSupport_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

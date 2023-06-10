@@ -69,7 +69,7 @@ public class PropertyItemProvider extends ArtifactAssetItemProvider {
 			getString("_UI_Property_type") :
 			getString("_UI_Property_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -62,6 +62,7 @@ public class TaggedValueImpl extends UtilityElementImpl implements TaggedValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MultiLangString getKey() {
 		return key;
 	}
@@ -86,6 +87,7 @@ public class TaggedValueImpl extends UtilityElementImpl implements TaggedValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(MultiLangString newKey) {
 		if (newKey != key) {
 			NotificationChain msgs = null;

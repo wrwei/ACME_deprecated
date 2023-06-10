@@ -73,6 +73,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TerminologyGroup createTerminologyGroup() {
 		TerminologyGroupImpl terminologyGroup = new TerminologyGroupImpl();
 		return terminologyGroup;
@@ -83,6 +84,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TerminologyPackage createTerminologyPackage() {
 		TerminologyPackageImpl terminologyPackage = new TerminologyPackageImpl();
 		return terminologyPackage;
@@ -93,6 +95,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TerminologyPackageBinding createTerminologyPackageBinding() {
 		TerminologyPackageBindingImpl terminologyPackageBinding = new TerminologyPackageBindingImpl();
 		return terminologyPackageBinding;
@@ -103,6 +106,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TerminologyPackageInterface createTerminologyPackageInterface() {
 		TerminologyPackageInterfaceImpl terminologyPackageInterface = new TerminologyPackageInterfaceImpl();
 		return terminologyPackageInterface;
@@ -113,6 +117,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Category createCategory() {
 		CategoryImpl category = new CategoryImpl();
 		return category;
@@ -123,6 +128,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Expression createExpression() {
 		ExpressionImpl expression = new ExpressionImpl();
 		return expression;
@@ -133,6 +139,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Term createTerm() {
 		TermImpl term = new TermImpl();
 		return term;
@@ -143,6 +150,7 @@ public class Terminology_FactoryImpl extends EFactoryImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Terminology_Package getTerminology_Package() {
 		return (Terminology_Package)getEPackage();
 	}

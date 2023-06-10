@@ -4,6 +4,9 @@ package gsn.impl;
 
 import argumentation.Argumentation_Package;
 
+import argumentation.impl.Argumentation_PackageImpl;
+import base.Base_Package;
+import base.impl.Base_PackageImpl;
 import gsn.Assumption;
 import gsn.AwayContext;
 import gsn.AwayGoal;
@@ -177,7 +180,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Gsn_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -191,23 +194,30 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 		if (isInited) return (Gsn_Package)EPackage.Registry.INSTANCE.getEPackage(Gsn_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Gsn_PackageImpl theGsn_Package = (Gsn_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Gsn_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Gsn_PackageImpl());
+		Object registeredGsn_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Gsn_PackageImpl theGsn_Package = registeredGsn_Package instanceof Gsn_PackageImpl ? (Gsn_PackageImpl)registeredGsn_Package : new Gsn_PackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Argumentation_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Argumentation_Package.eNS_URI);
+		Argumentation_PackageImpl theArgumentation_Package = (Argumentation_PackageImpl)(registeredPackage instanceof Argumentation_PackageImpl ? registeredPackage : Argumentation_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theGsn_Package.createPackageContents();
+		theArgumentation_Package.createPackageContents();
+		theBase_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theGsn_Package.initializePackageContents();
+		theArgumentation_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGsn_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Gsn_Package.eNS_URI, theGsn_Package);
 		return theGsn_Package;
@@ -218,6 +228,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModule() {
 		return moduleEClass;
 	}
@@ -227,6 +238,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContractModule() {
 		return contractModuleEClass;
 	}
@@ -236,6 +248,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChoiceNode() {
 		return choiceNodeEClass;
 	}
@@ -245,6 +258,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChoiceNode_Choice() {
 		return (EAttribute)choiceNodeEClass.getEStructuralFeatures().get(0);
 	}
@@ -254,6 +268,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContext() {
 		return contextEClass;
 	}
@@ -263,6 +278,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContext_IsPublic() {
 		return (EAttribute)contextEClass.getEStructuralFeatures().get(0);
 	}
@@ -272,6 +288,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContext_RefersToExternalMaterial() {
 		return (EAttribute)contextEClass.getEStructuralFeatures().get(1);
 	}
@@ -281,6 +298,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStrategy() {
 		return strategyEClass;
 	}
@@ -290,6 +308,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStrategy_Undeveloped() {
 		return (EAttribute)strategyEClass.getEStructuralFeatures().get(0);
 	}
@@ -299,6 +318,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGoal() {
 		return goalEClass;
 	}
@@ -308,6 +328,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGoal_IsPublic() {
 		return (EAttribute)goalEClass.getEStructuralFeatures().get(0);
 	}
@@ -317,6 +338,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGoal_Undeveloped() {
 		return (EAttribute)goalEClass.getEStructuralFeatures().get(1);
 	}
@@ -326,6 +348,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGoal_ToBeSupportedByContract() {
 		return (EAttribute)goalEClass.getEStructuralFeatures().get(2);
 	}
@@ -335,6 +358,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJustification() {
 		return justificationEClass;
 	}
@@ -344,6 +368,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssumption() {
 		return assumptionEClass;
 	}
@@ -353,6 +378,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAwayGoal() {
 		return awayGoalEClass;
 	}
@@ -362,6 +388,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAwaySolution() {
 		return awaySolutionEClass;
 	}
@@ -371,6 +398,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAwayContext() {
 		return awayContextEClass;
 	}
@@ -380,6 +408,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getModuleReference() {
 		return moduleReferenceEClass;
 	}
@@ -389,6 +418,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getModuleReference_Module() {
 		return (EReference)moduleReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -398,6 +428,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContractModuleReference() {
 		return contractModuleReferenceEClass;
 	}
@@ -407,6 +438,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getContractModuleReference_Module() {
 		return (EReference)contractModuleReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -416,6 +448,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSolution() {
 		return solutionEClass;
 	}
@@ -425,6 +458,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSolution_IsPublic() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(0);
 	}
@@ -434,6 +468,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSupportedBy() {
 		return supportedByEClass;
 	}
@@ -443,6 +478,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSupportedBy_IsMany() {
 		return (EAttribute)supportedByEClass.getEStructuralFeatures().get(0);
 	}
@@ -452,6 +488,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSupportedBy_IsOptional() {
 		return (EAttribute)supportedByEClass.getEStructuralFeatures().get(1);
 	}
@@ -461,6 +498,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSupportedBy_IsChoice() {
 		return (EAttribute)supportedByEClass.getEStructuralFeatures().get(2);
 	}
@@ -470,6 +508,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInContextOf() {
 		return inContextOfEClass;
 	}
@@ -479,6 +518,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInContextOf_IsMany() {
 		return (EAttribute)inContextOfEClass.getEStructuralFeatures().get(0);
 	}
@@ -488,6 +528,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInContextOf_IsOptional() {
 		return (EAttribute)inContextOfEClass.getEStructuralFeatures().get(1);
 	}
@@ -497,6 +538,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInContextOf_IsChoice() {
 		return (EAttribute)inContextOfEClass.getEStructuralFeatures().get(2);
 	}
@@ -506,6 +548,7 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Gsn_Factory getGsn_Factory() {
 		return (Gsn_Factory)getEFactoryInstance();
 	}
@@ -626,8 +669,8 @@ public class Gsn_PackageImpl extends EPackageImpl implements Gsn_Package {
 		supportedByEClass.getESuperTypes().add(theArgumentation_Package.getAssertedInference());
 		inContextOfEClass.getESuperTypes().add(theArgumentation_Package.getAssertedContext());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize classes and features; add operations and parameters
+		initEClass(moduleEClass, gsn.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(contractModuleEClass, ContractModule.class, "ContractModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

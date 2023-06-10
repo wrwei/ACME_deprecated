@@ -19,6 +19,22 @@ import base.Element;
 import base.ModelElement;
 import base.SACMElement;
 
+import gsn.Assumption;
+import gsn.AwayContext;
+import gsn.AwayGoal;
+import gsn.AwaySolution;
+import gsn.ChoiceNode;
+import gsn.Context;
+import gsn.ContractModule;
+import gsn.ContractModuleReference;
+import gsn.Goal;
+import gsn.Gsn_Package;
+import gsn.InContextOf;
+import gsn.Justification;
+import gsn.ModuleReference;
+import gsn.Solution;
+import gsn.Strategy;
+import gsn.SupportedBy;
 import gsn.*;
 import gsn.Module;
 
@@ -86,7 +102,7 @@ public class Gsn_AdapterFactory extends AdapterFactoryImpl {
 	protected Gsn_Switch<Adapter> modelSwitch =
 		new Gsn_Switch<Adapter>() {
 			@Override
-			public Adapter caseModule(Module object) {
+			public Adapter caseModule(gsn.Module object) {
 				return createModuleAdapter();
 			}
 			@Override

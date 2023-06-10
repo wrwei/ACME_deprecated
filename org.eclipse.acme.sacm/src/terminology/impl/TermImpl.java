@@ -83,6 +83,7 @@ public class TermImpl extends ExpressionElementImpl implements Term {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExternalReference() {
 		return externalReference;
 	}
@@ -92,6 +93,7 @@ public class TermImpl extends ExpressionElementImpl implements Term {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalReference(String newExternalReference) {
 		String oldExternalReference = externalReference;
 		externalReference = newExternalReference;
@@ -104,6 +106,7 @@ public class TermImpl extends ExpressionElementImpl implements Term {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModelElement getOrigin() {
 		if (origin != null && origin.eIsProxy()) {
 			InternalEObject oldOrigin = (InternalEObject)origin;
@@ -130,6 +133,7 @@ public class TermImpl extends ExpressionElementImpl implements Term {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOrigin(ModelElement newOrigin) {
 		ModelElement oldOrigin = origin;
 		origin = newOrigin;
@@ -215,7 +219,7 @@ public class TermImpl extends ExpressionElementImpl implements Term {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (externalReference: ");
 		result.append(externalReference);
 		result.append(')');

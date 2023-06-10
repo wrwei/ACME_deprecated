@@ -119,6 +119,7 @@ public class AssuranceCasePackageImpl extends ArtifactElementImpl implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AssuranceCasePackage> getAssuranceCasePackage() {
 		if (assuranceCasePackage == null) {
 			assuranceCasePackage = new EObjectContainmentEList<AssuranceCasePackage>(AssuranceCasePackage.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE__ASSURANCE_CASE_PACKAGE);
@@ -131,6 +132,7 @@ public class AssuranceCasePackageImpl extends ArtifactElementImpl implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AssuranceCasePackageInterface> getInterface() {
 		if (interface_ == null) {
 			interface_ = new EObjectResolvingEList<AssuranceCasePackageInterface>(AssuranceCasePackageInterface.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE__INTERFACE);
@@ -143,6 +145,7 @@ public class AssuranceCasePackageImpl extends ArtifactElementImpl implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactPackage> getArtifactPackage() {
 		if (artifactPackage == null) {
 			artifactPackage = new EObjectContainmentEList<ArtifactPackage>(ArtifactPackage.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE__ARTIFACT_PACKAGE);
@@ -155,6 +158,7 @@ public class AssuranceCasePackageImpl extends ArtifactElementImpl implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentPackage> getArgumentPackage() {
 		if (argumentPackage == null) {
 			argumentPackage = new EObjectContainmentEList<ArgumentPackage>(ArgumentPackage.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE__ARGUMENT_PACKAGE);
@@ -167,6 +171,7 @@ public class AssuranceCasePackageImpl extends ArtifactElementImpl implements Ass
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TerminologyPackage> getTerminologyPackage() {
 		if (terminologyPackage == null) {
 			terminologyPackage = new EObjectContainmentEList<TerminologyPackage>(TerminologyPackage.class, this, AssuranceCase_Package.ASSURANCE_CASE_PACKAGE__TERMINOLOGY_PACKAGE);

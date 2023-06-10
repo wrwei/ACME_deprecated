@@ -65,6 +65,7 @@ public abstract class ArtifactAssetImpl extends ArtifactElementImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Property> getArtifactProperty() {
 		if (artifactProperty == null) {
 			artifactProperty = new EObjectContainmentEList<Property>(Property.class, this, Artifact_Package.ARTIFACT_ASSET__ARTIFACT_PROPERTY);

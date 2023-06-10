@@ -186,15 +186,6 @@ public interface Gsn_Package extends EPackage {
 	int MODULE_FEATURE_COUNT = Argumentation_Package.ARGUMENT_PACKAGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Module</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE_OPERATION_COUNT = Argumentation_Package.ARGUMENT_PACKAGE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.ContractModuleImpl <em>Contract Module</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,15 +322,6 @@ public interface Gsn_Package extends EPackage {
 	int CONTRACT_MODULE_FEATURE_COUNT = Argumentation_Package.ARGUMENT_PACKAGE_BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Contract Module</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRACT_MODULE_OPERATION_COUNT = Argumentation_Package.ARGUMENT_PACKAGE_BINDING_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.ChoiceNodeImpl <em>Choice Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -474,15 +456,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int CHOICE_NODE_FEATURE_COUNT = Argumentation_Package.ARGUMENT_ASSET_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Choice Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHOICE_NODE_OPERATION_COUNT = Argumentation_Package.ARGUMENT_ASSET_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gsn.impl.ContextImpl <em>Context</em>}' class.
@@ -630,15 +603,6 @@ public interface Gsn_Package extends EPackage {
 	int CONTEXT_FEATURE_COUNT = Argumentation_Package.ARGUMENT_ASSET_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT_OPERATION_COUNT = Argumentation_Package.ARGUMENT_ASSET_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.StrategyImpl <em>Strategy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -782,15 +746,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int STRATEGY_FEATURE_COUNT = Argumentation_Package.ARGUMENT_REASONING_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Strategy</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRATEGY_OPERATION_COUNT = Argumentation_Package.ARGUMENT_REASONING_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gsn.impl.GoalImpl <em>Goal</em>}' class.
@@ -965,15 +920,6 @@ public interface Gsn_Package extends EPackage {
 	int GOAL_FEATURE_COUNT = Argumentation_Package.CLAIM_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Goal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL_OPERATION_COUNT = Argumentation_Package.CLAIM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.JustificationImpl <em>Justification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1117,15 +1063,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int JUSTIFICATION_FEATURE_COUNT = Argumentation_Package.CLAIM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Justification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JUSTIFICATION_OPERATION_COUNT = Argumentation_Package.CLAIM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gsn.impl.AssumptionImpl <em>Assumption</em>}' class.
@@ -1273,15 +1210,6 @@ public interface Gsn_Package extends EPackage {
 	int ASSUMPTION_FEATURE_COUNT = Argumentation_Package.CLAIM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Assumption</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSUMPTION_OPERATION_COUNT = Argumentation_Package.CLAIM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.AwayGoalImpl <em>Away Goal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1427,15 +1355,6 @@ public interface Gsn_Package extends EPackage {
 	int AWAY_GOAL_FEATURE_COUNT = Argumentation_Package.CLAIM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Away Goal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AWAY_GOAL_OPERATION_COUNT = Argumentation_Package.CLAIM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.AwaySolutionImpl <em>Away Solution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1572,15 +1491,6 @@ public interface Gsn_Package extends EPackage {
 	int AWAY_SOLUTION_FEATURE_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Away Solution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AWAY_SOLUTION_OPERATION_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.AwayContextImpl <em>Away Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1706,15 +1616,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int AWAY_CONTEXT_FEATURE_COUNT = Argumentation_Package.ARGUMENT_ASSET_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Away Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AWAY_CONTEXT_OPERATION_COUNT = Argumentation_Package.ARGUMENT_ASSET_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gsn.impl.ModuleReferenceImpl <em>Module Reference</em>}' class.
@@ -1862,15 +1763,6 @@ public interface Gsn_Package extends EPackage {
 	int MODULE_REFERENCE_FEATURE_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Module Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE_REFERENCE_OPERATION_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.ContractModuleReferenceImpl <em>Contract Module Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2016,15 +1908,6 @@ public interface Gsn_Package extends EPackage {
 	int CONTRACT_MODULE_REFERENCE_FEATURE_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Contract Module Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRACT_MODULE_REFERENCE_OPERATION_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.SolutionImpl <em>Solution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2168,15 +2051,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_FEATURE_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Solution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_OPERATION_COUNT = Argumentation_Package.ARTIFACT_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gsn.impl.SupportedByImpl <em>Supported By</em>}' class.
@@ -2396,15 +2270,6 @@ public interface Gsn_Package extends EPackage {
 	int SUPPORTED_BY_FEATURE_COUNT = Argumentation_Package.ASSERTED_INFERENCE_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Supported By</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPPORTED_BY_OPERATION_COUNT = Argumentation_Package.ASSERTED_INFERENCE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link gsn.impl.InContextOfImpl <em>In Context Of</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2620,16 +2485,6 @@ public interface Gsn_Package extends EPackage {
 	 * @ordered
 	 */
 	int IN_CONTEXT_OF_FEATURE_COUNT = Argumentation_Package.ASSERTED_CONTEXT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>In Context Of</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IN_CONTEXT_OF_OPERATION_COUNT = Argumentation_Package.ASSERTED_CONTEXT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link gsn.Module <em>Module</em>}'.

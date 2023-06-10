@@ -119,7 +119,7 @@ public class LangStringItemProvider extends ElementItemProvider {
 			getString("_UI_LangString_type") :
 			getString("_UI_LangString_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

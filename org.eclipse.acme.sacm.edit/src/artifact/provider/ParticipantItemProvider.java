@@ -69,7 +69,7 @@ public class ParticipantItemProvider extends ArtifactAssetItemProvider {
 			getString("_UI_Participant_type") :
 			getString("_UI_Participant_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

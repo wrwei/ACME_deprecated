@@ -65,6 +65,7 @@ public class ArtifactGroupImpl extends ArtifactElementImpl implements ArtifactGr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactElement> getArtifactElement() {
 		if (artifactElement == null) {
 			artifactElement = new EObjectResolvingEList<ArtifactElement>(ArtifactElement.class, this, Artifact_Package.ARTIFACT_GROUP__ARTIFACT_ELEMENT);

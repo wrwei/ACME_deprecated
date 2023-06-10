@@ -69,7 +69,7 @@ public class DescriptionItemProvider extends UtilityElementItemProvider {
 			getString("_UI_Description_type") :
 			getString("_UI_Description_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

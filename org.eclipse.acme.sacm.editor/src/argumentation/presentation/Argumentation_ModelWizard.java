@@ -71,9 +71,11 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import argumentation.Argumentation_Factory;
 import argumentation.Argumentation_Package;
+import assuranceCase.provider.AssuranceCaseEditPlugin;
 import argumentation.provider.ArgumentationEditPlugin;
 
 
+import assuranceCase.presentation.AssuranceCaseEditorPlugin;
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -99,7 +101,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +110,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -172,11 +174,12 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ArgumentationEditorPlugin.INSTANCE.getImage("full/wizban/NewArgumentation_")));
+		setWindowTitle(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(AssuranceCaseEditorPlugin.INSTANCE.getImage("full/wizban/NewArgumentation_")));
 	}
 
 	/**
@@ -259,7 +262,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							ArgumentationEditorPlugin.INSTANCE.log(exception);
+							AssuranceCaseEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -278,6 +281,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec
 					(new Runnable() {
+						 @Override
 						 public void run() {
 							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
 						 }
@@ -292,14 +296,14 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), ArgumentationEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			ArgumentationEditorPlugin.INSTANCE.log(exception);
+			AssuranceCaseEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -333,7 +337,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(ArgumentationEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(AssuranceCaseEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -394,6 +398,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
@@ -410,7 +415,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(ArgumentationEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -436,7 +441,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(ArgumentationEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -468,6 +473,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 		 */
 		protected ModifyListener validator =
 			new ModifyListener() {
+				@Override
 				public void modifyText(ModifyEvent e) {
 					setPageComplete(validatePage());
 				}
@@ -535,10 +541,10 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return ArgumentationEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return AssuranceCaseEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				ArgumentationEditorPlugin.INSTANCE.log(mre);
+				AssuranceCaseEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -551,7 +557,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(ArgumentationEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -570,9 +576,9 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new Argumentation_ModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_label"));
-		newFileCreationPage.setDescription(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_description"));
-		newFileCreationPage.setFileName(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_label"));
+		newFileCreationPage.setDescription(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_description"));
+		newFileCreationPage.setFileName(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -598,7 +604,7 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameDefaultBase");
+					String defaultModelBaseFilename = AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_EditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -609,8 +615,8 @@ public class Argumentation_ModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new Argumentation_ModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_label"));
-		initialObjectCreationPage.setDescription(ArgumentationEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Argumentation_ModelWizard_label"));
+		initialObjectCreationPage.setDescription(AssuranceCaseEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

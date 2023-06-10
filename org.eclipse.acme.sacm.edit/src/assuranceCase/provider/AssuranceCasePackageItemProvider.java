@@ -24,7 +24,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -142,7 +141,7 @@ public class AssuranceCasePackageItemProvider extends ArtifactElementItemProvide
 			getString("_UI_AssuranceCasePackage_type") :
 			getString("_UI_AssuranceCasePackage_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -246,7 +245,7 @@ public class AssuranceCasePackageItemProvider extends ArtifactElementItemProvide
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ((IChildCreationExtender)adapterFactory).getResourceLocator();
+		return AssuranceCaseEditPlugin.INSTANCE;
 	}
 
 }

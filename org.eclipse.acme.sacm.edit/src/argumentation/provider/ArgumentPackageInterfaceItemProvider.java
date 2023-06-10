@@ -94,7 +94,7 @@ public class ArgumentPackageInterfaceItemProvider extends ArgumentPackageItemPro
 			getString("_UI_ArgumentPackageInterface_type") :
 			getString("_UI_ArgumentPackageInterface_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

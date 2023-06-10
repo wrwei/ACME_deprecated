@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class Argumentation_ItemProviderAdapterFactory extends Argumentation_AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class Argumentation_ItemProviderAdapterFactory extends Argumentation_AdapterFactory implements ComposeableAdapterFactory, IChangeNotifier {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -353,6 +353,7 @@ public class Argumentation_ItemProviderAdapterFactory extends Argumentation_Adap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -363,6 +364,7 @@ public class Argumentation_ItemProviderAdapterFactory extends Argumentation_Adap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -411,6 +413,7 @@ public class Argumentation_ItemProviderAdapterFactory extends Argumentation_Adap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -421,6 +424,7 @@ public class Argumentation_ItemProviderAdapterFactory extends Argumentation_Adap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -431,33 +435,13 @@ public class Argumentation_ItemProviderAdapterFactory extends Argumentation_Adap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
 		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
-	}
-
-	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void dispose() {
-		if (argumentGroupItemProvider != null) argumentGroupItemProvider.dispose();
-		if (argumentPackageItemProvider != null) argumentPackageItemProvider.dispose();
-		if (argumentPackageInterfaceItemProvider != null) argumentPackageInterfaceItemProvider.dispose();
-		if (argumentPackageBindingItemProvider != null) argumentPackageBindingItemProvider.dispose();
-		if (argumentReasoningItemProvider != null) argumentReasoningItemProvider.dispose();
-		if (claimItemProvider != null) claimItemProvider.dispose();
-		if (artifactReferenceItemProvider != null) artifactReferenceItemProvider.dispose();
-		if (assertedArtifactSupportItemProvider != null) assertedArtifactSupportItemProvider.dispose();
-		if (assertedInferenceItemProvider != null) assertedInferenceItemProvider.dispose();
-		if (assertedEvidenceItemProvider != null) assertedEvidenceItemProvider.dispose();
-		if (assertedContextItemProvider != null) assertedContextItemProvider.dispose();
-		if (assertedArtifactContextItemProvider != null) assertedArtifactContextItemProvider.dispose();
 	}
 
 }

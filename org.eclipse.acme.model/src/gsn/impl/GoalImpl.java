@@ -113,6 +113,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsPublic() {
 		return isPublic;
 	}
@@ -122,6 +123,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsPublic(boolean newIsPublic) {
 		boolean oldIsPublic = isPublic;
 		isPublic = newIsPublic;
@@ -134,6 +136,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUndeveloped() {
 		return undeveloped;
 	}
@@ -143,6 +146,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUndeveloped(boolean newUndeveloped) {
 		boolean oldUndeveloped = undeveloped;
 		undeveloped = newUndeveloped;
@@ -155,6 +159,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isToBeSupportedByContract() {
 		return toBeSupportedByContract;
 	}
@@ -164,6 +169,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setToBeSupportedByContract(boolean newToBeSupportedByContract) {
 		boolean oldToBeSupportedByContract = toBeSupportedByContract;
 		toBeSupportedByContract = newToBeSupportedByContract;
@@ -258,7 +264,7 @@ public class GoalImpl extends ClaimImpl implements Goal {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isPublic: ");
 		result.append(isPublic);
 		result.append(", undeveloped: ");

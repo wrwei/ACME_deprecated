@@ -108,7 +108,7 @@ public class ExpressionElementItemProvider extends TerminologyAssetItemProvider 
 			getString("_UI_ExpressionElement_type") :
 			getString("_UI_ExpressionElement_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

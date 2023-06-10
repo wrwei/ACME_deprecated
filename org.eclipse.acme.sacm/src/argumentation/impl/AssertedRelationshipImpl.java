@@ -132,6 +132,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsCounter() {
 		return isCounter;
 	}
@@ -141,6 +142,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsCounter(boolean newIsCounter) {
 		boolean oldIsCounter = isCounter;
 		isCounter = newIsCounter;
@@ -153,6 +155,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentAsset> getSource() {
 		if (source == null) {
 			source = new EObjectResolvingEList<ArgumentAsset>(ArgumentAsset.class, this, Argumentation_Package.ASSERTED_RELATIONSHIP__SOURCE);
@@ -165,6 +168,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArgumentAsset> getTarget() {
 		if (target == null) {
 			target = new EObjectResolvingEList<ArgumentAsset>(ArgumentAsset.class, this, Argumentation_Package.ASSERTED_RELATIONSHIP__TARGET);
@@ -177,6 +181,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentReasoning getReasoning() {
 		if (reasoning != null && reasoning.eIsProxy()) {
 			InternalEObject oldReasoning = (InternalEObject)reasoning;
@@ -203,6 +208,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReasoning(ArgumentReasoning newReasoning) {
 		ArgumentReasoning oldReasoning = reasoning;
 		reasoning = newReasoning;
@@ -215,6 +221,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRequies() {
 		return requies;
 	}
@@ -224,6 +231,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequies(int newRequies) {
 		int oldRequies = requies;
 		requies = newRequies;
@@ -342,7 +350,7 @@ public abstract class AssertedRelationshipImpl extends AssertionImpl implements 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isCounter: ");
 		result.append(isCounter);
 		result.append(", requies: ");

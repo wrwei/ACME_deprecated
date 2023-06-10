@@ -94,7 +94,7 @@ public class AssuranceCasePackageBindingItemProvider extends AssuranceCasePackag
 			getString("_UI_AssuranceCasePackageBinding_type") :
 			getString("_UI_AssuranceCasePackageBinding_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -117,7 +117,7 @@ public class ArtifactAssetRelationshipItemProvider extends ArtifactAssetItemProv
 			getString("_UI_ArtifactAssetRelationship_type") :
 			getString("_UI_ArtifactAssetRelationship_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -3,6 +3,9 @@
 package base.provider;
 
 
+import argumentation.Argumentation_Factory;
+import artifact.Artifact_Factory;
+import assuranceCase.AssuranceCase_Factory;
 import base.Base_Package;
 import base.ExpressionLangString;
 
@@ -16,6 +19,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import terminology.Terminology_Factory;
 
 /**
  * This is the item provider adapter for a {@link base.ExpressionLangString} object.
@@ -103,7 +107,7 @@ public class ExpressionLangStringItemProvider extends LangStringItemProvider {
 			getString("_UI_ExpressionLangString_type") :
 			getString("_UI_ExpressionLangString_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -134,6 +138,41 @@ public class ExpressionLangStringItemProvider extends LangStringItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createTerminologyGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackageBinding()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createTerminologyPackageInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createCategory()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Base_Package.Literals.EXPRESSION_LANG_STRING__EXPRESSION,
+				 Terminology_Factory.eINSTANCE.createTerm()));
 	}
 
 }

@@ -4,8 +4,10 @@ package assuranceCase.impl;
 
 import argumentation.Argumentation_Package;
 
+import argumentation.impl.Argumentation_PackageImpl;
 import artifact.Artifact_Package;
 
+import artifact.impl.Artifact_PackageImpl;
 import assuranceCase.AssuranceCasePackage;
 import assuranceCase.AssuranceCasePackageBinding;
 import assuranceCase.AssuranceCasePackageInterface;
@@ -14,6 +16,7 @@ import assuranceCase.AssuranceCase_Package;
 
 import base.Base_Package;
 
+import base.impl.Base_PackageImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import terminology.Terminology_Package;
+import terminology.impl.Terminology_PackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,7 +82,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link AssuranceCase_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -92,25 +96,38 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 		if (isInited) return (AssuranceCase_Package)EPackage.Registry.INSTANCE.getEPackage(AssuranceCase_Package.eNS_URI);
 
 		// Obtain or create and register package
-		AssuranceCase_PackageImpl theAssuranceCase_Package = (AssuranceCase_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AssuranceCase_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AssuranceCase_PackageImpl());
+		Object registeredAssuranceCase_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AssuranceCase_PackageImpl theAssuranceCase_Package = registeredAssuranceCase_Package instanceof AssuranceCase_PackageImpl ? (AssuranceCase_PackageImpl)registeredAssuranceCase_Package : new AssuranceCase_PackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Argumentation_Package.eINSTANCE.eClass();
-		Artifact_Package.eINSTANCE.eClass();
-		Terminology_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Artifact_Package.eNS_URI);
+		Artifact_PackageImpl theArtifact_Package = (Artifact_PackageImpl)(registeredPackage instanceof Artifact_PackageImpl ? registeredPackage : Artifact_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Argumentation_Package.eNS_URI);
+		Argumentation_PackageImpl theArgumentation_Package = (Argumentation_PackageImpl)(registeredPackage instanceof Argumentation_PackageImpl ? registeredPackage : Argumentation_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Terminology_Package.eNS_URI);
+		Terminology_PackageImpl theTerminology_Package = (Terminology_PackageImpl)(registeredPackage instanceof Terminology_PackageImpl ? registeredPackage : Terminology_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theAssuranceCase_Package.createPackageContents();
+		theBase_Package.createPackageContents();
+		theArtifact_Package.createPackageContents();
+		theArgumentation_Package.createPackageContents();
+		theTerminology_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theAssuranceCase_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
+		theArtifact_Package.initializePackageContents();
+		theArgumentation_Package.initializePackageContents();
+		theTerminology_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAssuranceCase_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AssuranceCase_Package.eNS_URI, theAssuranceCase_Package);
 		return theAssuranceCase_Package;
@@ -121,6 +138,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssuranceCasePackage() {
 		return assuranceCasePackageEClass;
 	}
@@ -130,6 +148,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackage_AssuranceCasePackage() {
 		return (EReference)assuranceCasePackageEClass.getEStructuralFeatures().get(0);
 	}
@@ -139,6 +158,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackage_Interface() {
 		return (EReference)assuranceCasePackageEClass.getEStructuralFeatures().get(1);
 	}
@@ -148,6 +168,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackage_ArtifactPackage() {
 		return (EReference)assuranceCasePackageEClass.getEStructuralFeatures().get(2);
 	}
@@ -157,6 +178,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackage_ArgumentPackage() {
 		return (EReference)assuranceCasePackageEClass.getEStructuralFeatures().get(3);
 	}
@@ -166,6 +188,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackage_TerminologyPackage() {
 		return (EReference)assuranceCasePackageEClass.getEStructuralFeatures().get(4);
 	}
@@ -175,6 +198,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssuranceCasePackageBinding() {
 		return assuranceCasePackageBindingEClass;
 	}
@@ -184,6 +208,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackageBinding_ParticipantPackage() {
 		return (EReference)assuranceCasePackageBindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -193,6 +218,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAssuranceCasePackageInterface() {
 		return assuranceCasePackageInterfaceEClass;
 	}
@@ -202,6 +228,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAssuranceCasePackageInterface_Implements() {
 		return (EReference)assuranceCasePackageInterfaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -211,6 +238,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AssuranceCase_Factory getAssuranceCase_Factory() {
 		return (AssuranceCase_Factory)getEFactoryInstance();
 	}
@@ -286,7 +314,7 @@ public class AssuranceCase_PackageImpl extends EPackageImpl implements Assurance
 		assuranceCasePackageBindingEClass.getESuperTypes().add(this.getAssuranceCasePackage());
 		assuranceCasePackageInterfaceEClass.getESuperTypes().add(this.getAssuranceCasePackage());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(assuranceCasePackageEClass, AssuranceCasePackage.class, "AssuranceCasePackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssuranceCasePackage_AssuranceCasePackage(), this.getAssuranceCasePackage(), null, "assuranceCasePackage", null, 0, -1, AssuranceCasePackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssuranceCasePackage_Interface(), this.getAssuranceCasePackageInterface(), null, "interface", null, 0, -1, AssuranceCasePackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -177,7 +177,7 @@ public class AssertedRelationshipItemProvider extends AssertionItemProvider {
 			getString("_UI_AssertedRelationship_type") :
 			getString("_UI_AssertedRelationship_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

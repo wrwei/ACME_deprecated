@@ -96,7 +96,7 @@ public class EventItemProvider extends ArtifactAssetItemProvider {
 			getString("_UI_Event_type") :
 			getString("_UI_Event_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

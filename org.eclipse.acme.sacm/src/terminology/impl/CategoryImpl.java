@@ -60,6 +60,7 @@ public class CategoryImpl extends TerminologyAssetImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Category getCategory() {
 		if (category != null && category.eIsProxy()) {
 			InternalEObject oldCategory = (InternalEObject)category;
@@ -86,6 +87,7 @@ public class CategoryImpl extends TerminologyAssetImpl implements Category {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCategory(Category newCategory) {
 		Category oldCategory = category;
 		category = newCategory;

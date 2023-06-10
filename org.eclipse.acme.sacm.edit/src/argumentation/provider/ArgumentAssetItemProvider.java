@@ -94,7 +94,7 @@ public class ArgumentAssetItemProvider extends ArgumentationElementItemProvider 
 			getString("_UI_ArgumentAsset_type") :
 			getString("_UI_ArgumentAsset_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

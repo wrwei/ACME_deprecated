@@ -119,7 +119,7 @@ public class TermItemProvider extends ExpressionElementItemProvider {
 			getString("_UI_Term_type") :
 			getString("_UI_Term_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

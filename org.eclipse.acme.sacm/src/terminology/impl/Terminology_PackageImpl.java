@@ -2,8 +2,15 @@
  */
 package terminology.impl;
 
+import argumentation.Argumentation_Package;
+import argumentation.impl.Argumentation_PackageImpl;
+import artifact.Artifact_Package;
+import artifact.impl.Artifact_PackageImpl;
+import assuranceCase.AssuranceCase_Package;
+import assuranceCase.impl.AssuranceCase_PackageImpl;
 import base.Base_Package;
 
+import base.impl.Base_PackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -129,7 +136,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Terminology_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -143,23 +150,26 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 		if (isInited) return (Terminology_Package)EPackage.Registry.INSTANCE.getEPackage(Terminology_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Terminology_PackageImpl theTerminology_Package = (Terminology_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Terminology_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Terminology_PackageImpl());
+		Object registeredTerminology_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Terminology_PackageImpl theTerminology_Package = registeredTerminology_Package instanceof Terminology_PackageImpl ? (Terminology_PackageImpl)registeredTerminology_Package : new Terminology_PackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Base_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theTerminology_Package.createPackageContents();
+		theBase_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theTerminology_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTerminology_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Terminology_Package.eNS_URI, theTerminology_Package);
 		return theTerminology_Package;
@@ -170,6 +180,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyElement() {
 		return terminologyElementEClass;
 	}
@@ -179,6 +190,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyGroup() {
 		return terminologyGroupEClass;
 	}
@@ -188,6 +200,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTerminologyGroup_TerminologyElement() {
 		return (EReference)terminologyGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -197,6 +210,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyPackage() {
 		return terminologyPackageEClass;
 	}
@@ -206,6 +220,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTerminologyPackage_TerminologyElement() {
 		return (EReference)terminologyPackageEClass.getEStructuralFeatures().get(0);
 	}
@@ -215,6 +230,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyPackageBinding() {
 		return terminologyPackageBindingEClass;
 	}
@@ -224,6 +240,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTerminologyPackageBinding_ParticipantPackage() {
 		return (EReference)terminologyPackageBindingEClass.getEStructuralFeatures().get(0);
 	}
@@ -233,6 +250,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyPackageInterface() {
 		return terminologyPackageInterfaceEClass;
 	}
@@ -242,6 +260,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTerminologyPackageInterface_Implements() {
 		return (EReference)terminologyPackageInterfaceEClass.getEStructuralFeatures().get(0);
 	}
@@ -251,6 +270,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerminologyAsset() {
 		return terminologyAssetEClass;
 	}
@@ -260,6 +280,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCategory() {
 		return categoryEClass;
 	}
@@ -269,6 +290,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCategory_Category() {
 		return (EReference)categoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -278,6 +300,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExpressionElement() {
 		return expressionElementEClass;
 	}
@@ -287,6 +310,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExpressionElement_Value() {
 		return (EAttribute)expressionElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -296,6 +320,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExpressionElement_Category() {
 		return (EReference)expressionElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -305,6 +330,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExpression() {
 		return expressionEClass;
 	}
@@ -314,6 +340,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExpression_Element() {
 		return (EReference)expressionEClass.getEStructuralFeatures().get(0);
 	}
@@ -323,6 +350,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTerm() {
 		return termEClass;
 	}
@@ -332,6 +360,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTerm_ExternalReference() {
 		return (EAttribute)termEClass.getEStructuralFeatures().get(0);
 	}
@@ -341,6 +370,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTerm_Origin() {
 		return (EReference)termEClass.getEStructuralFeatures().get(1);
 	}
@@ -350,6 +380,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Terminology_Factory getTerminology_Factory() {
 		return (Terminology_Factory)getEFactoryInstance();
 	}
@@ -446,7 +477,7 @@ public class Terminology_PackageImpl extends EPackageImpl implements Terminology
 		expressionEClass.getESuperTypes().add(this.getExpressionElement());
 		termEClass.getESuperTypes().add(this.getExpressionElement());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(terminologyElementEClass, TerminologyElement.class, "TerminologyElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(terminologyGroupEClass, TerminologyGroup.class, "TerminologyGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

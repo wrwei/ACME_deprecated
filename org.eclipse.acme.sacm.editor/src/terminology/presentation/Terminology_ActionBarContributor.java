@@ -2,6 +2,8 @@
  */
 package terminology.presentation;
 
+import assuranceCase.presentation.AssuranceCaseEditorPlugin;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -163,6 +165,7 @@ public class Terminology_ActionBarContributor
 	 */
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		super.contributeToToolBar(toolBarManager);
 		toolBarManager.add(new Separator("terminology_-settings"));
 		toolBarManager.add(new Separator("terminology_-additions"));
 	}
@@ -199,6 +202,7 @@ public class Terminology_ActionBarContributor
 		//
 		submenuManager.addMenuListener
 			(new IMenuListener() {
+				 @Override
 				 public void menuAboutToShow(IMenuManager menuManager) {
 					 menuManager.updateAll(true);
 				 }
@@ -246,6 +250,7 @@ public class Terminology_ActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//

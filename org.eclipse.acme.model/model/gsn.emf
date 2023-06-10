@@ -1,7 +1,7 @@
 @namespace(uri="http://org.eclipse.acme/1.0/gsn", prefix="gsn_")
 package gsn;
 
-import "platform:/resource/org.eclipse.acme.sacm/model/argumentation.ecore";
+import "http://omg.sacm/2.0/argumentation";
 
 
   class Module extends argumentation.ArgumentPackage {

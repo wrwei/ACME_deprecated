@@ -66,6 +66,7 @@ public class TerminologyPackageImpl extends TerminologyElementImpl implements Te
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TerminologyElement> getTerminologyElement() {
 		if (terminologyElement == null) {
 			terminologyElement = new EObjectContainmentEList<TerminologyElement>(TerminologyElement.class, this, Terminology_Package.TERMINOLOGY_PACKAGE__TERMINOLOGY_ELEMENT);

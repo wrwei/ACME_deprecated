@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.acme.sacm/src" modelPluginID="org.eclipse.acme.sacm"
-    modelName="Artifact" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="base.genmodel#//base" operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.eclipse.acme.sacm/src" modelPluginID="org.eclipse.acme.sacm"
+    modelName="Artifact" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>artifact.ecore</foreignModel>
-  <genPackages prefix="Artifact_" disposableProviderFactory="true" ecorePackage="artifact.ecore#/">
+  <genPackages prefix="Artifact_" disposableProviderFactory="true" fileExtensions="artifact"
+      ecorePackage="artifact.ecore#/">
     <genClasses ecoreClass="artifact.ecore#//ArtifactGroup">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference artifact.ecore#//ArtifactGroup/artifactElement"/>
     </genClasses>
@@ -40,5 +40,42 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference artifact.ecore#//ArtifactAssetRelationship/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference artifact.ecore#//ArtifactAssetRelationship/target"/>
     </genClasses>
+  </genPackages>
+  <genPackages prefix="Base_" fileExtensions="base" ecorePackage="http://omg.sacm/2.0/base#/">
+    <genClasses image="false" ecoreClass="http://omg.sacm/2.0/base#//Element"/>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//LangString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute http://omg.sacm/2.0/base#//LangString/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute http://omg.sacm/2.0/base#//LangString/content"/>
+    </genClasses>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//ExpressionLangString">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ExpressionLangString/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//MultiLangString">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//MultiLangString/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="http://omg.sacm/2.0/base#//SACMElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute http://omg.sacm/2.0/base#//SACMElement/gid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute http://omg.sacm/2.0/base#//SACMElement/isCitation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute http://omg.sacm/2.0/base#//SACMElement/isAbstract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//SACMElement/citedElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//SACMElement/abstractForm"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="http://omg.sacm/2.0/base#//UtilityElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//UtilityElement/content"/>
+    </genClasses>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//Description"/>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//ImplementationConstraint"/>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//Note"/>
+    <genClasses ecoreClass="http://omg.sacm/2.0/base#//TaggedValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//TaggedValue/key"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="http://omg.sacm/2.0/base#//ModelElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ModelElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ModelElement/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ModelElement/implementationConstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ModelElement/note"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference http://omg.sacm/2.0/base#//ModelElement/taggedValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="http://omg.sacm/2.0/base#//ArtifactElement"/>
   </genPackages>
 </genmodel:GenModel>

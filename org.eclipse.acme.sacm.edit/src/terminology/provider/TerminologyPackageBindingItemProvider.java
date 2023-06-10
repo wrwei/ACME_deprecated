@@ -94,7 +94,7 @@ public class TerminologyPackageBindingItemProvider extends TerminologyPackageIte
 			getString("_UI_TerminologyPackageBinding_type") :
 			getString("_UI_TerminologyPackageBinding_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

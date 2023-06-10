@@ -94,7 +94,7 @@ public class ExpressionItemProvider extends ExpressionElementItemProvider {
 			getString("_UI_Expression_type") :
 			getString("_UI_Expression_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

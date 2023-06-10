@@ -4,6 +4,9 @@ package cae.impl;
 
 import argumentation.Argumentation_Package;
 
+import argumentation.impl.Argumentation_PackageImpl;
+import base.Base_Package;
+import base.impl.Base_PackageImpl;
 import cae.Argument;
 import cae.CAEClaim;
 import cae.CAEModule;
@@ -119,7 +122,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link Cae_Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -133,23 +136,30 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 		if (isInited) return (Cae_Package)EPackage.Registry.INSTANCE.getEPackage(Cae_Package.eNS_URI);
 
 		// Obtain or create and register package
-		Cae_PackageImpl theCae_Package = (Cae_PackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof Cae_PackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new Cae_PackageImpl());
+		Object registeredCae_Package = EPackage.Registry.INSTANCE.get(eNS_URI);
+		Cae_PackageImpl theCae_Package = registeredCae_Package instanceof Cae_PackageImpl ? (Cae_PackageImpl)registeredCae_Package : new Cae_PackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		Argumentation_Package.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Argumentation_Package.eNS_URI);
+		Argumentation_PackageImpl theArgumentation_Package = (Argumentation_PackageImpl)(registeredPackage instanceof Argumentation_PackageImpl ? registeredPackage : Argumentation_Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Base_Package.eNS_URI);
+		Base_PackageImpl theBase_Package = (Base_PackageImpl)(registeredPackage instanceof Base_PackageImpl ? registeredPackage : Base_Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theCae_Package.createPackageContents();
+		theArgumentation_Package.createPackageContents();
+		theBase_Package.createPackageContents();
 
 		// Initialize created meta-data
 		theCae_Package.initializePackageContents();
+		theArgumentation_Package.initializePackageContents();
+		theBase_Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCae_Package.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(Cae_Package.eNS_URI, theCae_Package);
 		return theCae_Package;
@@ -160,6 +170,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCAEModule() {
 		return caeModuleEClass;
 	}
@@ -169,6 +180,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCAEModuleInterface() {
 		return caeModuleInterfaceEClass;
 	}
@@ -178,6 +190,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCAEModuleBinding() {
 		return caeModuleBindingEClass;
 	}
@@ -187,6 +200,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCAEClaim() {
 		return caeClaimEClass;
 	}
@@ -196,6 +210,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArgument() {
 		return argumentEClass;
 	}
@@ -205,6 +220,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEvidence() {
 		return evidenceEClass;
 	}
@@ -214,6 +230,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIsSubClaimOf() {
 		return isSubClaimOfEClass;
 	}
@@ -223,6 +240,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSupports() {
 		return supportsEClass;
 	}
@@ -232,6 +250,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIsEvidenceFor() {
 		return isEvidenceForEClass;
 	}
@@ -241,6 +260,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Cae_Factory getCae_Factory() {
 		return (Cae_Factory)getEFactoryInstance();
 	}
@@ -324,7 +344,7 @@ public class Cae_PackageImpl extends EPackageImpl implements Cae_Package {
 		supportsEClass.getESuperTypes().add(theArgumentation_Package.getAssertedInference());
 		isEvidenceForEClass.getESuperTypes().add(theArgumentation_Package.getAssertedEvidence());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(caeModuleEClass, CAEModule.class, "CAEModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(caeModuleInterfaceEClass, CAEModuleInterface.class, "CAEModuleInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

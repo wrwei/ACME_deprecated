@@ -2,6 +2,23 @@
  */
 package gsn.impl;
 
+import gsn.Assumption;
+import gsn.AwayContext;
+import gsn.AwayGoal;
+import gsn.AwaySolution;
+import gsn.ChoiceNode;
+import gsn.Context;
+import gsn.ContractModule;
+import gsn.ContractModuleReference;
+import gsn.Goal;
+import gsn.Gsn_Factory;
+import gsn.Gsn_Package;
+import gsn.InContextOf;
+import gsn.Justification;
+import gsn.ModuleReference;
+import gsn.Solution;
+import gsn.Strategy;
+import gsn.SupportedBy;
 import gsn.*;
 import gsn.Module;
 
@@ -83,7 +100,8 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module createModule() {
+	@Override
+	public gsn.Module createModule() {
 		ModuleImpl module = new ModuleImpl();
 		return module;
 	}
@@ -93,6 +111,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContractModule createContractModule() {
 		ContractModuleImpl contractModule = new ContractModuleImpl();
 		return contractModule;
@@ -103,6 +122,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ChoiceNode createChoiceNode() {
 		ChoiceNodeImpl choiceNode = new ChoiceNodeImpl();
 		return choiceNode;
@@ -113,6 +133,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Context createContext() {
 		ContextImpl context = new ContextImpl();
 		return context;
@@ -123,6 +144,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Strategy createStrategy() {
 		StrategyImpl strategy = new StrategyImpl();
 		return strategy;
@@ -133,6 +155,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Goal createGoal() {
 		GoalImpl goal = new GoalImpl();
 		return goal;
@@ -143,6 +166,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Justification createJustification() {
 		JustificationImpl justification = new JustificationImpl();
 		return justification;
@@ -153,6 +177,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Assumption createAssumption() {
 		AssumptionImpl assumption = new AssumptionImpl();
 		return assumption;
@@ -163,6 +188,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AwayGoal createAwayGoal() {
 		AwayGoalImpl awayGoal = new AwayGoalImpl();
 		return awayGoal;
@@ -173,6 +199,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AwaySolution createAwaySolution() {
 		AwaySolutionImpl awaySolution = new AwaySolutionImpl();
 		return awaySolution;
@@ -183,6 +210,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AwayContext createAwayContext() {
 		AwayContextImpl awayContext = new AwayContextImpl();
 		return awayContext;
@@ -193,6 +221,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ModuleReference createModuleReference() {
 		ModuleReferenceImpl moduleReference = new ModuleReferenceImpl();
 		return moduleReference;
@@ -203,6 +232,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContractModuleReference createContractModuleReference() {
 		ContractModuleReferenceImpl contractModuleReference = new ContractModuleReferenceImpl();
 		return contractModuleReference;
@@ -213,6 +243,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Solution createSolution() {
 		SolutionImpl solution = new SolutionImpl();
 		return solution;
@@ -223,6 +254,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SupportedBy createSupportedBy() {
 		SupportedByImpl supportedBy = new SupportedByImpl();
 		return supportedBy;
@@ -233,6 +265,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InContextOf createInContextOf() {
 		InContextOfImpl inContextOf = new InContextOfImpl();
 		return inContextOf;
@@ -243,6 +276,7 @@ public class Gsn_FactoryImpl extends EFactoryImpl implements Gsn_Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Gsn_Package getGsn_Package() {
 		return (Gsn_Package)getEPackage();
 	}

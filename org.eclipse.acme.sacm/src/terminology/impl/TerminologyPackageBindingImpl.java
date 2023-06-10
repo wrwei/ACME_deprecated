@@ -62,6 +62,7 @@ public class TerminologyPackageBindingImpl extends TerminologyPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TerminologyPackage> getParticipantPackage() {
 		if (participantPackage == null) {
 			participantPackage = new EObjectResolvingEList<TerminologyPackage>(TerminologyPackage.class, this, Terminology_Package.TERMINOLOGY_PACKAGE_BINDING__PARTICIPANT_PACKAGE);

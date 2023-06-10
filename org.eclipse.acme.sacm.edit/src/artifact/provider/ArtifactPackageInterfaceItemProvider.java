@@ -94,7 +94,7 @@ public class ArtifactPackageInterfaceItemProvider extends ArtifactPackageItemPro
 			getString("_UI_ArtifactPackageInterface_type") :
 			getString("_UI_ArtifactPackageInterface_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

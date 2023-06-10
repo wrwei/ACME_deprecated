@@ -1,18 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ACME models
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.acme.model;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
-Bundle-Vendor: Ran Wei
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: gsn,
- gsn.impl,
- gsn.util,
- cae,
+Export-Package: cae,
  cae.impl,
- cae.util
+ cae.util,
+ gsn,
+ gsn.impl,
+ gsn.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.acme.sacm;visibility:=reexport

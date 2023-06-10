@@ -2,34 +2,26 @@
  */
 package assuranceCase.presentation;
 
-import argumentation.provider.ArgumentationEditPlugin;
-
-import artifact.provider.ArtifactEditPlugin;
-
-import base.provider.BaseEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import terminology.provider.TerminologyEditPlugin;
-
 /**
- * This is the central singleton for the Assurancecase editor plugin.
+ * This is the central singleton for the AssuranceCase editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class AssurancecaseEditorPlugin extends EMFPlugin {
+public final class AssuranceCaseEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final AssurancecaseEditorPlugin INSTANCE = new AssurancecaseEditorPlugin();
+	public static final AssuranceCaseEditorPlugin INSTANCE = new AssuranceCaseEditorPlugin();
 	
 	/**
 	 * Keep track of the singleton.
@@ -45,13 +37,9 @@ public final class AssurancecaseEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssurancecaseEditorPlugin() {
+	public AssuranceCaseEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				ArgumentationEditPlugin.INSTANCE,
-				ArtifactEditPlugin.INSTANCE,
-				BaseEditPlugin.INSTANCE,
-				TerminologyEditPlugin.INSTANCE,
 			});
 	}
 

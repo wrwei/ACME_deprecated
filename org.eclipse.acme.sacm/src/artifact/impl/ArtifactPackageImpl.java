@@ -69,6 +69,7 @@ public class ArtifactPackageImpl extends ArtifactElementImpl implements Artifact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactElement> getArtifactElement() {
 		if (artifactElement == null) {
 			artifactElement = new EObjectContainmentEList<ArtifactElement>(ArtifactElement.class, this, Artifact_Package.ARTIFACT_PACKAGE__ARTIFACT_ELEMENT);

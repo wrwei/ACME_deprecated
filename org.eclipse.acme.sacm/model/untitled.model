@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gsn_:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gsn_="http://org.eclipse.acme/1.0/gsn">
+  <name content="NN"/>
+  <description>
+    <content>
+      <value content="DD"/>
+    </content>
+  </description>
+  <argumentationElement xsi:type="gsn_:Goal">
+    <name content="N"/>
+    <description>
+      <content>
+        <value content="D"/>
+      </content>
+    </description>
+  </argumentationElement>
+</gsn_:Module>

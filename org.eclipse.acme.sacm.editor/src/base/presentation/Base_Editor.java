@@ -68,8 +68,8 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 
 import org.eclipse.swt.graphics.Point;
-
 import org.eclipse.swt.graphics.Rectangle;
+
 import org.eclipse.swt.layout.FillLayout;
 
 import org.eclipse.swt.widgets.Composite;
@@ -157,7 +157,15 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import base.provider.Base_ItemProviderAdapterFactory;
 
+import argumentation.presentation.ArgumentationEditorPlugin;
+import argumentation.provider.Argumentation_ItemProviderAdapterFactory;
+import artifact.presentation.ArtifactEditorPlugin;
+import artifact.provider.Artifact_ItemProviderAdapterFactory;
+import assuranceCase.presentation.AssuranceCaseEditorPlugin;
+import assuranceCase.provider.AssuranceCase_ItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import terminology.presentation.TerminologyEditorPlugin;
+import terminology.provider.Terminology_ItemProviderAdapterFactory;
 
 
 /**
@@ -325,6 +333,7 @@ public class Base_Editor
 	 */
 	protected IPartListener partListener =
 		new IPartListener() {
+			@Override
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
@@ -343,15 +352,19 @@ public class Base_Editor
 					handleActivate();
 				}
 			}
+			@Override
 			public void partBroughtToTop(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partClosed(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partDeactivated(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partOpened(IWorkbenchPart p) {
 				// Ignore.
 			}
@@ -437,6 +450,7 @@ public class Base_Editor
 					dispatching = true;
 					getSite().getShell().getDisplay().asyncExec
 						(new Runnable() {
+							 @Override
 							 public void run() {
 								 dispatching = false;
 								 updateProblemIndication();
@@ -466,6 +480,7 @@ public class Base_Editor
 	 */
 	protected IResourceChangeListener resourceChangeListener =
 		new IResourceChangeListener() {
+			@Override
 			public void resourceChanged(IResourceChangeEvent event) {
 				IResourceDelta delta = event.getDelta();
 				try {
@@ -474,6 +489,7 @@ public class Base_Editor
 						protected Collection<Resource> changedResources = new ArrayList<Resource>();
 						protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
+						@Override
 						public boolean visit(IResourceDelta delta) {
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
@@ -509,6 +525,7 @@ public class Base_Editor
 					if (!visitor.getRemovedResources().isEmpty()) {
 						getSite().getShell().getDisplay().asyncExec
 							(new Runnable() {
+								 @Override
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
@@ -521,6 +538,7 @@ public class Base_Editor
 					if (!visitor.getChangedResources().isEmpty()) {
 						getSite().getShell().getDisplay().asyncExec
 							(new Runnable() {
+								 @Override
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
 									 if (getSite().getPage().getActiveEditor() == Base_Editor.this) {
@@ -531,7 +549,7 @@ public class Base_Editor
 					}
 				}
 				catch (CoreException exception) {
-					BaseEditorPlugin.INSTANCE.log(exception);
+					TerminologyEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -648,7 +666,7 @@ public class Base_Editor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					BaseEditorPlugin.INSTANCE.log(exception);
+					TerminologyEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -657,7 +675,7 @@ public class Base_Editor
 					markerHelper.updateMarkers(diagnostic);
 				}
 				catch (CoreException exception) {
-					BaseEditorPlugin.INSTANCE.log(exception);
+					TerminologyEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -700,6 +718,7 @@ public class Base_Editor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Terminology_ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Base_ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
@@ -711,9 +730,11 @@ public class Base_Editor
 		//
 		commandStack.addCommandStackListener
 			(new CommandStackListener() {
+				 @Override
 				 public void commandStackChanged(final EventObject event) {
 					 getContainer().getDisplay().asyncExec
 						 (new Runnable() {
+							  @Override
 							  public void run() {
 								  firePropertyChange(IEditorPart.PROP_DIRTY);
 
@@ -725,7 +746,7 @@ public class Base_Editor
 								  }
 								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); ) {
 									  PropertySheetPage propertySheetPage = i.next();
-									  if (propertySheetPage.getControl().isDisposed()) {
+									  if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
 										  i.remove();
 									  }
 									  else {
@@ -766,6 +787,7 @@ public class Base_Editor
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable =
 				new Runnable() {
+					@Override
 					public void run() {
 						// Try to select the items in the current content viewer of the editor.
 						//
@@ -786,6 +808,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -882,6 +905,7 @@ public class Base_Editor
 					new ISelectionChangedListener() {
 						// This just notifies those things that are affected by the section.
 						//
+						@Override
 						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 							setSelection(selectionChangedEvent.getSelection());
 						}
@@ -916,6 +940,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Viewer getViewer() {
 		return currentViewer;
 	}
@@ -1221,6 +1246,7 @@ public class Base_Editor
 
 			getSite().getShell().getDisplay().asyncExec
 				(new Runnable() {
+					 @Override
 					 public void run() {
 						 if (!getContainer().isDisposed()) {
 							 setActivePage(0);
@@ -1247,6 +1273,7 @@ public class Base_Editor
 
 		getSite().getShell().getDisplay().asyncExec
 			(new Runnable() {
+				 @Override
 				 public void run() {
 					 updateProblemIndication();
 				 }
@@ -1310,7 +1337,6 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("rawtypes")
 	@Override
 	public <T> T getAdapter(Class<T> key) {
 		if (key.equals(IContentOutlinePage.class)) {
@@ -1383,6 +1409,7 @@ public class Base_Editor
 				(new ISelectionChangedListener() {
 					 // This ensures that we handle selections correctly.
 					 //
+					 @Override
 					 public void selectionChanged(SelectionChangedEvent event) {
 						 handleContentOutlineSelection(event.getSelection());
 					 }
@@ -1528,7 +1555,7 @@ public class Base_Editor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			BaseEditorPlugin.INSTANCE.log(exception);
+			TerminologyEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1607,6 +1634,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
 		if (!targetObjects.isEmpty()) {
@@ -1651,6 +1679,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.add(listener);
 	}
@@ -1661,6 +1690,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
@@ -1671,6 +1701,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
@@ -1682,6 +1713,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
@@ -1732,7 +1764,7 @@ public class Base_Editor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return BaseEditorPlugin.INSTANCE.getString(key);
+		return TerminologyEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1742,7 +1774,7 @@ public class Base_Editor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return BaseEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return TerminologyEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**
@@ -1751,6 +1783,7 @@ public class Base_Editor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}

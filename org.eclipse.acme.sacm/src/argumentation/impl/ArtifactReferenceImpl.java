@@ -63,6 +63,7 @@ public class ArtifactReferenceImpl extends ArgumentAssetImpl implements Artifact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactElement> getReferencedArtifactElement() {
 		if (referencedArtifactElement == null) {
 			referencedArtifactElement = new EObjectResolvingEList<ArtifactElement>(ArtifactElement.class, this, Argumentation_Package.ARTIFACT_REFERENCE__REFERENCED_ARTIFACT_ELEMENT);

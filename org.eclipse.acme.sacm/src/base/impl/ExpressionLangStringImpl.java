@@ -62,6 +62,7 @@ public class ExpressionLangStringImpl extends LangStringImpl implements Expressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactElement getExpression() {
 		return expression;
 	}
@@ -86,6 +87,7 @@ public class ExpressionLangStringImpl extends LangStringImpl implements Expressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExpression(ArtifactElement newExpression) {
 		if (newExpression != expression) {
 			NotificationChain msgs = null;

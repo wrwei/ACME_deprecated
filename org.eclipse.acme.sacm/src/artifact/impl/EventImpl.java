@@ -71,6 +71,7 @@ public class EventImpl extends ArtifactAssetImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getOccurence() {
 		return occurence;
 	}
@@ -80,6 +81,7 @@ public class EventImpl extends ArtifactAssetImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOccurence(Date newOccurence) {
 		Date oldOccurence = occurence;
 		occurence = newOccurence;

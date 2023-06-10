@@ -92,6 +92,7 @@ public class ContextImpl extends ArgumentAssetImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsPublic() {
 		return isPublic;
 	}
@@ -101,6 +102,7 @@ public class ContextImpl extends ArgumentAssetImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsPublic(boolean newIsPublic) {
 		boolean oldIsPublic = isPublic;
 		isPublic = newIsPublic;
@@ -113,6 +115,7 @@ public class ContextImpl extends ArgumentAssetImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isRefersToExternalMaterial() {
 		return refersToExternalMaterial;
 	}
@@ -122,6 +125,7 @@ public class ContextImpl extends ArgumentAssetImpl implements Context {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRefersToExternalMaterial(boolean newRefersToExternalMaterial) {
 		boolean oldRefersToExternalMaterial = refersToExternalMaterial;
 		refersToExternalMaterial = newRefersToExternalMaterial;
@@ -206,7 +210,7 @@ public class ContextImpl extends ArgumentAssetImpl implements Context {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isPublic: ");
 		result.append(isPublic);
 		result.append(", refersToExternalMaterial: ");

@@ -62,6 +62,7 @@ public class TerminologyGroupImpl extends TerminologyElementImpl implements Term
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TerminologyElement> getTerminologyElement() {
 		if (terminologyElement == null) {
 			terminologyElement = new EObjectResolvingEList<TerminologyElement>(TerminologyElement.class, this, Terminology_Package.TERMINOLOGY_GROUP__TERMINOLOGY_ELEMENT);

@@ -108,7 +108,7 @@ public class AssertionItemProvider extends ArgumentAssetItemProvider {
 			getString("_UI_Assertion_type") :
 			getString("_UI_Assertion_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

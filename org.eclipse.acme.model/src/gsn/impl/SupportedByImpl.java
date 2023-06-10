@@ -113,6 +113,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsMany() {
 		return isMany;
 	}
@@ -122,6 +123,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsMany(boolean newIsMany) {
 		boolean oldIsMany = isMany;
 		isMany = newIsMany;
@@ -134,6 +136,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsOptional() {
 		return isOptional;
 	}
@@ -143,6 +146,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsOptional(boolean newIsOptional) {
 		boolean oldIsOptional = isOptional;
 		isOptional = newIsOptional;
@@ -155,6 +159,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsChoice() {
 		return isChoice;
 	}
@@ -164,6 +169,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsChoice(boolean newIsChoice) {
 		boolean oldIsChoice = isChoice;
 		isChoice = newIsChoice;
@@ -258,7 +264,7 @@ public class SupportedByImpl extends AssertedInferenceImpl implements SupportedB
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (isMany: ");
 		result.append(isMany);
 		result.append(", isOptional: ");

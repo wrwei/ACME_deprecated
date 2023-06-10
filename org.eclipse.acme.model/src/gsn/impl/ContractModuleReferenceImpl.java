@@ -63,6 +63,7 @@ public class ContractModuleReferenceImpl extends ArtifactReferenceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContractModule getModule() {
 		if (module != null && module.eIsProxy()) {
 			InternalEObject oldModule = (InternalEObject)module;
@@ -89,6 +90,7 @@ public class ContractModuleReferenceImpl extends ArtifactReferenceImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setModule(ContractModule newModule) {
 		ContractModule oldModule = module;
 		module = newModule;

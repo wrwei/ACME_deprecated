@@ -177,7 +177,7 @@ public class SACMElementItemProvider extends ElementItemProvider {
 			getString("_UI_SACMElement_type") :
 			getString("_UI_SACMElement_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

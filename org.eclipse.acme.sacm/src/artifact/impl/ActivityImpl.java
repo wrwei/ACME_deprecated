@@ -92,6 +92,7 @@ public class ActivityImpl extends ArtifactAssetImpl implements Activity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getStartTime() {
 		return startTime;
 	}
@@ -101,6 +102,7 @@ public class ActivityImpl extends ArtifactAssetImpl implements Activity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStartTime(Date newStartTime) {
 		Date oldStartTime = startTime;
 		startTime = newStartTime;
@@ -113,6 +115,7 @@ public class ActivityImpl extends ArtifactAssetImpl implements Activity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getEndTime() {
 		return endTime;
 	}
@@ -122,6 +125,7 @@ public class ActivityImpl extends ArtifactAssetImpl implements Activity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEndTime(Date newEndTime) {
 		Date oldEndTime = endTime;
 		endTime = newEndTime;

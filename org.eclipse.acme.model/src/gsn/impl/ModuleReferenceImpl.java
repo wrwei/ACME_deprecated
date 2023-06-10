@@ -37,7 +37,7 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	 * @generated
 	 * @ordered
 	 */
-	protected Module module;
+	protected gsn.Module module;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,10 +63,11 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module getModule() {
+	@Override
+	public gsn.Module getModule() {
 		if (module != null && module.eIsProxy()) {
 			InternalEObject oldModule = (InternalEObject)module;
-			module = (Module)eResolveProxy(oldModule);
+			module = (gsn.Module)eResolveProxy(oldModule);
 			if (module != oldModule) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Gsn_Package.MODULE_REFERENCE__MODULE, oldModule, module));
@@ -80,7 +81,7 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Module basicGetModule() {
+	public gsn.Module basicGetModule() {
 		return module;
 	}
 
@@ -89,8 +90,9 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModule(Module newModule) {
-		Module oldModule = module;
+	@Override
+	public void setModule(gsn.Module newModule) {
+		gsn.Module oldModule = module;
 		module = newModule;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Gsn_Package.MODULE_REFERENCE__MODULE, oldModule, module));
@@ -120,7 +122,7 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Gsn_Package.MODULE_REFERENCE__MODULE:
-				setModule((Module)newValue);
+				setModule((gsn.Module)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -135,7 +137,7 @@ public class ModuleReferenceImpl extends ArtifactReferenceImpl implements Module
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case Gsn_Package.MODULE_REFERENCE__MODULE:
-				setModule((Module)null);
+				setModule((gsn.Module)null);
 				return;
 		}
 		super.eUnset(featureID);

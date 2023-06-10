@@ -62,6 +62,7 @@ public class ArtifactPackageBindingImpl extends ArtifactPackageImpl implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArtifactPackage> getParticipantPackage() {
 		if (participantPackage == null) {
 			participantPackage = new EObjectResolvingEList<ArtifactPackage>(ArtifactPackage.class, this, Artifact_Package.ARTIFACT_PACKAGE_BINDING__PARTICIPANT_PACKAGE);

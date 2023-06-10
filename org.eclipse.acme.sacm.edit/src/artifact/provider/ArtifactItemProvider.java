@@ -119,7 +119,7 @@ public class ArtifactItemProvider extends ArtifactAssetItemProvider {
 			getString("_UI_Artifact_type") :
 			getString("_UI_Artifact_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

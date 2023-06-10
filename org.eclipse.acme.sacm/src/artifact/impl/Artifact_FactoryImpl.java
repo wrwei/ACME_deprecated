@@ -78,6 +78,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactGroup createArtifactGroup() {
 		ArtifactGroupImpl artifactGroup = new ArtifactGroupImpl();
 		return artifactGroup;
@@ -88,6 +89,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactPackage createArtifactPackage() {
 		ArtifactPackageImpl artifactPackage = new ArtifactPackageImpl();
 		return artifactPackage;
@@ -98,6 +100,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactPackageBinding createArtifactPackageBinding() {
 		ArtifactPackageBindingImpl artifactPackageBinding = new ArtifactPackageBindingImpl();
 		return artifactPackageBinding;
@@ -108,6 +111,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactPackageInterface createArtifactPackageInterface() {
 		ArtifactPackageInterfaceImpl artifactPackageInterface = new ArtifactPackageInterfaceImpl();
 		return artifactPackageInterface;
@@ -118,6 +122,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
@@ -128,6 +133,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Technique createTechnique() {
 		TechniqueImpl technique = new TechniqueImpl();
 		return technique;
@@ -138,6 +144,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Participant createParticipant() {
 		ParticipantImpl participant = new ParticipantImpl();
 		return participant;
@@ -148,6 +155,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Activity createActivity() {
 		ActivityImpl activity = new ActivityImpl();
 		return activity;
@@ -158,6 +166,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Event createEvent() {
 		EventImpl event = new EventImpl();
 		return event;
@@ -168,6 +177,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Resource createResource() {
 		ResourceImpl resource = new ResourceImpl();
 		return resource;
@@ -178,6 +188,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Artifact createArtifact() {
 		ArtifactImpl artifact = new ArtifactImpl();
 		return artifact;
@@ -188,6 +199,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArtifactAssetRelationship createArtifactAssetRelationship() {
 		ArtifactAssetRelationshipImpl artifactAssetRelationship = new ArtifactAssetRelationshipImpl();
 		return artifactAssetRelationship;
@@ -198,6 +210,7 @@ public class Artifact_FactoryImpl extends EFactoryImpl implements Artifact_Facto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Artifact_Package getArtifact_Package() {
 		return (Artifact_Package)getEPackage();
 	}

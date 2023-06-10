@@ -61,6 +61,7 @@ public class ArgumentPackageInterfaceImpl extends ArgumentPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArgumentPackage getImplements() {
 		if (implements_ != null && implements_.eIsProxy()) {
 			InternalEObject oldImplements = (InternalEObject)implements_;
@@ -87,6 +88,7 @@ public class ArgumentPackageInterfaceImpl extends ArgumentPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setImplements(ArgumentPackage newImplements) {
 		ArgumentPackage oldImplements = implements_;
 		implements_ = newImplements;

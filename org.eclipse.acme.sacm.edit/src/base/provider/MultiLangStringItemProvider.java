@@ -101,7 +101,7 @@ public class MultiLangStringItemProvider extends ElementItemProvider {
 	public String getText(Object object) {
 		return getString("_UI_MultiLangString_type");
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

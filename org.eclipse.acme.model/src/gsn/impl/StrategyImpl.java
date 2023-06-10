@@ -71,6 +71,7 @@ public class StrategyImpl extends ArgumentReasoningImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUndeveloped() {
 		return undeveloped;
 	}
@@ -80,6 +81,7 @@ public class StrategyImpl extends ArgumentReasoningImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUndeveloped(boolean newUndeveloped) {
 		boolean oldUndeveloped = undeveloped;
 		undeveloped = newUndeveloped;
@@ -154,7 +156,7 @@ public class StrategyImpl extends ArgumentReasoningImpl implements Strategy {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (undeveloped: ");
 		result.append(undeveloped);
 		result.append(')');

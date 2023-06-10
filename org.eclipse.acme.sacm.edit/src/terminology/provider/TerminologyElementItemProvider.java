@@ -3,6 +3,8 @@
 package terminology.provider;
 
 
+import assuranceCase.provider.AssuranceCaseEditPlugin;
+
 import base.provider.ArtifactElementItemProvider;
 
 import java.util.Collection;
@@ -62,7 +64,7 @@ public class TerminologyElementItemProvider extends ArtifactElementItemProvider 
 			getString("_UI_TerminologyElement_type") :
 			getString("_UI_TerminologyElement_type") + " " + label;
 	}
-	
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
