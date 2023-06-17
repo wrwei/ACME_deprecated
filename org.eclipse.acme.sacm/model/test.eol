@@ -1,8 +1,15 @@
 var g1 = createGoal('N', 'D');
 var m1 = createModule('NN', 'DD');
 m1.argumentationElement.add(g1);
+//'start'.println();
 
+//for (i in Sequence{1..21000}){
+//	var g1 = createGoal(i+'', ('D'+i));
+//	m1.argumentationElement.add(g1);
+//	//(i+'').println();
+//}
 
+'over'.println();
 operation createGoal(name: String, description: String) {
 	var goal = new Goal;
 	var n = new LangString;
@@ -11,12 +18,24 @@ operation createGoal(name: String, description: String) {
 	var content = new MultiLangString;
 	var value = new LangString;
 	value.content = description;
-	
 	d.content = content;
 	content.value.add(value);
+	//createName(goal, name);
 	goal.name = n;
 	goal.description = d;
 	return goal;
+}
+
+operation createName(element, name){
+	var n = new LangString;
+	n.content = name;
+	element.name = n;
+}
+
+operation createDescription(element, description){
+	var d = new Description;
+	var content = new MultiLangString;
+	d.content = content;
 }
 
 operation createModule(name: String, description: String) {
