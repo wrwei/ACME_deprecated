@@ -1,0 +1,12 @@
+var m1 = Module.all.first();
+var elements = m1.eContents();
+//elements.content.println();
+//m1.println();
+var counter = 0;
+counter = counter + Module.all.size();
+counter = counter + Goal.all.size();
+counter = counter + LangString.all.size();
+counter = counter + Description.all.size();
+counter = counter + MultiLangString.all.size();
+counter.println();
+    
